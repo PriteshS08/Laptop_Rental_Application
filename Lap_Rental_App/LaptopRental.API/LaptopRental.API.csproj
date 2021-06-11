@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{AF9196C1-9F1B-43FB-BA44-39CF5B2EFAD1}</ProjectGuid>
+    <ProjectGuid>{C4297DFC-A891-45A7-A648-7D902FB0F3E4}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -224,12 +224,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LaptopRental.BLL\LaptopRental.BLL.csproj">
-      <Project>{b413fb23-38f8-4549-b9ac-f647fef54beb}</Project>
+      <Project>{2d6d5d40-9af3-417a-b0dd-c3ede2c4e308}</Project>
       <Name>LaptopRental.BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LaptopRental.DataAccess\LaptopRental.DAC.csproj">
-      <Project>{45176d87-d1fc-4bba-b020-e8389f915a77}</Project>
-      <Name>LaptopRental.DAC</Name>
+    <ProjectReference Include="..\LaptopRental.DAL\LaptopRental.DAL.csproj">
+      <Project>{9a0aa0b2-53b1-4810-8642-534d3345c1ec}</Project>
+      <Name>LaptopRental.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -245,7 +245,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>55249</DevelopmentServerPort>
+          <DevelopmentServerPort>64128</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:55249/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
