@@ -4,6 +4,7 @@
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using LaptopRental.DAL.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<LaptopRental.DAL.LaptopRentalContext>
     {
@@ -14,10 +15,21 @@
 
         protected override void Seed(LaptopRental.DAL.LaptopRentalContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            var user1 = new User()
+            {
+                Name = "Jojo",
+                Gender = "Male",
+                DOB = Convert.ToDateTime("1998-04-03"),
+                Age=23,
+                Location = "Chennai",
+                PhoneNO = "9933224455",
+                IdProof = "image.jpg",
+                Id_No = "123456789012",
+                EmailId = "jojo@gmail.com",
+                PassWord = "Jojo@123"
+            };
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
+            context.Users.AddOrUpdate(user => user.Name, user1);
         }
     }
 }

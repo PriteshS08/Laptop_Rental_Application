@@ -8,20 +8,34 @@ using LaptopRental.DAL.Models;
 using System.Data.Common;
 namespace LaptopRental.BLL.Services
 {
-    public class SignupService : IDisposable
+    public class SignupService 
     {
+
         public readonly LaptopRentalContext context;
         public SignupService()
         {
             var context =new LaptopRentalContext();
         }
+
+        //public void Dispose()
+        //{
+        //    context.Dispose();
+        //}
+
         public bool Add(User obj)
         {
             try
             {
                 context.Users.Add(obj);
                 int rows = context.SaveChanges();
-                return rows == 1;
+                if (rows == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (DbException ex)
             {
@@ -35,9 +49,5 @@ namespace LaptopRental.BLL.Services
         }
   
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

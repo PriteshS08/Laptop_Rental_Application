@@ -18,16 +18,17 @@ namespace LaptopRental.API.Controllers
         {
             signup = new SignupService();
         }
-        protected override void Dispose(bool disposing)
-        {
-            signup.Dispose();
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    signup.Dispose();
+        //    base.Dispose(disposing);
+        //}
+
         [HttpPost]
-        public HttpResponseMessage PostDetails(User obj)
+        public HttpResponseMessage PostDetails([FromBody] User obj)
         {
-            if (ModelState.IsValid == false)
-                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            //if (ModelState.IsValid == false)
+            //    return Request.CreateResponse(HttpStatusCode.BadRequest);
             try
             {
                 bool saved = signup.Add(obj);
