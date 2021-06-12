@@ -8,9 +8,9 @@ using LaptopRental.DAL.Models;
 using System.Data.Common;
 namespace LaptopRental.BLL.Services
 {
-    public class SignupService
+    public class SignupService : IDisposable
     {
-        private readonly LaptopRentalContext context;
+        public readonly LaptopRentalContext context;
         public SignupService()
         {
             var context =new LaptopRentalContext();
@@ -33,11 +33,11 @@ namespace LaptopRental.BLL.Services
                 throw new LaptopRentalException("unknown error while uploading details", ex);
             }
         }
+  
 
-        //internal void Dispose()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
