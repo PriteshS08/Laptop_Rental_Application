@@ -58,6 +58,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LaptopRental.DAL\LaptopRental.DAL.csproj">
+      <Project>{f679e3ea-c703-4dfb-bf22-df80dce8faf7}</Project>
+      <Name>LaptopRental.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

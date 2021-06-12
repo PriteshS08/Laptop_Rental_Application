@@ -246,6 +246,16 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LaptopRental.BLL\LaptopRental.BLL.csproj">
+      <Project>{3f797c67-fe10-4a85-ab34-16332a9a45d1}</Project>
+      <Name>LaptopRental.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LaptopRental.DAL\LaptopRental.DAL.csproj">
+      <Project>{f679e3ea-c703-4dfb-bf22-df80dce8faf7}</Project>
+      <Name>LaptopRental.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
