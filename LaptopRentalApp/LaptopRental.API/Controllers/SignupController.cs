@@ -29,11 +29,11 @@ namespace LaptopRental.API.Controllers
     {
 
         LaptopRentalContext context = new LaptopRentalContext();
-       
-       
-       
-        [HttpPost]
-        public HttpResponseMessage SignupPost([FromBody] User user)
+
+
+
+       // [HttpPost]
+        //public HttpResponseMessage SignupPost([FromBody] User user)
         //private readonly SignupService Signup;
         
         //public SignupController()
