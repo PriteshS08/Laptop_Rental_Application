@@ -1,50 +1,88 @@
-﻿using LaptopRental.BLL;
-using LaptopRental.BLL.Services;
-using LaptopRental.DAL.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using LaptopRental.BLL;
+using LaptopRental.BLL.Services;
+using LaptopRental.DAL;
+using LaptopRental.DAL.Models;
+using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.Swagger;
+using FromBodyAttribute = Microsoft.AspNetCore.Mvc.FromBodyAttribute;
+using HttpPostAttribute = Microsoft.AspNetCore.Mvc.HttpPostAttribute;
+
+
+
 
 namespace LaptopRental.API.Controllers
-{
-    public class SignupController : ApiController 
-    {
-        private readonly SignupService signup;
 
-        public SignupController()
-        {
-            signup = new SignupService();
-        }
-        //protected override void Dispose(bool disposing)
+{
+
+    /// <summary>
+    /// SignUpController class to work with angular.
+    /// </summary>
+
+    public class SignupController : ApiController
+
+    {
+
+        LaptopRentalContext context = new LaptopRentalContext();
+
+
+
+        // [HttpPost]
+        //public HttpResponseMessage SignupPost([FromBody] User user)
+        //private readonly SignupService Signup;
+
+        //public SignupController()
         //{
-        //    signup.Dispose();
-        //    base.Dispose(disposing);
+        //    Signup = new SignupService();
         //}
 
--        public HttpResponseMessage PostDetails([FromBody] User obj)
+
+        /// <summary>
+        /// Post method for the SignUp page
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns> created if User details saved to the database </returns>
+
+        [HttpPost]
+
+        public HttpResponseMessage AddPost(User user)
+
         {
-            //if (ModelState.IsValid == false)
-            //    return Request.CreateResponse(HttpStatusCode.BadRequest);
             try
             {
-                bool saved = signup.Add(obj);
-                if (saved)
-                    return Request.CreateResponse(HttpStatusCode.Created);
-                return Request.CreateResponse(HttpStatusCode.NotFound);
-            }
-            catch (LaptopRentalException ex)
-            {
-                return  Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
-                 
+
+                context.Users.Add(user);
+                context.SaveChanges();
+
+                return Request.CreateResponse(HttpStatusCode.Created);
+
+
+
             }
             catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, obj);
+
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
         }
 
+        //catch (LaptopRentalException ex)
+        //{
+        //    return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+        //}
+        //catch (Exception ex)
+        //{
+        //    return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+        //}
+
+
     }
+
+
 }
+
