@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+  
+    <Compile Include="LoginService_Should.cs" />
     <Compile Include="AuthenticationTest.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +68,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LaptopRental.API\LaptopRental.API.csproj">
+      <Project>{5426C203-5192-4DA7-98DD-1E0976DFD167}</Project>
+      <Name>LaptopRental.API</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LaptopRental.BLL\LaptopRental.BLL.csproj">
       <Project>{3f797c67-fe10-4a85-ab34-16332a9a45d1}</Project>
       <Name>LaptopRental.BLL</Name>

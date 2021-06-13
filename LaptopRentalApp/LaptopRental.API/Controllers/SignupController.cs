@@ -14,9 +14,16 @@ using FromBodyAttribute = Microsoft.AspNetCore.Mvc.FromBodyAttribute;
 using HttpPostAttribute = Microsoft.AspNetCore.Mvc.HttpPostAttribute;
 
 
-namespace LoginApplication.Controllers
+
+
+namespace LaptopRental.API.Controllers
 
 {
+  
+    /// <summary>
+    /// SignUpController class to work with angular.
+    /// </summary>
+   
    public class SignupController : ApiController
 
     {
@@ -24,8 +31,27 @@ namespace LoginApplication.Controllers
         LaptopRentalContext context = new LaptopRentalContext();
        
        
+       
         [HttpPost]
         public HttpResponseMessage SignupPost([FromBody] User user)
+        //private readonly SignupService Signup;
+        
+        //public SignupController()
+        //{
+        //    Signup = new SignupService();
+        //}
+
+
+        /// <summary>
+        /// Post method for the SignUp page
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns> created if User details saved to the database </returns>
+
+       [HttpPost]
+
+        public HttpResponseMessage AddPost(User user)
+
         {
             try
             {

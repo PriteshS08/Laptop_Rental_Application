@@ -5,6 +5,10 @@ namespace LaptopRental.DAL
     using System.Data.Entity;
     using System.Linq;
 
+
+    /// <summary>
+    /// Data context to work with LaptopRentalApp database.
+    /// </summary>
     public class LaptopRentalContext : DbContext
     {
      
