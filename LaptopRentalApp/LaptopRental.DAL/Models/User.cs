@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace LaptopRental.DAL.Models
 {
+    /// <summary>
+    /// class to store User details.
+    /// </summary>
     public class User
     {
         [Key]
