@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthenticationTest.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -68,6 +69,10 @@
     <ProjectReference Include="..\LaptopRental.BLL\LaptopRental.BLL.csproj">
       <Project>{3f797c67-fe10-4a85-ab34-16332a9a45d1}</Project>
       <Name>LaptopRental.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LaptopRental.DAL\LaptopRental.DAL.csproj">
+      <Project>{F679E3EA-C703-4DFB-BF22-DF80DCE8FAF7}</Project>
+      <Name>LaptopRental.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
