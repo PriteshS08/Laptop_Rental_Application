@@ -71,8 +71,6 @@
 ////                        return true;
 ////                    }
 
-////    ublic class SignupService 
-//    {
      
 //        /// <summary>
 //        /// add the user details to the database
