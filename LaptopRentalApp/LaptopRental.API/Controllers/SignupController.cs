@@ -24,8 +24,7 @@ namespace LaptopRental.API.Controllers
         //    base.Dispose(disposing);
         //}
 
-        [HttpPost]
-        public HttpResponseMessage PostDetails([FromBody] User obj)
+-        public HttpResponseMessage PostDetails([FromBody] User obj)
         {
             //if (ModelState.IsValid == false)
             //    return Request.CreateResponse(HttpStatusCode.BadRequest);
@@ -39,10 +38,11 @@ namespace LaptopRental.API.Controllers
             catch (LaptopRentalException ex)
             {
                 return  Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+                 
             }
             catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, obj);
             }
         }
 
