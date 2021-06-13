@@ -1,3 +1,15 @@
+
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using LaptopRental.DAL;
+using LaptopRental.DAL.Models;
+using System.Data.Common;
+namespace LaptopRental.BLL.Services
+{
+    public class SignupService
 ﻿//using System;
 //using System.Collections.Generic;
 //using System.Linq;
@@ -12,9 +24,13 @@
    /// <summary>
     /// SignUpservice to interact with User databse and perform CRUD operation.
     /// </summary>
-//    public class SignupService 
-//    {
+    {
 
+                   }
+
+        public readonly LaptopRentalContext context;
+        
+        public bool AddUser(User user)
 //        public readonly LaptopRentalContext context;
 //        public SignupService()
 //        {
@@ -56,6 +72,11 @@
 //                    }
 
 //    ublic class SignupService 
+    {
+//               // }
+//                return false;
+
+
   //  {
                // }
 //                return false;
@@ -67,6 +88,7 @@
 //                throw new LaptopRentalException("Error in Writing", ex);
 //            }
 
+    {
      
         /// <summary>
         /// add the user details to the database
@@ -75,6 +97,9 @@
         /// <returns>true/false based on the addition of rows</returns>
         public bool Add(User obj)
         {
+            context.Users.Add(user);
+            var rows = context.SaveChanges();
+            if (rows == 1)
             try
             {
                 context.Users.Add(obj);
@@ -90,16 +115,10 @@
             }
             catch (DbException ex)
             {
+                return true;
                 throw new LaptopRentalException("Error in Writing", ex);
             }
-//            catch (Exception ex)
-//            {
-//                throw new LaptopRentalException("unknown error while uploading details", ex);
-//            }
-//        }
-      
-
-       
-
-//    }
-//}
+            return false;
+        }
+    }
+}
