@@ -10,6 +10,9 @@ using System.Web.Http;
 
 namespace LaptopRental.API.Controllers
 {
+    /// <summary>
+    /// SignUpController class to work with angular.
+    /// </summary>
     public class SignupController : ApiController 
     {
         private readonly SignupService signup;
@@ -23,6 +26,13 @@ namespace LaptopRental.API.Controllers
         //    signup.Dispose();
         //    base.Dispose(disposing);
         //}
+
+
+        /// <summary>
+        /// Post method for the SignUp page
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns> created if User details saved to the database </returns>
 
         [HttpPost]
         public HttpResponseMessage PostDetails([FromBody] User obj)

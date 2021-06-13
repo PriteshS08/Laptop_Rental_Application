@@ -11,6 +11,9 @@ using System.Web.Http.Description;
 
 namespace LaptopRental.API.Controllers
 {
+    /// <summary>
+    /// LoginController class to work with angular.
+    /// </summary>
     public class LoginController : ApiController
     {
 
@@ -28,6 +31,11 @@ namespace LaptopRental.API.Controllers
             base.Dispose(disposing);
         }
 
+        /// <summary>
+        /// Post method for the Login page
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns> Ok if Validation is Succesfull </returns>
         [HttpPost]
         [ResponseType(typeof(LoginResponse))]
         public IHttpActionResult Post([FromBody] LoginRequest model)

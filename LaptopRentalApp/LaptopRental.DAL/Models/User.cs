@@ -12,6 +12,9 @@ namespace LaptopRental.DAL.Models
     /// </summary>
     public class User
     {
+        /// <summary>
+        /// Gets or Sets Id of User.
+        /// </summary>
         [Key]
         public int UserId { get; set; }
 

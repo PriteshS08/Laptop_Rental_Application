@@ -10,6 +10,10 @@ using NUnit.Framework;
 
 namespace LaptopRental.BLL.Test
 {
+
+    /// <summary>
+    /// LoginService_Should class to test the LoginService
+    /// </summary>
     [TestFixture]
     public class LoginService_Should
     {
@@ -24,6 +28,11 @@ namespace LaptopRental.BLL.Test
         {
             service.Dispose();
         }
+
+        /// <summary>
+        /// Check login validation.
+        /// </summary>
+        /// <param name="model"></param>
 
         [Test]
         public void check_Login_Validation(LoginRequest model)

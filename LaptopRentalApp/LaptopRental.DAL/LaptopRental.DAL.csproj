@@ -53,7 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LaptopRentalContext.cs" />
+    <Compile Include="Context\LaptopRentalContext.cs" />
     <Compile Include="Migrations\202106121228426_LaptopRentalDB.cs" />
     <Compile Include="Migrations\202106121228426_LaptopRentalDB.designer.cs">
       <DependentUpon>202106121228426_LaptopRentalDB.cs</DependentUpon>

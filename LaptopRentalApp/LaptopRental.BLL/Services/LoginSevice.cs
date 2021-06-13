@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace LaptopRental.BLL.Services
 {
+    /// <summary>
+    /// Loginservice to interact with User databse and perform CRUD operation.
+    /// </summary>
     public class LoginService : IDisposable
     {
         private readonly LaptopRentalContext context;
@@ -21,6 +24,12 @@ namespace LaptopRental.BLL.Services
             context.Dispose();
         }
 
+        /// <summary>
+        /// Check the validation and retrieve mailId and Password.
+        /// </summary>
+        /// <param name="emailId"></param>
+        /// <param name="password"></param>
+        /// <returns> true/false based on given mailId and password</returns>
 
         public bool Authenticate(string emailId, string password)
         {

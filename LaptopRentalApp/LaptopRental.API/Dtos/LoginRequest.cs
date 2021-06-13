@@ -6,6 +6,9 @@ using System.Web;
 
 namespace LaptopRental.API.Dtos
 {
+    /// <summary>
+    ///  Dto class to store Login details.
+    /// </summary>
         public class LoginRequest
         {
             [Required]

@@ -8,6 +8,10 @@ using LaptopRental.DAL.Models;
 using System.Data.Common;
 namespace LaptopRental.BLL.Services
 {
+
+    /// <summary>
+    /// SignUpservice to interact with User databse and perform CRUD operation.
+    /// </summary>
     public class SignupService 
     {
 
@@ -22,6 +26,11 @@ namespace LaptopRental.BLL.Services
         //    context.Dispose();
         //}
 
+        /// <summary>
+        /// add the user details to the database
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>true/false based on the addition of rows</returns>
         public bool Add(User obj)
         {
             try
