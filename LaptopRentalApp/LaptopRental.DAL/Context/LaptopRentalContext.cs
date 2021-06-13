@@ -19,7 +19,7 @@ namespace LaptopRental.DAL
 
       
 
-       public DbSet<User> Users { get; set; }
+       public virtual DbSet<User> Users { get; set; }
     }
 
   
