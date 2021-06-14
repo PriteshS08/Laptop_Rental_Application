@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   submitted : boolean =  false;
   loginForm= new FormGroup({});
   flag: any;
+  selectedType: string = '';
   constructor(private ls : LoginService, 
     private router: Router,
     private menu : MenuComponent,
@@ -25,12 +26,15 @@ export class LoginComponent implements OnInit {
        });
   }
   get f() { return this.loginForm.controls; }
+  selectChangeHandler (event: any) {
+    this.selectedType = event.target.value;
+  }
  Login() 
  {
   this.submitted = true;
   const userDetails = {
-   email:this.loginForm.get("email")?.value,
-    password: this.loginForm.get('password')?.value
+   EmailId:this.loginForm.get("email")?.value,
+    Password: this.loginForm.get('password')?.value
   }
   this.ls.Validate(userDetails)
       .subscribe(
@@ -39,7 +43,12 @@ export class LoginComponent implements OnInit {
             this.ls.isAuthenticated(true);
             this.flag=res;
                  this.check();
-            this.router.navigate(['/Companies']);  
+            console.log(this.selectedType);
+            if (this.selectedType== "customer")
+            {
+              this.router.navigate(['/customer']);  
+            }
+            this.router.navigate(['/lender']);  
           }
         },
         (err:any) => {
@@ -49,6 +58,10 @@ export class LoginComponent implements OnInit {
       );
     this.loginForm.reset();
   }
+
+createacc() {
+  this.router.navigate(['/signup']);
+}
 
   check(){
 this.menu.checkStatus(this.flag);

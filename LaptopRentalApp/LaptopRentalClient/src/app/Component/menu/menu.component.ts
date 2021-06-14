@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LoginService } from 'src/app/Service/login.service';
 
+@Injectable({ 
+  providedIn: 'root'
+ })
+ 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -14,7 +18,7 @@ export class MenuComponent implements OnInit {
   userLoggedIn : boolean = false;
   subs: Subscription = new Subscription;
   flag1:string="";
-
+  
   constructor(
   private ls:LoginService,
   private router: Router

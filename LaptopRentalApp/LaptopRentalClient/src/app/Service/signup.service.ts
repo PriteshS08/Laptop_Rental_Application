@@ -7,7 +7,7 @@ import { User } from '../Types/User';
   providedIn: 'root'
 })
 export class SignupService {
-  url : string = "http://localhost:51108/api";
+  url : string = "http://localhost:51108/api/signup";
   constructor(private http : HttpClient) { }
 
   AddUserDetails(obj: { name: any; gender: any; dob: any; age: any; location: any; phoneno: any; idno: any;  email: any; password: any; }): Observable <User> {  
@@ -16,6 +16,6 @@ export class SignupService {
     const httpOptions = {  
         headers: headers  
     };  
-    return this.http.post < User > (this.url + '/signup', obj, httpOptions);  
+    return this.http.post < User > (this.url , obj, httpOptions);  
   }  
 }
