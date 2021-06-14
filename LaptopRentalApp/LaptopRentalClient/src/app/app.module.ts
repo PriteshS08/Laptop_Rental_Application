@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ForgotPasswordComponent } from './Component/forgot-password/forgot-password.component';
@@ -10,6 +9,14 @@ import { MenuComponent } from './Component/menu/menu.component';
 import { LoginService } from './Service/login.service';
 import { SignupService } from './Service/signup.service';
 import { ForgotpasswordService } from './Service/forgotpassword.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
@@ -20,8 +27,16 @@ import { ForgotpasswordService } from './Service/forgotpassword.service';
     MenuComponent
   ],
   imports: [
+    HttpClientModule,
+    FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   providers: [LoginService, SignupService, ForgotpasswordService],
   bootstrap: [AppComponent]

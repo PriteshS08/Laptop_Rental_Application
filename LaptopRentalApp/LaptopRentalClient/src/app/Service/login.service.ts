@@ -7,7 +7,7 @@ import {catchError, map, retry} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class LoginService {
-  url : string = "http://localhost:51108/api";
+  url : string = "http://localhost:51108/api/login";
   private isLoggedIn = new BehaviorSubject<boolean> (false);
   private CallMethodSource  = new Subject<any>();
   CallMethodSource$ = this.CallMethodSource.asObservable();
@@ -23,7 +23,7 @@ export class LoginService {
    }
 
   Validate(userDetails: any) {
-    return this.http.post(this.url+ "/login", userDetails).pipe(map((response) => {
+    return this.http.post(this.url, userDetails).pipe(map((response) => {
       this.flag=response;
       console.log(this.flag);
   return response;
