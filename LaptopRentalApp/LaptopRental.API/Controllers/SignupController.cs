@@ -19,12 +19,12 @@ using HttpPostAttribute = Microsoft.AspNetCore.Mvc.HttpPostAttribute;
 namespace LaptopRental.API.Controllers
 
 {
-  
+
     /// <summary>
     /// SignUpController class to work with angular.
     /// </summary>
-   
-   public class SignupController : ApiController
+
+    public class SignupController : ApiController
 
     {
 
@@ -32,10 +32,10 @@ namespace LaptopRental.API.Controllers
 
 
 
-       // [HttpPost]
+        // [HttpPost]
         //public HttpResponseMessage SignupPost([FromBody] User user)
         //private readonly SignupService Signup;
-        
+
         //public SignupController()
         //{
         //    Signup = new SignupService();
@@ -48,7 +48,7 @@ namespace LaptopRental.API.Controllers
         /// <param name="model"></param>
         /// <returns> created if User details saved to the database </returns>
 
-       [HttpPost]
+        [HttpPost]
 
         public HttpResponseMessage AddPost(User user)
 
@@ -58,10 +58,10 @@ namespace LaptopRental.API.Controllers
 
                 context.Users.Add(user);
                 context.SaveChanges();
-                
+
                 return Request.CreateResponse(HttpStatusCode.Created);
 
-               
+
 
             }
             catch (Exception ex)
@@ -70,19 +70,19 @@ namespace LaptopRental.API.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
         }
-          
-            //catch (LaptopRentalException ex)
-            //{
-            //    return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
-            //}
-            //catch (Exception ex)
-            //{
-            //    return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
-            //}
 
-
-        }
+        //catch (LaptopRentalException ex)
+        //{
+        //    return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+        //}
+        //catch (Exception ex)
+        //{
+        //    return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+        //}
 
 
     }
+
+
+}
 

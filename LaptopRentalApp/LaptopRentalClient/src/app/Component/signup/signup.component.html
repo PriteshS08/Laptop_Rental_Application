@@ -1,0 +1,120 @@
+<div class="container-fluid login" style="padding-left: 500px;">
+    <h1 style="padding-top: 15px;"><strong>Welcome to Laptop Rental Application</strong></h1>
+    <h3 style="padding-left: 180px;"><strong>SIGN UP</strong></h3>
+  <form [formGroup]="signupForm" novalidate (ngSubmit)="Signup();" >
+    <span style="color: red; padding-bottom: 10px;">Fields marked with * are mandatory</span>
+    <div class="form-group col-md-4 mb-3">
+        <label style="padding-bottom: 10px;" for="name">Name</label><span style="color: red;">*</span>
+     
+      <input type="text"  class="form-control" placeholder="Enter Your Name" id="name" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+     
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+          <div *ngIf="f.name.errors.required">Name is required</div>
+          <div *ngIf="f.name.errors.minlength">Name should have atleast three characters</div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-4 mb-3">
+        <label for="dob" style="padding-bottom: 10px;">Date of Birth</label><span style="color: red;">*</span>
+        <div>
+        <input matInput [matDatepicker]="picker" placeholder="Enter Your Date of Birth">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+        <!--<input type="text" class="form-control" placeholder="Enter Your Date of Birth" id="dob" formControlName="dob" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }">-->
+      <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+          <div *ngIf="f.dob.errors.required">Date of Birth is required</div>        
+      </div>
+    </div>
+
+    <div class="form-group col-md-4 mb-3">
+        <label for="age" style="padding-bottom: 10px;">Age</label><span style="color: red;">*</span>
+     
+      <input type="text" class="form-control" placeholder="Enter Your Age" id="age" formControlName="age" pattern= "^(?:1[8-9]|[2-5][0-9]|60)$" [ngClass]="{ 'is-invalid': submitted && f.age.errors }">
+     
+      <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+          <div *ngIf="f.age.errors.required">Age is required</div>
+          <div *ngIf="f.age.errors.pattern">Invalid Age : must be between 18-60</div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-4 mb-3">
+        <label for="gender" style="padding-bottom: 10px;">Gender</label><span style="color: red;">*</span>
+    <div>
+        <select class="btn btn-secondary dropdown-toggle" name="gender" id="gender">
+            <option selected="selected" value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="other">Other</option>
+        </select>
+      </div>
+      </div>
+    
+    
+    <div class="form-group col-md-4 mb-3">
+        <label for="location" style="padding-bottom: 10px;">Location</label><span style="color: red;">*</span>
+     
+      <input type="text" class="form-control" placeholder="Enter Your Location" id="location" formControlName="location" [ngClass]="{ 'is-invalid': submitted && f.location.errors }">
+     
+      <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+          <div *ngIf="f.location.errors.required">Location is required</div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-4 mb-3">
+        <label for="phoneno" style="padding-bottom: 10px;">PhoneNo</label><span style="color: red;">*</span>
+     
+      <input type="text" class="form-control" placeholder="Enter Your Phone Number" id="phoneno" formControlName="phoneno" pattern="^([0-9]{10})$"  [ngClass]="{ 'is-invalid': (f.phoneno.errors && submitted) }">
+        <div *ngIf="(f.phoneno.invalid ) || (f.phoneno.invalid && (f.phoneno.dirty || f.phoneno.touched))"
+            class="invalid-feedback">
+            <!--<div *ngIf="f.phoneno.errors.required">Phone Number is required.</div>
+            <div *ngIf="f.phoneno.errors.pattern">Invalid Phone Number.</div>-->
+        </div>
+    </div>
+
+    <div class="form-group col-md-4 mb-3">
+        <label for="idProof" style="padding-bottom: 10px;">Id Proof</label><span style="color: red;">*</span>
+     
+      <input type="text" class="form-control" name="idProof" placeholder="Enter Your Id Proof Number" id="idProof" formControlName="idProof" [ngClass]="{ 'is-invalid': submitted && f.idProof.errors }">
+      <!--<input type='file' #idproof (change)="onSelectFile($event.target.files)"-->
+      <div *ngIf="submitted && f.idProof.errors" class="invalid-feedback">
+          <div *ngIf="f.idProof.errors.required">Id Proof Number is required</div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-4 mb-3">
+        <label for="email" style="padding-bottom: 10px;">Email</label><span style="color: red;">*</span>
+     
+      <input type="text" class="form-control" id="email" placeholder="Enter Your Email-id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+     
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.pattern">Email must be a valid email address</div>
+      </div>
+    </div>
+       
+     
+    <div class="form-group col-md-4 mb-3">
+        <label for="password" style="padding-bottom: 10px;">Password</label><span style="color: red;">*</span>
+       <input type="password" class="form-control" placeholder="Enter Your Password" id="password" formControlName="password" name="password" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+       <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required" else wrong>Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be atleast 8 characters</div>
+            <div *ngIf="f.password.errors.pattern"> Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.</div>
+        </div>
+    </div>
+
+
+    <div class="form-group col-md-4 mb-3">
+        <label for="conpassword" style="padding-bottom: 10px;">Confirm Password</label><span style="color: red;">*</span>
+       <input type="conpassword" class="form-control" placeholder="Confirm Your Password" id="conpassword" formControlName="conpassword" name="conpassword"  pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" [ngClass]="{ 'is-invalid': submitted && f.conpassword.errors }">
+       <div *ngIf="submitted && f.conpassword.errors" class="invalid-feedback">
+            <div *ngIf="f.conpassword.errors.required" else wrong>Password is required</div>
+            <div *ngIf="f.conpassword.errors.pattern"> Password & Confirm Password does not match.</div>
+ </div>
+        </div> 
+    <div>
+        <span><button type="submit" class="btn btn-success" >SIGNUP</button></span>
+    </div>
+  </form>
+  </div>
+  
