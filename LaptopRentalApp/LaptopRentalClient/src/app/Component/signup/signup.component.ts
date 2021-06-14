@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SignupService } from 'src/app/Service/signup.service';
 
 @Component({
@@ -9,17 +10,15 @@ import { SignupService } from 'src/app/Service/signup.service';
 })
 export class SignupComponent implements OnInit {
 
-  // imageUrl: string | undefined;  
-  // fileToUpload!: File;
+  fileToUpload!: File ;
   submitted : boolean =  false;
   signupForm= new FormGroup({});
   constructor(
     public formBuilder:FormBuilder, 
+    private router: Router,
     private ss : SignupService) { 
     }
-  // @ViewChild('logoInput', {  
-  //   static: true  
-  // }) logoInput: any;  
+
   ngOnInit(): void {
     this.signupForm=this.formBuilder.group({
       name : ['', [Validators.compose([Validators.required,Validators.minLength(8)])]],
@@ -34,18 +33,15 @@ export class SignupComponent implements OnInit {
       conpassword: ['', [Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],   
     });
   } 
-  // onSelectFile(file) {  
-  //   this.fileToUpload = file;  
-  //   var reader = new FileReader();  
-  //   reader.onload = (event: any) => {  
-  //       this.imageUrl = event.target.result;  
-  //   }  
-  //   reader.readAsDataURL(this.fileToUpload); 
-  // }
+  onSelectFile(event : any) {  
+   this.fileToUpload = <File>event.target.files[0];
+   }  
   get f() { return this.signupForm.controls; }
   Signup() 
  {
   this.submitted = true;
+  const imageproof = new FormData();
+  imageproof.append('image', this.fileToUpload, this.fileToUpload.name);
   const user = {
     name : this.signupForm.get("name")?.value,
     gender : this.signupForm.get("gender")?.value,
@@ -54,11 +50,13 @@ export class SignupComponent implements OnInit {
     location : this.signupForm.get("location")?.value,
     phoneno : this.signupForm.get("phoneno")?.value,
     idno : this.signupForm.get("idno")?.value,
-    //idProof : this.signupForm.get(this.logoInput.nativeElement?.files?.items(0))?.value,
+    idProof : imageproof,
     email:this.signupForm.get("email")?.value,
     password: this.signupForm.get('password')?.value
   }
-  this.ss.AddUserDetails(user).subscribe(result => {});  
+  this.ss.AddUserDetails(user).subscribe(result => {
+    this.router.navigate(['/login']);
+  });  
   this.signupForm.reset();
   }
 }

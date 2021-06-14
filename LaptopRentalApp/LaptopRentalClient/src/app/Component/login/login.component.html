@@ -1,3 +1,4 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <div class="container-fluid login" style="padding-left: 500px; padding-top: 50px;">
     <h1><strong>Welcome to Laptop Rental Application</strong></h1>
     <h3 style="padding-left: 180px;"><strong>LOGIN</strong></h3>
@@ -29,8 +30,9 @@
     <div class="form-group col-md-4 mb-3">
       <label for="userType" style="padding-bottom: 10px;">User Type</label><span style="color: red;">*</span>
       <div>
-        <select class="btn btn-secondary dropdown-toggle" name="userType" id="userType">
-            <option selected="selected" value="customer">Customer</option>
+        <select class="btn btn-secondary dropdown-toggle" name="userType" (change)="selectChangeHandler($event)" id="userType">
+          <option>Select the User Type</option>
+            <option  value="customer">Customer</option>
             <option value="lender">Lender</option>
         </select>
       </div>
@@ -38,11 +40,14 @@
    
     <div>
         <span><button type="submit" class="btn btn-success" >LOGIN</button></span>
-        <span style="padding-left: 15px;"><button type="button" class="btn btn-success">CREATE ACCOUNT</button></span>
+        <span style="padding-left: 15px;">
+          <button type="button" (click)="createacc();" class="btn btn-success">CREATE ACCOUNT</button>
+        </span>
         <div>
             <a href="#" style="align-items: center; color: blue;">Forgot Your Password?</a>
         </div>
     </div>
   </form>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   </div>
   
