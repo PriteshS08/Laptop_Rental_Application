@@ -32,14 +32,13 @@ namespace LaptopRental.API.Controllers
 
 
 
-        // [HttpPost]
-        //public HttpResponseMessage SignupPost([FromBody] User user)
-        //private readonly SignupService Signup;
+       
+        private readonly SignupService Signup;
 
-        //public SignupController()
-        //{
-        //    Signup = new SignupService();
-        //}
+        public SignupController()
+        {
+            Signup = new SignupService();
+        }
 
 
         /// <summary>
@@ -56,7 +55,7 @@ namespace LaptopRental.API.Controllers
             try
             {
 
-                context.Users.Add(user);
+                var result = Signup.Add(user);
                 context.SaveChanges();
 
                 return Request.CreateResponse(HttpStatusCode.Created);

@@ -50,6 +50,8 @@
         };
             context.Devices.AddOrUpdate(Device => Device.DeviceName, Device1);
 
+
+
         }
     }
 }

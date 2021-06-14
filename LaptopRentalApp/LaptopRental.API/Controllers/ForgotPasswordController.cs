@@ -1,4 +1,5 @@
-﻿using LaptopRental.DAL;
+﻿using LaptopRental.BLL.Services;
+using LaptopRental.DAL;
 using LaptopRental.DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,13 @@ namespace LaptopRental.API.Controllers
     public class ForgotPasswordController : ApiController
     {
         LaptopRentalContext context = new LaptopRentalContext();
+
+        private readonly ForgotPasswordService fps;
+
+        public ForgotPasswordController()
+        {
+            fps = new ForgotPasswordService();
+        }
         [HttpPut]
         [Route("api/ForgotPassword/{name}")]
         public HttpResponseMessage UpdatePassword([FromUri]string name, [FromBody] User user)
@@ -20,6 +28,8 @@ namespace LaptopRental.API.Controllers
             {
 
                 var query = context.Users.FirstOrDefault(s => s.Name == name);
+                var result = fps.Update(user);
+                query.PassWord = user.PassWord;
                 if (query == null)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Searched data not found");
@@ -27,9 +37,7 @@ namespace LaptopRental.API.Controllers
                 else
                 {
                    // query. UserId= user.UserId;
-                    query.PassWord = user.PassWord;
-
-                    context.SaveChanges();
+                    
                     return Request.CreateResponse(HttpStatusCode.OK, "Data Updated Successfully");
                 }
 
