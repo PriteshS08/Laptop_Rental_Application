@@ -11,7 +11,7 @@
             <a [routerLink]="['signup']" class="nav-link" *ngIf="userLoggedIn!=true">Signup</a>
         </li>
         <li class="nav-item">
-         <a [routerLink]="['']" class="nav-link" *ngIf="userLoggedIn==true">Home</a>
+         <a [routerLink]="['/home']" class="nav-link" *ngIf="userLoggedIn==true">Home</a>
          </li>
         <li class="nav-item">
             <a href="#" class="nav-link" *ngIf="userLoggedIn==true">Logout</a>
