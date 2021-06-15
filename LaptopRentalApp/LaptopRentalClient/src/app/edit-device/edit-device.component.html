@@ -1,0 +1,104 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+<p1><b>Edit Device Details</b></p1>
+<br/>
+<br/>
+
+<form novalidate [formGroup]=" frmDetails" (ngSubmit)="UpdateDetail();">
+  <div>
+    <label>IMEI Number</label>
+    <input type="string" name="ImeiNumber" formControlName="ImeiNumber"/>
+    <div *ngIf="submitted && f.ImeiNumber.errors" class="invalid-feedback">
+      <div style="color: red" *ngIf="f.ImeiNumber.errors.required">ImeiNumber is required</div>
+     
+     </div>
+     </div>
+  <br/>
+  <br/>
+
+
+  
+
+  <div>
+    <label>Device Name</label>
+    <input type="text" name="DeviceName" formControlName="DeviceName"/>
+    <div *ngIf="submitted && f.DeviceName.errors" class="invalid-feedback">
+      <div style="color: red" *ngIf="f.DeviceName.errors.required">Device Name is required</div>
+    </div>
+  </div>
+  <br/>
+  <br/>
+
+  <div>
+    <label>Device Specification</label>
+    <input type="text" name="DeviceSpecification" formControlName="DeviceSpecification"/>
+    <div *ngIf="submitted && f.DeviceSpecification.errors" class="invalid-feedback">
+      <div style="color: red" *ngIf="f.DeviceSpecification.errors.required">Device Specification is required</div>
+     
+     </div>
+  </div>
+  <br/>
+  <br/>
+
+  <div>
+    <label>Pre-Installed Software</label>
+    <input type="text" name="PreInstalledSoftware" formControlName="PreInstalledSoftware"/>
+    <div *ngIf="submitted && f.PreInstalledSoftware.errors" class="invalid-feedback">
+      <div style="color: red" *ngIf="f.PreInstalledSoftware.errors.required">Pre Installed Software is required</div>
+     
+     </div>
+  </div>
+  <br/>
+  <br/>
+
+  <div>
+    <label>Upload Device Image</label>
+    <input type="text" name="UploadDeviceImage" formControlName="UploadDeviceImage"/>
+    <div *ngIf="submitted && f.UploadDeviceImage.errors" class="invalid-feedback">
+      <div style="color: red" *ngIf="f.UploadDeviceImage.errors.required">Upload Device Image is required</div>
+     
+     </div>
+  </div>
+  <br/>
+  <br/>
+
+  <div>
+    <label>Rental Amount Month</label>
+    <input type="number" name="RentalAmountMonth" formControlName="RentalAmountMonth"/>
+    <div *ngIf="submitted && f.RentalAmountMonth.errors" class="invalid-feedback">
+      <div style="color: red" *ngIf="f.RentalAmountMonth.errors.required">Rental Amount Month is required</div>
+     
+     </div>
+  </div>
+  <br/>
+  <br/>
+
+  <div>
+    <label>Maximum Rental Months</label>
+    <input type="number" name="MaximumRentalMonths" formControlName="MaximumRentalMonths"/>
+    <div *ngIf="submitted && f.MaximumRentalMonths.errors" class="invalid-feedback">
+      <div style="color: red" *ngIf="f.MaximumRentalMonths.errors.required">Maximum Rental Months is required</div>
+     
+     </div>
+  </div>
+  <br/>
+  <br/>
+
+  <div>
+    <label>Interest</label>
+    <input type="number" name="Interest" formControlName="Interest"/>
+    <div *ngIf="submitted && f.Interest.errors" class="invalid-feedback">
+      <div style="color: red" *ngIf="f.Interest.errors.required">Interest is required</div>
+     
+     </div>
+  </div>
+  <br/>
+  <br/>
+
+  <div>
+    <input type="submit" value="UpdateDetail"/>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+</form>
