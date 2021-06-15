@@ -7,7 +7,8 @@ import { Device } from '../Types/Device';
   providedIn: 'root'
 })
 export class DeviceService {
- url:string = "http://localhost:51108/api/EditDevices";
+ url:string = "http://localhost:51108/api";
+
   constructor(private http: HttpClient) { }
 
 
@@ -15,6 +16,11 @@ export class DeviceService {
   {
    return this.http.put<Device>(this.url,device);
   }
+  addDeviceDetails(device: { ImeiNumber: any; DeviceName: any; DeviceSpecification: any; PreInstalledSoftware: any; UploadDeviceImage: any; RentalAmountMonth: any; MaximumRentalMonths: any; Interest: any; }):Observable<any>
+  {
+    return this.http.post<Device>(this.url+"/AddDevice",device);
+  }
+
 }
  
 

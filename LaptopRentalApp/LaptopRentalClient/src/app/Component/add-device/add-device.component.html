@@ -1,0 +1,125 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+<h2 style="padding-left:580px;">Add New Devices</h2>
+
+<div class="d-flex justify-content-center">
+ <table class="table" border="none">
+     <tbody>
+<form novalidate [formGroup]="AddDeviceDetails" (ngSubmit)="AddDetail();">
+<tr>
+    <td>
+    <div style="padding-top: 15px; padding-left: 100px;">
+      <label>IMEI Number</label>
+      &nbsp;&nbsp;
+      <input type="string" name="ImeiNumber"placeholder="Enter IMEI number"mControlName="ImeiNumber"/>
+      <div *ngIf="submitted && f.ImeiNumber.errors" class="invalid-feedback">
+        <div style="color: red" *ngIf="f.ImeiNumber.errors.required">ImeiNumber is required</div>
+       
+       </div>
+    </div>
+    </td>
+    
+<td>
+    <div style="padding-top: 15px; ">
+        <label>Device Name</label>&nbsp;&nbsp;
+        <input type="text" name="DeviceName" formControlName="DeviceName" placeholder="Enter Device Name"/>
+        <div *ngIf="submitted && f.DeviceName.errors" class="invalid-feedback">
+          <div style="color: red" *ngIf="f.DeviceName.errors.required">Device Name is required</div>
+        </div>
+      </div>
+</td>
+</tr>
+<tr>
+    <td>
+      <div style="padding-top: 15px;  padding-left: 100px;">
+       <label>Device Specification</label>
+       &nbsp;&nbsp;
+       <textarea type="text" name="DeviceSpecification" formControlName="DeviceSpecification" placeholder="Enter Device Specifications"></textarea>
+        <div *ngIf="submitted && f.DeviceSpecification.errors" class="invalid-feedback">
+          <div style="color: red" *ngIf="f.DeviceSpecification.errors.required">Device Specification is required</div>
+         
+         </div>
+      </div>
+      </td>
+
+<td>
+      <div style="padding-top: 15px;">
+        <label>Pre-Installed Software</label>
+        &nbsp;&nbsp;
+        <textarea type="text"name="PreInstalledSoftware" formControlName="PreInstalledSoftware" placeholder="Enter Pre-Installed Software"></textarea>
+        <div *ngIf="submitted && f.PreInstalledSoftware.errors" class="invalid-feedback">
+          <div style="color: red" *ngIf="f.PreInstalledSoftware.errors.required">Pre Installed Software is required</div>
+      </div>
+    </td>
+    </tr>
+    <tr>
+<td>
+      <div style="padding-top: 15px;  padding-left: 100px;">
+        <label>Upload Device Image</label>
+        &nbsp;&nbsp;
+        <input type="text" name="UploadDeviceImage" formControlName="UploadDeviceImage" placeholder="Please Upload the image of the Device"/>
+        <div *ngIf="submitted && f.UploadDeviceImage.errors" class="invalid-feedback">
+          <div style="color: red" *ngIf="f.UploadDeviceImage.errors.required">Upload Device Image is required</div>
+         
+         </div>
+      </div>
+</td>
+<td>
+      <div style="padding-top: 15px;">
+        <label>Rental Amount (PerMonth)</label>
+        &nbsp;&nbsp;
+        <input type="number" name="RentalAmountMonth" formControlName="RentalAmountMonth" placeholder="Enter Renal Amount "/>
+        <div *ngIf="submitted && f.RentalAmountMonth.errors" class="invalid-feedback">
+          <div style="color: red" *ngIf="f.RentalAmountMonth.errors.required">Rental Amount Month is required</div>
+         
+         </div>
+      </div>
+      </td>
+    </tr>
+    <tr>
+<td>
+
+      <div style="padding-top: 15px;  padding-left: 100px;">
+        <label>Maximum Rental Months</label>
+        &nbsp;&nbsp;
+        <input type="number" name="MaximumRentalMonths" min="1" max="12" formControlName="MaximumRentalMonths" placeholder=" Months"/>
+        <div *ngIf="submitted && f.MaximumRentalMonths.errors" class="invalid-feedback">
+          <div style="color: red" *ngIf="f.MaximumRentalMonths.errors.required">Maximum Rental Months is required</div>
+         
+         </div>
+      </div>
+    </td>
+    
+        <td>
+      <div style="padding-top: 15px; ">
+        <label>Interest</label>
+        &nbsp;&nbsp;
+        <input type="number" name="Interest" formControlName="Interest" placeholder="Interest Amount"/>
+        <div *ngIf="submitted && f.Interest.errors" class="invalid-feedback">
+          <div style="color: red" *ngIf="f.Interest.errors.required">Interest is required</div>
+         
+         </div>
+      </div>
+        </td>
+        </tr>
+     
+<tr>
+    <td>
+      <div style="padding-top: 15px; padding-left: 600px;">
+       <span><span><button type="submit" class="btn btn-success" >SAVE</button></span></span> &nbsp;&nbsp;
+       <spam><span><button type="submit" class="btn btn-danger" >RESET</button></span></spam>
+      </div>
+    </div>
+</td>
+<td></td>
+</tr>
+</form>
+</tbody>
+ </table>
+</div>
+
+
+
+
+
+ 
