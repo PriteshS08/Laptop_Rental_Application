@@ -8,6 +8,7 @@ export class Device {
         public DeviceImage : String,
         public RentalAmount : any,
         public MaxRentalMonth : Number,
-        public Interest : any
+        public Interest : any,
+        public Status: string
          ) {}
 }
