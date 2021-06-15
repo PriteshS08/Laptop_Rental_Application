@@ -18,6 +18,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomeComponent } from './Component/home/home.component';
 import { EditDeviceComponent } from './Component/edit-device/edit-device.component';
+import { AddDeviceComponent } from './Component/add-device/add-device.component';
 
 
 @NgModule({
@@ -43,6 +44,6 @@ import { EditDeviceComponent } from './Component/edit-device/edit-device.compone
     ReactiveFormsModule
   ],
   providers: [LoginService, SignupService, ForgotpasswordService],
-  bootstrap: [AppComponent]
+  bootstrap: [AddDeviceComponent]
 })
 export class AppModule { }
