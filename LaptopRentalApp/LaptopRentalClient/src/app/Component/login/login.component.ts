@@ -44,12 +44,13 @@ export class LoginComponent implements OnInit {
             this.flag=res;
                  this.check();
             console.log(this.selectedType);
-            if (this.selectedType== "customer")
-            {
-              this.router.navigate(['/customer']);  
-            }
-            this.router.navigate(['/lender']);  
-          }
+            this.router.navigate(['/home']);
+          //   if (this.selectedType== "customer")
+          //   {
+          //     this.router.navigate(['/customer']);  
+          //   }
+          //   this.router.navigate(['/lender']);  
+           }
         },
         (err:any) => {
           this.ls.isAuthenticated(false);

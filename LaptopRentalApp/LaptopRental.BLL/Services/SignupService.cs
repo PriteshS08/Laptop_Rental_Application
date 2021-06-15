@@ -15,7 +15,7 @@ namespace LaptopRental.BLL.Services
         private readonly LaptopRentalContext context;
         public SignupService()
         {
-            context =new LaptopRentalContext();
+            context = new LaptopRentalContext();
         }
 
 
@@ -25,10 +25,10 @@ namespace LaptopRental.BLL.Services
         /// </summary>
         /// <param name="obj"></param>
         /// <returns>true/false based on the addition of rows</returns>
-    public bool Add(User user)
-    {
-       
-       
+        public bool Add(User user)
+        {
+
+
             try
             {
                 context.Users.Add(user);
@@ -47,7 +47,7 @@ namespace LaptopRental.BLL.Services
                 return true;
                 throw new LaptopRentalException("Error in Writing", ex);
             }
-       
+
+        }
     }
-}
 }
