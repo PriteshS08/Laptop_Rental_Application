@@ -10,18 +10,19 @@ import { LoginService } from './Service/login.service';
 import { SignupService } from './Service/signup.service';
 import { ForgotpasswordService } from './Service/forgotpassword.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-import { EditDeviceComponent } from './edit-device/edit-device.component';
+
 import { AddDeviceComponent } from './Component/add-device/add-device.component';
 import { ViewDevicesComponent } from './Component/view-devices/view-devices.component';
 import { HomeComponent } from './Component/home/home.component';
 import { EditDeviceComponent } from './Component/edit-device/edit-device.component';
+
 
 
 @NgModule({
@@ -32,9 +33,9 @@ import { EditDeviceComponent } from './Component/edit-device/edit-device.compone
     SignupComponent,
     MenuComponent,
  
-   EditDeviceComponent
+   
     AddDeviceComponent,
-    ViewDevicesComponent
+    ViewDevicesComponent,
     EditDeviceComponent,
     HomeComponent
   ],
@@ -49,8 +50,9 @@ import { EditDeviceComponent } from './Component/edit-device/edit-device.compone
     MatNativeDateModule,
     MatFormFieldModule,
     ReactiveFormsModule
+    
   ],
   providers: [LoginService, SignupService, ForgotpasswordService],
-  bootstrap: [AppComponent]
+  bootstrap: [ViewDevicesComponent]
 })
 export class AppModule { }

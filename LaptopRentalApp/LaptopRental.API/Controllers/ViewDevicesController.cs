@@ -39,13 +39,13 @@ namespace LaptopRental.API.Controllers
         [HttpGet]
         public HttpResponseMessage GetDeviceForId([FromUri] int id)
         {
-            var listOfUserId = context.Devices.Select(r => r.UserId_FK);
-            var roles = context.Devices.Where(r => listOfUserId.Contains(r.UserId_FK));
-            if (roles == null)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "UserId not found");
-            }
-            return Request.CreateErrorResponse(HttpStatusCode.OK, roles.ToString());
+            //var listOfUserId = context.Devices.Select(r => r.UserId_FK);
+            //var roles = context.Devices.Where(r => listOfUserId.Contains(r.UserId_FK));
+            //if (roles == null)
+            //{
+            //    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "UserId not found");
+            //}
+            //return Request.CreateErrorResponse(HttpStatusCode.OK, roles.ToString());
 
             //var listOfRoleId = user.Roles.Select(r => r.RoleId);
             //var roles = db.Roles.Where(r => listOfRoleId.Contains(r.RoleId));
@@ -58,16 +58,16 @@ namespace LaptopRental.API.Controllers
             //return Request.CreateErrorResponse(HttpStatusCode.OK, devices.ToString());
 
 
-            //var entity = context.Devices.FirstOrDefault(d=>d.UserId_FK==id);
-            //if (entity != null)
-            //{
+            var entity = context.Devices.FirstOrDefault(d => d.UserId_FK == id);
+            if (entity != null)
+            {
 
-            //    return Request.CreateResponse(HttpStatusCode.OK, entity);
-            //}
-            //else
-            //{
-            //    return Request.CreateResponse(HttpStatusCode.NotFound, "Searched Data not Found");
-            //}
+                return Request.CreateResponse(HttpStatusCode.OK, entity);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Searched Data not Found");
+            }
         }
 
     }
