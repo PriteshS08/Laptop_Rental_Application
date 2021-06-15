@@ -19,7 +19,7 @@ namespace LaptopRental.API.Controllers
             try
             {
 
-                var query = context.Devices.Find(DeviceId);//FirstOrDefault(s => s.DeviceId == DeviceId);
+                var query = context.Devices.FirstOrDefault(s => s.DeviceId == DeviceId);
                 if (query == null)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Searched data not found");
@@ -37,7 +37,7 @@ namespace LaptopRental.API.Controllers
                     query.MaxRentalMonth = device.MaxRentalMonth;
                     query.Interest = device.Interest;
                     query.Status = device.Status;
-                  //  query.UserId_FK = device.UserId_FK;
+                    query.UserId_FK = device.UserId_FK;
 
                     context.SaveChanges();
                     

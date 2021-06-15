@@ -16,6 +16,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { EditDeviceComponent } from './edit-device/edit-device.component';
 import { AddDeviceComponent } from './Component/add-device/add-device.component';
 
 
@@ -26,6 +27,7 @@ import { AddDeviceComponent } from './Component/add-device/add-device.component'
     LoginComponent,
     SignupComponent,
     MenuComponent,
+   EditDeviceComponent
     AddDeviceComponent
   ],
   imports: [
@@ -41,6 +43,6 @@ import { AddDeviceComponent } from './Component/add-device/add-device.component'
     ReactiveFormsModule
   ],
   providers: [LoginService, SignupService, ForgotpasswordService],
-  bootstrap: [AppComponent]
+  bootstrap: [EditDeviceComponent]
 })
 export class AppModule { }
