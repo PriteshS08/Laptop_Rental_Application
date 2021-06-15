@@ -18,6 +18,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomeComponent } from './Component/home/home.component';
 import { EditDeviceComponent } from './Component/edit-device/edit-device.component';
+import { LenderUIComponent } from './Component/lender-ui/lender-ui.component';
+import { CustomerUIComponent } from './Component/customer-ui/customer-ui.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { EditDeviceComponent } from './Component/edit-device/edit-device.compone
     SignupComponent,
     MenuComponent,
     EditDeviceComponent,
-    HomeComponent
+    HomeComponent,
+    LenderUIComponent,
+    CustomerUIComponent
   ],
   imports: [
     HttpClientModule,
