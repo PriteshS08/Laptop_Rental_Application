@@ -16,7 +16,7 @@ export class EditDeviceComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.frmDetails=this.formBuilder.group({
+      this.frmDetails=this.formBuilder.group({
       ImeiNumber : ['', [Validators.compose([Validators.required])]],
       DeviceName : ['', [Validators.compose([Validators.required])]],
       DeviceSpecification : ['', [Validators.compose([Validators.required])]],
