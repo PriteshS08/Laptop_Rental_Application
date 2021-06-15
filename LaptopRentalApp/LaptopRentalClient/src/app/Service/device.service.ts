@@ -10,6 +10,7 @@ import { Device } from '../Types/Device';
 })
 export class DeviceService {
  url:string = "http://localhost:51108/api";
+
   constructor(private http: HttpClient) { }
 
 
@@ -37,4 +38,9 @@ export class DeviceService {
     window.alert(errorMessage);
     return throwError(errorMessage);
   }
+  addDeviceDetails(device: { ImeiNumber: any; DeviceName: any; DeviceSpecification: any; PreInstalledSoftware: any; UploadDeviceImage: any; RentalAmountMonth: any; MaximumRentalMonths: any; Interest: any; }):Observable<any>
+  {
+    return this.http.post<Device>(this.url+"/AddDevice",device);
+  }
+
 }
