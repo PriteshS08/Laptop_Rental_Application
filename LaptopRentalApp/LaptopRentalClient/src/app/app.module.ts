@@ -57,6 +57,6 @@ import { CustomerUIComponent } from './Component/customer-ui/customer-ui.compone
     
   ],
   providers: [LoginService, SignupService, ForgotpasswordService],
-  bootstrap: [ViewDevicesComponent]
+  bootstrap: [EditDeviceComponent]
 })
 export class AppModule { }
