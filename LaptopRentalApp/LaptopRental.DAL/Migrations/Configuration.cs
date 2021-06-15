@@ -49,6 +49,7 @@
 
             };
             context.Devices.AddOrUpdate(Device => Device.DeviceName, Device1);
+
             var Device2 = new Device()
             {
                 IMEINumber = "HP907766554",
