@@ -16,6 +16,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { AddDeviceComponent } from './Component/add-device/add-device.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ForgotPasswordComponent,
     LoginComponent,
     SignupComponent,
-    MenuComponent
+    MenuComponent,
+    AddDeviceComponent
   ],
   imports: [
     HttpClientModule,
