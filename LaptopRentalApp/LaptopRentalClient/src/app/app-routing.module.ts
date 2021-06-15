@@ -8,6 +8,7 @@ import { CustomerUIComponent } from './Component/customer-ui/customer-ui.compone
 import { LenderUIComponent } from './Component/lender-ui/lender-ui.component';
 import { EditDeviceComponent } from './Component/edit-device/edit-device.component';
 import { AddDeviceComponent } from './Component/add-device/add-device.component';
+import { ViewDevicesComponent } from './Component/view-devices/view-devices.component';
 
 const routes: Routes = [
     {path : 'login' , component : LoginComponent},
@@ -15,11 +16,10 @@ const routes: Routes = [
     {path : 'customer' , component : CustomerUIComponent},
     {path : 'lender' , component : LenderUIComponent},
     {path : 'home' , component : HomeComponent},
-    {path : 'lender' , component : EditDeviceComponent},
-    {path : 'home' , component : AddDeviceComponent},
-    {path : 'fpassword' , component : ForgotPasswordComponent},
     {path : 'editdevice' , component : EditDeviceComponent},
-    // {path : 'deletedevice' , component : ForgotPasswordComponent}
+    {path : 'adddevice' , component : AddDeviceComponent},
+    {path : 'fpassword' , component : ForgotPasswordComponent},
+    {path : 'viewdevice' , component : ViewDevicesComponent}  
 ];
 
 @NgModule({
