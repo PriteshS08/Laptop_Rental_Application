@@ -30,7 +30,6 @@
             };
 
             context.Users.AddOrUpdate(user => user.Name, user1);
-
             var Device1 = new Device()
             {
                 IMEINumber = "LENO99883334",
@@ -68,5 +67,6 @@
             };
             context.Devices.AddOrUpdate(Device => Device.DeviceName, Device2);
         }
+
     }
 }

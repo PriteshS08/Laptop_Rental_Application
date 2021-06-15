@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import{FormControl,FormGroup,FormBuilder,Validator,NgForm, Validators}from '@angular/forms';
-import { DeviceService } from '../Service/device.service';
-import { Device } from '../Types/Device';
+import { DeviceService } from 'src/app/Service/device.service';
 
 @Component({
   selector: 'app-edit-device',
@@ -9,9 +8,9 @@ import { Device } from '../Types/Device';
   styleUrls: ['./edit-device.component.css']
 })
 export class EditDeviceComponent implements OnInit {
-
+  submitted : boolean = false;
    frmDetails!: FormGroup;
-  constructor(private formBuilder:FormBuilder,private device:DeviceService) {
+  constructor(private formBuilder:FormBuilder,private device: DeviceService) {
     
    }
 
@@ -45,6 +44,7 @@ export class EditDeviceComponent implements OnInit {
      
     }
 
+    this.submitted = true;
     this.device.updateDeviceDetails(Details).subscribe(
       response=>{alert('Update successfull')},
       error=>{alert('Failed')}
