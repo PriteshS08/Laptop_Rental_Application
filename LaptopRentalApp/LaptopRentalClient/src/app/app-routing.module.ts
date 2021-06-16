@@ -10,6 +10,7 @@ import { EditDeviceComponent } from './Component/edit-device/edit-device.compone
 import { AddDeviceComponent } from './Component/add-device/add-device.component';
 import { ViewDevicesComponent } from './Component/view-devices/view-devices.component';
 import { ViewRequestComponent } from './Component/view-request/view-request.component';
+import { MakeRequestComponent } from './Component/make-request/make-request.component';
 
 const routes: Routes = [
     {path : 'login' , component : LoginComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
     {path : 'fpassword' , component : ForgotPasswordComponent},
     {path : 'viewdevice' , component : ViewDevicesComponent},
     {path : 'ViewComments' , component : ViewRequestComponent},
+    {path : 'makerequest' , component : MakeRequestComponent},
     {path:'',redirectTo:'login', pathMatch: 'full' }
 ];
 

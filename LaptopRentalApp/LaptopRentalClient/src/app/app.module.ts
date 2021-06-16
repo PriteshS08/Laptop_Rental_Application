@@ -28,6 +28,7 @@ import { AddDeviceComponent } from './Component/add-device/add-device.component'
 import { MakeRequestComponent } from './Component/make-request/make-request.component';
 import { ViewDetailsComponent } from './Component/view-details/view-details.component';
 import { ViewRequestComponent } from './Component/view-request/view-request.component';
+import { BrowserCatalogueComponent } from './Component/browser-catalogue/browser-catalogue.component';
 
 
 
@@ -48,7 +49,8 @@ import { ViewRequestComponent } from './Component/view-request/view-request.comp
     CustomerUIComponent,
     MakeRequestComponent,
     ViewDetailsComponent
-    ViewRequestComponent
+    ViewRequestComponent,
+    BrowserCatalogueComponent
   ],
   imports: [
     HttpClientModule,
