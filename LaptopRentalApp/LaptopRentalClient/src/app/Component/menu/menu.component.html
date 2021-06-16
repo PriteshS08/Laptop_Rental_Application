@@ -1,6 +1,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a [routerLink]="['login']" class="navbar-brand">Laptop Rental Application</a>
+    <span class="navbar-brand">Laptop Rental Application</span>
     <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse" 
     data-bs-target="#menu">
         <span class="navbar-toggler-icon"></span>
@@ -8,7 +8,10 @@
  <div class="navbar-collapse d-flex justify-content-end" id="menu"> 
      <ul class="navbar-nav">
         <li class="nav-item">
-            <a [routerLink]="['signup']" class="nav-link" *ngIf="userLoggedIn!=true">Signup</a>
+            <a [routerLink]="['signup']" class="nav-link" *ngIf="userLoggedIn!=true && usersignupcheck!=true">Signup</a>
+        </li>
+        <li class="nav-item">
+            <a [routerLink]="['login']" class="nav-link" *ngIf="usersignupcheck==true">Login</a>
         </li>
         <li class="nav-item">
          <a [routerLink]="['/home']" class="nav-link" *ngIf="userLoggedIn==true">Home</a>

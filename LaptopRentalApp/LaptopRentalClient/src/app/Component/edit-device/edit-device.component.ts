@@ -9,14 +9,14 @@ import { DeviceService } from 'src/app/Service/device.service';
 })
 export class EditDeviceComponent implements OnInit {
   submitted : boolean = false;
-   frmDetails!: FormGroup;
+  UpdateDetailform!: FormGroup;
   constructor(private formBuilder:FormBuilder,private device: DeviceService) {
     
    }
 
 
   ngOnInit(): void {
-      this.frmDetails=this.formBuilder.group({
+      this.UpdateDetailform=this.formBuilder.group({
       ImeiNumber : ['', [Validators.compose([Validators.required])]],
       DeviceName : ['', [Validators.compose([Validators.required])]],
       DeviceSpecification : ['', [Validators.compose([Validators.required])]],
@@ -29,18 +29,18 @@ export class EditDeviceComponent implements OnInit {
     });
   } 
  
-  get f() { return this.frmDetails.controls; }
+  get f() { return this.UpdateDetailform.controls; }
   
   UpdateDetail(){
     const Details = {
-      ImeiNumber : this.frmDetails.get("ImeiNumber")?.value,
-      DeviceName : this.frmDetails.get("DeviceName")?.value,
-      DeviceSpecification : this.frmDetails.get(" DeviceSpecification")?.value,
-      PreInstalledSoftware : this.frmDetails.get("PreInstalledSoftware")?.value,
-      UploadDeviceImage : this.frmDetails.get(" UploadDeviceImage")?.value,
-      RentalAmountMonth : this.frmDetails.get("RentalAmountMonth")?.value,
-      MaximumRentalMonths : this.frmDetails.get(" MaximumRentalMonths")?.value,
-      Interest:this.frmDetails.get("Interest")?.value,
+      ImeiNumber : this.UpdateDetailform.get("ImeiNumber")?.value,
+      DeviceName : this.UpdateDetailform.get("DeviceName")?.value,
+      DeviceSpecification : this.UpdateDetailform.get(" DeviceSpecification")?.value,
+      PreInstalledSoftware : this.UpdateDetailform.get("PreInstalledSoftware")?.value,
+      UploadDeviceImage : this.UpdateDetailform.get(" UploadDeviceImage")?.value,
+      RentalAmountMonth : this.UpdateDetailform.get("RentalAmountMonth")?.value,
+      MaximumRentalMonths : this.UpdateDetailform.get(" MaximumRentalMonths")?.value,
+      Interest:this.UpdateDetailform.get("Interest")?.value,
      
     }
 
