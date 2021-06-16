@@ -54,13 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\LaptopRentalContext.cs" />
-    <Compile Include="Migrations\202106150917344_LaptopRentalDB.cs" />
-    <Compile Include="Migrations\202106150917344_LaptopRentalDB.designer.cs">
-      <DependentUpon>202106150917344_LaptopRentalDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106161509148_LaptopRentalDB1.cs" />
-    <Compile Include="Migrations\202106161509148_LaptopRentalDB1.designer.cs">
-      <DependentUpon>202106161509148_LaptopRentalDB1.cs</DependentUpon>
+    <Compile Include="Migrations\202106161616488_LaptopRentalDB.cs" />
+    <Compile Include="Migrations\202106161616488_LaptopRentalDB.designer.cs">
+      <DependentUpon>202106161616488_LaptopRentalDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Device.cs" />
@@ -73,11 +69,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106150917344_LaptopRentalDB.resx">
-      <DependentUpon>202106150917344_LaptopRentalDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106161509148_LaptopRentalDB1.resx">
-      <DependentUpon>202106161509148_LaptopRentalDB1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106161616488_LaptopRentalDB.resx">
+      <DependentUpon>202106161616488_LaptopRentalDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

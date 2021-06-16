@@ -7,13 +7,13 @@ namespace LaptopRental.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class LaptopRentalDB1 : IMigrationMetadata
+    public sealed partial class LaptopRentalDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(LaptopRentalDB1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(LaptopRentalDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106161509148_LaptopRentalDB1"; }
+            get { return "202106161616488_LaptopRentalDB"; }
         }
         
         string IMigrationMetadata.Source

@@ -46,12 +46,30 @@
                     })
                 .PrimaryKey(t => t.UserId);
             
+            CreateTable(
+                "dbo.Requests",
+                c => new
+                    {
+                        RequestId = c.Int(nullable: false, identity: true),
+                        RequestDate = c.DateTime(nullable: false),
+                        FromDate = c.DateTime(nullable: false),
+                        ToDate = c.DateTime(nullable: false),
+                        RequestStatus = c.String(),
+                        DeviceId_FK = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.RequestId)
+                .ForeignKey("dbo.Devices", t => t.DeviceId_FK, cascadeDelete: true)
+                .Index(t => t.DeviceId_FK);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Requests", "DeviceId_FK", "dbo.Devices");
             DropForeignKey("dbo.Devices", "UserId_FK", "dbo.Users");
+            DropIndex("dbo.Requests", new[] { "DeviceId_FK" });
             DropIndex("dbo.Devices", new[] { "UserId_FK" });
+            DropTable("dbo.Requests");
             DropTable("dbo.Users");
             DropTable("dbo.Devices");
         }
