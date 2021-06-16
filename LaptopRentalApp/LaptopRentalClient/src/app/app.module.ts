@@ -18,7 +18,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 
-import { AddDeviceComponent } from './Component/add-device/add-device.component';
+
 import { ViewDevicesComponent } from './Component/view-devices/view-devices.component';
 import { HomeComponent } from './Component/home/home.component';
 import { EditDeviceComponent } from './Component/edit-device/edit-device.component';
@@ -58,6 +58,6 @@ import { AddDeviceComponent } from './Component/add-device/add-device.component'
     
   ],
   providers: [LoginService, SignupService, ForgotpasswordService],
-  bootstrap: [AddDeviceComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
