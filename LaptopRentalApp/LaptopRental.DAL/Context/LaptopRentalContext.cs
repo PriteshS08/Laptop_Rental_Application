@@ -20,7 +20,18 @@ namespace LaptopRental.DAL
       
 
        public virtual DbSet<User> Users { get; set; }
-       public virtual DbSet<Device> Devices { get; set; }
+      // public virtual DbSet<Device> Devices { get; set; }
+     //  public virtual DbSet<Request> Requests { get; set; }
+
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Request>()
+        //    .HasOptional(c => c.User)
+        //    .WithMany()
+        //     .WillCascadeOnDelete(false);
+
+
+        //}
     }
 
   

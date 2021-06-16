@@ -11,36 +11,43 @@ import { DeviceService } from 'src/app/Service/device.service';
 export class AddDeviceComponent implements OnInit {
 AddDeviceDetails = new FormGroup({});
 submitted:boolean=false;
-  constructor(private formBuilder : FormBuilder, private device : DeviceService) { }
+fileToUpload!: File ;
+status : string = "Available";
+constructor(private formBuilder : FormBuilder, private device : DeviceService) { }
 
   ngOnInit(): void {
 
      this.AddDeviceDetails=this.formBuilder.group({
-      ImeiNumber : ['', [Validators.compose([Validators.required])]],
+      IMEINumber : ['', [Validators.compose([Validators.required])]],
       DeviceName : ['', [Validators.compose([Validators.required])]],
       DeviceSpecification : ['', [Validators.compose([Validators.required])]],
       PreInstalledSoftware : ['', [Validators.compose([Validators.required])]],
-      UploadDeviceImage : ['', [Validators.compose([Validators.required])]],
-      RentalAmountMonth : ['', [Validators.compose([Validators.required])]],
-      MaximumRentalMonths : ['', [Validators.compose([Validators.required])]],
+      DeviceImage : ['', [Validators.compose([Validators.required])]],
+      RentalAmount : ['', [Validators.compose([Validators.required])]],
+      MaxRentalMonth : ['', [Validators.compose([Validators.required])]],
       Interest: ['', [Validators.compose([Validators.required])]]
      
     });
   }
+  onUploadFile(event : any) {  
+    this.fileToUpload = <File>event.target.files[0];
+    }  
 
     get f() { return this.AddDeviceDetails.controls; }
   
     AddDetail(){
+      const deviceImage = new FormData();
+      deviceImage.append('image', this.fileToUpload, this.fileToUpload.name);
       const Details = {
-        ImeiNumber : this.AddDeviceDetails.get("ImeiNumber")?.value,
-        DeviceName : this.AddDeviceDetails.get("DeviceName")?.value,
-        DeviceSpecification : this.AddDeviceDetails.get(" DeviceSpecification")?.value,
-        PreInstalledSoftware : this.AddDeviceDetails.get("PreInstalledSoftware")?.value,
-        UploadDeviceImage : this.AddDeviceDetails.get(" UploadDeviceImage")?.value,
-        RentalAmountMonth : this.AddDeviceDetails.get("RentalAmountMonth")?.value,
-        MaximumRentalMonths : this.AddDeviceDetails.get(" MaximumRentalMonths")?.value,
+        IMEINumber : this.AddDeviceDetails.get("IMEINumber")?.value as string,
+        DeviceName : this.AddDeviceDetails.get("DeviceName")?.value as string,
+        DeviceSpecification : this.AddDeviceDetails.get(" DeviceSpecification")?.value as string,
+        PreInstalledSoftware : this.AddDeviceDetails.get("PreInstalledSoftware")?.value as string,
+        DeviceImage : deviceImage,
+        RentalAmount : this.AddDeviceDetails.get("RentalAmount")?.value,
+        MaxRentalMonth : this.AddDeviceDetails.get(" MaxRentalMonth")?.value as number,
         Interest:this.AddDeviceDetails.get("Interest")?.value,
-       
+        Status : this.status
       }
   
       this.device.addDeviceDetails(Details).subscribe(

@@ -49,7 +49,7 @@ namespace LaptopRental.API.Controllers
 
         [HttpPost]
 
-        public HttpResponseMessage AddPost(User user)
+        public HttpResponseMessage AddPost([FromBody]User user)
 
         {
             try
@@ -58,7 +58,7 @@ namespace LaptopRental.API.Controllers
                 var result = Signup.Add(user);
                 context.SaveChanges();
 
-                return Request.CreateResponse(HttpStatusCode.Created);
+                return Request.CreateResponse(HttpStatusCode.Created,result);
 
 
 

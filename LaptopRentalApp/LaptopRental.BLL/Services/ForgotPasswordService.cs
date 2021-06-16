@@ -16,23 +16,26 @@ namespace LaptopRental.BLL.Services
         {
             context = new LaptopRentalContext();
         }
-        public bool Update(User user)
+        public bool Update(string email, string password)
         {
-
-
             try
             {
-
-
-                var rows = context.SaveChanges();
-                if (rows == 1)
+                var query = context.Users.FirstOrDefault(s => s.EmailId == email);
+                if (query != null)
                 {
-                    return true;
+                    query.PassWord = password;
+                    var rows = context.SaveChanges();
+                    if (rows == 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-                else
-                {
-                    return false;
-                }
+                return false;
+                
             }
             
              catch (DbException ex)

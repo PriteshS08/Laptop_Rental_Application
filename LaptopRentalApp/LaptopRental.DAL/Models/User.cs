@@ -40,7 +40,7 @@ namespace LaptopRental.DAL.Models
         public string PhoneNO { get; set; }
 
         [Required]
-        public string IdProof { get; set; }
+        public string idproof { get; set; }
 
         [Required]
         public string Id_No { get; set; }
@@ -52,6 +52,7 @@ namespace LaptopRental.DAL.Models
         [DataType(DataType.Password)]
         [Required]
         public string PassWord { get; set; }
+      
 
         
     }
