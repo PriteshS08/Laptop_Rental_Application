@@ -37,7 +37,6 @@ namespace LaptopRental.BLL.Services
         {
             try
             {
-                //return context.Devices.Where(d => d.UserId_FK == id).ToList();
 
                 var entity = (from device in context.Devices
                               where device.UserId_FK == id
