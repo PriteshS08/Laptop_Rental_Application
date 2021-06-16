@@ -10,11 +10,13 @@ import { MenuComponent } from '../menu/menu.component';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email : string = "";
+  //email : string = "";
   submitted : boolean =  false;
   loginForm= new FormGroup({});
   flag: any;
+  checkStatus : boolean = false;
   selectedType: string = '';
+  userID : number = 0;
   constructor(private ls : LoginService, 
     private router: Router,
     private menu : MenuComponent,
@@ -31,7 +33,7 @@ export class LoginComponent implements OnInit {
   // }
  Login() 
  {
-  this.email = this.loginForm.get("email")?.value as string;
+  //this.email = this.loginForm.get("email")?.value as string;
   this.submitted = true;
   const userDetails = {
    EmailId:this.loginForm.get("email")?.value,
@@ -43,9 +45,11 @@ export class LoginComponent implements OnInit {
           if(res) {
             this.ls.isAuthenticated(true);
             this.flag=res;
-                 this.check();
+            this.check();
+            this.checkStatus = true;
             console.log(this.selectedType);
             this.router.navigate(['/home']);
+            this.CheckStatus();
           //   if (this.selectedType== "customer")
           //   {
           //     this.router.navigate(['/customer']);  
@@ -61,11 +65,17 @@ export class LoginComponent implements OnInit {
     this.loginForm.reset();
   }
 
+CheckStatus(){
+  if (this.checkStatus == true) {
+    this.ls.loginStatus().subscribe(res => {this.userID = res});
+  }
+}
+
 createacc() {
   this.router.navigate(['/signup']);
 }
 
-  check(){
+check(){
 this.menu.checkStatus(this.flag);
   }
 }

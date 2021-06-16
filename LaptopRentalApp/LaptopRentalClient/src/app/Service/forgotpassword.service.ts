@@ -11,8 +11,8 @@ export class ForgotpasswordService {
   
   constructor(private http: HttpClient) { }
 
-  UpdatePassword(comp: { email: string; password: string; }) : Observable<any>{
-    return this.http.put(this.url + comp.email ,comp.password);
+  UpdatePassword(comp: { userid : number; password: string;}) : Observable<any>{
+    return this.http.put(this.url + comp.userid ,comp.password);
   }
 
 }

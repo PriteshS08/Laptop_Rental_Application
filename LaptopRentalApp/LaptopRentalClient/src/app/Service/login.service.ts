@@ -33,7 +33,9 @@ export class LoginService {
       catchError(this.handleError)
     )
   }
-
+  loginStatus(){
+    return this.http.get<number>(this.url).pipe(map((response) => this.flag = response));
+  }
   get logout() {
     return this.http.get(this.url + '/logout')
         .pipe(map((response) => {

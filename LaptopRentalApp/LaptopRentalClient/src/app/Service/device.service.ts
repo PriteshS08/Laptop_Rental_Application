@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { LoginComponent } from '../Component/login/login.component';
 import { Device } from '../Types/Device';
 
 @Injectable({
@@ -11,7 +12,8 @@ import { Device } from '../Types/Device';
 export class DeviceService {
  url:string = "http://localhost:51108/api";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private lc : LoginComponent) { }
 
 
   updateDeviceDetails(device: Device):Observable<Device>
@@ -22,7 +24,7 @@ export class DeviceService {
 
   GetDevices()
   {
-    return this.http.get<Device[]>(this.url+"/ViewDevices").pipe(
+    return this.http.get<Device[]>(this.url+"/ViewDevices"+ this.lc.userID).pipe(
       catchError(this.handleError));
   }
 
