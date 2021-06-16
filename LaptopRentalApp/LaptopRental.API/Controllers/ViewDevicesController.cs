@@ -45,5 +45,34 @@ namespace LaptopRental.API.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, devices);
         }
 
+        [HttpDelete]
+        public HttpResponseMessage DeleteUserDevice(int id)
+        {
+            if (ModelState.IsValid == false)
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+            try
+            {
+                using (LaptopRentalContext context = new LaptopRentalContext())
+                {
+                    var entity = context.Devices.FirstOrDefault(s => s.DeviceId == id);
+                    if (entity == null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                            "User with DeviceID " + id.ToString() + " not found to delete");
+                    }
+                    else
+                    {
+                        context.Devices.Remove(entity);
+                        context.SaveChanges();
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
     }
 }
