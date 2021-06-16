@@ -21,32 +21,48 @@ namespace LaptopRental.API.Controllers
             fps = new ForgotPasswordService();
         }
         [HttpPut]
-        [Route("api/ForgotPassword/{name}")]
-        public HttpResponseMessage UpdatePassword([FromUri]string name, [FromBody] User user)
+        [Route("api/ForgotPassword/{email}")]
+        public HttpResponseMessage UpdatePassword([FromUri] string email, [FromBody] string password)
         {
             try
             {
-
-                var query = context.Users.FirstOrDefault(s => s.Name == name);
-                var result = fps.Update(user);
-                query.PassWord = user.PassWord;
-                if (query == null)
+                var res = fps.Update(email, password);
+                if (res == true)
                 {
-                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Searched data not found");
+                    return Request.CreateResponse(HttpStatusCode.OK);
                 }
-                else
-                {
-                   // query. UserId= user.UserId;
-                    
-                    return Request.CreateResponse(HttpStatusCode.OK, "Data Updated Successfully");
-                }
-
-
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Mail Id not Found");
             }
             catch (Exception ex)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+          {
+              return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+          }
             }
+            //public HttpResponseMessage UpdatePassword([FromUri]string name, [FromBody] User user)
+            //{
+            //    try
+            //    {
+
+            //        var query = context.Users.FirstOrDefault(s => s.Name == name);
+            //        var result = fps.Update(user);
+            //        query.PassWord = user.PassWord;
+            //        if (query == null)
+            //        {
+            //            return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Searched data not found");
+            //        }
+            //        else
+            //        {
+            //           // query. UserId= user.UserId;
+
+            //            return Request.CreateResponse(HttpStatusCode.OK, "Data Updated Successfully");
+            //        }
+
+
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            //    }
+            //}
         }
-    }
 }
