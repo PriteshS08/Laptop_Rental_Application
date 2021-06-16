@@ -59,6 +59,7 @@
     <Compile Include="Services\ForgotPasswordService.cs" />
     <Compile Include="Services\AddDeviceService.cs" />
     <Compile Include="Services\LoginSevice.cs" />
+    <Compile Include="Services\RequestService.cs" />
     <Compile Include="Services\SignupService.cs" />
     <Compile Include="Services\ViewDeviceService.cs" />
   </ItemGroup>

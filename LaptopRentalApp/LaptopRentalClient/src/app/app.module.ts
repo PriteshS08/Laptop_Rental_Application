@@ -25,6 +25,7 @@ import { EditDeviceComponent } from './Component/edit-device/edit-device.compone
 import { LenderUIComponent } from './Component/lender-ui/lender-ui.component';
 import { CustomerUIComponent } from './Component/customer-ui/customer-ui.component';
 import { AddDeviceComponent } from './Component/add-device/add-device.component';
+import { ViewRequestComponent } from './Component/view-request/view-request.component';
 
 
 
@@ -42,7 +43,8 @@ import { AddDeviceComponent } from './Component/add-device/add-device.component'
     EditDeviceComponent,
     HomeComponent,
     LenderUIComponent,
-    CustomerUIComponent
+    CustomerUIComponent,
+    ViewRequestComponent
   ],
   imports: [
     HttpClientModule,
