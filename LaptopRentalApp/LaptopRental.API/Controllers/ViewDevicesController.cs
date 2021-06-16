@@ -50,24 +50,24 @@ namespace LaptopRental.API.Controllers
             //var listOfRoleId = user.Roles.Select(r => r.RoleId);
             //var roles = db.Roles.Where(r => listOfRoleId.Contains(r.RoleId));
 
-            //if (!ModelState.IsValid)
-            //    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            //var devices = viewDeviceService.GetDeviceById(id);
-            //if (devices == null)
-            //    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "UserId not found");
-            //return Request.CreateErrorResponse(HttpStatusCode.OK, devices.ToString());
+            if (!ModelState.IsValid)
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            var devices = viewDeviceService.GetDeviceById(id);
+            if (devices == null || devices.Count==0)
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "UserId not found");
+            return Request.CreateResponse(HttpStatusCode.OK, devices);
 
 
-            var entity = context.Devices.FirstOrDefault(d => d.UserId_FK == id);
-            if (entity != null)
-            {
+            //var entity = context.Devices.FirstOrDefault(d => d.UserId_FK == id);
+            //if (entity != null)
+            //{
 
-                return Request.CreateResponse(HttpStatusCode.OK, entity);
-            }
-            else
-            {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Searched Data not Found");
-            }
+            //    return Request.CreateResponse(HttpStatusCode.OK, entity);
+            //}
+            //else
+            //{
+            //    return Request.CreateResponse(HttpStatusCode.NotFound, "Searched Data not Found");
+            //}
         }
 
     }

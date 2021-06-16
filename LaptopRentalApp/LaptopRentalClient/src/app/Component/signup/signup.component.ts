@@ -1,7 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Injectable, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignupService } from 'src/app/Service/signup.service';
+
+@Injectable({ 
+  providedIn: 'root'
+ })
 
 @Component({
   selector: 'app-signup',
