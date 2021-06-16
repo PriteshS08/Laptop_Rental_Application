@@ -11,24 +11,20 @@ namespace LaptopRental.DAL.Models
     public class Request
     {
         [Key]
-        public int RequestID{ get; set; }
+        public int RequestId { get; set; }
 
-        [ForeignKey("device")]
-        public int DeviceID { get; set; }
-        public Device device { get; set; }
-
-        [ForeignKey("user")]
-        public int UserID { get; set; }
-        public User user { get; set; }
-        
         public DateTime RequestDate { get; set; }
-
-        public Double RentalAmount { get; set; }
 
         public DateTime FromDate { get; set; }
 
         public DateTime ToDate { get; set; }
 
         public string RequestStatus { get; set; }
+
+
+        [ForeignKey("Device")]
+        public int DeviceId_FK { get; set; }
+        public Device Device { get; set; }
+
     }
 }

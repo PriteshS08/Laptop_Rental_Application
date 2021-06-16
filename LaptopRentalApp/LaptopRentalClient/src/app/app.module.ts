@@ -25,6 +25,8 @@ import { EditDeviceComponent } from './Component/edit-device/edit-device.compone
 import { LenderUIComponent } from './Component/lender-ui/lender-ui.component';
 import { CustomerUIComponent } from './Component/customer-ui/customer-ui.component';
 import { AddDeviceComponent } from './Component/add-device/add-device.component';
+import { MakeRequestComponent } from './Component/make-request/make-request.component';
+import { ViewDetailsComponent } from './Component/view-details/view-details.component';
 import { ViewRequestComponent } from './Component/view-request/view-request.component';
 
 
@@ -44,6 +46,8 @@ import { ViewRequestComponent } from './Component/view-request/view-request.comp
     HomeComponent,
     LenderUIComponent,
     CustomerUIComponent,
+    MakeRequestComponent,
+    ViewDetailsComponent
     ViewRequestComponent
   ],
   imports: [
@@ -60,6 +64,8 @@ import { ViewRequestComponent } from './Component/view-request/view-request.comp
     
   ],
   providers: [LoginService, SignupService, ForgotpasswordService],
+
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

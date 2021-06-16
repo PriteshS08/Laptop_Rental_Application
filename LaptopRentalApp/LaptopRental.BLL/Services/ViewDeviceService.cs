@@ -57,5 +57,14 @@ namespace LaptopRental.BLL.Services
         }
 
 
+        //public Device DeleteDevicebyId(int id)
+        //{
+        //    try
+        //    {
+
+        //    }
+        //}
+
+
     }
 }
