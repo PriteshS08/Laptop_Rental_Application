@@ -25,15 +25,15 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm=this.formBuilder.group({
-      name : ['', [Validators.compose([Validators.required,Validators.minLength(8)])]],
-      dob : ['', [Validators.compose([Validators.required,Validators.pattern("^(?:1[8-9]|[2-5][0-9]|60)$")])]],
-      age : ['', [Validators.compose([Validators.required])]],
-      gender : ['', [Validators.compose([Validators.required])]],
-      location : ['', [Validators.compose([Validators.required])]],
-      phoneno : ['', [Validators.compose([Validators.required,Validators.pattern("^([0-9]{10})$")])]],
-      idProof : ['', [Validators.compose([Validators.required])]],
-      email: ['', [Validators.compose([Validators.required, Validators.pattern( "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"), Validators.minLength(1)])]],
-      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
+      Name : ['', [Validators.compose([Validators.required,Validators.minLength(8)])]],
+      Gender : ['', [Validators.compose([Validators.required])]],
+      DOB : ['', [Validators.compose([Validators.required,Validators.pattern("^(?:1[8-9]|[2-5][0-9]|60)$")])]],
+      Age : ['', [Validators.compose([Validators.required])]],
+      Location : ['', [Validators.compose([Validators.required])]],
+      PhoneNO : ['', [Validators.compose([Validators.required,Validators.pattern("^([0-9]{10})$")])]],
+      Id_No : ['', [Validators.compose([Validators.required])]],
+      EmailId: ['', [Validators.compose([Validators.required, Validators.pattern( "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"), Validators.minLength(1)])]],
+      PassWord: ['', [Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
       conpassword: ['', [Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],   
     });
   } 
@@ -46,20 +46,20 @@ export class SignupComponent implements OnInit {
   this.submitted = true;
   const imageproof = new FormData();
   imageproof.append('image', this.fileToUpload, this.fileToUpload.name);
-  const user = {
-    name : this.signupForm.get("name")?.value,
-    gender : this.signupForm.get("gender")?.value,
-    dob :  this.signupForm.get("dob")?.value as Date, 
-    age : this.signupForm.get("age")?.value,
-    location : this.signupForm.get("location")?.value,
-    phoneno : this.signupForm.get("phoneno")?.value,
-    idProof : imageproof,
-    idno : this.signupForm.get("idno")?.value,
-    email:this.signupForm.get("email")?.value,
-    password: this.signupForm.get('password')?.value
+  const userDetails = {
+    Name : this.signupForm.get("Name")?.value,
+    Gender : this.signupForm.get("Gender")?.value,
+    DOB :  this.signupForm.get("DOB")?.value as Date, 
+    Age : this.signupForm.get("Age")?.value,
+    Location : this.signupForm.get("Location")?.value,
+    PhoneNO : this.signupForm.get("PhoneNO")?.value,
+    IdProof : imageproof,
+    Id_No : this.signupForm.get("Id_No")?.value,
+    EmailId:this.signupForm.get("EmailId")?.value,
+    PassWord: this.signupForm.get('PassWord')?.value
   }
   this.usersignup = true;
-  this.ss.AddUserDetails(user).subscribe(result => {
+  this.ss.AddUserDetails(userDetails).subscribe(result => {
     this.router.navigate(['/login']);
   });  
   this.signupForm.reset();

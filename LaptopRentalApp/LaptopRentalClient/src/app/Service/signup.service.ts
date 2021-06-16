@@ -12,7 +12,7 @@ export class SignupService {
   url : string = "http://localhost:51108/api/signup";
   constructor(private http : HttpClient) { }
 
-  AddUserDetails(obj:User): Observable <User> {  
+  AddUserDetails(obj:  User): Observable <User> {  
     return this.http.post < User > (this.url , obj).pipe(
       catchError(this.handleError));
   }  
