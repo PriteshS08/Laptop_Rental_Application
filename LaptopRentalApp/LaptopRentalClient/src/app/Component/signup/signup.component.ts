@@ -21,6 +21,7 @@ export class SignupComponent implements OnInit {
     public formBuilder:FormBuilder, 
     private router: Router,
     private ss : SignupService) { 
+      this.usersignup = true;
     }
 
   ngOnInit(): void {
@@ -58,11 +59,9 @@ export class SignupComponent implements OnInit {
     EmailId:this.signupForm.get("EmailId")?.value,
     PassWord: this.signupForm.get('PassWord')?.value
   }
-  this.usersignup = true;
   this.ss.AddUserDetails(userDetails).subscribe(result => {
     this.router.navigate(['/login']);
   });  
-  this.signupForm.reset();
   }
 }
 
