@@ -18,7 +18,7 @@
     <div class="form-group col-md-12 mb-3">
         <label for="DOB" style="padding-bottom: 10px;">Date of Birth</label><span style="color: red;">*</span>
         <div>
-        <input matInput [matDatepicker]="picker" placeholder="Enter Your Date of Birth">
+        <input matInput [matDatepicker]="picker" id ="DOB" placeholder="Enter Your Date of Birth">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </div>
@@ -54,7 +54,7 @@
     <div class="form-group col-md-12 mb-3">
         <label for="Location" style="padding-bottom: 10px;">Location</label><span style="color: red;">*</span>
      
-      <input type="text" class="form-control" placeholder="Enter Your Location" id="Location" formControlName="Location" [ngClass]="{ 'is-invalid': submitted && f.location.errors }">
+      <input type="text" class="form-control" placeholder="Enter Your Location" id="Location" formControlName="Location" [ngClass]="{ 'is-invalid': submitted && f.Location.errors }">
      
       <div *ngIf="submitted && f.Location.errors" class="invalid-feedback">
           <div *ngIf="f.Location.errors.required">Location is required</div>
@@ -77,8 +77,8 @@
      
       <input type="text" class="form-control" name="Id_No" placeholder="Enter Your Id Proof Number" id="Id_No" formControlName="Id_No" [ngClass]="{ 'is-invalid': submitted && f.Id_No.errors }">
       <input type='file' (change)="onSelectFile($event)">
-      <div *ngIf="submitted && f.IdProof.errors" class="invalid-feedback">
-          <div *ngIf="f.IdProof.errors.required">Id Proof Number is required</div>
+      <div *ngIf="submitted && f.Id_No.errors" class="invalid-feedback">
+          <div *ngIf="f.Id_No.errors.required">Id Proof Number is required</div>
       </div>
     </div>
 
