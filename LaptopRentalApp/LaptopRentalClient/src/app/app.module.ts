@@ -24,6 +24,7 @@ import { HomeComponent } from './Component/home/home.component';
 import { EditDeviceComponent } from './Component/edit-device/edit-device.component';
 import { LenderUIComponent } from './Component/lender-ui/lender-ui.component';
 import { CustomerUIComponent } from './Component/customer-ui/customer-ui.component';
+import { AddDeviceComponent } from './Component/add-device/add-device.component';
 
 
 
@@ -57,6 +58,8 @@ import { CustomerUIComponent } from './Component/customer-ui/customer-ui.compone
     
   ],
   providers: [LoginService, SignupService, ForgotpasswordService],
+ 
   bootstrap: [EditDeviceComponent]
+  
 })
 export class AppModule { }

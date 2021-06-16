@@ -3,11 +3,11 @@
 <h2 style="padding-left:580px;">Add New Devices</h2>
 
 <div class="d-flex justify-content-center">
- <table class="table" border="none">
+ <table class="table">
      <tbody>
 <form novalidate [formGroup]="AddDeviceDetails" (ngSubmit)="AddDetail();">
 <tr>
-    <td>
+   <td>
     <div style="padding-top: 15px; padding-left: 100px;">
       <label>IMEI Number</label>
       &nbsp;&nbsp;
@@ -17,9 +17,9 @@
        
        </div>
     </div>
-    </td>
+   </td>
     
-<td>
+   <td>
     <div style="padding-top: 15px; ">
         <label>Device Name</label>&nbsp;&nbsp;
         <input type="text" name="DeviceName" formControlName="DeviceName" placeholder="Enter Device Name"/>
@@ -27,8 +27,9 @@
           <div style="color: red" *ngIf="f.DeviceName.errors.required">Device Name is required</div>
         </div>
       </div>
-</td>
+   </td>
 </tr>
+
 <tr>
     <td>
       <div style="padding-top: 15px;  padding-left: 100px;">
@@ -40,20 +41,21 @@
          
          </div>
       </div>
-      </td>
+    </td>
 
-<td>
+   <td>
       <div style="padding-top: 15px;">
         <label>Pre-Installed Software</label>
         &nbsp;&nbsp;
         <textarea type="text"name="PreInstalledSoftware" formControlName="PreInstalledSoftware" placeholder="Enter Pre-Installed Software"></textarea>
         <div *ngIf="submitted && f.PreInstalledSoftware.errors" class="invalid-feedback">
           <div style="color: red" *ngIf="f.PreInstalledSoftware.errors.required">Pre Installed Software is required</div>
+        </div>
       </div>
     </td>
-    </tr>
-    <tr>
-<td>
+  </tr>
+  <tr>
+    <td>
       <div style="padding-top: 15px;  padding-left: 100px;">
         <label>Upload Device Image</label>
         &nbsp;&nbsp;
@@ -61,10 +63,10 @@
         <div *ngIf="submitted && f.UploadDeviceImage.errors" class="invalid-feedback">
           <div style="color: red" *ngIf="f.UploadDeviceImage.errors.required">Upload Device Image is required</div>
          
-         </div>
+        </div>
       </div>
-</td>
-<td>
+    </td>
+    <td>
       <div style="padding-top: 15px;">
         <label>Rental Amount (PerMonth)</label>
         &nbsp;&nbsp;
@@ -74,11 +76,11 @@
          
          </div>
       </div>
-      </td>
-    </tr>
-    <tr>
-<td>
+    </td>
+  </tr>
 
+  <tr>
+    <td>
       <div style="padding-top: 15px;  padding-left: 100px;">
         <label>Maximum Rental Months</label>
         &nbsp;&nbsp;
@@ -90,7 +92,7 @@
       </div>
     </td>
     
-        <td>
+    <td>
       <div style="padding-top: 15px; ">
         <label>Interest</label>
         &nbsp;&nbsp;
@@ -100,19 +102,18 @@
          
          </div>
       </div>
-        </td>
-        </tr>
+    </td>
+  </tr>
      
-<tr>
+  <tr>
     <td>
       <div style="padding-top: 15px; padding-left: 600px;">
        <span><span><button type="submit" class="btn btn-success" >SAVE</button></span></span> &nbsp;&nbsp;
-       <spam><span><button type="submit" class="btn btn-danger" >RESET</button></span></spam>
+       <span><span><button type="submit" class="btn btn-danger" >RESET</button></span></span>
       </div>
-    </div>
-</td>
-<td></td>
-</tr>
+    </td>
+    <td></td>
+  </tr>
 </form>
 </tbody>
  </table>
