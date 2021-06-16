@@ -58,6 +58,6 @@ import { AddDeviceComponent } from './Component/add-device/add-device.component'
     
   ],
   providers: [LoginService, SignupService, ForgotpasswordService],
-  bootstrap: [AppComponent]
+  bootstrap: [EditDeviceComponent]
 })
 export class AppModule { }
