@@ -42,7 +42,7 @@ namespace LaptopRental.BLL.Services
                     Obj.Status = device.Status;
                     Obj.UserId_FK = device.UserId_FK;
 
-                    context.
+                    //context.
                     int row = context.SaveChanges();
                     if (row == 1)
                     {
