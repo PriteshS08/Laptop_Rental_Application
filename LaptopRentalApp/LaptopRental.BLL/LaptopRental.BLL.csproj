@@ -55,6 +55,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="LaptopRentalException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BrowserCatalogueService.cs" />
     <Compile Include="Services\EditDeviceService.cs" />
     <Compile Include="Services\ForgotPasswordService.cs" />
     <Compile Include="Services\AddDeviceService.cs" />

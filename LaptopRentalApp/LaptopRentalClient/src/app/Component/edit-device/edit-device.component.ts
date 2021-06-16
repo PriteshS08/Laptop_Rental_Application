@@ -9,43 +9,50 @@ import { DeviceService } from 'src/app/Service/device.service';
 })
 export class EditDeviceComponent implements OnInit {
   submitted : boolean = false;
-   frmDetails!: FormGroup;
-  constructor(private formBuilder:FormBuilder,private device: DeviceService) {
-    
+  UpdateDetailform = new FormGroup({});
+  fileToUpload!: File ;
+  status : string = "Available";
+  constructor(private formBuilder:FormBuilder,private device: DeviceService) { 
    }
 
 
   ngOnInit(): void {
-      this.frmDetails=this.formBuilder.group({
-      ImeiNumber : ['', [Validators.compose([Validators.required])]],
+    this.UpdateDetailform=this.formBuilder.group({
+      IMEINumber : ['', [Validators.compose([Validators.required])]],
       DeviceName : ['', [Validators.compose([Validators.required])]],
       DeviceSpecification : ['', [Validators.compose([Validators.required])]],
       PreInstalledSoftware : ['', [Validators.compose([Validators.required])]],
-      UploadDeviceImage : ['', [Validators.compose([Validators.required])]],
-      RentalAmountMonth : ['', [Validators.compose([Validators.required])]],
-      MaximumRentalMonths : ['', [Validators.compose([Validators.required])]],
+      DeviceImage : ['', [Validators.compose([Validators.required])]],
+      RentalAmount : ['', [Validators.compose([Validators.required])]],
+      MaxRentalMonth : ['', [Validators.compose([Validators.required])]],
       Interest: ['', [Validators.compose([Validators.required])]]
      
     });
   } 
+  onUploadFile(event : any) {  
+    this.fileToUpload = <File>event.target.files[0];
+    }  
+
  
-  get f() { return this.frmDetails.controls; }
+  get f() { return this.UpdateDetailform.controls; }
   
   UpdateDetail(){
-    const Details = {
-      ImeiNumber : this.frmDetails.get("ImeiNumber")?.value,
-      DeviceName : this.frmDetails.get("DeviceName")?.value,
-      DeviceSpecification : this.frmDetails.get(" DeviceSpecification")?.value,
-      PreInstalledSoftware : this.frmDetails.get("PreInstalledSoftware")?.value,
-      UploadDeviceImage : this.frmDetails.get(" UploadDeviceImage")?.value,
-      RentalAmountMonth : this.frmDetails.get("RentalAmountMonth")?.value,
-      MaximumRentalMonths : this.frmDetails.get(" MaximumRentalMonths")?.value,
-      Interest:this.frmDetails.get("Interest")?.value,
-     
+      const DeviceImage = new FormData();
+      DeviceImage.append('image', this.fileToUpload, this.fileToUpload.name);
+      const Detail = {
+        IMEINumber : this.UpdateDetailform.get("IMEINumber")?.value as string,
+        DeviceName : this.UpdateDetailform.get("DeviceName")?.value as string,
+        DeviceSpecification : this.UpdateDetailform.get(" DeviceSpecification")?.value as string,
+        PreInstalledSoftware : this.UpdateDetailform.get("PreInstalledSoftware")?.value as string,
+        DeviceImage : DeviceImage,
+        RentalAmount : this.UpdateDetailform.get("RentalAmount")?.value,
+        MaxRentalMonth : this.UpdateDetailform.get(" MaxRentalMonth")?.value as number,
+        Interest:this.UpdateDetailform.get("Interest")?.value,
+        Status : this.status
     }
 
     this.submitted = true;
-    this.device.updateDeviceDetails(Details).subscribe(
+    this.device.updateDeviceDetails(Detail).subscribe(
       response=>{alert('Update successfull')},
       error=>{alert('Failed')}
   

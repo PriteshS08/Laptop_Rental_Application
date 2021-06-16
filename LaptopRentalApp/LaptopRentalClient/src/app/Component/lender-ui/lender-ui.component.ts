@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lender-ui',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LenderUIComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
-
+  addDevice() {
+    this.router.navigate(['/adddevice'])
+  }
+  viewDevice() {
+    this.router.navigate(['/viewdevice'])
+  }
 }

@@ -1,121 +1,65 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-<div class="container-fluid">
-    <div class="row">
-            <div class="col-sm-3 mb-3">
-                <div class="card" style="width: 20rem;">
-                    <div class="card-body">
-                        <h3 class="card-title"><strong>Coco Oil(200g)</strong>  
-                            <span class="badge bg-success">4.4
-                            <span class="material-icons" id="star">star_rate</span>
-                        </span></h3>
-                        <p class="card-text"><strong>Rs.200.00</strong><small><strike>Rs.250</strike> 20%</small>
-                        <span class="material-icons" id="new_release">new_releases</span>
-                        </p>
-                        <p class="card-text">Coco oil is a plant oil derived from the kernels, meat, and milk of the
-                            coconut palm and fruit. It is used as a food oil, and in industrial applications. It has high
-                            levels of saturated fat, causing some health authorities to recommend limiting consumption of
-                            coconut oil as a food.
-                        </p>
-                        <button type="button" role="button" class="btn btn-success" >
-                            <span class="material-icons">shopping_cart</span>
-                                Add to cart</button>
-                            <span id="heart" class="material-icons">favorite_border</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 mb-3">
-                <div class="card" style="width: 20rem;">
-                    <img src="https://images.unsplash.com/photo-1519735777090-ec97162dc266?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMjA3fDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080"
-                    height=250/>
-                    <div class="card-body">
-                        <h3 class="card-title"><strong> Mad About Waves-300ml</strong>
-                            <span class="badge bg-warning">3.5
-                            <span class="material-icons" id="star">star_rate</span>
-                        </span></h3>
-                        <p class="card-text"><strong>Rs.150.00</strong><small><strike>Rs.200</strike> 25%</small>
-                        <span class="material-icons" id="new_release">new_releases</span>
-                        </p>
-                        <p class="card-text">Mad About Waves sulphate-free waving shampoo is a mild sulphate-free shampoo
-                            for wavy hair. Mad About Waves shampoo is formulated with the Aquarine complex, to wash and
-                            moisturize and thus provide a perfect definition for creating ripples or movements.
-                        </p>
-                        <button type="button" role="button" class="btn btn-success" >
-                            <span class="material-icons">shopping_cart</span>
-                                Add to cart</button>
-                            <span id="heart" class="material-icons">favorite_border</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 mb-3">
-                <div class="card" style="width: 20rem;">
-                    <img src="http://shopping.wavatmospheric.com/wp-content/uploads/2020/05/bamboo-fibers-shampoo.jpg" height=250/>
-                    <div class="card-body">
-                        <h3 class="card-title"><strong>Maui Moisture(Bamboo Fibers Shampoo 305ml)</strong>
-                            <span class="badge bg-warning">3.8
-                            <span class="material-icons" id="star">star_rate</span>
-                        </span></h3>
-                        <p class="card-text"><strong>Rs.455.00</strong>
-                        <span class="material-icons" id="new_release">new_releases</span>
-                        </p>
-                        <p class="card-text">Exotic bamboo fibers are infused into this fortifying, shampoo blend with
-                            castor oil and neem oil to help strengthen and repair over-styled, damaged hair. It helps to
-                            renew and soften treated, natural or transitioning hair types and encourage healthy-looking
-                            glow.
-                        </p>
-                        <button type="button" role="button" class="btn btn-success" >
-                            <span class="material-icons">shopping_cart</span>
-                                Add to cart</button>
-                            <span id="heart" class="material-icons">favorite_border</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 mb-3">
-                <div class="card" style="width: 20rem;">
-                    <img src="data:image/jpeg;base64,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"
-                    height=250/>
-                    <div class="card-body">
-                        <h3 class="card-title"><strong>Battlecreek Coffee(200g)</strong>
-                            <span class="badge bg-danger">2.8
-                            <span class="material-icons" id="star">star_rate</span>
-                        </span></h3>
-                        <p class="card-text"><strong>Rs.150.00</strong><small><strike>Rs.180</strike> 17%</small>
-                        <span class="material-icons" id="new_release">new_releases</span>
-                        </p>
-                        <p class="card-text"> We are a small batch coffee roaster in Battle Creek, Michigan. We strive to
-                            roast the best quality bean while also donating profits to help counsel human trafficking
-                            refugees.
-                        </p>
-                        <button type="button" role="button" class="btn btn-success" >
-                            <span class="material-icons">shopping_cart</span>
-                                Add to cart</button>
-                            <span id="heart" class="material-icons">favorite_border</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 mb-3">
-                <div class="card" style="width: 20rem;">
-                    <img src="https://im.idiva.com/content/2020/Mar/Face-oil-iDiva-1_5e7c45807e371.jpg" height=250/>
-                    <div class="card-body">
-                        <h3 class="card-title"><strong>Lapis Facial Oil</strong>
-                            <span class="badge bg-success">4.8
-                            <span class="material-icons" id="star">star_rate</span>
-                        </span></h3>
-                        <p class="card-text"><strong>Rs.750.00</strong><small><strike>Rs.1000</strike> 25%</small>
-                        <span class="material-icons" id="new_release">new_releases</span>
-                        </p>
-                        <p class="card-text"> Herbivore Botanicals' Lapis Facial Oil offers relief for combination, oily and
-                            blemish-prone skin with a formula designed to provide balanced moisture without clogging pores.
-                            With a blend of 100% natural and pure plant oils, this moisturizing facial oil thoroughly
-                            hydrates skin so it can find its appropriate oil balance and stop producing excess oil and
-                            sebum.
-                        </p>
-                        <button type="button" role="button" class="btn btn-success" >
-                            <span class="material-icons">shopping_cart</span>
-                                Add to cart</button>
-                            <span id="heart" class="material-icons">favorite_border</span>
-                    </div>
-                </div>
+<h1 style="padding-top: 15px; padding-left: 450px;"><strong>Welcome to Lender Portal</strong></h1>
+<div class="row row-cols-1 row-cols-md-3 g-4" style="padding-top: 100px;">
+    <div class="col" style="padding-left: 75px;">
+      <div class="card" style="width : 300px; text-align: center;">
+        <h5 class="card-title">Add Devices</h5>
+        <div class="card-body">
+            <img src="https://image.freepik.com/free-vector/chatbot-customer-service-abstract-concept_335657-3037.jpg" class="card-img-top" type="image/jpg">
+          <p class="card-text">Click here to add device!!</p>
+          <span><button type="submit" class="btn btn-primary" (click)="addDevice();">OPEN></button></span>
         </div>
-    </div>  
+      </div>
+    </div>
+    <div class="col" style="padding-left: 75px;">
+        <div class="card" style="width : 300px; text-align: center;">
+          <h5 class="card-title">View My Devices</h5>
+          <div class="card-body">
+              <img src="https://image.freepik.com/free-vector/chatbot-customer-service-abstract-concept_335657-3037.jpg" class="card-img-top" type="image/jpg">
+            <p class="card-text">Click here to view your devices!!</p>
+            <span><button type="submit" class="btn btn-primary" (click)="viewDevice();">OPEN></button></span>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="padding-left: 75px;">
+        <div class="card" style="width : 300px; text-align: center;">
+          <h5 class="card-title">View Request</h5>
+          <div class="card-body">
+              <img src="https://image.freepik.com/free-vector/chatbot-customer-service-abstract-concept_335657-3037.jpg" class="card-img-top" type="image/jpg">
+            <p class="card-text">Click here to view requests!!</p>
+            <span><button type="submit" class="btn btn-primary">OPEN></button></span>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="padding-left: 75px;">
+        <div class="card" style="width : 300px; text-align: center;">
+          <h5 class="card-title">View Earning Report</h5>
+          <div class="card-body">
+              <img src="https://image.freepik.com/free-vector/chatbot-customer-service-abstract-concept_335657-3037.jpg" class="card-img-top" type="image/jpg">
+            <p class="card-text">Click here to view earning report!!</p>
+            <span><button type="submit" class="btn btn-primary">OPEN></button></span>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="padding-left: 75px;">
+        <div class="card" style="width : 300px; text-align: center;">
+          <h5 class="card-title">View Over Due Details</h5>
+          <div class="card-body">
+              <img src="https://image.freepik.com/free-vector/chatbot-customer-service-abstract-concept_335657-3037.jpg" class="card-img-top" type="image/jpg">
+            <p class="card-text">Click here to view over due details!!</p>
+            <span><button type="submit" class="btn btn-primary">OPEN></button></span>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="padding-left: 75px;">
+        <div class="card" style="width : 300px; text-align: center;">
+          <h5 class="card-title">Add Ratings & Feedback</h5>
+          <div class="card-body">
+              <img src="https://image.freepik.com/free-vector/chatbot-customer-service-abstract-concept_335657-3037.jpg" class="card-img-top" type="image/jpg">
+            <p class="card-text">Click here to add ratings and feedback!!</p>
+            <span><button type="submit" class="btn btn-primary">OPEN></button></span>
+          </div>
+        </div>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
