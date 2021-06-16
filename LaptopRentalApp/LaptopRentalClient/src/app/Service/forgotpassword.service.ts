@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ForgotpasswordService {
-  url:string= "http://localhost:51108/api/ForgotPassword";
+  url:string= "http://localhost:51108/api/ForgotPassword/";
 
   
   constructor(private http: HttpClient) { }
 
   UpdatePassword(comp: { email: string; password: string; }) : Observable<any>{
-    return this.http.put(this.url,comp);
+    return this.http.put(this.url + comp.email ,comp.password);
   }
 
 }
