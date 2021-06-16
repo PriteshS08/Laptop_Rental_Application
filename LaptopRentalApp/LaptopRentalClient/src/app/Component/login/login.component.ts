@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
        });
   }
   get f() { return this.loginForm.controls; }
-  selectChangeHandler (event: any) {
-    this.selectedType = event.target.value;
-  }
+  // selectChangeHandler (event: any) {
+  //   this.selectedType = event.target.value;
+  // }
  Login() 
  {
   this.email = this.loginForm.get("email")?.value as string;
