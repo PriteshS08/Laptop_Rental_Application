@@ -13,6 +13,7 @@ export class SignupService {
   constructor(private http : HttpClient) { }
 
   AddUserDetails(obj:  User): Observable <User> {  
+    console.log(obj);
     return this.http.post < User > (this.url , obj).pipe(
       catchError(this.handleError));
   }  

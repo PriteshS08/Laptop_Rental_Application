@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
     this.signupForm=this.formBuilder.group({
       Name : ['', [Validators.compose([Validators.required,Validators.minLength(8)])]],
       Gender : ['', [Validators.compose([Validators.required])]],
-      DOB : ['', [Validators.compose([Validators.required,Validators.pattern("^(?:1[8-9]|[2-5][0-9]|60)$")])]],
+     // DOB : ['', [Validators.compose([Validators.required,Validators.pattern("^(?:1[8-9]|[2-5][0-9]|60)$")])]],
       Age : ['', [Validators.compose([Validators.required])]],
       Location : ['', [Validators.compose([Validators.required])]],
       PhoneNO : ['', [Validators.compose([Validators.required,Validators.pattern("^([0-9]{10})$")])]],
@@ -56,16 +56,17 @@ export class SignupComponent implements OnInit {
   const userDetails = {
     Name : this.signupForm.get("Name")?.value as string,
     Gender : this.selectedType as string,
-    DOB :  this.signupForm.get("DOB")?.value as Date, 
+   // DOB :  this.signupForm.get("DOB")?.value as Date, 
     Age : this.signupForm.get("Age")?.value as number,
     Location : this.signupForm.get("Location")?.value as string,
     PhoneNO : this.signupForm.get("PhoneNO")?.value as string,
-    IdProof : imageproof,
+   // IdProof : imageproof,
     Id_No : this.signupForm.get("Id_No")?.value as string,
     EmailId:this.signupForm.get("EmailId")?.value as string,
     PassWord: this.signupForm.get('PassWord')?.value as string
   }
   this.ss.AddUserDetails(userDetails).subscribe(result => {
+    console.log(userDetails);
     this.router.navigate(['/login']);
   });  
   }

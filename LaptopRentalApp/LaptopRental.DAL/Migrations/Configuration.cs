@@ -23,7 +23,7 @@
                 Age = 23,
                 Location = "Chennai",
                 PhoneNO = "9933224455",
-                IdProof = "image.jpg",
+                //IdProof = "image.jpg",
                 Id_No = "123456789012",
                 EmailId = "jojo@gmail.com",
                 PassWord = "Jojo@123"
@@ -71,3 +71,4 @@
 
     }
 }
+

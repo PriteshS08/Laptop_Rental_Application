@@ -9,6 +9,7 @@ import { LenderUIComponent } from './Component/lender-ui/lender-ui.component';
 import { EditDeviceComponent } from './Component/edit-device/edit-device.component';
 import { AddDeviceComponent } from './Component/add-device/add-device.component';
 import { ViewDevicesComponent } from './Component/view-devices/view-devices.component';
+import { ViewRequestComponent } from './Component/view-request/view-request.component';
 
 const routes: Routes = [
     {path : 'login' , component : LoginComponent},
@@ -20,7 +21,8 @@ const routes: Routes = [
     {path : 'adddevice' , component : AddDeviceComponent},
     {path : 'fpassword' , component : ForgotPasswordComponent},
     {path : 'viewdevice' , component : ViewDevicesComponent},
-    {path:'',redirectTo:'login', pathMatch: 'full' },
+    {path : 'ViewComments' , component : ViewRequestComponent},
+    {path:'',redirectTo:'login', pathMatch: 'full' }
 ];
 
 @NgModule({
