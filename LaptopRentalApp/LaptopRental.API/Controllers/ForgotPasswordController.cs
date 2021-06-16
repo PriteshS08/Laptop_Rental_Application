@@ -22,7 +22,7 @@ namespace LaptopRental.API.Controllers
         }
         [HttpPut]
         [Route("api/ForgotPassword/{userid}")]
-        public HttpResponseMessage UpdatePassword([FromUri] string userid,[FromBody]string password)
+        public HttpResponseMessage UpdatePassword([FromUri] int userid, [FromBody] string password)
         {
             try
             {
