@@ -17,6 +17,7 @@ export class SignupComponent implements OnInit {
   fileToUpload!: File ;
   submitted : boolean =  false;
   signupForm= new FormGroup({});
+  selectedType:string="";
   constructor(
     public formBuilder:FormBuilder, 
     private router: Router,
@@ -42,22 +43,27 @@ export class SignupComponent implements OnInit {
    this.fileToUpload = <File>event.target.files[0];
    }  
   get f() { return this.signupForm.controls; }
+
+  selectChangeHandler (event: any) {
+    this.selectedType = event.target.value;
+  }
+
   Signup() 
  {
   this.submitted = true;
   const imageproof = new FormData();
   imageproof.append('image', this.fileToUpload, this.fileToUpload.name);
   const userDetails = {
-    Name : this.signupForm.get("Name")?.value,
-    Gender : this.signupForm.get("Gender")?.value,
+    Name : this.signupForm.get("Name")?.value as string,
+    Gender : this.selectedType as string,
     DOB :  this.signupForm.get("DOB")?.value as Date, 
-    Age : this.signupForm.get("Age")?.value,
-    Location : this.signupForm.get("Location")?.value,
-    PhoneNO : this.signupForm.get("PhoneNO")?.value,
+    Age : this.signupForm.get("Age")?.value as number,
+    Location : this.signupForm.get("Location")?.value as string,
+    PhoneNO : this.signupForm.get("PhoneNO")?.value as string,
     IdProof : imageproof,
-    Id_No : this.signupForm.get("Id_No")?.value,
-    EmailId:this.signupForm.get("EmailId")?.value,
-    PassWord: this.signupForm.get('PassWord')?.value
+    Id_No : this.signupForm.get("Id_No")?.value as string,
+    EmailId:this.signupForm.get("EmailId")?.value as string,
+    PassWord: this.signupForm.get('PassWord')?.value as string
   }
   this.ss.AddUserDetails(userDetails).subscribe(result => {
     this.router.navigate(['/login']);

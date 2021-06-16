@@ -42,7 +42,7 @@
     <div class="form-group col-md-12 mb-3">
         <label for="Gender" style="padding-bottom: 10px;">Gender</label><span style="color: red;">*</span>
     <div>
-        <select class="btn btn-secondary dropdown-toggle" name="Gender" id="Gender">
+        <select class="btn btn-secondary dropdown-toggle" name="Gender" (change)="selectChangeHandler($event)" id="Gender">
             <option selected="selected" value="female">Female</option>
             <option value="male">Male</option>
             <option value="other">Other</option>
