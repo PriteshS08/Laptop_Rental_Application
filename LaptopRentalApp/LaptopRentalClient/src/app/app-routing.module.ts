@@ -19,7 +19,8 @@ const routes: Routes = [
     {path : 'editdevice' , component : EditDeviceComponent},
     {path : 'adddevice' , component : AddDeviceComponent},
     {path : 'fpassword' , component : ForgotPasswordComponent},
-    {path : 'viewdevice' , component : ViewDevicesComponent}  
+    {path : 'viewdevice' , component : ViewDevicesComponent},
+    {path:'',redirectTo:'login', pathMatch: 'full' },
 ];
 
 @NgModule({

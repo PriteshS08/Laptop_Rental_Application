@@ -9,7 +9,7 @@ import { SignupService } from 'src/app/Service/signup.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
+  usersignup : boolean = false;
   fileToUpload!: File ;
   submitted : boolean =  false;
   signupForm= new FormGroup({});
@@ -54,6 +54,7 @@ export class SignupComponent implements OnInit {
     email:this.signupForm.get("email")?.value,
     password: this.signupForm.get('password')?.value
   }
+  this.usersignup = true;
   this.ss.AddUserDetails(user).subscribe(result => {
     this.router.navigate(['/login']);
   });  
