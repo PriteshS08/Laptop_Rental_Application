@@ -52,6 +52,7 @@ namespace LaptopRental.DAL.Models
         [DataType(DataType.Password)]
         [Required]
         public string PassWord { get; set; }
+      
 
         
     }
