@@ -14,7 +14,7 @@ export class DeviceService {
   constructor(private http: HttpClient) { }
 
 
-  updateDeviceDetails(device: { ImeiNumber: any; DeviceName: any; DeviceSpecification: any; PreInstalledSoftware: any; UploadDeviceImage: any; RentalAmountMonth: any; MaximumRentalMonths: any; Interest: any; }):Observable<Device>
+  updateDeviceDetails(device: Device):Observable<Device>
   {
    return this.http.put<Device>(this.url+"/EditDevices",device).pipe(
     catchError(this.handleError));
@@ -38,7 +38,7 @@ export class DeviceService {
     window.alert(errorMessage);
     return throwError(errorMessage);
   }
-  addDeviceDetails(device: { ImeiNumber: any; DeviceName: any; DeviceSpecification: any; PreInstalledSoftware: any; UploadDeviceImage: any; RentalAmountMonth: any; MaximumRentalMonths: any; Interest: any; }):Observable<any>
+  addDeviceDetails(device: Device):Observable<Device>
   {
     return this.http.post<Device>(this.url+"/AddDevice",device);
   }

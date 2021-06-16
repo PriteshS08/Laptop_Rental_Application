@@ -10,7 +10,7 @@ import { MenuComponent } from '../menu/menu.component';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  email : string = "";
   submitted : boolean =  false;
   loginForm= new FormGroup({});
   flag: any;
@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
   // }
  Login() 
  {
+  this.email = this.loginForm.get("email")?.value as string;
   this.submitted = true;
   const userDetails = {
    EmailId:this.loginForm.get("email")?.value,

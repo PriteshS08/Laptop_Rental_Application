@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ForgotpasswordService } from 'src/app/Service/forgotpassword.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-forgot-password',
@@ -11,7 +12,10 @@ export class ForgotPasswordComponent implements OnInit {
   PasswordUpdate!:FormGroup;
   confirmpassword:string="";
   submitted : boolean=false;
-  constructor(private formBuilder:FormBuilder,private fs : ForgotpasswordService) { }
+  email : string ="";
+  constructor(private formBuilder:FormBuilder,
+    private lc : LoginComponent,
+    private fs : ForgotpasswordService) { }
 
   ngOnInit(): void {
     this.PasswordUpdate=this.formBuilder.group({
@@ -24,8 +28,13 @@ export class ForgotPasswordComponent implements OnInit {
   get f() { return this.PasswordUpdate.controls; }
 
   passwordUpdate(){
-    this.confirmpassword = this.PasswordUpdate.get("confirmpassword")?.value;
-    this.fs.UpdatePassword(this.confirmpassword);
+    const comp = {
+      email : this.lc.email,
+      password : this.confirmpassword = this.PasswordUpdate.get("confirmpassword")?.value as string
+    }
+   
+    this.fs.UpdatePassword(comp).subscribe(response => {alert('Password updated successfully')},
+    error => {alert('Failed to update password')});
   
   }
 
