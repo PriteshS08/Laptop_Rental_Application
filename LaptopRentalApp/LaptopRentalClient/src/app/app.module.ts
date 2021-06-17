@@ -47,7 +47,7 @@ import { ViewRequestComponent } from './Component/view-request/view-request.comp
     LenderUIComponent,
     CustomerUIComponent,
     MakeRequestComponent,
-    ViewDetailsComponent
+    ViewDetailsComponent,
     ViewRequestComponent
   ],
   imports: [
