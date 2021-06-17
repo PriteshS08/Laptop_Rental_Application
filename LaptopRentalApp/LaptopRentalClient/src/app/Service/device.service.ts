@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { LoginComponent } from '../Component/login/login.component';
 import { Device } from '../Types/Device';
 
@@ -21,14 +21,15 @@ export class DeviceService {
     const header = new HttpHeaders;
     header.append('Content-Type', 'application/json');
     const options = {headers: header};
-    return this.http.put<Device>(this.url+"/EditDevices",device).pipe(
+    return this.http.put<Device>(this.url+"/EditDevices",device).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
 
   GetDevices() : Observable<any>
   {
-    return this.http.get<Device[]>(this.url+"/ViewDevices"+ this.lc.user.UserId).pipe(
-      catchError(this.handleError));
+    return this.http.get<Device[]>(this.url+"/ViewDevices"+ this.lc.user.UserId).pipe(map((response: any) => {return response}),
+    catchError(this.handleError));
+
   }
 
   handleError(error:any) {
@@ -48,7 +49,8 @@ export class DeviceService {
     const header = new HttpHeaders;
     header.append('Content-Type', 'application/json');
     const options = {headers: header};
-    return this.http.post<Device>(this.url+"/AddDevice",device);
+    return this.http.post<Device>(this.url+"/AddDevice",device).pipe(map((response: any) => {return response}),
+    catchError(this.handleError));
   }
 
 }

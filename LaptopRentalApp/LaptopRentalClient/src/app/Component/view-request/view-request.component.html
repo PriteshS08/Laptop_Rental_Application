@@ -3,47 +3,46 @@
 <div class="container">
   <div>
     <div class="ms-2 me-auto" style="padding-right:600px;">
-        <div class="fw-bold">{{d.DeviceImage}}</div>
-        <div class="fw-bold"style="padding-top:50px;">{{r.RequestId}}}</div>
-        <div class="fw-bold">{{d.Name}}</div>
-        <div class="fw-bold">{{d.Location}}</div>
-        <div class="fw-bold" >{{d.PhoneNO}}</div>
-        <div class="fw-bold">{{d.IdProof}}</div>
-        <div class="fw-bold">{{d.EmailId}}</div>
+        <div class="fw-bold">{{deviceDetails.DeviceImage}}</div>
+        <div class="fw-bold"style="padding-top:50px;">{{requestDetails.RequestId}}}</div>
+        <div class="fw-bold">{{userDetails.Name}}</div>
+        <div class="fw-bold">{{userDetails.Location}}</div>
+        <div class="fw-bold" >{{userDetails.PhoneNO}}</div>
+        <div class="fw-bold">{{userDetails.IdProof}}</div>
+        <div class="fw-bold">{{userDetails.EmailId}}</div>
      </div>
-     </div>
+    </div>
 
     <div class="ms-2 me-auto" style="padding-left:600px;">
       <div>
         <span><label>DeviceName  :</label></span>
-        <span class="fw-bold"> {{d.DeviceName}}</span>
+        <span class="fw-bold"> {{deviceDetails.DeviceName}}</span>
        </div>
 
        <div>
         <span><label>DeviceSpecification  :</label></span>
-        <span class="fw-bold"> {{d.DeviceSpecification}}</span>
+        <span class="fw-bold"> {{deviceDetails.DeviceSpecification}}</span>
        </div>
 
        <div>
         <span><label>PreInstalledSoftware  :</label></span>
-        <span class="fw-bold"> {{d.PreInstalledSoftware}}</span>
+        <span class="fw-bold"> {{deviceDetails.PreInstalledSoftware}}</span>
        </div>
 
        <div>
         <span><label>RentalAmount  :</label></span>
-        <span class="fw-bold"> {{d.RentalAmount}}</span>
+        <span class="fw-bold"> {{deviceDetails.RentalAmount}}</span>
        </div>
 
        <div>
         <span><label>From Date  :</label></span>
-        <span class="fw-bold"> {{d.FromDate}}</span>
+        <span class="fw-bold"> {{requestDetails.FromDate}}</span>
        </div>
 
       <div>
         <span><label>To Date  :</label></span>
-        <span class="fw-bold"> {{d.ToDate}}</span>
+        <span class="fw-bold"> {{requestDetails.ToDate}}</span>
        </div>
-         </div>
 
   </div>
   <div style="padding-left:650px; padding-top:30px;">

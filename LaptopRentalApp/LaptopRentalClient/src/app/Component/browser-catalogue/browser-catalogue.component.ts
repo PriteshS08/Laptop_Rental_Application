@@ -10,15 +10,15 @@ import { Device } from 'src/app/Types/Device';
 export class BrowserCatalogueComponent implements OnInit {
   devicelist:Device[]=[];
   devicedetail! : Device;
-  constructor(private bc : BrowserCatalogService) { }
+  constructor(private bs : BrowserCatalogService) { }
 
   ngOnInit(): void {
-    this.bc.getAllDevices().subscribe((Response:Device[])=>this.devicelist=Response,
+    this.bs.getAllDevices().subscribe((Response:Device[])=>this.devicelist=Response,
     error=>{alert('Error in fetching data')});
   }
 
-  viewDetail(ImeiNo : number) {
-    this.bc.getDeviceByImeiNo(ImeiNo).subscribe((Response:Device)=>this.devicedetail=Response,
+  viewDetail(ImeiNo : string) {
+    this.bs.getDeviceByImeiNo(ImeiNo).subscribe((Response:Device)=>this.devicedetail=Response,
     error=>{alert('Error in fetching data')});
   }
 

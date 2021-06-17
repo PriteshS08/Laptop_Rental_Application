@@ -16,16 +16,12 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
-
-
 import { ViewDevicesComponent } from './Component/view-devices/view-devices.component';
 import { HomeComponent } from './Component/home/home.component';
 import { EditDeviceComponent } from './Component/edit-device/edit-device.component';
 import { LenderUIComponent } from './Component/lender-ui/lender-ui.component';
 import { CustomerUIComponent } from './Component/customer-ui/customer-ui.component';
 import { AddDeviceComponent } from './Component/add-device/add-device.component';
-import { MakeRequestComponent } from './Component/make-request/make-request.component';
 import { ViewDetailsComponent } from './Component/view-details/view-details.component';
 import { ViewRequestComponent } from './Component/view-request/view-request.component';
 import { BrowserCatalogueComponent } from './Component/browser-catalogue/browser-catalogue.component';
@@ -39,15 +35,12 @@ import { BrowserCatalogueComponent } from './Component/browser-catalogue/browser
     LoginComponent,
     SignupComponent,
     MenuComponent,
- 
-   
     AddDeviceComponent,
     ViewDevicesComponent,
     EditDeviceComponent,
     HomeComponent,
     LenderUIComponent,
     CustomerUIComponent,
-    MakeRequestComponent,
     ViewDetailsComponent,
     ViewRequestComponent,
     BrowserCatalogueComponent
@@ -62,8 +55,8 @@ import { BrowserCatalogueComponent } from './Component/browser-catalogue/browser
     MatInputModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    FormGroup 
   ],
   providers: [LoginService, SignupService, ForgotpasswordService],
 
