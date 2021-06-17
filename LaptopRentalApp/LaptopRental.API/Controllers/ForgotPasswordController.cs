@@ -22,7 +22,7 @@ namespace LaptopRental.API.Controllers
         }
         [HttpPut]
         [Route("api/ForgotPassword/{userid}")]
-        public HttpResponseMessage UpdatePassword([FromUri] int userid, [FromBody] string password)
+        public HttpResponseMessage UpdatePassword([FromUri] int userid, [FromBody] User password)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace LaptopRental.API.Controllers
                 {
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Mail Id not Found");
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "User Id not Found");
             }
             catch (Exception ex)
           {

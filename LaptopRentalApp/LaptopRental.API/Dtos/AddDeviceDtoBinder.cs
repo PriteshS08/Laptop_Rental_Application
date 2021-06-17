@@ -9,7 +9,7 @@ using System.Web.Http.ModelBinding;
 
 namespace LaptopRental.API.Dtos
 {
-    public class SignUpDtoBinder : IModelBinder
+    public class AddDeviceDtoBinder : IModelBinder
     {
         public bool BindModel(HttpActionContext actionContext, ModelBindingContext bindingContext)
         {
@@ -17,14 +17,14 @@ namespace LaptopRental.API.Dtos
             if (Request.Files.Count == 0)
                 return false;
             HttpPostedFile file = Request.Files[0];
-            var jsonstring = Request.Form.Get("signup");
-            var signupdto = JsonConvert.DeserializeObject<SignUpDto>(jsonstring);
-            if (signupdto != null)
+            var jsonstring = Request.Form.Get("Obj");
+            var addDevicedto = JsonConvert.DeserializeObject<AddDeviceDto>(jsonstring);
+            if (addDevicedto != null)
             {
-                signupdto.File = file;
+                addDevicedto.File = file;
                 var filename = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-                signupdto.IdProof = filename;
-                bindingContext.Model = signupdto;
+                addDevicedto.DeviceImage = filename;
+                bindingContext.Model = addDevicedto;
                 return true;
             }
             return false;
