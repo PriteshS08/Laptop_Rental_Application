@@ -22,9 +22,9 @@ export class DeviceService {
     catchError(this.handleError));
   }
 
-  GetDevices()
+  GetDevices() : Observable<any>
   {
-    return this.http.get<Device[]>(this.url+"/ViewDevices"+ this.lc.userID).pipe(
+    return this.http.get<Device[]>(this.url+"/ViewDevices"+ this.lc.user.UserId).pipe(
       catchError(this.handleError));
   }
 

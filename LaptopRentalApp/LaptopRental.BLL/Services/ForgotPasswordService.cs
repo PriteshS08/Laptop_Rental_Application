@@ -16,11 +16,11 @@ namespace LaptopRental.BLL.Services
         {
             context = new LaptopRentalContext();
         }
-        public bool Update(string email, string password)
+        public bool Update(int userid, string password)
         {
             try
             {
-                var query = context.Users.FirstOrDefault(s => s.EmailId == email);
+                var query = context.Users.FirstOrDefault(s => s.UserId ==userid);
                 if (query != null)
                 {
                     query.PassWord = password;
