@@ -48,7 +48,7 @@ import { BrowserCatalogueComponent } from './Component/browser-catalogue/browser
     LenderUIComponent,
     CustomerUIComponent,
     MakeRequestComponent,
-    ViewDetailsComponent
+    ViewDetailsComponent,
     ViewRequestComponent,
     BrowserCatalogueComponent
   ],

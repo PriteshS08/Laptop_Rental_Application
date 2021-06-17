@@ -12,9 +12,11 @@ export class SignupService {
   url : string = "http://localhost:51108/api/signup";
   constructor(private http : HttpClient) { }
 
-  AddUserDetails(obj:  User): Observable <User> {  
-    console.log(obj);
-    return this.http.post < User > (this.url , obj).pipe(
+  AddUserDetails(fd : FormData): Observable <User> {  
+    const header = new HttpHeaders;
+    header.append('Content-Type', 'application/json');
+    const options = {headers: header};
+    return this.http.post < User > (this.url ,fd, options).pipe(
       catchError(this.handleError));
   }  
   handleError(error:any) {

@@ -36,19 +36,21 @@ constructor(private formBuilder : FormBuilder, private device : DeviceService) {
     get f() { return this.AddDeviceDetails.controls; }
   
     AddDetail(){
-      const deviceImage = new FormData();
-      deviceImage.append('image', this.fileToUpload, this.fileToUpload.name);
-      const Details = {
-        IMEINumber : this.AddDeviceDetails.get("IMEINumber")?.value as string,
-        DeviceName : this.AddDeviceDetails.get("DeviceName")?.value as string,
-        DeviceSpecification : this.AddDeviceDetails.get(" DeviceSpecification")?.value as string,
-        PreInstalledSoftware : this.AddDeviceDetails.get("PreInstalledSoftware")?.value as string,
-        DeviceImage : deviceImage,
-        RentalAmount : this.AddDeviceDetails.get("RentalAmount")?.value,
-        MaxRentalMonth : this.AddDeviceDetails.get(" MaxRentalMonth")?.value as number,
-        Interest:this.AddDeviceDetails.get("Interest")?.value,
-        Status : this.status
-      }
+      this.submitted = true;
+      const Details = new FormData();
+      Details.append('image', this.fileToUpload);
+      Details.append('AddDevice', JSON.stringify(this.AddDeviceDetails.value));
+      // const Details = {
+      //   IMEINumber : this.AddDeviceDetails.get("IMEINumber")?.value as string,
+      //   DeviceName : this.AddDeviceDetails.get("DeviceName")?.value as string,
+      //   DeviceSpecification : this.AddDeviceDetails.get(" DeviceSpecification")?.value as string,
+      //   PreInstalledSoftware : this.AddDeviceDetails.get("PreInstalledSoftware")?.value as string,
+      //   DeviceImage : deviceImage,
+      //   RentalAmount : this.AddDeviceDetails.get("RentalAmount")?.value,
+      //   MaxRentalMonth : this.AddDeviceDetails.get(" MaxRentalMonth")?.value as number,
+      //   Interest:this.AddDeviceDetails.get("Interest")?.value,
+      //   Status : this.status
+      // }
   
       this.device.addDeviceDetails(Details).subscribe(
         response=>{alert('Added successfully')},

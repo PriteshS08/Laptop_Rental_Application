@@ -1,8 +1,8 @@
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <h1 style="padding-left: 620px; padding-bottom:20px;"><strong>View Request</strong></h1> 
 <div class="container">
-  <div class="row">
-    <div class="col-lg-6" style="padding-right:600px;">
+  <div>
+    <div class="ms-2 me-auto" style="padding-right:600px;">
         <div class="fw-bold">{{d.DeviceImage}}</div>
         <div class="fw-bold"style="padding-top:50px;">{{r.RequestId}}}</div>
         <div class="fw-bold">{{d.Name}}</div>
@@ -10,27 +10,49 @@
         <div class="fw-bold" >{{d.PhoneNO}}</div>
         <div class="fw-bold">{{d.IdProof}}</div>
         <div class="fw-bold">{{d.EmailId}}</div>
+     </div>
+     </div>
+
+    <div class="ms-2 me-auto" style="padding-left:600px;">
+      <div>
+        <span><label>DeviceName  :</label></span>
+        <span class="fw-bold"> {{d.DeviceName}}</span>
+       </div>
+
+       <div>
+        <span><label>DeviceSpecification  :</label></span>
+        <span class="fw-bold"> {{d.DeviceSpecification}}</span>
+       </div>
+
+       <div>
+        <span><label>PreInstalledSoftware  :</label></span>
+        <span class="fw-bold"> {{d.PreInstalledSoftware}}</span>
+       </div>
+
+       <div>
+        <span><label>RentalAmount  :</label></span>
+        <span class="fw-bold"> {{d.RentalAmount}}</span>
+       </div>
+
+       <div>
+        <span><label>From Date  :</label></span>
+        <span class="fw-bold"> {{d.FromDate}}</span>
+       </div>
+
+      <div>
+        <span><label>To Date  :</label></span>
+        <span class="fw-bold"> {{d.ToDate}}</span>
+       </div>
+         </div>
+
+  </div>
+  <div style="padding-left:650px; padding-top:30px;">
+    <span><button type="submit" class="btn btn-success" >Accept Request</button></span>
+    <span style="padding-left: 15px;">
+      <button type="button" (click)="createacc();" class="btn btn-success">Reject Request</button>
+    </span>
+    <div>
+        <a href="#" style="align-items: center; color: blue;">Return to Request</a>
     </div>
-
-    <div class="col-lg-6" style="padding-right:600px;">
-      <div class="fw-bold">{{d.DeviceName}}</div>
-      <div class="fw-bold"  style="padding-top:25px;">{{u.IMEINumber}}}</div>
-      <div class="fw-bold"  style="padding-top:25px;">{{d.PreInstalledSoftWare}}</div>
-      <div class="fw-bold"  style="padding-top:25px;">{{d.DeviceSpecification}}</div>
-      <div class="fw-bold"  style="padding-top:25px;">{{d.RentalAmount}}</div>
-      <div class="fw-bold"  style="padding-top:25px;">{{d.FromDate}}</div>
-      <div class="fw-bold"  style="padding-top:25px;">{{d.ToDate}}</div>
-     
-  </div>
-  </div>
-    
- 
-
-
-    <div style="padding-left:500px; padding-top:80px;">
-       
-        <span style="padding-right:0px;"><button type="submit" class="btn btn-success" >Accept Request</button></span>
-        <span style="padding-left:100px;"><button type="submit" class="btn btn-success" >Reject Request</button></span>
-        
-     <div>
-</div> -->
+</div>
+</div>

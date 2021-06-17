@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace LaptopRental.BLL.Services
 {
     /// <summary>
-    /// ViewDevicesService to interact with User databse and perform CRUD operation.
+    /// ViewDevicesService to interact with User databse and perform GET operation.
     /// </summary>
     public class ViewDevicesService : IDisposable
     {
@@ -57,13 +57,25 @@ namespace LaptopRental.BLL.Services
         }
 
 
-        //public Device DeleteDevicebyId(int id)
-        //{
-        //    try
-        //    {
+        public Device DeleteDevicebyId(int id)
+        {
+            try
+            {
+                var entity = (from device in context.Devices
+                              where device.UserId_FK == id
+                              select device).SingleOrDefault();
+                return entity;
+            }
+            catch (DbException ex)
+            {
+                throw new LaptopRentalException("Error reading data", ex);
+            }
 
-        //    }
-        //}
+            catch (Exception ex)
+            {
+                throw new LaptopRentalException("UnKnown Error while reading data", ex);
+            }
+        }
 
 
     }

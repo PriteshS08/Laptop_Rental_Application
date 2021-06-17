@@ -1,4 +1,5 @@
 ﻿using LaptopRental.DAL;
+using LaptopRental.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace LaptopRental.BLL.Services
 {
     /// <summary>
-    /// Loginservice to interact with User databse and perform CRUD operation.
+    /// Loginservice to interact with User databse and perform Authentication.
     /// </summary>
     public class LoginService : IDisposable
     {
@@ -49,6 +50,31 @@ namespace LaptopRental.BLL.Services
                 }
                 return false;
 
+            }
+            catch (DbException ex)
+            {
+                throw new LaptopRentalException("Error reading data", ex);
+            }
+
+            catch (Exception ex)
+            {
+                throw new LaptopRentalException("UnKnown Error while reading data", ex);
+            }
+
+        }
+
+        public List<User> ReturnUser(string emailId, string password)
+        {
+            try
+            {
+                var result = (from user in context.Users
+                              where user.EmailId == emailId
+                              select user).ToList();
+                if (result!=null)
+                {
+                    return result;
+                }
+                return result;
             }
             catch (DbException ex)
             {

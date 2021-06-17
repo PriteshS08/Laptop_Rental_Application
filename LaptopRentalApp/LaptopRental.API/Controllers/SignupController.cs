@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
+using LaptopRental.API.Dtos;
 using LaptopRental.BLL;
 using LaptopRental.BLL.Services;
 using LaptopRental.DAL;
@@ -12,9 +14,6 @@ using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.Swagger;
 using FromBodyAttribute = Microsoft.AspNetCore.Mvc.FromBodyAttribute;
 using HttpPostAttribute = Microsoft.AspNetCore.Mvc.HttpPostAttribute;
-
-
-
 
 namespace LaptopRental.API.Controllers
 
@@ -33,11 +32,11 @@ namespace LaptopRental.API.Controllers
 
 
        
-        private readonly SignupService Signup;
+        private readonly SignupService Signupservice;
 
         public SignupController()
         {
-            Signup = new SignupService();
+            Signupservice = new SignupService();
         }
 
 
@@ -49,35 +48,38 @@ namespace LaptopRental.API.Controllers
 
         [HttpPost]
 
-        public HttpResponseMessage AddPost([FromBody]User user)
+        public IHttpActionResult AddPost(SignUpDto dto)
 
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
-                var result = Signup.Add(user);
-                context.SaveChanges();
+                var signup = new User();
+                signup.Name = dto.Name;
+                signup.Gender = dto.Gender;
+                signup.DOB = dto.DOB;
+                signup.Age = dto.Age;
+                signup.Location = dto.Location;
+                signup.PhoneNO = dto.PhoneNO;
+                signup.IdProof = dto.IdProof;
+                signup.Id_No = dto.Id_No;
+                signup.EmailId = dto.EmailId;
+                signup.PassWord = dto.PassWord;
 
-                return Request.CreateResponse(HttpStatusCode.Created,result);
-
-
-
+                var uploadfolderpath = HttpContext.Current.Server.MapPath("~/Uploads/");
+                dto.File.SaveAs(uploadfolderpath + dto.IdProof);
+                var isadded = Signupservice.Add(signup);
+                if (isadded)
+                    return StatusCode(HttpStatusCode.Created);
+                return BadRequest("Create menu item failed");
             }
-            catch (Exception ex)
+            catch (LaptopRentalException ex)
             {
-
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+                return InternalServerError(ex);
             }
         }
-
-        //catch (LaptopRentalException ex)
-        //{
-        //    return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
-        //}
-        //catch (Exception ex)
-        //{
-        //    return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
-        //}
 
 
     }
