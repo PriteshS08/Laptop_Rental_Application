@@ -1,5 +1,6 @@
 export class Device {
     constructor (
+        public DeviceId : number,
         public IMEINumber : String,
         public DeviceName : String,
         public DeviceSpecification : String,

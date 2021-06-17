@@ -6,8 +6,6 @@
   <form [formGroup]="PasswordUpdate"  novalidate (ngSubmit)="passwordUpdate();" >
   
  
-       
-     
       <div class="form-group col-md-12 mb-3">
         <label for="fromdate" style="padding-bottom: 10px;">Enter From Date</label><span style="color: red;">*</span>
        <input type="date" class="form-control" placeholder="Enter From Date" id="fromdate" formControlName="FromDate" name="FromDate"  [ngClass]="{ 'is-invalid': submitted && f.FromDate.errors }">
@@ -19,7 +17,7 @@
 
      <div class="form-group col-md-12 mb-3">
         <label for="todate" style="padding-bottom: 10px;">Enter to Date</label><span style="color: red;">*</span>
-       <input type="date" class="form-control" placeholder="Enter To Date" id="fromdate" formControlName="ToDate" name="ToDate"  [ngClass]="{ 'is-invalid': submitted && f.ToDate.errors }">
+       <input type="date" class="form-control" placeholder="Enter To Date" id="todate" formControlName="ToDate" name="ToDate"  [ngClass]="{ 'is-invalid': submitted && f.ToDate.errors }">
        <div *ngIf="submitted && f.ToDate.errors" class="invalid-feedback">
         <div *ngIf="f.ToDate.errors.required" else wrong>Password is required</div>
       </div>
