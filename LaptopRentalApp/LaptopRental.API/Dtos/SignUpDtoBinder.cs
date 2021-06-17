@@ -17,7 +17,7 @@ namespace LaptopRental.API.Dtos
             if (Request.Files.Count == 0)
                 return false;
             HttpPostedFile file = Request.Files[0];
-            var jsonstring = Request.Form.Get("SignUp");
+            var jsonstring = Request.Form.Get("signup");
             var signupdto = JsonConvert.DeserializeObject<SignUpDto>(jsonstring);
             if (signupdto != null)
             {
