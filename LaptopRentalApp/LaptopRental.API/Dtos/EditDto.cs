@@ -7,7 +7,7 @@ using System.Web.Http.ModelBinding;
 namespace LaptopRental.API.Dtos
 {
 
-    [ModelBinder(typeof(EditDtoBinder))]
+    [ModelBinder(typeof(EditBinder))]
     public class EditDto
     {
      
