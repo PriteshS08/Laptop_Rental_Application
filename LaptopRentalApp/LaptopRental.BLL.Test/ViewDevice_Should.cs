@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace LaptopRental.BLL.Test
 {
+    /// <summary>
+    /// ViewDevice_Should class to test the ViewDeviceService
+    /// </summary>
     [TestFixture]
     public class ViewDeviceService_Should
     {
@@ -33,7 +36,7 @@ namespace LaptopRental.BLL.Test
         public void Return_Devices_ForUserId(Device devices)
         {
             var result = service.GetDeviceById(devices.UserId_FK);
-            Assert.IsNotEmpty(result.ToString());
+            CollectionAssert.IsNotEmpty(result.ToString());
         }
     }
 }

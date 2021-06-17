@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LaptopRental.BLL
+namespace LaptopRental.BLL.Services
 {
-    public class Class1
+    public class ViewRequestService
     {
+
     }
 }
