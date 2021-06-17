@@ -45,21 +45,21 @@ namespace LaptopRental.API.Controllers
 
         }
 
-        public HttpResponseMessage GetDeviceById(int id)
-        {
-            LaptopRentalContext context = new LaptopRentalContext();
-            var query = context.Devices.FirstOrDefault(s => s.DeviceId == id);
-            if (query != null)
-            {
+        //public HttpResponseMessage GetDeviceById(int id)
+        //{
+        //    LaptopRentalContext context = new LaptopRentalContext();
+        //    var query = context.Devices.FirstOrDefault(s => s.DeviceId == id);
+        //    if (query != null)
+        //    {
 
-                return Request.CreateResponse(HttpStatusCode.OK, query);
-            }
-            else
-            {
+        //        return Request.CreateResponse(HttpStatusCode.OK, query);
+        //    }
+        //    else
+        //    {
 
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Searched Data not Found");
-            }
+        //        return Request.CreateResponse(HttpStatusCode.NotFound, "Searched Data not Found");
+        //    }
 
-        }
+        //}
     }
 }

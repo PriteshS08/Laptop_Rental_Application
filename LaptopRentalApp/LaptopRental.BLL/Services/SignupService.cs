@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,24 +27,18 @@ namespace LaptopRental.BLL.Services
         public bool Add(User user)
         {
 
-
             try
             {
                 context.Users.Add(user);
-                var rows = context.SaveChanges();
-                if (rows == 1)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return context.SaveChanges() == 1;
             }
             catch (DbException ex)
             {
-                return true;
-                throw new LaptopRentalException("Error in Writing", ex);
+                throw new LaptopRentalException("Database error adding the menu item", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new LaptopRentalException("Unknown error while adding menu items", ex);
             }
 
         }

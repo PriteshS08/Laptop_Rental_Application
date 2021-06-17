@@ -228,6 +228,7 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CatalogueController.cs" />
+    <Compile Include="Controllers\DeleteDeviceController.cs" />
     <Compile Include="Controllers\EditDevicesController.cs" />
     <Compile Include="Controllers\AddDeviceController.cs" />
     <Compile Include="Controllers\ForgotPasswordController.cs" />
@@ -237,6 +238,8 @@
     <Compile Include="Controllers\ViewDevicesController.cs" />
     <Compile Include="Dtos\LoginRequest.cs" />
     <Compile Include="Dtos\LoginResponse.cs" />
+    <Compile Include="Dtos\SignUpDto.cs" />
+    <Compile Include="Dtos\SignUpDtoBinder.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

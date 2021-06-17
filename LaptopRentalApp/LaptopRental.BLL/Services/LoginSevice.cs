@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace LaptopRental.BLL.Services
 {
     /// <summary>
-    /// Loginservice to interact with User databse and perform CRUD operation.
+    /// Loginservice to interact with User databse and perform Authentication.
     /// </summary>
     public class LoginService : IDisposable
     {
