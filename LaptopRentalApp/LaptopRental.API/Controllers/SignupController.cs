@@ -73,7 +73,7 @@ namespace LaptopRental.API.Controllers
                 var isadded = Signupservice.Add(signup);
                 if (isadded)
                     return StatusCode(HttpStatusCode.Created);
-                return BadRequest("Create menu item failed");
+                return BadRequest("registeration failed");
             }
             catch (LaptopRentalException ex)
             {

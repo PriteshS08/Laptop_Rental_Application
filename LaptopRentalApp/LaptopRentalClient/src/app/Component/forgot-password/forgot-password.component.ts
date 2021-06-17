@@ -29,7 +29,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   passwordUpdate(){
     const comp = {
-      userid : this.lc.userID,
+      userid : this.lc.user.UserId,
       password : this.confirmpassword = this.PasswordUpdate.get("confirmpassword")?.value as string
     }
    
