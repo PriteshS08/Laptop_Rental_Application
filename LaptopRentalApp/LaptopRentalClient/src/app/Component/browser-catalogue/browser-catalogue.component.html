@@ -28,7 +28,7 @@
         <button [routerLink]="['/makerequest']"type="submit" class="btn btn-success" >Make Request</button>     
      </div>
      <div style="padding-left: 20px;">        
-       <button [routerLink]="['/viewdevice']" type="submit" class="btn btn-secondary" style="width:10px," >View Details</button>
+       <button [routerLink]="['/viewdevice']" type="submit" (click)="viewDetail();" class="btn btn-secondary" style="width:10px," >View Details</button>
     </div>
     </li>
   </ul>

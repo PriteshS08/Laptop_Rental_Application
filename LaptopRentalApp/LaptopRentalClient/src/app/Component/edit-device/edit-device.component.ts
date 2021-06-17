@@ -37,22 +37,23 @@ export class EditDeviceComponent implements OnInit {
   get f() { return this.UpdateDetailform.controls; }
   
   UpdateDetail(){
-      const DeviceImage = new FormData();
-      DeviceImage.append('image', this.fileToUpload, this.fileToUpload.name);
-      const Detail = {
-        IMEINumber : this.UpdateDetailform.get("IMEINumber")?.value as string,
-        DeviceName : this.UpdateDetailform.get("DeviceName")?.value as string,
-        DeviceSpecification : this.UpdateDetailform.get(" DeviceSpecification")?.value as string,
-        PreInstalledSoftware : this.UpdateDetailform.get("PreInstalledSoftware")?.value as string,
-        DeviceImage : DeviceImage,
-        RentalAmount : this.UpdateDetailform.get("RentalAmount")?.value,
-        MaxRentalMonth : this.UpdateDetailform.get(" MaxRentalMonth")?.value as number,
-        Interest:this.UpdateDetailform.get("Interest")?.value,
-        Status : this.status
-    }
+      const deviceDetail = new FormData();
+      deviceDetail.append('image', this.fileToUpload);
+      deviceDetail.append('SignUp', JSON.stringify(this.UpdateDetailform.value));
+    //   const Detail = {
+    //     IMEINumber : this.UpdateDetailform.get("IMEINumber")?.value as string,
+    //     DeviceName : this.UpdateDetailform.get("DeviceName")?.value as string,
+    //     DeviceSpecification : this.UpdateDetailform.get(" DeviceSpecification")?.value as string,
+    //     PreInstalledSoftware : this.UpdateDetailform.get("PreInstalledSoftware")?.value as string,
+    //     DeviceImage : DeviceImage,
+    //     RentalAmount : this.UpdateDetailform.get("RentalAmount")?.value,
+    //     MaxRentalMonth : this.UpdateDetailform.get(" MaxRentalMonth")?.value as number,
+    //     Interest:this.UpdateDetailform.get("Interest")?.value,
+    //     Status : this.status
+    // }
 
     this.submitted = true;
-    this.device.updateDeviceDetails(Detail).subscribe(
+    this.device.updateDeviceDetails(deviceDetail).subscribe(
       response=>{alert('Update successfull')},
       error=>{alert('Failed')}
   

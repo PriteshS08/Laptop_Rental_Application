@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeviceService } from 'src/app/Service/device.service';
 
 @Component({
   selector: 'app-browser-catalogue',
@@ -11,5 +12,7 @@ export class BrowserCatalogueComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+ 
 
 }

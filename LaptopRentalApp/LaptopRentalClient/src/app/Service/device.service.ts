@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { Observable } from 'rxjs';
@@ -16,9 +16,12 @@ export class DeviceService {
     private lc : LoginComponent) { }
 
 
-  updateDeviceDetails(device: Device):Observable<Device>
+  updateDeviceDetails(device: FormData):Observable<Device>
   {
-   return this.http.put<Device>(this.url+"/EditDevices",device).pipe(
+    const header = new HttpHeaders;
+    header.append('Content-Type', 'application/json');
+    const options = {headers: header};
+    return this.http.put<Device>(this.url+"/EditDevices",device).pipe(
     catchError(this.handleError));
   }
 
@@ -40,8 +43,11 @@ export class DeviceService {
     window.alert(errorMessage);
     return throwError(errorMessage);
   }
-  addDeviceDetails(device: Device):Observable<Device>
+  addDeviceDetails(device: FormData):Observable<Device>
   {
+    const header = new HttpHeaders;
+    header.append('Content-Type', 'application/json');
+    const options = {headers: header};
     return this.http.post<Device>(this.url+"/AddDevice",device);
   }
 
