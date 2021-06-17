@@ -8,6 +8,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using LaptopRental.BLL;
+using LaptopRental.API.Dtos;
+using System.Web;
 
 namespace LaptopRental.API.Controllers
 {
@@ -20,23 +22,37 @@ namespace LaptopRental.API.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage Add([FromBody] Device device)
+        public IHttpActionResult AddDevice(AddDeviceDto dto)
         {
             try
             {
-                AddService.AddDevice(device);
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
-                return Request.CreateResponse(HttpStatusCode.Created);
+                var Obj = new Device();
+                Obj.IMEINumber = dto.IMEINumber;
+                Obj.DeviceName = dto.DeviceName;
+                Obj.DeviceSpecification = dto.DeviceSpecification;
+                Obj.PreInstalledSoftware = dto.PreInstalledSoftware;
+                Obj.Ratings = dto.Ratings;
+                Obj.DeviceImage = dto.DeviceImage;
+                Obj.RentalAmount = dto.RentalAmount;
+                Obj.MaxRentalMonth = dto.MaxRentalMonth;
+                Obj.Interest = dto.Interest;
+                Obj.Status = dto.Status;
+                Obj.UserId_FK = dto.UserId_FK;
+                var uploadfolderpath = HttpContext.Current.Server.MapPath("~/Uploads/");
+                dto.File.SaveAs(uploadfolderpath + dto.DeviceImage);
+                var isadded = AddService.Add(Obj);
+                if (isadded)
+                    return StatusCode(HttpStatusCode.Created);
+                return BadRequest("Add device failed");
+            }
+            catch(LaptopRentalException ex)
+            {
+                return InternalServerError(ex);
+            }
 
-            }
-            catch (LaptopRentalException ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
-            }
         }
     }
 }
