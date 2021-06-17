@@ -235,6 +235,8 @@
     <Compile Include="Controllers\SignupController.cs" />
     <Compile Include="Controllers\ViewDetailsController.cs" />
     <Compile Include="Controllers\ViewDevicesController.cs" />
+    <Compile Include="Dtos\AddDeviceDto.cs" />
+    <Compile Include="Dtos\AddDeviceDtoBinder.cs" />
     <Compile Include="Dtos\LoginRequest.cs" />
     <Compile Include="Dtos\LoginResponse.cs" />
     <Compile Include="Global.asax.cs">
@@ -254,6 +256,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LaptopRental.BLL\LaptopRental.BLL.csproj">
