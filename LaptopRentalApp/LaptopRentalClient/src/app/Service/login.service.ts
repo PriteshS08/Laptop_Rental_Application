@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import { BehaviorSubject, Subject, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, throwError } from 'rxjs';
 import {catchError, map, retry} from 'rxjs/operators';
+import { User } from '../Types/User';
 @Injectable({
   providedIn: 'root'
 })
@@ -33,8 +34,12 @@ export class LoginService {
       catchError(this.handleError)
     )
   }
-  loginStatus(){
-    return this.http.get<number>(this.url).pipe(map((response) => this.flag = response));
+  loginStatus(userobj : any) : Observable<any>{
+    return this.http.get<User>(this.url,userobj).pipe(map((response) => {
+      this.flag = response;
+      return response;
+    }
+    ));
   }
   get logout() {
     return this.http.get(this.url + '/logout')

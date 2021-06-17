@@ -51,20 +51,21 @@ export class SignupComponent implements OnInit {
   Signup() 
  {
   this.submitted = true;
-  const imageproof = new FormData();
-  imageproof.append('image', this.fileToUpload, this.fileToUpload.name);
-  const userDetails = {
-    Name : this.signupForm.get("Name")?.value as string,
-    Gender : this.selectedType as string,
-   // DOB :  this.signupForm.get("DOB")?.value as Date, 
-    Age : this.signupForm.get("Age")?.value as number,
-    Location : this.signupForm.get("Location")?.value as string,
-    PhoneNO : this.signupForm.get("PhoneNO")?.value as string,
-   // IdProof : imageproof,
-    Id_No : this.signupForm.get("Id_No")?.value as string,
-    EmailId:this.signupForm.get("EmailId")?.value as string,
-    PassWord: this.signupForm.get('PassWord')?.value as string
-  }
+  const userDetails = new FormData();
+  userDetails.append('image', this.fileToUpload);
+  userDetails.append('SignUp', JSON.stringify(this.signupForm.value));
+  // const userDetails = {
+  //   Name : this.signupForm.get("Name")?.value as string,
+  //   Gender : this.selectedType as string,
+  //   DOB :  this.signupForm.get("DOB")?.value as Date, 
+  //   Age : this.signupForm.get("Age")?.value as number,
+  //   Location : this.signupForm.get("Location")?.value as string,
+  //   PhoneNO : this.signupForm.get("PhoneNO")?.value as string,
+  //   IdProof : imageproof,
+  //   Id_No : this.signupForm.get("Id_No")?.value as string,
+  //   EmailId:this.signupForm.get("EmailId")?.value as string,
+  //   PassWord: this.signupForm.get('PassWord')?.value as string
+  // }
   this.ss.AddUserDetails(userDetails).subscribe(result => {
     console.log(userDetails);
     this.router.navigate(['/login']);

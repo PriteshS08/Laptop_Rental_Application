@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Service/login.service';
+import { User } from 'src/app/Types/User';
 import { MenuComponent } from '../menu/menu.component';
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   flag: any;
   checkStatus : boolean = false;
   selectedType: string = '';
-  userID : number = 0;
+  user! : User;
   constructor(private ls : LoginService, 
     private router: Router,
     private menu : MenuComponent,
@@ -46,10 +47,10 @@ export class LoginComponent implements OnInit {
             this.ls.isAuthenticated(true);
             this.flag=res;
             this.check();
-            this.checkStatus = true;
+           this.checkStatus = true;
             console.log(this.selectedType);
             this.router.navigate(['/home']);
-            this.CheckStatus();
+            this.CheckStatus(userDetails);
           //   if (this.selectedType== "customer")
           //   {
           //     this.router.navigate(['/customer']);  
@@ -65,9 +66,9 @@ export class LoginComponent implements OnInit {
     this.loginForm.reset();
   }
 
-CheckStatus(){
+CheckStatus(userobj: { EmailId: any; Password: any; }){
   if (this.checkStatus == true) {
-    this.ls.loginStatus().subscribe(res => {this.userID = res});
+    this.ls.loginStatus(userobj).subscribe((res: User)  => {this.user = res});
   }
 }
 
