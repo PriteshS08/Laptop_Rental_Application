@@ -56,14 +56,14 @@ namespace LaptopRental.BLL.Services
 
         }
 
-
-        public Device DeleteDevicebyId(int id)
+      
+        public User GetByUserId(int id)
         {
             try
             {
-                var entity = (from device in context.Devices
-                              where device.UserId_FK == id
-                              select device).SingleOrDefault();
+                var entity = (from user in context.Users
+                              where user.UserId == id
+                              select user).SingleOrDefault();
                 return entity;
             }
             catch (DbException ex)

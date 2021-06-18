@@ -23,9 +23,6 @@ namespace LaptopRental.API.Dtos
         
         public string PreInstalledSoftware { get; set; }
 
-        
-        public double Ratings { get; set; }
-
         public string DeviceImage { get; set; }
 
         

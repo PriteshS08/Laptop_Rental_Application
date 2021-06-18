@@ -16,6 +16,7 @@
                         DeviceName = c.String(nullable: false),
                         DeviceSpecification = c.String(nullable: false),
                         PreInstalledSoftware = c.String(nullable: false),
+                        Ratings = c.Double(nullable: false),
                         DeviceImage = c.String(),
                         RentalAmount = c.Double(nullable: false),
                         MaxRentalMonth = c.Int(nullable: false),
