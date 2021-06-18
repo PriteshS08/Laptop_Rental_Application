@@ -25,6 +25,9 @@ import { AddDeviceComponent } from './Component/add-device/add-device.component'
 import { ViewDetailsComponent } from './Component/view-details/view-details.component';
 import { ViewRequestComponent } from './Component/view-request/view-request.component';
 import { BrowserCatalogueComponent } from './Component/browser-catalogue/browser-catalogue.component';
+import { CommonModule } from '@angular/common';
+import { DeviceService } from './Service/device.service';
+import { RequestService } from './Service/request.service';
 
 
 
@@ -46,18 +49,18 @@ import { BrowserCatalogueComponent } from './Component/browser-catalogue/browser
     BrowserCatalogueComponent
   ],
   imports: [
-    HttpClientModule,
-    FormsModule,
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatInputModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    ReactiveFormsModule
   ],
-  providers: [LoginService, SignupService, ForgotpasswordService],
+  providers: [LoginService, SignupService, ForgotpasswordService, DeviceService, RequestService],
 
   
   bootstrap: [AppComponent]

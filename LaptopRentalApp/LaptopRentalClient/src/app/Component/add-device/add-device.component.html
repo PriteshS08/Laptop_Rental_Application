@@ -3,7 +3,7 @@
 <h2 style="padding-left:500px; padding-bottom: 50px; padding-top:50px;">Add New Devices</h2>
 
 <div class="container">
-  <form novalidate [formGroup]="AddDeviceDetails" (ngSubmit)="AddDetail();">
+  <form novalidate [formGroup]="AddDeviceDetails">
       <div class="row">
           <div class="col-6">
               <div class="form-group row">
@@ -99,8 +99,8 @@
           </div>
       </div>
       <div style="padding-top: 15px; padding-left: 450px;">
-        <span><span><button type="submit" class="btn btn-success" >SAVE</button></span></span> &nbsp;&nbsp;
-        <span><span><button type="submit" class="btn btn-danger" >RESET</button></span></span>
+        <span><span><button type="submit" class="btn btn-success" (click)="AddDetail()">SAVE</button></span></span> &nbsp;&nbsp;
+        <span><span><button type="submit" class="btn btn-danger" (click)="resetDetail()">RESET</button></span></span>
       </div>
     </div>
   </form> 

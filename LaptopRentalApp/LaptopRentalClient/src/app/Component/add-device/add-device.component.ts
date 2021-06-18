@@ -61,6 +61,9 @@ constructor(private formBuilder : FormBuilder, private device : DeviceService) {
         error=>{alert('Failed')}
     
     );}
+    resetDetail() {
+      this.AddDeviceDetails.reset();
+    }
 
 
   }
