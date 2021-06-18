@@ -24,9 +24,6 @@ namespace LaptopRental.DAL.Models
         [Required]
         public string Gender { get; set; }
 
-        
-        [DataType(DataType.Date)]
-        public DateTime DOB { get; set; }
 
         [Required]
         public int Age { get; set; }
