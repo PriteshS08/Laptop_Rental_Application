@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
           if(res) {
             this.ls.isAuthenticated(true);
             this.flag=res;
+            this.user = res;
            // this.check();
            //this.checkStatus = true;
            // console.log(this.selectedType);
