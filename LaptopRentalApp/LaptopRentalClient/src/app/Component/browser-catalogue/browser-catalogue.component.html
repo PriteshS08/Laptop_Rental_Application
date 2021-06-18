@@ -9,26 +9,26 @@
       <div class="ms-2 me-auto" style="padding-right:600px;">
         <div>
         <span><label>Device Name :</label></span> &nbsp;
-        <span class="fw-bold">{{d.DeviceName}</Span>
+        <span class="fw-bold">{{d.DeviceName}</span>
         </div>
         <div>
             <span><label>Device Specifications :</label></span> &nbsp;
-            <span class="fw-bold">{{d.DeviceSpecification}}</Span>
+            <span class="fw-bold">{{d.DeviceSpecification}}</span>
         </div>
         <div>
             <span><label>Rating :</label></span> &nbsp;
-            <span class="fw-bold">{{d.Rating}}</Span>
+            <span class="fw-bold">{{d.Ratings}}</span>
         </div>
         <div>
             <span><label>IMEINumber :</label></span> &nbsp;
-            <span class="fw-bold">{{d.IMEINumber}}</Span>
+            <span class="fw-bold">{{d.IMEINumber}}</span>
         </div>
     </div>
       <div>
         <button [routerLink]="['/makerequest']"type="submit" class="btn btn-success" >Make Request</button>     
      </div>
      <div style="padding-left: 20px;">        
-       <button [routerLink]="['/viewdevice']" type="submit" (click)="viewDetail('{{d.IMEINumber}}');" class="btn btn-secondary" style="width:10px," >View Details</button>
+       <button [routerLink]="['/viewdevice']" type="submit" (click)="viewDetail(d.IMEINumber);" class="btn btn-secondary" style="width:10px," >View Details</button>
     </div>
     </li>
   </ul>

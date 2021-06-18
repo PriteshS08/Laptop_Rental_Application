@@ -1,11 +1,13 @@
+
 export class Device {
     constructor (
         public DeviceId : number,
-        public IMEINumber : String,
-        public DeviceName : String,
-        public DeviceSpecification : String,
-        public PreInstalledSoftware : String,
+        public IMEINumber : string,
+        public DeviceName : string,
+        public DeviceSpecification : string,
+        public PreInstalledSoftware : string,
         public DeviceImage : FormData,
+        public Ratings : Float32Array,
         public RentalAmount : any,
         public MaxRentalMonth : Number,
         public Interest : any,
