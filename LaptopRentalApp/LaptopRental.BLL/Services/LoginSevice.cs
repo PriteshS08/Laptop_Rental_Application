@@ -41,7 +41,7 @@ namespace LaptopRental.BLL.Services
                 {
                     var result = (from user in context.Users
                                   where user.EmailId == emailId
-                                  select new { user.UserId, user.EmailId}).Single();
+                                  select new { user.UserId, user.EmailId }).Single();
                     if (result != null)
                     {
                         return true;
@@ -63,31 +63,32 @@ namespace LaptopRental.BLL.Services
 
         }
 
-        public User ReturnUser(string emailId, string password)
-        {
-            try
-            {
-                var result = (from user in context.Users
-                              where user.EmailId == emailId
-                              select user).SingleOrDefault();
-                if (result!=null)
-                {
-                    return result;
-                }
-                return result;
-            }
-            catch (DbException ex)
-            {
-                throw new LaptopRentalException("Error reading data", ex);
-            }
+        //public User ReturnUser(string emailId, string password)
+        //{
+        //    try
+        //    {
+        //        var result = (from user in context.Users
+        //                      where user.EmailId == emailId
+        //                      select user).SingleOrDefault();
+        //        if (result!=null)
+        //        {
+        //            return result;
+        //        }
+        //        return result;
+        //    }
+        //    catch (DbException ex)
+        //    {
+        //        throw new LaptopRentalException("Error reading data", ex);
+        //    }
 
-            catch (Exception ex)
-            {
-                throw new LaptopRentalException("UnKnown Error while reading data", ex);
-            }
+        //    catch (Exception ex)
+        //    {
+        //        throw new LaptopRentalException("UnKnown Error while reading data", ex);
+        //    }
 
-        }
+    }
+
 
 
     }
-}
+

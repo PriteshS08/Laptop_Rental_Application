@@ -46,14 +46,14 @@ namespace LaptopRental.API.Controllers
             return Ok(LoginReq);
         }
 
-        [HttpGet]
-        public IHttpActionResult GetUser([FromBody] LoginRequest model)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-            var obj = loginService.ReturnUser(model.EmailId, model.Password);
-            return Ok(obj);
-        }
+        //[HttpGet]
+        //public IHttpActionResult GetUser([FromBody] LoginRequest model)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return BadRequest(ModelState);
+        //    var obj = loginService.ReturnUser(model.EmailId, model.Password);
+        //    return Ok(obj);
+        //}
 
     }
 }
