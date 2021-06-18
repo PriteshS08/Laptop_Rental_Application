@@ -36,6 +36,8 @@ namespace LaptopRental.API.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns> Ok if Validation is Succesfull </returns>
+
+
         [HttpPost]
         [ResponseType(typeof(LoginResponse))]
         public IHttpActionResult Post([FromBody] LoginRequest model)
@@ -46,14 +48,7 @@ namespace LaptopRental.API.Controllers
             return Ok(LoginReq);
         }
 
-        //[HttpGet]
-        //public IHttpActionResult GetUser([FromBody] LoginRequest model)
-        //{
-        //    if (!ModelState.IsValid)
-        //        return BadRequest(ModelState);
-        //    var obj = loginService.ReturnUser(model.EmailId, model.Password);
-        //    return Ok(obj);
-        //}
+       
 
     }
 }

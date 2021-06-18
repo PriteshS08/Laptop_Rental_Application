@@ -25,8 +25,6 @@ namespace LaptopRental.DAL.Models
         [Required]
         public string PreInstalledSoftware { get; set; }
 
-        [Required]
-        public double Ratings { get; set; }
 
         public string DeviceImage { get; set; }
 
