@@ -34,13 +34,13 @@ export class DeviceService {
 
   }
 
-  GetUser() : Observable<any>
-  {
-    return this.http.get<User>(this.url+"/ViewDevices"+  window.localStorage.getItem("UserId")
-    ).pipe(map((response: any) => {return response}),
-    catchError(this.handleError));
+  // GetUser() : Observable<any>
+  // {
+  //   return this.http.get<User>(this.url+"/ViewDevices"+  window.localStorage.getItem("UserId")
+  //   ).pipe(map((response: any) => {return response}),
+  //   catchError(this.handleError));
 
-  }
+  // }
 
   handleError(error:any) {
     let errorMessage = '';
