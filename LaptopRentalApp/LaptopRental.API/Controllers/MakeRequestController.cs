@@ -20,7 +20,7 @@ namespace LaptopRental.API.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage AddRequest(Request req)
+        public HttpResponseMessage AddRequest([FromBody] Request req)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace LaptopRental.API.Controllers
                 //    return BadRequest(ModelState);
 
                 var Obj = new Request();
-                Obj.RequestId = req.RequestId;
+               
                 Obj.RequestDate = req.RequestDate;
                 Obj.FromDate = req.FromDate;
                 Obj.ToDate = req.ToDate;
