@@ -2,6 +2,7 @@ import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LoginService } from 'src/app/Service/login.service';
+import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
 
 @Injectable({ 
@@ -23,13 +24,18 @@ export class MenuComponent implements OnInit {
   constructor(
   private signup : SignupComponent,
   private ls:LoginService,
-  private router: Router
+  private router: Router,
+  private lc : LoginComponent
   ){
     this.usersignupcheck = this.signup.usersignup;
   }
 ngOnInit(){
   this.router.navigate([''])
   this.subs = this.ls.OnLoggedIn.subscribe(res => this.userLoggedIn = res);
+  if (this.userLoggedIn == true)
+  {
+    this.lc.CheckStatus();
+  }
 }
 logoutCheck(){
   this.flag1="false";

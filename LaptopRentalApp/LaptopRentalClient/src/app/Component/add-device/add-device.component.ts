@@ -26,7 +26,7 @@ constructor(private formBuilder : FormBuilder, private device : DeviceService) {
       DeviceName : ['', [Validators.compose([Validators.required])]],
       DeviceSpecification : ['', [Validators.compose([Validators.required])]],
       PreInstalledSoftware : ['', [Validators.compose([Validators.required])]],
-      DeviceImage : ['', [Validators.compose([Validators.required])]],
+     // DeviceImage : ['', [Validators.compose([Validators.required])]],
       RentalAmount : ['', [Validators.compose([Validators.required])]],
       MaxRentalMonth : ['', [Validators.compose([Validators.required])]],
       Interest: ['', [Validators.compose([Validators.required])]]

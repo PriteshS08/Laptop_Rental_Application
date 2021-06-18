@@ -8,6 +8,8 @@ import { MenuComponent } from '../menu/menu.component';
 @Injectable({ 
   providedIn: 'root'
  })
+ 
+ 
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,7 @@ export class LoginComponent implements OnInit {
   submitted : boolean =  false;
   loginForm= new FormGroup({});
   flag: any;
-  checkStatus : boolean = false;
+  //checkStatus : boolean = false;
   selectedType: string = '';
   user! : User;
   constructor(private ls : LoginService, 
@@ -51,11 +53,11 @@ export class LoginComponent implements OnInit {
             this.ls.isAuthenticated(true);
             this.flag=res;
             this.check();
-           this.checkStatus = true;
-            console.log(this.selectedType);
+           //this.checkStatus = true;
+           // console.log(this.selectedType);
             this.router.navigate(['/home']);
-            this.CheckStatus(userDetails);
-            console.log(this.checkStatus);
+            //this.CheckStatus(userDetails);
+           // console.log(this.checkStatus);
           //   if (this.selectedType== "customer")
           //   {
           //     this.router.navigate(['/customer']);  
@@ -68,13 +70,12 @@ export class LoginComponent implements OnInit {
           alert('Invalid username/password');
         }
       );
-    this.loginForm.reset();
+    //this.loginForm.reset();
   }
 
-CheckStatus(userobj: { EmailId: any; Password: any; }){
-  if (this.checkStatus == true) {
+CheckStatus() {
+  const userobj = this.flag;
     this.ls.loginStatus(userobj).subscribe((res: User)  => {this.user = res});
-  }
 }
 
 createacc() {

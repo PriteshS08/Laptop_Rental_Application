@@ -44,5 +44,69 @@ namespace LaptopRental.BLL.Services
             }
 
         }
+
+        public bool Update(int deviceid)
+        {
+            try
+            {
+                var query = context.Requests.FirstOrDefault(s => s.DeviceId_FK == deviceid);
+                var obj = context.Devices.FirstOrDefault(s => s.DeviceId == deviceid);
+                if (query != null)
+                {
+                    query.RequestStatus ="Accepted";
+                    obj.Status = "Not Active";
+                    var rows = context.SaveChanges();
+                    if (rows == 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+                return false;
+
+            }
+
+            catch (DbException ex)
+            {
+                return true;
+                throw new LaptopRentalException("Error in updating", ex);
+            }
+        }
+
+        public bool Delete(int deviceid)
+        {
+            try
+            {
+                var query = context.Requests.FirstOrDefault(s => s.DeviceId_FK == deviceid);
+               
+                if (query != null)
+                {
+                  
+                  
+                    var rows = context.SaveChanges();
+                    if (rows == 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+                return false;
+
+            }
+
+            catch (DbException ex)
+            {
+                return true;
+                throw new LaptopRentalException("Error in updating", ex);
+            }
+        }
     }
 }
