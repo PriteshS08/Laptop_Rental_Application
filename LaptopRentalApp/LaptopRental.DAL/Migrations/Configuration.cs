@@ -19,7 +19,6 @@
             {
                 Name = "Jojo",
                 Gender = "Male",
-                DOB = Convert.ToDateTime("1998-04-03"),
                 Age = 23,
                 Location = "Chennai",
                 PhoneNO = "9933224455",
