@@ -32,7 +32,7 @@ namespace LaptopRental.BLL.Services
         /// <param name="password"></param>
         /// <returns> true/false based on given mailId and password</returns>
 
-        public bool Authenticate(string emailId, string password)
+        public User Authenticate(string emailId, string password)
         {
             try
             {
@@ -40,13 +40,10 @@ namespace LaptopRental.BLL.Services
                 {
                     var result = (from user in context.Users
                                   where user.EmailId == emailId
-                                  select new { user.UserId, user.EmailId }).Single();
-                    if (result != null)
-                    {
-                        return true;
-                    }
+                                  select user).SingleOrDefault();
+                    return result;
                 }
-                return false;
+                return new User();
             }
             catch (DbException ex)
             {

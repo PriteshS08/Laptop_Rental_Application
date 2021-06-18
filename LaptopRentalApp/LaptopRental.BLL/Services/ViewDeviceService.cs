@@ -57,25 +57,25 @@ namespace LaptopRental.BLL.Services
         }
 
       
-        public User GetByUserId(int id)
-        {
-            try
-            {
-                var entity = (from user in context.Users
-                              where user.UserId == id
-                              select user).SingleOrDefault();
-                return entity;
-            }
-            catch (DbException ex)
-            {
-                throw new LaptopRentalException("Error reading data", ex);
-            }
+        //public User GetByUserId(int id)
+        //{
+        //    try
+        //    {
+        //        var entity = (from user in context.Users
+        //                      where user.UserId == id
+        //                      select user).SingleOrDefault();
+        //        return entity;
+        //    }
+        //    catch (DbException ex)
+        //    {
+        //        throw new LaptopRentalException("Error reading data", ex);
+        //    }
 
-            catch (Exception ex)
-            {
-                throw new LaptopRentalException("UnKnown Error while reading data", ex);
-            }
-        }
+        //    catch (Exception ex)
+        //    {
+        //        throw new LaptopRentalException("UnKnown Error while reading data", ex);
+        //    }
+        //}
 
 
     }
