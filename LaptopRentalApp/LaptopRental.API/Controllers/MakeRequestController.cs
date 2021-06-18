@@ -25,19 +25,19 @@ namespace LaptopRental.API.Controllers
             try
             {
                 //if (!ModelState.IsValid)
-                //    return BadRequest(ModelState);
+                //    return Request.CreateErrorResponse(HttpStatusCode.BadRequest,ModelState);
 
                 var Obj = new Request();
-               
+
                 Obj.RequestDate = req.RequestDate;
                 Obj.FromDate = req.FromDate;
                 Obj.ToDate = req.ToDate;
                 Obj.RequestStatus = req.RequestStatus;
                 Obj.DeviceId_FK = req.DeviceId_FK;
 
-                var isadded = Mks.AddRequest(Obj);
-                if (isadded)
-                    return Request.CreateResponse(HttpStatusCode.Created, Obj);
+                var isadded = Mks.AddRequest(req);
+                if (isadded==true)
+                    return Request.CreateResponse(HttpStatusCode.Created, isadded);
 
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
