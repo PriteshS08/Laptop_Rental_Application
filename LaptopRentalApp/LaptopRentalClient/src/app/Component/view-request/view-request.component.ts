@@ -4,8 +4,8 @@ import { Device } from 'src/app/Types/Device';
 import { DeviceRequest } from 'src/app/Types/Request';
 import { User } from 'src/app/Types/User';
 import { BrowserCatalogueComponent } from '../browser-catalogue/browser-catalogue.component';
-import { LoginComponent } from '../login/login.component';
 import { MakeRequestComponent } from '../make-request/make-request.component';
+import { ViewDetailsComponent } from '../view-details/view-details.component';
 
 @Component({
   selector: 'app-view-request',
@@ -18,11 +18,11 @@ export class ViewRequestComponent implements OnInit {
   requestDetails! : DeviceRequest;
   deviceId! : number;
   constructor(private bc : BrowserCatalogueComponent,
-    private lc : LoginComponent,
+    private vd : ViewDetailsComponent,
     private mr : MakeRequestComponent,
     private rs : RequestService) { 
       this.deviceDetails = this.bc.devicedetail;
-      this.userDetails = this.lc.user;
+      this.userDetails = this.vd.userDetails;
       this.requestDetails = this.mr.requestDetails;
     }
   ngOnInit(): void {

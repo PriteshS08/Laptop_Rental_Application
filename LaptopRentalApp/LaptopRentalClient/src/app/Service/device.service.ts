@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { LoginComponent } from '../Component/login/login.component';
 import { Device } from '../Types/Device';
+import { User } from '../Types/User';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,14 @@ export class DeviceService {
   GetDevices() : Observable<any>
   {
     return this.http.get<Device[]>(this.url+"/ViewDevices"+  window.localStorage.getItem("UserId")
+    ).pipe(map((response: any) => {return response}),
+    catchError(this.handleError));
+
+  }
+
+  GetUser() : Observable<any>
+  {
+    return this.http.get<User>(this.url+"/ViewDevices"+  window.localStorage.getItem("UserId")
     ).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
 
