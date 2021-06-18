@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Service/login.service';
 import { User } from 'src/app/Types/User';
 import { MenuComponent } from '../menu/menu.component';
+
+@Injectable({ 
+  providedIn: 'root'
+ })
 
 @Component({
   selector: 'app-login',
@@ -51,6 +55,7 @@ export class LoginComponent implements OnInit {
             console.log(this.selectedType);
             this.router.navigate(['/home']);
             this.CheckStatus(userDetails);
+            console.log(this.checkStatus);
           //   if (this.selectedType== "customer")
           //   {
           //     this.router.navigate(['/customer']);  

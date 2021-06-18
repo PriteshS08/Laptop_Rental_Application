@@ -56,7 +56,7 @@ import { BrowserCatalogueComponent } from './Component/browser-catalogue/browser
     MatNativeDateModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    FormGroup 
+    //FormGroup 
   ],
   providers: [LoginService, SignupService, ForgotpasswordService],
 
