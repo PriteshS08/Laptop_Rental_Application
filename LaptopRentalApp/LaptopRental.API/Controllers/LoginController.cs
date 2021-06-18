@@ -47,11 +47,11 @@ namespace LaptopRental.API.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult GetUser([FromBody] string emailid , string password)
+        public IHttpActionResult GetUser([FromBody] LoginRequest model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var obj = loginService.ReturnUser(emailid, password);
+            var obj = loginService.ReturnUser(model.EmailId, model.Password);
             return Ok(obj);
         }
 

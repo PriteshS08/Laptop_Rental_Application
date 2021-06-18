@@ -63,13 +63,13 @@ namespace LaptopRental.BLL.Services
 
         }
 
-        public List<User> ReturnUser(string emailId, string password)
+        public User ReturnUser(string emailId, string password)
         {
             try
             {
                 var result = (from user in context.Users
                               where user.EmailId == emailId
-                              select user).ToList();
+                              select user).SingleOrDefault();
                 if (result!=null)
                 {
                     return result;

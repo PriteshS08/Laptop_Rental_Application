@@ -17,6 +17,7 @@ AddDeviceDetails = new FormGroup({});
 submitted:boolean=false;
 fileToUpload!: File ;
 status : string = "Available";
+//ratings: number = 5.0;
 constructor(private formBuilder : FormBuilder, private device : DeviceService) { }
 
   ngOnInit(): void {
@@ -29,8 +30,8 @@ constructor(private formBuilder : FormBuilder, private device : DeviceService) {
      // DeviceImage : ['', [Validators.compose([Validators.required])]],
       RentalAmount : ['', [Validators.compose([Validators.required])]],
       MaxRentalMonth : ['', [Validators.compose([Validators.required])]],
-      Interest: ['', [Validators.compose([Validators.required])]]
-     
+      Interest: ['', [Validators.compose([Validators.required])]],
+      Ratings : ['5.0']
     });
   }
   onUploadFile(event : any) {  
