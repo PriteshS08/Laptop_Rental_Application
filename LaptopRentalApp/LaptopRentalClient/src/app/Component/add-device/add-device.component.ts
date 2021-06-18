@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DeviceService } from 'src/app/Service/device.service';
+
+@Injectable({ 
+  providedIn: 'root'
+ })
 
 
 @Component({

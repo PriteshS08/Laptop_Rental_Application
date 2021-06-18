@@ -10,6 +10,7 @@ import { MenuComponent } from '../menu/menu.component';
  })
  
  
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -56,6 +57,7 @@ export class LoginComponent implements OnInit {
            // console.log(this.selectedType);
             this.router.navigate(['/home']);
             //this.CheckStatus(userDetails);
+           // console.log(this.checkStatus);
           //   if (this.selectedType== "customer")
           //   {
           //     this.router.navigate(['/customer']);  

@@ -16,11 +16,11 @@ namespace LaptopRental.BLL.Services
         {
             context = new LaptopRentalContext();
         }
-        public bool Update(int userid, User user)
+        public bool Update(string emailId, User user)
         {
             try
             {
-                var query = context.Users.FirstOrDefault(s => s.UserId ==userid);
+                var query = context.Users.FirstOrDefault(s => s.EmailId == emailId);
                 if (query != null)
                 {
                     query.PassWord = user.PassWord;
@@ -40,7 +40,6 @@ namespace LaptopRental.BLL.Services
             
              catch (DbException ex)
             {
-                return true;
                 throw new LaptopRentalException("Error in updating", ex);
             }
         }

@@ -21,12 +21,12 @@ namespace LaptopRental.API.Controllers
             fps = new ForgotPasswordService();
         }
         [HttpPut]
-        [Route("api/ForgotPassword/{userid}")]
-        public HttpResponseMessage UpdatePassword([FromUri] int userid, [FromBody] User password)
+       
+        public HttpResponseMessage UpdatePassword([FromBody] string emailId, [FromBody] User PassWord)
         {
             try
             {
-                var res = fps.Update(userid, password);
+                var res = fps.Update(emailId, PassWord);
                 if (res == true)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK);
