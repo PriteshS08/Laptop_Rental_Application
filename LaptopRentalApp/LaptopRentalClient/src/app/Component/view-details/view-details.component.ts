@@ -4,7 +4,6 @@ import { DeviceService } from 'src/app/Service/device.service';
 import { Device } from 'src/app/Types/Device';
 import { User } from 'src/app/Types/User';
 import { BrowserCatalogueComponent } from '../browser-catalogue/browser-catalogue.component';
-import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-view-details',
@@ -15,10 +14,11 @@ export class ViewDetailsComponent implements OnInit {
   deviceDetails!:Device;
   userDetails! : User;
   constructor(private bc : BrowserCatalogueComponent,
-    private lc : LoginComponent,
+    private ds : DeviceService,
     private router : Router) { 
       this.deviceDetails = this.bc.devicedetail;
-      this.userDetails = this.lc.user;
+      this.ds.GetUser().subscribe((Response:User)=>this.userDetails=Response,
+    error=>{alert('Error in fetching data')});
     }
 
   ngOnInit(): void {
