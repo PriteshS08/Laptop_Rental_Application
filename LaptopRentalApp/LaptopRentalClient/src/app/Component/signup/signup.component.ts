@@ -28,7 +28,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     this.signupForm=this.formBuilder.group({
       Name : ['', [Validators.compose([Validators.required,Validators.minLength(8)])]],
-      Gender : ['', [Validators.compose([Validators.required])]],
+      Gender : ['Female', [Validators.compose([Validators.required])]],
      // DOB : ['', [Validators.compose([Validators.required,Validators.pattern("^(?:1[8-9]|[2-5][0-9]|60)$")])]],
       Age : ['', [Validators.compose([Validators.required])]],
       Location : ['', [Validators.compose([Validators.required])]],

@@ -7,7 +7,7 @@ export class Device {
         public DeviceSpecification : string,
         public PreInstalledSoftware : string,
         public DeviceImage : FormData,
-        public Ratings : Float32Array,
+        public Ratings : number,
         public RentalAmount : any,
         public MaxRentalMonth : Number,
         public Interest : any,

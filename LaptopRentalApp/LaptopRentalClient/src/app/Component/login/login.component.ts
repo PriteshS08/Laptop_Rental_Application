@@ -52,11 +52,15 @@ export class LoginComponent implements OnInit {
           if(res) {
             this.ls.isAuthenticated(true);
             this.flag=res;
-            this.check();
+           // this.check();
            //this.checkStatus = true;
            // console.log(this.selectedType);
             this.router.navigate(['/home']);
-            //this.CheckStatus(userDetails);
+            this.CheckStatus();
+
+            window.localStorage.setItem("UserId","value");
+           
+           //returns the stored value
            // console.log(this.checkStatus);
           //   if (this.selectedType== "customer")
           //   {
@@ -74,7 +78,7 @@ export class LoginComponent implements OnInit {
   }
 
 CheckStatus() {
-  const userobj = this.flag;
+  const userobj = this.loginForm.get("email")?.value;
     this.ls.loginStatus(userobj).subscribe((res: User)  => {this.user = res});
 }
 

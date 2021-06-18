@@ -1,36 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, Injectable, OnInit } from '@angular/core';
+import { FormBuilder,FormGroup, Validators} from '@angular/forms';
 import { RequestService } from 'src/app/Service/request.service';
+import { DeviceRequest } from 'src/app/Types/Request';
 import { BrowserCatalogueComponent } from '../browser-catalogue/browser-catalogue.component';
 
+@Injectable({ 
+  providedIn: 'root'
+ })
+ 
 @Component({
   selector: 'app-make-request',
   templateUrl: './make-request.component.html',
   styleUrls: ['./make-request.component.css']
 })
 export class MakeRequestComponent implements OnInit {
-  requestForm= new FormGroup({});
+  frm : any = null;
   submitted : boolean =  false;
   requestStatus : string = "Pending";
-  requestDetails! : Request;
+  requestDetails! : DeviceRequest;
   constructor(public formBuilder:FormBuilder,
     private bc : BrowserCatalogueComponent,
-    private rs : RequestService) { }
+    private rs : RequestService) {
+      this.frm=this.formBuilder.group({
+        FromDate : ['', [Validators.compose([Validators.required])]],
+        ToDate : ['', [Validators.compose([Validators.required])]],
+      });
+     }
 
   ngOnInit(): void {
-    this.requestForm=this.formBuilder.group({
-      FromDate : ['', [Validators.compose([Validators.required])]],
-      ToDate : ['', [Validators.compose([Validators.required])]],
-    });
   }
-  get f() { return this.requestForm.controls; }
+  get f() { return this.frm.controls; }
 
   makeRequest() {
     this.submitted = true;
     const rentingDetails = {
     RequestDate : new Date(),
-    FromDate: this.requestForm.get("FromDate")?.value,
-    ToDate: this.requestForm.get('ToDate')?.value,
+    FromDate: this.frm.get("FromDate")?.value,
+    ToDate: this.frm.get('ToDate')?.value,
     RequestStatus : this.requestStatus,
     DeivceId_FK : this.bc.devicedetail.DeviceId
     }

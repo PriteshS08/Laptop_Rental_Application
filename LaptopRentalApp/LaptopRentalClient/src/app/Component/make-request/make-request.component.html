@@ -1,26 +1,25 @@
+ 
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
 
-<!-- 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <div class="container-fluid login">
     <h1 style="padding-top: 15px; padding-left: 580px;"><strong>Make Request</strong></h1>
     <div class="d-flex justify-content-center">
-  <form [formGroup]="requestForm"  novalidate (ngSubmit)="makeRequest();" >
+      <form formGroup="frm"  novalidate (ngSubmit)="makeRequest()" >
   
- <input type="text" class="form-control" placeholder="Enter Your Email-id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" id="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
       <div class="form-group col-md-12 mb-3">
         <label for="fromdate" style="padding-bottom: 10px;">Enter From Date</label><span style="color: red;">*</span>
-       <input type="date" class="form-control" placeholder="Enter From Date" id="fromdate" formControlName="FromDate" name="FromDate"  [ngClass]="{ 'is-invalid': submitted && f.FromDate.errors }">
+       <input type="date" class="form-control" placeholder="Enter From Date" id="fromdate" formControlName="FromDate" name="FromDate" >
        <div *ngIf="submitted && f.FromDate.errors" class="invalid-feedback">
-        <div *ngIf="f.FromDate.errors.required" else wrong>Password is required</div>
+        <div *ngIf="f.FromDate.errors.required" else wrong>From Date is required</div>
       </div>
      </div>
 
 
      <div class="form-group col-md-12 mb-3">
         <label for="todate" style="padding-bottom: 10px;">Enter to Date</label><span style="color: red;">*</span>
-       <input type="date" class="form-control" placeholder="Enter To Date" id="todate" formControlName="ToDate" name="ToDate"  [ngClass]="{ 'is-invalid': submitted && f.ToDate.errors }">
+       <input type="date" class="form-control" placeholder="Enter To Date" id="todate" formControlName="ToDate" name="ToDate">
        <div *ngIf="submitted && f.ToDate.errors" class="invalid-feedback">
-        <div *ngIf="f.ToDate.errors.required" else wrong>Password is required</div>
+        <div *ngIf="f.ToDate.errors.required" else wrong>To Date is required</div>
       </div>
      </div>
    
@@ -30,10 +29,9 @@
     </div>
 
   </form>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script> -->
   </div>
 </div> 
-   -->
 
    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
    <div class="container-fluid login">
@@ -76,5 +74,5 @@
      </form>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
      </div>
-   </div>
-      -->
+   </div> -->
+     

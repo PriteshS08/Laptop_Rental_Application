@@ -1,4 +1,4 @@
-export class Device {
+export class DeviceRequest {
     constructor (
         public RequestId : number,
         public RequestDate : Date,

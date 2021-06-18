@@ -59,7 +59,6 @@ namespace LaptopRental.API.Controllers
                 var signup = new User();
                 signup.Name = dto.Name;
                 signup.Gender = dto.Gender;
-                signup.DOB = dto.DOB;
                 signup.Age = dto.Age;
                 signup.Location = dto.Location;
                 signup.PhoneNO = dto.PhoneNO;
