@@ -34,13 +34,13 @@ export class LoginService {
       catchError(this.handleError)
     )
   }
-  loginStatus(userobj : any) : Observable<any>{
-    return this.http.get<User>(this.url,userobj).pipe(map((response) => {
-      this.flag = response;
-      return response;
-    }
-    ));
-  }
+  // loginStatus(userobj : any) : Observable<any>{
+  //   return this.http.get<User>(this.url,userobj).pipe(map((response) => {
+  //     this.flag = response;
+  //     return response;
+  //   }
+  //   ));
+  // }
   get logout() {
     return this.http.get(this.url + '/logout')
         .pipe(map((response) => {
