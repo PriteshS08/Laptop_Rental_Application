@@ -28,17 +28,23 @@ export class DeviceService {
 
   GetDevices() : Observable<any>
   {
-    return this.http.get<Device[]>(this.url+"/ViewDevices"+  window.localStorage.getItem("UserId")
+    return this.http.get<Device[]>(this.url+"/ViewDevices/GetDevice"+  window.localStorage.getItem("UserId")
     ).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
 
   }
+
 
   // GetUser() : Observable<any>
   // {
   //   return this.http.get<User>(this.url+"/ViewDevices"+  window.localStorage.getItem("UserId")
   //   ).pipe(map((response: any) => {return response}),
   //   catchError(this.handleError));
+  GetUser() : Observable<any>
+  {
+    return this.http.get<User>(this.url+"/ViewDevices/GetUser"+  window.localStorage.getItem("UserId")
+    ).pipe(map((response: any) => {return response}),
+    catchError(this.handleError));
 
   // }
 
