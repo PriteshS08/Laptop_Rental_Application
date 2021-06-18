@@ -19,7 +19,8 @@ export class ForgotPasswordComponent implements OnInit {
 
   ngOnInit(): void {
     this.PasswordUpdate=this.formBuilder.group({
-      password : ['', [Validators.compose([Validators.required])]],
+      EmailId : ['', [Validators.compose([Validators.required, Validators.pattern( "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"), Validators.minLength(1)])]],
+      PassWord : ['', [Validators.compose([Validators.required])]],
       confirmpassword : ['', [Validators.compose([Validators.required])]]
      
   });
@@ -29,8 +30,8 @@ export class ForgotPasswordComponent implements OnInit {
 
   passwordUpdate(){
     const comp = {
-      userid : this.lc.user.UserId,
-      password : this.confirmpassword = this.PasswordUpdate.get("confirmpassword")?.value as string
+     EmailId : this.PasswordUpdate.get("email")?.value,
+     PassWord : this.confirmpassword = this.PasswordUpdate.get("confirmpassword")?.value as string
     }
    
     this.fs.UpdatePassword(comp).subscribe(response => {alert('Password updated successfully')},

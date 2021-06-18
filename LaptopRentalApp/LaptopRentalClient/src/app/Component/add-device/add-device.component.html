@@ -32,7 +32,7 @@
                 <div style="padding-top: 15px;  padding-left: 100px;">
                   <label>Upload Device Image</label>
                   &nbsp;&nbsp;
-                  <input type='file' formControlName="UploadDeviceImage" (change)="onUploadFile($event)">
+                  <input type='file' (change)="onUploadFile($event)">
                   <div *ngIf="submitted && f.UploadDeviceImage.errors" class="invalid-feedback">
                     <div style="color: red" *ngIf="f.UploadDeviceImage.errors.required">Upload Device Image is required</div>  
                   </div>
