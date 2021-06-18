@@ -11,6 +11,7 @@ import { AddDeviceComponent } from './Component/add-device/add-device.component'
 import { ViewDevicesComponent } from './Component/view-devices/view-devices.component';
 import { ViewRequestComponent } from './Component/view-request/view-request.component';
 import { MakeRequestComponent } from './Component/make-request/make-request.component';
+import { BrowserCatalogueComponent } from './Component/browser-catalogue/browser-catalogue.component';
 
 const routes: Routes = [
     {path : 'login' , component : LoginComponent},
@@ -22,8 +23,9 @@ const routes: Routes = [
     {path : 'adddevice' , component : AddDeviceComponent},
     {path : 'fpassword' , component : ForgotPasswordComponent},
     {path : 'viewdevice' , component : ViewDevicesComponent},
-    {path : 'ViewComments' , component : ViewRequestComponent},
+    {path : 'viewrequest' , component : ViewRequestComponent},
     {path : 'makerequest' , component : MakeRequestComponent},
+    {path : 'catalogue' , component : BrowserCatalogueComponent},
     {path:'',redirectTo:'login', pathMatch: 'full' }
 ];
 
