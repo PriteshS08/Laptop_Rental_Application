@@ -56,7 +56,11 @@ export class LoginComponent implements OnInit {
            //this.checkStatus = true;
            // console.log(this.selectedType);
             this.router.navigate(['/home']);
-            //this.CheckStatus(userDetails);
+            this.CheckStatus();
+
+            window.localStorage.setItem("UserId","value");
+           
+           //returns the stored value
            // console.log(this.checkStatus);
           //   if (this.selectedType== "customer")
           //   {
@@ -73,10 +77,10 @@ export class LoginComponent implements OnInit {
     //this.loginForm.reset();
   }
 
-// CheckStatus() {
-//   const userobj = this.loginForm.get("email")?.value;
-//     this.ls.loginStatus(userobj).subscribe((res: User)  => {this.user = res});
-// }
+CheckStatus() {
+  const userobj = this.loginForm.get("email")?.value;
+    this.ls.loginStatus(userobj).subscribe((res: User)  => {this.user = res});
+}
 
 createacc() {
   this.router.navigate(['/signup']);

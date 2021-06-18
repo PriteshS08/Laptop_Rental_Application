@@ -25,17 +25,17 @@ export class MenuComponent implements OnInit {
   private signup : SignupComponent,
   private ls:LoginService,
   private router: Router,
-  private lc : LoginComponent
+ // private lc : LoginComponent
   ){
     this.usersignupcheck = this.signup.usersignup;
   }
 ngOnInit(){
   this.router.navigate([''])
   this.subs = this.ls.OnLoggedIn.subscribe(res => this.userLoggedIn = res);
-  if (this.userLoggedIn == true)
-  {
-    this.lc.CheckStatus();
-  }
+  // if (this.userLoggedIn == true)
+  // {
+  //   this.lc.CheckStatus();
+  // }
 }
 logoutCheck(){
   this.flag1="false";

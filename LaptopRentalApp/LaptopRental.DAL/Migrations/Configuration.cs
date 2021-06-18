@@ -29,43 +29,7 @@
             };
             context.Users.AddOrUpdate(user => user.Name, user1);
 
-            var Device1 = new Device()
-            {
-                IMEINumber = "LENO99883334",
-                DeviceName = "Lenovo Rayzen 5 | 4GB RAM | 1TB Storage",
-                DeviceSpecification = "AMD® Ryzen™ 5 4600H Processor (6 Cores / 12 Threads, 3.00 GHz, up to 4.00 GHz with Max Boost, " +
-                                                 "3 MB Cache L2 / 8 MB Cache L3)",
-                PreInstalledSoftware = "1.Microsoft Office, Visual Studio 2017",
-                Ratings = 4.2,
-                DeviceImage = "Lenovo.jpg",
-                RentalAmount = 1500,
-                MaxRentalMonth = 2,
-                Interest = 220.50,
-                Status = "Available",
-                UserId_FK = 1
-
-
-            };
-            context.Devices.AddOrUpdate(Device => Device.DeviceName, Device1);
-
-            var Device2 = new Device()
-            {
-                IMEINumber = "HP907766554",
-                DeviceName = "HP Rayzen 5 | 8GB RAM | 1TB SSD Storage",
-                DeviceSpecification = "AMD® Ryzen™ 5 4600H Processor (6 Cores / 12 Threads, 3.00 GHz, up to 4.00 GHz with Max Boost, " +
-                                    "3 MB Cache L2 / 8 MB Cache L3)",
-                PreInstalledSoftware = "1.Microsoft Office, Visual Studio 2017,Vs Code",
-                Ratings = 4.4,
-                DeviceImage = "HP.jpg",
-                RentalAmount = 2000,
-                MaxRentalMonth = 2,
-                Interest = 220.50,
-                Status = "Available",
-                UserId_FK = 1
-
-
-            };
-            context.Devices.AddOrUpdate(Device => Device.DeviceName, Device2);
+          
 
         }
     }
