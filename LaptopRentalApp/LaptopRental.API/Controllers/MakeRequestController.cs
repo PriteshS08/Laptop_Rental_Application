@@ -47,5 +47,43 @@ namespace LaptopRental.API.Controllers
 
             }
         }
+
+        [HttpPut]
+        [Route("api/MakeRequest/{deviceid}")]
+        public HttpResponseMessage put([FromUri] int deviceid)
+        {
+            try
+            {
+                var res = Mks.Update(deviceid);
+                if (res == true)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK);
+                }
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Device Id not Found");
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        [HttpDelete]
+        [Route("api/MakeRequest/{deviceid}")]
+        public HttpResponseMessage Delete([FromUri] int deviceid)
+        {
+            try
+            {
+                var res = Mks.Delete(deviceid);
+                if (res == true)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK);
+                }
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, " Id not Found");
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
     }
 }
