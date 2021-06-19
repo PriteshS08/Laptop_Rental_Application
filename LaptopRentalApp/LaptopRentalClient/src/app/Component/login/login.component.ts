@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   flag: any;
   //checkStatus : boolean = false;
   selectedType: string = '';
+  userID! : number;
   user! : User;
   constructor(private ls : LoginService, 
     private router: Router,
@@ -57,9 +58,9 @@ export class LoginComponent implements OnInit {
            //this.checkStatus = true;
            // console.log(this.selectedType);
             this.router.navigate(['/home']);
-           // this.CheckStatus();
+           this.CheckStatus(this.loginForm.get("email")?.value);
 
-            window.localStorage.setItem("UserId","value");
+           // window.localStorage.setItem("UserId","value");
            
            //returns the stored value
            // console.log(this.checkStatus);
@@ -78,10 +79,10 @@ export class LoginComponent implements OnInit {
     //this.loginForm.reset();
   }
 
-// CheckStatus() {
-//   const userobj = this.loginForm.get("email")?.value;
-//     this.ls.loginStatus(userobj).subscribe((res: User)  => {this.user = res});
-// }
+CheckStatus(emailID : string) {
+  //const userobj = this.loginForm.get("email")?.value;
+    this.ls.loginStatus(emailID).subscribe((res: number)  => {this.userID = res});
+}
 
 createacc() {
   this.router.navigate(['/signup']);

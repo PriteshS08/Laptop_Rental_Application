@@ -28,9 +28,7 @@ export class DeviceService {
 
   GetDevices() : Observable<any>
   {
-      var x=window.sessionStorage.getItem("UserId")
-      console.log(x);
-    return this.http.get<Device[]>(this.url+"/ViewDevices/GetDevice/"+  x
+    return this.http.get<Device[]>(this.url+"/ViewDevices/GetDevice"+ this.lc.userID
     ).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
 
