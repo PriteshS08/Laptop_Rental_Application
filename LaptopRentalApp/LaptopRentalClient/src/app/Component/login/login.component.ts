@@ -58,7 +58,8 @@ export class LoginComponent implements OnInit {
            //this.checkStatus = true;
            // console.log(this.selectedType);
             this.router.navigate(['/home']);
-           this.CheckStatus(this.loginForm.get("email")?.value);
+            const emailID = this.loginForm.get("email")?.value;
+           this.CheckStatus(emailID);
 
            // window.localStorage.setItem("UserId","value");
            
@@ -80,8 +81,8 @@ export class LoginComponent implements OnInit {
   }
 
 CheckStatus(emailID : string) {
-  //const userobj = this.loginForm.get("email")?.value;
-    this.ls.loginStatus(emailID).subscribe((res: number)  => {this.userID = res});
+  
+  this.ls.loginStatus(emailID).subscribe((res: number)  => {this.userID = res});
 }
 
 createacc() {
