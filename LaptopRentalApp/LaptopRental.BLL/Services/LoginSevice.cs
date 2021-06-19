@@ -32,24 +32,18 @@ namespace LaptopRental.BLL.Services
         /// <param name="password"></param>
         /// <returns> true/false based on given mailId and password</returns>
 
-        public bool Authenticate(string emailId, string password)
+        public User Authenticate(string emailId, string password)
         {
             try
             {
-
                 if (context.Users.Any(u => u.EmailId == emailId && u.PassWord == password))
                 {
                     var result = (from user in context.Users
                                   where user.EmailId == emailId
-                                  select new { user.UserId, user.EmailId }).Single();
-                    if (result != null)
-                    {
-                        return true;
-                    }
-
+                                  select user).SingleOrDefault();
+                    return result;
                 }
-                return false;
-
+                return new User();
             }
             catch (DbException ex)
             {
@@ -62,33 +56,7 @@ namespace LaptopRental.BLL.Services
             }
 
         }
-
-        //public User ReturnUser(string emailId, string password)
-        //{
-        //    try
-        //    {
-        //        var result = (from user in context.Users
-        //                      where user.EmailId == emailId
-        //                      select user).SingleOrDefault();
-        //        if (result!=null)
-        //        {
-        //            return result;
-        //        }
-        //        return result;
-        //    }
-        //    catch (DbException ex)
-        //    {
-        //        throw new LaptopRentalException("Error reading data", ex);
-        //    }
-
-        //    catch (Exception ex)
-        //    {
-        //        throw new LaptopRentalException("UnKnown Error while reading data", ex);
-        //    }
-
     }
 
-
-
-    }
+}
 

@@ -52,11 +52,12 @@ export class LoginComponent implements OnInit {
           if(res) {
             this.ls.isAuthenticated(true);
             this.flag=res;
+            this.user = res;
            // this.check();
            //this.checkStatus = true;
            // console.log(this.selectedType);
             this.router.navigate(['/home']);
-            this.CheckStatus();
+           // this.CheckStatus();
 
             window.localStorage.setItem("UserId","value");
            
@@ -77,10 +78,10 @@ export class LoginComponent implements OnInit {
     //this.loginForm.reset();
   }
 
-CheckStatus() {
-  const userobj = this.loginForm.get("email")?.value;
-    this.ls.loginStatus(userobj).subscribe((res: User)  => {this.user = res});
-}
+// CheckStatus() {
+//   const userobj = this.loginForm.get("email")?.value;
+//     this.ls.loginStatus(userobj).subscribe((res: User)  => {this.user = res});
+// }
 
 createacc() {
   this.router.navigate(['/signup']);

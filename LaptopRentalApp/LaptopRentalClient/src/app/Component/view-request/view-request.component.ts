@@ -7,6 +7,7 @@ import { BrowserCatalogueComponent } from '../browser-catalogue/browser-catalogu
 import { LoginComponent } from '../login/login.component';
 import { MakeRequestComponent } from '../make-request/make-request.component';
 
+
 @Component({
   selector: 'app-view-request',
   templateUrl: './view-request.component.html',

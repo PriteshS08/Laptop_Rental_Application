@@ -41,7 +41,6 @@ namespace LaptopRental.API.Controllers
                     query.DeviceName = device.DeviceName;
                     query.DeviceSpecification = device.DeviceSpecification;
                     query.PreInstalledSoftware = device.PreInstalledSoftware;
-                    query.Ratings = device.Ratings;
                     query.DeviceImage = device.DeviceImage;
                     query.RentalAmount = device.RentalAmount;
                     query.MaxRentalMonth = device.MaxRentalMonth;
