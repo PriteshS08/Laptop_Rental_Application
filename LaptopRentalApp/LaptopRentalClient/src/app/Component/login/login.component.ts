@@ -59,7 +59,8 @@ export class LoginComponent implements OnInit {
            // console.log(this.selectedType);
             this.router.navigate(['/home']);
             const emailID = this.loginForm.get("email")?.value;
-           this.CheckStatus(emailID);
+           //this.CheckStatus(emailID);
+           this.ls.loginStatus(emailID).subscribe((res: number)  => {this.userID = res});
 
            // window.localStorage.setItem("UserId","value");
            
@@ -80,10 +81,10 @@ export class LoginComponent implements OnInit {
     //this.loginForm.reset();
   }
 
-CheckStatus(emailID : string) {
+// CheckStatus(emailID : string) {
   
-  this.ls.loginStatus(emailID).subscribe((res: number)  => {this.userID = res});
-}
+//   this.ls.loginStatus(emailID).subscribe((res: number)  => {this.userID = res});
+// }
 
 createacc() {
   this.router.navigate(['/signup']);
