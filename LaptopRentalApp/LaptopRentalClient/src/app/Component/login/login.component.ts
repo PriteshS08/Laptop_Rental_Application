@@ -59,6 +59,7 @@ export class LoginComponent implements OnInit {
            // console.log(this.selectedType);
             this.router.navigate(['/home']);
             const emailID = this.loginForm.get("email")?.value;
+            console.log(emailID);
            this.CheckStatus(emailID);
 
            // window.localStorage.setItem("UserId","value");
