@@ -1,4 +1,5 @@
 import { Component, Injectable, OnInit } from '@angular/core';
+import { DeviceService } from 'src/app/Service/device.service';
 import { Device } from 'src/app/Types/Device';
 
 @Injectable({ 
@@ -14,7 +15,7 @@ export class ViewDevicesComponent implements OnInit {
 
   devicelist:Device[]=[];
 
-  constructor(private device: Devices) { }
+  constructor(private device: DeviceService) { }
 
   ngOnInit(): void {
     this.device.GetDevices().subscribe((Response:Device[])=>this.devicelist=Response,
