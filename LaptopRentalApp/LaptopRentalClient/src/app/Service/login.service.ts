@@ -37,6 +37,7 @@ export class LoginService {
   loginStatus(emailID : any) : Observable<any>{
     return this.http.get<User>(this.url+ "/RetrieveUserId", emailID).pipe(map((response) => {
       this.flag = response;
+      console.log("email : ",emailID);
       return response;
     }
     ));
