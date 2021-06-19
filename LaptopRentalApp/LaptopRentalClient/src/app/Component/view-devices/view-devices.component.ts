@@ -15,7 +15,7 @@ export class ViewDevicesComponent implements OnInit {
 
   devicelist:Device[]=[];
 
-  constructor(private device:DeviceService) { }
+  constructor(private device: DeviceService) { }
 
   ngOnInit(): void {
     this.device.GetDevices().subscribe((Response:Device[])=>this.devicelist=Response,

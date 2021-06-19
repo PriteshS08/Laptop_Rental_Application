@@ -1,6 +1,7 @@
 ﻿using LaptopRental.API.Dtos;
 using LaptopRental.BLL.Services;
 using LaptopRental.DAL;
+using LaptopRental.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +49,18 @@ namespace LaptopRental.API.Controllers
             return Ok(LoginReq);
         }
 
-       
+       [HttpGet]
+       [Route("api/Login/RetrieveUserId")]
+       public IHttpActionResult RetrieveUserId([FromBody] User obj)
+        {
+            var result = (from user in context.Users
+                          where user.EmailId == obj.EmailId
+                          select new {user.UserId}).SingleOrDefault();
+            if (result == null)
+                return NotFound();
+            return Ok(result);
+        }
+
 
     }
 }
