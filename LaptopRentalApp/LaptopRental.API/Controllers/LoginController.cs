@@ -55,8 +55,8 @@ namespace LaptopRental.API.Controllers
         {
             var result = (from user in context.Users
                           where user.EmailId == obj.EmailId
-                          select new {user.UserId}).SingleOrDefault();
-            if (result == null)
+                          select user.UserId).SingleOrDefault();
+            if (result == 0)
                 return NotFound();
             return Ok(result);
         }
