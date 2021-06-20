@@ -34,11 +34,14 @@ export class LoginService {
       catchError(this.handleError)
     )
   }
-  loginStatus(emailID : any) : Observable<any>{
-    return this.http.get<User>(this.url+ "/RetrieveUserId", emailID).pipe(map((response) => {
+  loginStatus(user : any) : Observable<any>{
+    console.log("email : ",user.EmailId);
+    return this.http.get<number>(this.url+ "/RetrieveUserId",user.EmailId).pipe(map((response) => {
       this.flag = response;
-      console.log("email : ",emailID);
+      console.log(this.flag);
+      console.log("email : ",user.EmailId);
       return response;
+    
     }
     ));
   }

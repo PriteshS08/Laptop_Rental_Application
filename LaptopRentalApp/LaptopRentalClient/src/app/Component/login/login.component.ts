@@ -58,12 +58,12 @@ export class LoginComponent implements OnInit {
            //this.checkStatus = true;
            // console.log(this.selectedType);
             this.router.navigate(['/home']);
-            const emailID = this.loginForm.get("email")?.value;
+            // const emailID = this.loginForm.get("email")?.value;
          
-            console.log(emailID);
+            console.log(res.EmailId);
           
            //this.CheckStatus(emailID);
-           this.ls.loginStatus(emailID).subscribe((res: number)  => {this.userID = res});
+           this.ls.loginStatus(res).subscribe((res: number)  => {this.userID = res});
 
            // window.localStorage.setItem("UserId","value");
            
