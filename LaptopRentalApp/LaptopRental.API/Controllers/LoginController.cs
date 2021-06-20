@@ -53,7 +53,7 @@ namespace LaptopRental.API.Controllers
        [Route("api/Login/RetrieveUserId")]
        public IHttpActionResult RetrieveUserId([FromBody] User obj)
         {
-            var result = (from user in context.Users
+            int result = (from user in context.Users
                           where user.EmailId == obj.EmailId
                           select user.UserId).SingleOrDefault();
             if (result == 0)
