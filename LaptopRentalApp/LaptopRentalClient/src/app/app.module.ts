@@ -28,6 +28,8 @@ import { BrowserCatalogueComponent } from './Component/browser-catalogue/browser
 import { DeviceService } from './Service/device.service';
 import { RequestService } from './Service/request.service';
 import { OverDueComponent } from './Component/over-due/over-due.component';
+import { FeedbackComponent } from './Component/feedback/feedback.component';
+import { GetAllRequestComponent } from './Component/get-all-request/get-all-request.component';
 
 
 
@@ -48,6 +50,8 @@ import { OverDueComponent } from './Component/over-due/over-due.component';
     ViewRequestComponent,
     BrowserCatalogueComponent,
     OverDueComponent
+    FeedbackComponent
+    GetAllRequestComponent
   ],
   imports: [
     BrowserModule,

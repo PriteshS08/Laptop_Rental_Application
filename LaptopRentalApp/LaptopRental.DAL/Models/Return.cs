@@ -12,7 +12,9 @@ namespace LaptopRental.DAL.Models
     {
         [Key]
         public int ReturnId { get; set; }
-        public int ReturnDate { get; set; }
+
+        public DateTime ReturnDate { get; set; }
+
         public string DueStatus { get; set; }
 
         [ForeignKey("Device")]
