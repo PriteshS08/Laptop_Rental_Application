@@ -28,6 +28,7 @@ import { BrowserCatalogueComponent } from './Component/browser-catalogue/browser
 import { CommonModule } from '@angular/common';
 import { DeviceService } from './Service/device.service';
 import { RequestService } from './Service/request.service';
+import { GetAllRequestComponent } from './Component/get-all-request/get-all-request.component';
 
 
 
@@ -46,7 +47,8 @@ import { RequestService } from './Service/request.service';
     CustomerUIComponent,
     ViewDetailsComponent,
     ViewRequestComponent,
-    BrowserCatalogueComponent
+    BrowserCatalogueComponent,
+    GetAllRequestComponent
   ],
   imports: [
     BrowserModule,

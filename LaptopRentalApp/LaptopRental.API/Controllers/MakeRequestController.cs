@@ -37,7 +37,7 @@ namespace LaptopRental.API.Controllers
                 Obj.DeviceId_FK = req.DeviceId_FK;
 
                 var isadded = Mks.AddRequest(req);
-                if (isadded==true)
+                if (isadded!=null)
                     return Request.CreateResponse(HttpStatusCode.Created, isadded);
 
                 return Request.CreateResponse(HttpStatusCode.NotFound);

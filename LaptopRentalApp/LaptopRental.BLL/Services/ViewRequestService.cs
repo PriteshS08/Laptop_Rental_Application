@@ -18,7 +18,22 @@ namespace LaptopRental.BLL.Services
             context = new LaptopRentalContext();
         }
 
-        public List<Request> GetRequest()
+
+        public Request GetSingleRequest(int requestid)
+        {
+
+            var query = (from request in context.Requests
+                        join device in context.Devices on request.DeviceId_FK equals device.DeviceId
+                        where request.RequestId == requestid
+                        select request).SingleOrDefault();
+            if (query != null)
+            {
+                return query;
+            }
+            return new Request();
+        }
+
+        public List<Request> GetAllRequest()
         {
             List<Request> req = context.Requests.ToList();
             List<Device> dev = context.Devices.ToList();

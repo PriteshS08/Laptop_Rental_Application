@@ -1,4 +1,5 @@
 ﻿using LaptopRental.BLL.Services;
+using LaptopRental.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,20 @@ namespace LaptopRental.API.Controllers
             service = new ViewRequestService();
         }
 
-        public IHttpActionResult GetUsersRequest()
+        [HttpGet]
+        [Route("api/ViewRequest/GetUsersRequest/{RequestId}")]
+        public IHttpActionResult GetUsersRequest([FromUri]Request obj)
         {
-            var request = service.GetRequest();
+            var req = service.GetSingleRequest(obj.RequestId);
+            return Ok(req);
+        }
+
+
+        [HttpGet]
+        [Route("api/ViewRequest/GetRequest")]
+        public IHttpActionResult GetRequest()
+        {
+            var request = service.GetAllRequest();
             return Ok(request);
         }
     }
