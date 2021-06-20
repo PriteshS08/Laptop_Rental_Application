@@ -18,8 +18,13 @@ namespace LaptopRental.BLL.Services
             context = new LaptopRentalContext();
         }
 
-        public Request GetRequest()
+        public bool GetRequest()
         {
+            List<Request> req = context.Requests.ToList();
+            List<Device> dev = context.Devices.ToList();
+
+            var query=from request in req 
+                      join device in  dev on request.DeviceId_FK equals device.DeviceId
 
         }
     }
