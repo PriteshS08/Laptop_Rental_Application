@@ -20,6 +20,7 @@ namespace LaptopRental.API.Controllers
         }
 
         [HttpPost]
+        [Route("api/MakeRequest/AddRequest")]
         public HttpResponseMessage AddRequest([FromBody] Request req)
         {
             try

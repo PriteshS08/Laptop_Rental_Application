@@ -23,6 +23,8 @@ namespace LaptopRental.DAL
         public virtual DbSet<Device> Devices { get; set; }
         public virtual DbSet<Request> Requests { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
+        public virtual DbSet<Return> Returns { get; set; }
+
 
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)

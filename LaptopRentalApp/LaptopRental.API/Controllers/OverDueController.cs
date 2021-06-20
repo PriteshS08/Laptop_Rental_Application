@@ -27,7 +27,7 @@ namespace LaptopRental.API.Controllers
         }
         public IHttpActionResult GetByDeviceID([FromBody] Request req)
         {
-            if ((req.DeviceId_FK !=0) && (req.ToDate > DateTime.Now))
+            if ((req.DeviceId_FK !=0) && (req.ToDate < DateTime.Now))
             {
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
