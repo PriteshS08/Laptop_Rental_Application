@@ -9,7 +9,6 @@ import { MenuComponent } from '../menu/menu.component';
   providedIn: 'root'
  })
  
- 
 
 @Component({
   selector: 'app-login',
@@ -31,7 +30,7 @@ export class LoginComponent implements OnInit {
     public formBuilder:FormBuilder) { }
   ngOnInit(): void {
     this.loginForm=this.formBuilder.group({
-      email: ['', [Validators.compose([Validators.required, Validators.pattern( "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"), Validators.minLength(1)])]],
+      email: ['', [Validators.compose([Validators.required, Validators.pattern( "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}")])]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]],
        });
   }
@@ -61,9 +60,10 @@ export class LoginComponent implements OnInit {
             // const emailID = this.loginForm.get("email")?.value;
          
             console.log(res.EmailId);
-          
+            this.userID = res.UserId;
+            console.log(this.userID);
            //this.CheckStatus(emailID);
-           this.ls.loginStatus(res).subscribe((res: number)  => {this.userID = res});
+           //this.ls.loginStatus(res).subscribe((res: number)  => {this.userID = res});
 
            // window.localStorage.setItem("UserId","value");
            

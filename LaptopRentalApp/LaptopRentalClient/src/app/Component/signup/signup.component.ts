@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm=this.formBuilder.group({
-      Name : ['', [Validators.compose([Validators.required,Validators.minLength(8)])]],
+      Name : ['', [Validators.compose([Validators.required,Validators.minLength(3)])]],
       Gender : ['Female', [Validators.compose([Validators.required])]],
      // DOB : ['', [Validators.compose([Validators.required,Validators.pattern("^(?:1[8-9]|[2-5][0-9]|60)$")])]],
       Age : ['', [Validators.compose([Validators.required])]],
@@ -44,9 +44,9 @@ export class SignupComponent implements OnInit {
    }  
   get f() { return this.signupForm.controls; }
 
-  selectChangeHandler (event: any) {
-    this.selectedType = event.target.value;
-  }
+  // selectChangeHandler (event: any) {
+  //   this.selectedType = event.target.value;
+  // }
 
   Signup() 
  {

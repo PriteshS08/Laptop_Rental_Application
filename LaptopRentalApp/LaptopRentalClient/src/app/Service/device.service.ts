@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { LoginComponent } from '../Component/login/login.component';
 import { Device } from '../Types/Device';
-import { User } from '../Types/User';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,10 @@ export class DeviceService {
   constructor(private http: HttpClient,
     private lc : LoginComponent) { }
 
-
+  // getByID(device : any) : Observable<any> {
+  //   return this.http.get(this.url + "/AddDevice", device).pipe(map((response: any) => {return response}),
+  //   catchError(this.handleError));
+  // }
   updateDeviceDetails(device: FormData):Observable<Device>
   {
     const header = new HttpHeaders;
@@ -53,7 +56,7 @@ export class DeviceService {
     window.alert(errorMessage);
     return throwError(errorMessage);
   }
-  addDeviceDetails(device: FormData):Observable<Device>
+  addDeviceDetails(device: FormData):Observable<any>
   {
     const header = new HttpHeaders;
     header.append('Content-Type', 'application/json');

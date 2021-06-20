@@ -25,9 +25,9 @@ import { AddDeviceComponent } from './Component/add-device/add-device.component'
 import { ViewDetailsComponent } from './Component/view-details/view-details.component';
 import { ViewRequestComponent } from './Component/view-request/view-request.component';
 import { BrowserCatalogueComponent } from './Component/browser-catalogue/browser-catalogue.component';
-import { CommonModule } from '@angular/common';
 import { DeviceService } from './Service/device.service';
 import { RequestService } from './Service/request.service';
+import { OverDueComponent } from './Component/over-due/over-due.component';
 
 
 
@@ -46,7 +46,8 @@ import { RequestService } from './Service/request.service';
     CustomerUIComponent,
     ViewDetailsComponent,
     ViewRequestComponent,
-    BrowserCatalogueComponent
+    BrowserCatalogueComponent,
+    OverDueComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ import { Device } from 'src/app/Types/Device';
 export class BrowserCatalogueComponent implements OnInit {
   devicelist:Device[]=[];
   devicedetail! : Device;
+  deviceID! : number;
   constructor(private bs : BrowserCatalogService) { }
 
   ngOnInit(): void {
@@ -18,7 +19,8 @@ export class BrowserCatalogueComponent implements OnInit {
   }
 
   viewDetail(ImeiNo : string) {
-    this.bs.getDeviceByImeiNo(ImeiNo).subscribe((Response:Device)=>this.devicedetail=Response,
+    this.bs.getDeviceByImeiNo(ImeiNo).subscribe((res)=>{this.devicedetail=res,
+    this.deviceID = res.DeviceId},
     error=>{alert('Error in fetching data')});
   }
 

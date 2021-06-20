@@ -22,7 +22,6 @@ export class ViewRequestComponent implements OnInit {
     private lc : LoginComponent,
     private mr : MakeRequestComponent,
     private rs : RequestService) { 
-      this.deviceDetails = this.bc.devicedetail;
       this.userDetails = this.lc.user;
       this.requestDetails = this.mr.requestDetails;
     }
@@ -31,14 +30,14 @@ export class ViewRequestComponent implements OnInit {
 
   acceptRequest(){
      const requestDetails = {
-      DeviceId : this.deviceDetails.DeviceId,
+      DeviceId : this.bc.deviceID,
       Status : "Rented"
     }
     //this.deviceDetails.Status = "Rented";
     this.rs.updateacceptStatus(requestDetails).subscribe(res  => { return res; });
   }
   rejectRequest() {
-    this.deviceId = this.deviceDetails.DeviceId
+    this.deviceId = this.bc.deviceID,
     this.rs.updaterejectStatus(this.deviceId).subscribe(res => {return res;})
   }
 }

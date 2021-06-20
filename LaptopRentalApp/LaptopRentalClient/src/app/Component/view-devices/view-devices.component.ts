@@ -18,7 +18,7 @@ export class ViewDevicesComponent implements OnInit {
   constructor(private device: DeviceService) { }
 
   ngOnInit(): void {
-    this.device.GetDevices().subscribe((Response:Device[])=>this.devicelist=Response,
+    this.device.GetDevices().subscribe((res:Device[])=>this.devicelist=res,
     error=>{alert('Error in fetching data')});
   // console.log(this.devicelist);
   // console.log(window.localStorage.getItem("UserId"));
