@@ -58,6 +58,7 @@
     <Compile Include="Services\DeleteDeviceService.cs" />
     <Compile Include="Services\EarningReportService.cs" />
     <Compile Include="Services\EditDeviceService.cs" />
+    <Compile Include="Services\FeedbackService.cs" />
     <Compile Include="Services\ForgotPasswordService.cs" />
     <Compile Include="Services\AddDeviceService.cs" />
     <Compile Include="Services\LoginSevice.cs" />
