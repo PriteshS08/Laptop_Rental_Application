@@ -229,6 +229,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CatalogueController.cs" />
     <Compile Include="Controllers\DeleteDeviceController.cs" />
+    <Compile Include="Controllers\EarningReportController.cs" />
     <Compile Include="Controllers\EditDevicesController.cs" />
     <Compile Include="Controllers\AddDeviceController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
