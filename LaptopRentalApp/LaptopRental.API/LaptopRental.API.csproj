@@ -238,6 +238,7 @@
     <Compile Include="Controllers\SignupController.cs" />
     <Compile Include="Controllers\ViewDetailsController.cs" />
     <Compile Include="Controllers\ViewDevicesController.cs" />
+    <Compile Include="Controllers\ViewRequestController.cs" />
     <Compile Include="Dtos\EditBinder.cs" />
     <Compile Include="Dtos\EditDto.cs" />
     <Compile Include="Dtos\AddDeviceDto.cs" />

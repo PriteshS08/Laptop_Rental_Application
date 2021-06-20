@@ -18,14 +18,19 @@ namespace LaptopRental.BLL.Services
             context = new LaptopRentalContext();
         }
 
-        public bool GetRequest()
+        public List<Request> GetRequest()
         {
             List<Request> req = context.Requests.ToList();
             List<Device> dev = context.Devices.ToList();
 
-            var query=from request in req 
-                      join device in  dev on request.DeviceId_FK equals device.DeviceId
-
+            var query = from request in req
+                        join device in dev on request.DeviceId_FK equals device.DeviceId
+                        select request;
+            if(query!=null)
+            {
+                return query.ToList();
+            }
+            return new List<Request>();
         }
     }
 }
