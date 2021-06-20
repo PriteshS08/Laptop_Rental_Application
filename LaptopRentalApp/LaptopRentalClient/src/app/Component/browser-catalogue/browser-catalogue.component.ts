@@ -14,7 +14,8 @@ export class BrowserCatalogueComponent implements OnInit {
   constructor(private bs : BrowserCatalogService) { }
 
   ngOnInit(): void {
-    this.bs.getAllDevices().subscribe((Response:Device[])=>this.devicelist=Response,
+    this.bs.getAllDevices().subscribe((Response:Device[])=>{this.devicelist=Response,
+    console.log(Response)},
     error=>{alert('Error in fetching data')});
   }
 

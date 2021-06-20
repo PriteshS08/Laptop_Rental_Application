@@ -5,13 +5,13 @@
 <ul class="list-group list-group-numbered">
     <li class="list-group-item d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
-        <div class="fw-bold">{{devicelist.DeviceImage}}</div>
+        <div class="fw-bold">{{device.DeviceImage}}</div>
       </div>
       <div class="ms-2 me-auto" style="padding-right:600px;">
-        <div class="fw-bold">{{devicelist.IMEINumber}}</div>
-        <div class="fw-bold">{{devicelist.DeviceName}}</div>
+        <div class="fw-bold">{{device.IMEINumber}}</div>
+        <div class="fw-bold">{{device.DeviceName}}</div>
       </div>
-      <div class="fw-bold" style="padding-right:30px;">{{devicelist.Status}}</div>
+      <div class="fw-bold" style="padding-right:30px;">{{device.Status}}</div>
       <div>
         <a [routerLink]="['/editdevice']" style="align-items: center; color: blue; padding-right:30px;">Edit</a>
     </div>

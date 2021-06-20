@@ -49,8 +49,8 @@ import { GetAllRequestComponent } from './Component/get-all-request/get-all-requ
     ViewDetailsComponent,
     ViewRequestComponent,
     BrowserCatalogueComponent,
-    OverDueComponent
-    FeedbackComponent
+    OverDueComponent,
+    FeedbackComponent,
     GetAllRequestComponent
   ],
   imports: [
