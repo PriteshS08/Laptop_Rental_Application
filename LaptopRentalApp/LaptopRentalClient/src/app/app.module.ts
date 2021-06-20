@@ -29,6 +29,7 @@ import { CommonModule } from '@angular/common';
 import { DeviceService } from './Service/device.service';
 import { RequestService } from './Service/request.service';
 import { FeedbackComponent } from './Component/feedback/feedback.component';
+import { GetAllRequestComponent } from './Component/get-all-request/get-all-request.component';
 
 
 
@@ -49,6 +50,7 @@ import { FeedbackComponent } from './Component/feedback/feedback.component';
     ViewRequestComponent,
     BrowserCatalogueComponent,
     FeedbackComponent
+    GetAllRequestComponent
   ],
   imports: [
     BrowserModule,

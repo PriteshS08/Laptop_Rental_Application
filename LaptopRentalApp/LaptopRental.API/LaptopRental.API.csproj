@@ -229,6 +229,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CatalogueController.cs" />
     <Compile Include="Controllers\DeleteDeviceController.cs" />
+    <Compile Include="Controllers\EarningReportController.cs" />
     <Compile Include="Controllers\EditDevicesController.cs" />
     <Compile Include="Controllers\AddDeviceController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
@@ -239,6 +240,7 @@
     <Compile Include="Controllers\SignupController.cs" />
     <Compile Include="Controllers\ViewDetailsController.cs" />
     <Compile Include="Controllers\ViewDevicesController.cs" />
+    <Compile Include="Controllers\ViewRequestController.cs" />
     <Compile Include="Dtos\EditBinder.cs" />
     <Compile Include="Dtos\EditDto.cs" />
     <Compile Include="Dtos\AddDeviceDto.cs" />

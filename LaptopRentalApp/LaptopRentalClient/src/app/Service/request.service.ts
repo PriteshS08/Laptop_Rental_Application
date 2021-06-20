@@ -27,6 +27,13 @@ export class RequestService {
     return this.http.delete(this.url, deviceID).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
+  
+  GetAllUsersRequest() : Observable<any>
+  {
+    return this.http.get(this.url+"/ViewRequest").pipe(map((response: any)=>{return response}),
+    catchError(this.handleError));
+  }
+
   handleError(error:any) { 
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {

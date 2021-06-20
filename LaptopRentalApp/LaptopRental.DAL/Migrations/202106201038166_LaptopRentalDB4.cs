@@ -12,7 +12,7 @@
                 c => new
                     {
                         ReturnId = c.Int(nullable: false, identity: true),
-                        ReturnDate = c.Int(nullable: false),
+                        ReturnDate = c.DateTime(nullable: false),
                         DueStatus = c.String(),
                         DeviceId_Fk = c.Int(nullable: false),
                     })
