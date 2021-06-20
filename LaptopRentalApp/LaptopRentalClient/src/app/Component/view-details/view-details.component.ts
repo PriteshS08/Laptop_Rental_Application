@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DeviceService } from 'src/app/Service/device.service';
 import { Device } from 'src/app/Types/Device';
 import { User } from 'src/app/Types/User';
 import { BrowserCatalogueComponent } from '../browser-catalogue/browser-catalogue.component';

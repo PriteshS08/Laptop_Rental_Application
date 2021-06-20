@@ -1,9 +1,8 @@
 export class User {
     constructor (
-        public UserId : number,
+      //  public UserId : number,
         public Name : String,
         public Gender : String,
-        public DOB : Date,
         public Age : number,
         public Location : String,
         public PhoneNO : String,

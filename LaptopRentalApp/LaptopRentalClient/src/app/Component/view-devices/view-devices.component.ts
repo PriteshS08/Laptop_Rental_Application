@@ -15,12 +15,14 @@ export class ViewDevicesComponent implements OnInit {
 
   devicelist:Device[]=[];
 
-  constructor(private device:DeviceService) { }
+  constructor(private device: DeviceService) { }
 
   ngOnInit(): void {
     this.device.GetDevices().subscribe((Response:Device[])=>this.devicelist=Response,
     error=>{alert('Error in fetching data')});
-  console.log(this.devicelist);
+  // console.log(this.devicelist);
+  // console.log(window.localStorage.getItem("UserId"));
   }
+
 
 }

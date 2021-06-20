@@ -20,13 +20,14 @@ namespace LaptopRental.API.Controllers
         {
             fps = new ForgotPasswordService();
         }
+      
         [HttpPut]
-       
-        public HttpResponseMessage UpdatePassword([FromBody] string emailId, [FromBody] User PassWord)
+        [Route("api/ForgotPassword/UpdatePassword")]
+        public HttpResponseMessage UpdatePassword([FromBody] User user)
         {
             try
             {
-                var res = fps.Update(emailId, PassWord);
+                var res = fps.Update(user.EmailId, user.PassWord);
                 if (res == true)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK);
@@ -34,10 +35,10 @@ namespace LaptopRental.API.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, "User Id not Found");
             }
             catch (Exception ex)
-          {
+            {
               return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
-          }
             }
+        }
             //public HttpResponseMessage UpdatePassword([FromUri]string name, [FromBody] User user)
             //{
             //    try

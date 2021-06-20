@@ -35,7 +35,8 @@ namespace LaptopRental.API.Controllers
         /// <returns> all the user's device </returns>
 
         [HttpGet]
-        public HttpResponseMessage GetDeviceForId([FromUri] int id)
+        [Route("api/ViewDevices/GetDevice/{id}")]
+        public HttpResponseMessage GetDevice([FromUri] int id)
         {
             var devices = viewDeviceService.GetDeviceById(id);
             if (devices == null || devices.Count == 0)
@@ -43,5 +44,14 @@ namespace LaptopRental.API.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, devices);
         }
 
+        //[HttpGet]
+        //[Route("api/ViewDevices/GetUser/{id}")]
+        //public HttpResponseMessage GetUser([FromUri] int id)
+        //{
+        //    var users = viewDeviceService.GetByUserId(id);
+        //    if (users == null)
+        //        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "UserId not found");
+        //    return Request.CreateResponse(HttpStatusCode.OK, users);
+        //}
     }
 }

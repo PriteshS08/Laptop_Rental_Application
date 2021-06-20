@@ -7,13 +7,15 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ForgotpasswordService {
-  url:string= "http://localhost:51108/api/ForgotPassword/";
+  url:string= "http://localhost:51108/api/ForgotPassword/UpdatePassword";
 
   
   constructor(private http: HttpClient) { }
 
-  UpdatePassword(comp: { EmailId: string; PassWord: string;}) : Observable<any>{
-    return this.http.put(this.url + comp.EmailId ,comp.PassWord).pipe((response => {return response}),
+  UpdatePassword(comp: any) : Observable<any>{
+    console.log(comp);
+    return this.http.put(this.url , comp).pipe((response => {console.log(response);
+      return response}),
     catchError(this.handleError));
 }  
 handleError(error:any) {

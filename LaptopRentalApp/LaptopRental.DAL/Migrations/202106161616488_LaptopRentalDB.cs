@@ -34,6 +34,7 @@
                     {
                         UserId = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false),
+                        DOB=c.DateTime(nullable: false),
                         Gender = c.String(nullable: false),
                         Age = c.Int(nullable: false),
                         Location = c.String(nullable: false),

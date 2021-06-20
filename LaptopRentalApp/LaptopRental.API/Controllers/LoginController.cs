@@ -1,6 +1,7 @@
 ﻿using LaptopRental.API.Dtos;
 using LaptopRental.BLL.Services;
 using LaptopRental.DAL;
+using LaptopRental.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,8 @@ namespace LaptopRental.API.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns> Ok if Validation is Succesfull </returns>
+
+
         [HttpPost]
         [ResponseType(typeof(LoginResponse))]
         public IHttpActionResult Post([FromBody] LoginRequest model)
@@ -46,14 +49,18 @@ namespace LaptopRental.API.Controllers
             return Ok(LoginReq);
         }
 
-        [HttpGet]
-        public IHttpActionResult GetUser([FromBody] string emailid , string password)
+       [HttpGet]
+       [Route("api/Login/RetrieveUserId")]
+       public IHttpActionResult RetrieveUserId([FromBody] User obj)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-            var obj = loginService.ReturnUser(emailid, password);
-            return Ok(obj);
+            int result = (from user in context.Users
+                          where user.EmailId == obj.EmailId
+                          select user.UserId).SingleOrDefault();
+            if (result == 0)
+                return NotFound();
+            return Ok(result);
         }
+
 
     }
 }

@@ -30,9 +30,10 @@ export class ForgotPasswordComponent implements OnInit {
 
   passwordUpdate(){
     const comp = {
-     EmailId : this.PasswordUpdate.get("email")?.value,
-     PassWord : this.confirmpassword = this.PasswordUpdate.get("confirmpassword")?.value as string
+     EmailId : this.PasswordUpdate.get("EmailId")?.value,
+     PassWord : this.confirmpassword = this.PasswordUpdate.get("PassWord")?.value as string
     }
+    console.log(comp);
    
     this.fs.UpdatePassword(comp).subscribe(response => {alert('Password updated successfully')},
     error => {alert('Failed to update password')});

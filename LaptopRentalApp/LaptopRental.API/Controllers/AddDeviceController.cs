@@ -34,7 +34,6 @@ namespace LaptopRental.API.Controllers
                 Obj.DeviceName = dto.DeviceName;
                 Obj.DeviceSpecification = dto.DeviceSpecification;
                 Obj.PreInstalledSoftware = dto.PreInstalledSoftware;
-                Obj.Ratings = dto.Ratings;
                 Obj.DeviceImage = dto.DeviceImage;
                 Obj.RentalAmount = dto.RentalAmount;
                 Obj.MaxRentalMonth = dto.MaxRentalMonth;
