@@ -43,7 +43,6 @@ namespace LaptopRental.API.Controllers
                     return BadRequest(ModelState);
 
                 var Obj = new Feedback();
-                Obj.FeedbackId = use.FeedbackId;
                 Obj.Comment = use.Comment;
                 Obj.Ratings = use.Ratings;
                 Obj.FeedBackDate = use.FeedBackDate;
@@ -52,7 +51,7 @@ namespace LaptopRental.API.Controllers
                 var isadded = feedbackService.AddRating(Obj);
                 if (isadded)
                     return StatusCode(HttpStatusCode.Created);
-                return BadRequest("registeration failed");
+                return BadRequest("failed");
             }
             catch (LaptopRentalException ex)
             {

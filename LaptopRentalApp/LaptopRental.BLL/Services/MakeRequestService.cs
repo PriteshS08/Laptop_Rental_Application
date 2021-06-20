@@ -16,20 +16,20 @@ namespace LaptopRental.BLL.Services
         {
             context = new LaptopRentalContext();
         }
-        public bool AddRequest(Request obj)
+        public Request AddRequest(Request obj)
         {
 
             try
             {
-                context.Requests.Add(obj);
+               var Added = context.Requests.Add(obj);
                 var rows=context.SaveChanges();
                 if(rows==1)
                 {
-                    return true;
+                    return Added;
                 }
                else
                 {
-                    return false;
+                    return new Request();
                 }
 
               
