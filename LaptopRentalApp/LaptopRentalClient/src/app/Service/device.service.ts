@@ -44,6 +44,16 @@ export class DeviceService {
   //   catchError(this.handleError));
 
   // }
+
+  addDeviceDetails(device: FormData):Observable<any>
+  {
+    const header = new HttpHeaders;
+    header.append('Content-Type', 'application/json');
+    const options = {headers: header};
+    return this.http.post<Device>(this.url+"/AddDevice",device).pipe(map((response: any) => {return response}),
+    catchError(this.handleError));
+  }
+  
   handleError(error:any) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
@@ -56,13 +66,6 @@ export class DeviceService {
     window.alert(errorMessage);
     return throwError(errorMessage);
   }
-  addDeviceDetails(device: FormData):Observable<any>
-  {
-    const header = new HttpHeaders;
-    header.append('Content-Type', 'application/json');
-    const options = {headers: header};
-    return this.http.post<Device>(this.url+"/AddDevice",device).pipe(map((response: any) => {return response}),
-    catchError(this.handleError));
-  }
+ 
 
 }

@@ -11,6 +11,7 @@ export class Device {
         public RentalAmount : any,
         public MaxRentalMonth : Number,
         public Interest : any,
-        public Status: string
+        public Status: string,
+        public UserId_FK : number
          ) {}
 }
