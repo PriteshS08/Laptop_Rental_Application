@@ -34,8 +34,8 @@ constructor(private formBuilder : FormBuilder,
       RentalAmount : ['', [Validators.compose([Validators.required])]],
       MaxRentalMonth : ['', [Validators.compose([Validators.required])]],
       Interest: ['', [Validators.compose([Validators.required])]],
-      Ratings : ['5.0'],
-      UserId : this.lc.userID
+      //Ratings : ['5.0'],
+     // UserId : this.lc.userID
     });
   }
   onUploadFile(event : any) {  
@@ -49,6 +49,8 @@ constructor(private formBuilder : FormBuilder,
       const Details = new FormData();
       Details.append('image', this.fileToUpload);
       Details.append('AddDevice', JSON.stringify(this.AddDeviceDetails.value));
+      Details.append('UserId_FK',JSON.stringify(this.lc.userID));
+      Details.append('Status',JSON.stringify(this.status));
 
       console.log(Details);
 
