@@ -19,7 +19,7 @@ submitted:boolean=false;
 fileToUpload!: File ;
 status : string = "Available";
 //ratings: number = 5.0;
-constructor(private formBuilder : FormBuilder, 
+constructor(private formBuilder : FormBuilder,
   private device : DeviceService,
   private lc : LoginComponent) { }
 
@@ -46,11 +46,15 @@ constructor(private formBuilder : FormBuilder,
   
     AddDetail(){
       this.submitted = true;
+      const devicedetails={
+        frm :this.AddDeviceDetails.value,
+        UserId_FK:this.lc.userID,
+        Status :this.status
+      };
       const Details = new FormData();
       Details.append('image', this.fileToUpload);
-      Details.append('AddDevice', JSON.stringify(this.AddDeviceDetails.value));
-      Details.append('UserId_FK',JSON.stringify(this.lc.userID));
-      Details.append('Status',JSON.stringify(this.status));
+      Details.append('AddDevice', JSON.stringify(devicedetails));
+     
 
       console.log(Details);
 

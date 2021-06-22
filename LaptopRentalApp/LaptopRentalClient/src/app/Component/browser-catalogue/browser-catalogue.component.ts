@@ -16,8 +16,9 @@ export class BrowserCatalogueComponent implements OnInit {
     private router : Router) { }
 
   ngOnInit(): void {
-    this.bs.getAllDevices().subscribe((Response:Device[])=>{this.devicelist=Response,
-    console.log(Response)},
+    this.bs.getAllDevices().subscribe((Response)=>{
+      this.devicelist=Response;
+    console.log(Response);},
     error=>{alert('Error in fetching data')});
   }
   makeRequest() {
@@ -26,8 +27,8 @@ export class BrowserCatalogueComponent implements OnInit {
 
   viewDetail(imeiNO : string) {
     this.router.navigate(['/viewdevice']);
-    this.bs.getDeviceByImeiNo(imeiNO).subscribe((res)=>{this.devicedetail=res,
-    this.deviceID = res.DeviceId},
+    this.bs.getDeviceByImeiNo(imeiNO).subscribe((res)=>{this.devicedetail=res;
+    this.deviceID = res.DeviceId;},
     error=>{alert('Error in fetching data')});
   }
 

@@ -31,10 +31,12 @@ export class DeviceService {
 
   GetDevices() : Observable<any>
   {
-    return this.http.get<Device[]>(this.url+"/ViewDevices/GetDevice"+ this.lc.userID
+    console.log(this.lc.userID);
+
+    return this.http.get<Device[]>(this.url+"/ViewDevices/GetDevice/"+ this.lc.userID
     ).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
-
+   
   }
 
   // GetUser() : Observable<any>

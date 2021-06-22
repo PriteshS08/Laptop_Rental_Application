@@ -14,7 +14,7 @@ export class BrowserCatalogService {
   constructor(private http:HttpClient) { }
   getAllDevices() : Observable<any>
   {
-    return this.http.get<Device[]>(this.url).pipe(map((response:Device[]) =>{this.deviceDetails=response} ),
+    return this.http.get<Device[]>(this.url).pipe(map((response) =>{return response as Device[];} ),
       catchError(this.handleError));
   }
 
@@ -32,12 +32,14 @@ export class BrowserCatalogService {
 
   handleError(error:any) {
     let errorMessage = '';
+    console.log(error);
     if(error.error instanceof ErrorEvent) {
       
       errorMessage = error.error.message;
     } else {
    
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+
     }
     window.alert(errorMessage);
     return throwError(errorMessage);
