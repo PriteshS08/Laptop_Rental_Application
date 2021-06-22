@@ -19,8 +19,8 @@ export class BrowserCatalogueComponent implements OnInit {
     error=>{alert('Error in fetching data')});
   }
 
-  viewDetail(ImeiNo : string) {
-    this.bs.getDeviceByImeiNo(ImeiNo).subscribe((res)=>{this.devicedetail=res,
+  viewDetail(deviceId : number) {
+    this.bs.getDeviceByID(deviceId).subscribe((res)=>{this.devicedetail=res,
     this.deviceID = res.DeviceId},
     error=>{alert('Error in fetching data')});
   }

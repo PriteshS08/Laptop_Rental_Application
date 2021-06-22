@@ -42,7 +42,7 @@ namespace LaptopRental.API.Controllers
 
         }
 
-        public HttpResponseMessage GetByImeiNo(string num)
+        public HttpResponseMessage GetByDeviceID(int num)
         {
             try
             {

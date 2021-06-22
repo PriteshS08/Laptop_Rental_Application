@@ -10,14 +10,13 @@ import { MakeRequestComponent } from '../make-request/make-request.component';
   styleUrls: ['./over-due.component.css']
 })
 export class OverDueComponent implements OnInit {
-  device! : Device;
+  overDueList : Device[] = [];
   requestID! : number;
   constructor(private bc : BrowserCatalogueComponent,
     private mr : MakeRequestComponent,
     private router : Router) { }
 
   ngOnInit(): void {
-    this.device = this.bc.devicedetail;
     this.requestID = this.mr.requestID;
     this.router.navigate(['']);
   }

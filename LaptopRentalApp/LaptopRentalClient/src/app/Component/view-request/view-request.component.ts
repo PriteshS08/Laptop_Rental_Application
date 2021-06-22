@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BrowserCatalogService } from 'src/app/Service/browser-catalog.service';
 import { RequestService } from 'src/app/Service/request.service';
 import { Device } from 'src/app/Types/Device';
 import { DeviceRequest } from 'src/app/Types/Request';
@@ -14,30 +15,34 @@ import { MakeRequestComponent } from '../make-request/make-request.component';
   styleUrls: ['./view-request.component.css']
 })
 export class ViewRequestComponent implements OnInit {
-  deviceDetails!:Device;
+ deviceDetails!:Device;
   userDetails! : User;
   requestDetails! : DeviceRequest;
   deviceId! : number;
   constructor(private bc : BrowserCatalogueComponent,
     private lc : LoginComponent,
     private mr : MakeRequestComponent,
-    private rs : RequestService) { 
+    private rs : RequestService,
+    private bs : BrowserCatalogService) { 
       this.userDetails = this.lc.user;
-      this.requestDetails = this.mr.requestDetails;
+      this.rs.getRequest(this.mr.requestID).subscribe(res => {
+      this.requestDetails = res;
+    this.deviceId = res.DeviceId_FK});
+    this.bs.getDeviceByID(this.deviceId).subscribe(res => {
+      this.deviceDetails = res;});
     }
   ngOnInit(): void {
   }
 
   acceptRequest(){
      const requestDetails = {
-      DeviceId : this.bc.deviceID,
+      DeviceId : this.deviceId,
       Status : "Rented"
     }
     //this.deviceDetails.Status = "Rented";
     this.rs.updateacceptStatus(requestDetails).subscribe(res  => { return res; });
   }
   rejectRequest() {
-    this.deviceId = this.bc.deviceID,
     this.rs.updaterejectStatus(this.deviceId).subscribe(res => {return res;})
   }
 }
