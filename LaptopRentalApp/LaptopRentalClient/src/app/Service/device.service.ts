@@ -41,8 +41,8 @@ export class DeviceService {
  
   GetReport() : Observable<any>
   {
-    return this.http.get<Device[]>(this.url+"/ViewDevices/"+ this.lc.userID
-    ).pipe(map((response: any) => {return response}),
+    return this.http.get<Device[]>(this.url+"/EarningReport/"+ this.lc.userID
+    ).pipe(map((response) => {return response as Device[];}),
     catchError(this.handleError));
 
   }
