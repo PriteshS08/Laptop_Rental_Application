@@ -42,13 +42,34 @@ namespace LaptopRental.BLL.Services
 
         }
 
-        public List<Device> GetDevice(string num)
+        public Device GetDevice( int num)
         {
             try
             {
                 var query = (from device in context.Devices
-                             where device.IMEINumber == num
-                             select device).ToList();
+                             where device.DeviceId == num
+                             select device).SingleOrDefault();
+                return query;
+            }
+            catch (DbException ex)
+            {
+                throw new LaptopRentalException("Error reading data", ex);
+            }
+
+            catch (Exception ex)
+            {
+                throw new LaptopRentalException("UnKnown Error while reading data", ex);
+            }
+
+        }
+
+        public Device GetDeviceByImei(string imei)
+        {
+            try
+            {
+                var query = (from device in context.Devices
+                             where device.IMEINumber == imei
+                             select device).SingleOrDefault();
                 return query;
             }
             catch (DbException ex)

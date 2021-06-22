@@ -1,6 +1,7 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DeviceService } from 'src/app/Service/device.service';
+import { LoginComponent } from '../login/login.component';
 
 @Injectable({ 
   providedIn: 'root'
@@ -18,7 +19,9 @@ submitted:boolean=false;
 fileToUpload!: File ;
 status : string = "Available";
 //ratings: number = 5.0;
-constructor(private formBuilder : FormBuilder, private device : DeviceService) { }
+constructor(private formBuilder : FormBuilder,
+  private device : DeviceService,
+  private lc : LoginComponent) { }
 
   ngOnInit(): void {
 
@@ -31,7 +34,8 @@ constructor(private formBuilder : FormBuilder, private device : DeviceService) {
       RentalAmount : ['', [Validators.compose([Validators.required])]],
       MaxRentalMonth : ['', [Validators.compose([Validators.required])]],
       Interest: ['', [Validators.compose([Validators.required])]],
-      //Ratings : ['5.0']
+      //Ratings : ['5.0'],
+     // UserId : this.lc.userID
     });
   }
   onUploadFile(event : any) {  
@@ -42,9 +46,15 @@ constructor(private formBuilder : FormBuilder, private device : DeviceService) {
   
     AddDetail(){
       this.submitted = true;
+      const devicedetails={
+        frm :this.AddDeviceDetails.value,
+        UserId_FK:this.lc.userID,
+        Status :this.status
+      };
       const Details = new FormData();
       Details.append('image', this.fileToUpload);
-      Details.append('AddDevice', JSON.stringify(this.AddDeviceDetails.value));
+      Details.append('AddDevice', JSON.stringify(devicedetails));
+     
 
       console.log(Details);
 

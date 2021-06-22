@@ -25,11 +25,14 @@ import { AddDeviceComponent } from './Component/add-device/add-device.component'
 import { ViewDetailsComponent } from './Component/view-details/view-details.component';
 import { ViewRequestComponent } from './Component/view-request/view-request.component';
 import { BrowserCatalogueComponent } from './Component/browser-catalogue/browser-catalogue.component';
-import { CommonModule } from '@angular/common';
 import { DeviceService } from './Service/device.service';
 import { RequestService } from './Service/request.service';
+import { OverDueComponent } from './Component/over-due/over-due.component';
 import { FeedbackComponent } from './Component/feedback/feedback.component';
 import { GetAllRequestComponent } from './Component/get-all-request/get-all-request.component';
+
+//import { ViewOverDueDeviceComponent } from './view-over-due-device/view-over-due-device.component';
+import { ViewOverDueDetailsComponent } from './Component/view-over-due-details/view-over-due-details.component';
 
 
 
@@ -49,8 +52,12 @@ import { GetAllRequestComponent } from './Component/get-all-request/get-all-requ
     ViewDetailsComponent,
     ViewRequestComponent,
     BrowserCatalogueComponent,
-    FeedbackComponent
-    GetAllRequestComponent
+    OverDueComponent,
+    FeedbackComponent,
+    GetAllRequestComponent,
+   
+    ViewOverDueDetailsComponent,
+    ViewOverDueDetailsComponent
   ],
   imports: [
     BrowserModule,
