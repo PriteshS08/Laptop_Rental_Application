@@ -1,0 +1,31 @@
+<h2 style="padding-left: 100px;"> Earning Report</h2>
+<div style="padding-left: 150px;">
+<div class="container">
+    <ul *ngFor="let d of devicelist" class="list-group list-group-numbered" style="padding-top: 50px;">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto" style="padding-right:600px;">
+        <div  class="ms-2 me-auto">
+            <span><label>DeviceName :</label></span> &nbsp;
+            <span class="fw-bold">{{d.DeviceName}}</span>
+        </div>
+        <div  class="ms-2 me-auto">
+            <span><label>IMEINumber :</label></span> &nbsp;
+            <span class="fw-bold">{{d.IMEINumber}}</span>
+        </div>
+     </div>
+        <div>
+            <span><label>RentalAmount :</label></span> &nbsp;
+            <span class="fw-bold">{{d.RentalAmount}}</span>
+        </div>
+    </li>
+    </ul>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div style="padding-left: 1000px;">
+            <span><label>Total Earnings :</label></span> &nbsp;
+            <span class="fw-bold">{{TotalEarning}}</span>
+        </div>
+    </li>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</div>

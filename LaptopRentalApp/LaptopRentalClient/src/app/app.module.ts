@@ -29,6 +29,7 @@ import { CommonModule } from '@angular/common';
 import { DeviceService } from './Service/device.service';
 import { RequestService } from './Service/request.service';
 import { GetAllRequestComponent } from './Component/get-all-request/get-all-request.component';
+import { EarningReportComponent } from './earning-report/earning-report.component';
 
 
 
@@ -48,7 +49,8 @@ import { GetAllRequestComponent } from './Component/get-all-request/get-all-requ
     ViewDetailsComponent,
     ViewRequestComponent,
     BrowserCatalogueComponent,
-    GetAllRequestComponent
+    GetAllRequestComponent,
+    EarningReportComponent
   ],
   imports: [
     BrowserModule,

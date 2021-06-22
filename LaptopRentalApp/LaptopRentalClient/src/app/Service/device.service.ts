@@ -33,6 +33,16 @@ export class DeviceService {
     catchError(this.handleError));
 
   }
+ 
+  GetReport() : Observable<any>
+  {
+    return this.http.get<Device[]>(this.url+"/ViewDevices/"+ this.lc.userID
+    ).pipe(map((response: any) => {return response}),
+    catchError(this.handleError));
+
+  }
+
+
 
   // GetUser() : Observable<any>
   // {
