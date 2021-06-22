@@ -63,6 +63,27 @@ namespace LaptopRental.BLL.Services
 
         }
 
+        public Device GetDeviceByImei(string imei)
+        {
+            try
+            {
+                var query = (from device in context.Devices
+                             where device.IMEINumber == imei
+                             select device).SingleOrDefault();
+                return query;
+            }
+            catch (DbException ex)
+            {
+                throw new LaptopRentalException("Error reading data", ex);
+            }
+
+            catch (Exception ex)
+            {
+                throw new LaptopRentalException("UnKnown Error while reading data", ex);
+            }
+
+        }
+
 
     }
 }

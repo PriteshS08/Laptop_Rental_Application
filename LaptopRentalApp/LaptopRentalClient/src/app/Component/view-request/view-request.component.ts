@@ -17,6 +17,7 @@ import { MakeRequestComponent } from '../make-request/make-request.component';
 export class ViewRequestComponent implements OnInit {
  deviceDetails!:Device;
   userDetails! : User;
+  requestID! : number;
   requestDetails! : DeviceRequest;
   deviceId! : number;
   constructor(private bc : BrowserCatalogueComponent,
@@ -25,7 +26,8 @@ export class ViewRequestComponent implements OnInit {
     private rs : RequestService,
     private bs : BrowserCatalogService) { 
       this.userDetails = this.lc.user;
-      this.rs.getRequest(this.mr.requestID).subscribe(res => {
+      this.requestID = this.mr.requestID;
+      this.rs.getRequest(this.requestID).subscribe(res => {
       this.requestDetails = res;
     this.deviceId = res.DeviceId_FK});
     this.bs.getDeviceByID(this.deviceId).subscribe(res => {

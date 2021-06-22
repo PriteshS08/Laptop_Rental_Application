@@ -60,5 +60,24 @@ namespace LaptopRental.API.Controllers
             }
 
         }
+
+        public HttpResponseMessage GetByDeviceImeiNo(string imei)
+        {
+            try
+            {
+                var result = catalogueService.GetDeviceByImei(imei);
+                return Request.CreateResponse(HttpStatusCode.Created, result);
+
+            }
+            catch (LaptopRentalException ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+
+        }
     }
 }
