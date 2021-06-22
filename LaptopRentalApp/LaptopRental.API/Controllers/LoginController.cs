@@ -49,17 +49,17 @@ namespace LaptopRental.API.Controllers
             return Ok(LoginReq);
         }
 
-       [HttpGet]
-       [Route("api/Login/RetrieveUserId")]
-       public IHttpActionResult RetrieveUserId([FromBody] User obj)
-        {
-            int result = (from user in context.Users
-                          where user.EmailId == obj.EmailId
-                          select user.UserId).SingleOrDefault();
-            if (result == 0)
-                return NotFound();
-            return Ok(result);
-        }
+       //[HttpGet]
+       //[Route("api/Login/RetrieveUserId")]
+       //public IHttpActionResult RetrieveUserId([FromBody] User obj)
+       // {
+       //     int result = (from user in context.Users
+       //                   where user.EmailId == obj.EmailId
+       //                   select user.UserId).SingleOrDefault();
+       //     if (result == 0)
+       //         return NotFound();
+       //     return Ok(result);
+       // }
 
 
     }

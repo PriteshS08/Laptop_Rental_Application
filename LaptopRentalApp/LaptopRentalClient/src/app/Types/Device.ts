@@ -1,7 +1,7 @@
 
 export class Device {
     constructor (
-        public DeviceId : number,
+       // public DeviceId : number,
         public IMEINumber : string,
         public DeviceName : string,
         public DeviceSpecification : string,
@@ -11,6 +11,7 @@ export class Device {
         public RentalAmount : any,
         public MaxRentalMonth : Number,
         public Interest : any,
-        public Status: string
+        public Status: string,
+        public UserId_FK : number
          ) {}
 }

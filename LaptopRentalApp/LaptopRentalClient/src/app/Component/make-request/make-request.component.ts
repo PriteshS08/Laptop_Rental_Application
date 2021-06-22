@@ -18,6 +18,7 @@ export class MakeRequestComponent implements OnInit {
   submitted : boolean =  false;
   requestStatus : string = "Pending";
   requestDetails! : DeviceRequest;
+  requestID! : number;
   constructor(public formBuilder:FormBuilder,
     private bc : BrowserCatalogueComponent,
     private rs : RequestService) {
@@ -38,8 +39,9 @@ export class MakeRequestComponent implements OnInit {
     FromDate: this.frm.get("FromDate")?.value,
     ToDate: this.frm.get('ToDate')?.value,
     RequestStatus : this.requestStatus,
-    DeivceId_FK : this.bc.devicedetail.DeviceId
+    DeivceId_FK : this.bc.deviceID
     }
-    this.rs.updateRequest(rentingDetails).subscribe((res: any)  => {this.requestDetails = res});
+    //this.rs.updateRequest(rentingDetails).subscribe((res: DeviceRequest)  => {this.requestDetails = res;
+    //this.requestID = res.RequestId});
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DeviceService } from 'src/app/Service/device.service';
 import { Device } from 'src/app/Types/Device';
 import { User } from 'src/app/Types/User';
 import { BrowserCatalogueComponent } from '../browser-catalogue/browser-catalogue.component';
@@ -15,7 +16,8 @@ export class ViewDetailsComponent implements OnInit {
   userDetails! : User;
   constructor(private bc : BrowserCatalogueComponent,
     private lc : LoginComponent,
-    private router : Router) { 
+    private router : Router,
+    private ds : DeviceService) { 
       this.deviceDetails = this.bc.devicedetail;
       this.userDetails = this.lc.user;
     }
@@ -23,7 +25,7 @@ export class ViewDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
   makeRequest() {
-    this.router.navigate(['/makerequest'])
+    this.router.navigate(['/makerequest']);
   }
 
 }

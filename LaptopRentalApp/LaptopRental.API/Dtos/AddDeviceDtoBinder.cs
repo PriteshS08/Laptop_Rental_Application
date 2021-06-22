@@ -17,7 +17,7 @@ namespace LaptopRental.API.Dtos
             if (Request.Files.Count == 0)
                 return false;
             HttpPostedFile file = Request.Files[0];
-            var jsonstring = Request.Form.Get("Obj");
+            var jsonstring = Request.Form.Get("AddDevice");
             var addDevicedto = JsonConvert.DeserializeObject<AddDeviceDto>(jsonstring);
             if (addDevicedto != null)
             {

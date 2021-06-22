@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject, throwError } from 'rxjs';
 import {catchError, map, retry} from 'rxjs/operators';
-import { User } from '../Types/User';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -34,17 +34,16 @@ export class LoginService {
       catchError(this.handleError)
     )
   }
-  loginStatus(user : any) : Observable<any>{
-    console.log("email : ",user.EmailId);
-    return this.http.get<number>(this.url+ "/RetrieveUserId",user.EmailId).pipe(map((response) => {
-      this.flag = response;
-      console.log(this.flag);
-      console.log("email : ",user.EmailId);
-      return response;
+  // loginStatus(user : any) : Observable<any>{
+  //   console.log("email : ",user.EmailId);
+  //   return this.http.get<number>(this.url+ "/RetrieveUserId",user.EmailId).pipe(map((response) => {
+  //     this.flag = response;
+  //     console.log(this.flag);
+  //     console.log("email : ",user.EmailId);
+  //     return response;
     
-    }
-    ));
-  }
+  //   }
+  //   ));//}
   get logout() {
     return this.http.get(this.url + '/logout')
         .pipe(map((response) => {
