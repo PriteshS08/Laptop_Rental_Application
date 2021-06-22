@@ -18,11 +18,18 @@ export class BrowserCatalogService {
       catchError(this.handleError));
   }
 
-  getDeviceByID(DeviceId : number) : Observable<any>
+  getDeviceByImeiNo(imeiNO : string) : Observable<any>
   {
-    return this.http.get<Device>(this.url + DeviceId).pipe(map((response) => {this.devicedetail = response}),
+    return this.http.get<Device>(this.url + imeiNO).pipe(map((response) => {this.devicedetail = response}),
     catchError(this.handleError));
   }
+
+  getDeviceByID(deviceID : number) : Observable<any>
+  {
+    return this.http.get<Device>(this.url + deviceID).pipe(map((response) => {this.devicedetail = response}),
+    catchError(this.handleError));
+  }
+
   handleError(error:any) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {

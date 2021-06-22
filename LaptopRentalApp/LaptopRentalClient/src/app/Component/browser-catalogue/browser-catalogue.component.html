@@ -25,10 +25,10 @@
         </div>
     </div>
       <div>
-        <button [routerLink]="['/makerequest']"type="submit" class="btn btn-success" >Make Request</button>     
+        <button type="submit" class="btn btn-success" (click) = "makeRequest()">Make Request</button>     
      </div>
      <div style="padding-left: 20px;">        
-       <button [routerLink]="['/viewdevice']" type="submit" (click)="viewDetail(d.IMEINumber);" class="btn btn-secondary" style="width:10px," >View Details</button>
+       <button type="submit" (click)="viewDetail(d.IMEINumber);" class="btn btn-secondary" style="width:10px," >View Details</button>
     </div>
     </li>
   </ul>
