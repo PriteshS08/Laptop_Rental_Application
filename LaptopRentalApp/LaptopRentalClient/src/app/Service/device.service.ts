@@ -38,6 +38,16 @@ export class DeviceService {
     catchError(this.handleError));
    
   }
+ 
+  GetReport() : Observable<any>
+  {
+    return this.http.get<Device[]>(this.url+"/EarningReport/"+ this.lc.userID
+    ).pipe(map((response) => {return response as Device[];}),
+    catchError(this.handleError));
+
+  }
+
+
 
   // GetUser() : Observable<any>
   // {
