@@ -25,11 +25,10 @@ namespace LaptopRental.BLL.Services
             try
             {
                 List<Device> Dev = context.Devices.ToList();
-                List<Return> Ret = context.Returns.ToList();
+                //List<Return> Ret = context.Returns.ToList();
 
                 var query = from device in Dev
-                            join ret in Ret on device.DeviceId equals ret.DeviceId_Fk
-                            where ret.DueStatus.ToLower() == "returned" && device.UserId_FK == UserId
+                            where device.Status.ToLower() == "returned" && device.UserId_FK == UserId
                             select device;
 
                 if (query != null)

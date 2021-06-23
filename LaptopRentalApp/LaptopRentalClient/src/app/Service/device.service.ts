@@ -31,8 +31,18 @@ export class DeviceService {
 
   GetDevices() : Observable<any>
   {
-    return this.http.get<Device[]>(this.url+"/ViewDevices/GetDevice"+ this.lc.userID
+    console.log(this.lc.userID);
+
+    return this.http.get<Device[]>(this.url+"/ViewDevices/GetDevice/"+ this.lc.userID
     ).pipe(map((response: any) => {return response}),
+    catchError(this.handleError));
+   
+  }
+ 
+  GetReport() : Observable<any>
+  {
+    return this.http.get<Device[]>(this.url+"/EarningReport/"+ this.lc.userID
+    ).pipe(map((response) => {return response as Device[];}),
     catchError(this.handleError));
 
   }
@@ -48,6 +58,7 @@ export class DeviceService {
     return this.http.get<any>(this.url+"/OverDue", req).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
+
 
   // GetUser() : Observable<any>
   // {

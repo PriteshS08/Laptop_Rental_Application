@@ -30,6 +30,9 @@ import { RequestService } from './Service/request.service';
 import { OverDueComponent } from './Component/over-due/over-due.component';
 import { FeedbackComponent } from './Component/feedback/feedback.component';
 import { GetAllRequestComponent } from './Component/get-all-request/get-all-request.component';
+import { EarningReportComponent } from './earning-report/earning-report.component';
+
+//import { ViewOverDueDeviceComponent } from './view-over-due-device/view-over-due-device.component';
 import { ViewOverDueDetailsComponent } from './Component/view-over-due-details/view-over-due-details.component';
 
 
@@ -53,7 +56,11 @@ import { ViewOverDueDetailsComponent } from './Component/view-over-due-details/v
     OverDueComponent,
     FeedbackComponent,
     GetAllRequestComponent,
+   
+    ViewOverDueDetailsComponent,
     ViewOverDueDetailsComponent
+    GetAllRequestComponent,
+    EarningReportComponent
   ],
   imports: [
     BrowserModule,
