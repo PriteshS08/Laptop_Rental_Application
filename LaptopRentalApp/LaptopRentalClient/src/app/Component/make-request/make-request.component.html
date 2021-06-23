@@ -9,18 +9,18 @@
       <div class="form-group col-md-12 mb-3">
         <label for="fromdate" style="padding-bottom: 10px;">Enter From Date</label><span style="color: red;">*</span>
        <input type="date" class="form-control" placeholder="Enter From Date" id="fromdate" formControlName="FromDate" name="FromDate" >
-       <div *ngIf="submitted && f.FromDate.errors" class="invalid-feedback">
+     <!--  <div *ngIf="submitted && f.FromDate.errors" class="invalid-feedback">
         <div *ngIf="f.FromDate.errors.required" else wrong>From Date is required</div>
-      </div>
+      </div>-->
      </div>
 
 
      <div class="form-group col-md-12 mb-3">
         <label for="todate" style="padding-bottom: 10px;">Enter to Date</label><span style="color: red;">*</span>
        <input type="date" class="form-control" placeholder="Enter To Date" id="todate" formControlName="ToDate" name="ToDate">
-       <div *ngIf="submitted && f.ToDate.errors" class="invalid-feedback">
+    <!--  <div *ngIf="submitted && f.ToDate.errors" class="invalid-feedback">
         <div *ngIf="f.ToDate.errors.required" else wrong>To Date is required</div>
-      </div>
+      </div>--> 
      </div>
    
    

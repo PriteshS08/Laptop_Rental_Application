@@ -33,7 +33,6 @@ import { GetAllRequestComponent } from './Component/get-all-request/get-all-requ
 import { ViewOverDueDetailsComponent } from './Component/view-over-due-details/view-over-due-details.component';
 import { EarningReportComponent } from './Component/earning-report/earning-report.component';
 import { ViewRentedDeviceComponent } from './Component/view-rented-device/view-rented-device.component';
-import { ViewOverDueDetailsComponent } from './Component/view-over-due-details/view-over-due-details.component';
 import { RequestStatusComponent } from './Component/request-status/request-status.component';
 
 
@@ -59,11 +58,9 @@ import { RequestStatusComponent } from './Component/request-status/request-statu
     GetAllRequestComponent,
    
     ViewOverDueDetailsComponent,
-    ViewOverDueDetailsComponent
-   
-    ViewOverDueDetailsComponent,
-    RequestStatusComponent
-    ViewOverDueDetailsComponent
+
+    RequestStatusComponent,
+
     GetAllRequestComponent,
     EarningReportComponent,
     ViewRentedDeviceComponent

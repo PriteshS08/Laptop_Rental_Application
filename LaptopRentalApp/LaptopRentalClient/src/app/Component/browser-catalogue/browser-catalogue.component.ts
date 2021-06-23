@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BrowserCatalogService } from 'src/app/Service/browser-catalog.service';
 import { Device } from 'src/app/Types/Device';
 
+@Injectable({ 
+  providedIn: 'root'
+ })
+ 
 @Component({
   selector: 'app-browser-catalogue',
   templateUrl: './browser-catalogue.component.html',
