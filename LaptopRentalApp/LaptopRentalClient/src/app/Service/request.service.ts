@@ -39,6 +39,12 @@ export class RequestService {
     catchError(this.handleError));
   }
 
+  GetRequestStatus() :Observable<any>
+  {
+    return this.http.get(this.url+"/RequestStatus").pipe(map((response: any)=>{return response}),
+    catchError(this.handleError));
+  }
+
   handleError(error:any) { 
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
