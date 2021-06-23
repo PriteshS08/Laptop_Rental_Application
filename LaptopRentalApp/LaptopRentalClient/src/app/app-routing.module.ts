@@ -12,7 +12,10 @@ import { ViewDevicesComponent } from './Component/view-devices/view-devices.comp
 import { ViewRequestComponent } from './Component/view-request/view-request.component';
 import { MakeRequestComponent } from './Component/make-request/make-request.component';
 import { BrowserCatalogueComponent } from './Component/browser-catalogue/browser-catalogue.component';
+import { EarningReportComponent } from './Component/earning-report/earning-report.component';
+import { OverDueComponent } from './Component/over-due/over-due.component';
 import { FeedbackComponent } from './Component/feedback/feedback.component';
+import { ViewRentedDeviceComponent } from './Component/view-rented-device/view-rented-device.component';
 
 const routes: Routes = [
     {path : 'login' , component : LoginComponent},
@@ -27,7 +30,10 @@ const routes: Routes = [
     {path : 'viewrequest' , component : ViewRequestComponent},
     {path : 'makerequest' , component : MakeRequestComponent},
     {path : 'catalogue' , component : BrowserCatalogueComponent},
+    {path : 'earningreport' , component : EarningReportComponent},
+    {path : 'overdue' , component : OverDueComponent},
     {path : 'feedback' , component : FeedbackComponent},
+    {path : 'viewrented' , component : ViewRentedDeviceComponent},
     {path:'',redirectTo:'login', pathMatch: 'full' }
 ];
 

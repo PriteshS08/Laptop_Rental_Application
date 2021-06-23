@@ -15,4 +15,13 @@ export class CustomerUIComponent implements OnInit {
   viewCatalogue() {
     this.route.navigate(['/catalogue'])
   }
+  viewRequest() {
+    this.route.navigate(['/viewrequest'])
+  }
+  viewRentedDevice() {
+    this.route.navigate(['/viewrented'])
+  }
+  viewRatings() {
+    this.route.navigate(['/feedback'])
+  }
 }
