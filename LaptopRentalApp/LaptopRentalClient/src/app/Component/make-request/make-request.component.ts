@@ -53,7 +53,8 @@ export class MakeRequestComponent implements OnInit {
     }
     this.rs.updateRequest(rentingDetails).subscribe((res: any)  => {this.requestDetails = res;
     window.localStorage.setItem('RequestID',JSON.stringify(res.RequestId));
-    this.requestID = res.RequestId;
-  });
+    this.requestID = res.RequestId;},
+    error=>{alert('failed');}
+  );
   }
 }

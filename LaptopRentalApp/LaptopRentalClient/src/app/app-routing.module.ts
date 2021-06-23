@@ -39,7 +39,7 @@ const routes: Routes = [
     {path : 'overdue' , component : OverDueComponent},
     {path : 'feedback' , component : FeedbackComponent},
  
-    {path : 'viewrented' , component : ViewRentedDeviceComponent},
+    {path : 'viewrented' , component : ViewRentedDevicesComponent},
     {path : 'getallrequest' , component : GetAllRequestComponent},
     {path : 'viewrented' , component : ViewRentedDevicesComponent},
     {path:'',redirectTo:'login', pathMatch: 'full' }

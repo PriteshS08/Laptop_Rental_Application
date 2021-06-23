@@ -55,7 +55,7 @@ constructor(private formBuilder : FormBuilder,
       const devicedetails={
         frm :this.AddDeviceDetails.value,
        
-        UserId_FK: this.user.UserId,
+        
         UserId_FK:user.UserId,
         Status :this.status
       };
