@@ -1,6 +1,7 @@
 ﻿using LaptopRental.BLL;
 using LaptopRental.BLL.Services;
 using LaptopRental.DAL;
+using LaptopRental.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,24 +11,23 @@ using System.Web.Http;
 
 namespace LaptopRental.API.Controllers
 {
-    public class EarningReportController : ApiController
+    public class RentedDeviceController : ApiController
     {
-        private readonly LaptopRentalContext Context = new LaptopRentalContext();
-        private readonly EarningReportService Service = new EarningReportService();
-
-        public EarningReportController()
+       private readonly  LaptopRentalContext Context = new LaptopRentalContext();
+       private readonly RentedDeviceService Service = new RentedDeviceService();
+        public RentedDeviceController()
         {
-            Service = new EarningReportService();
+            Service = new RentedDeviceService();
         }
+
         [HttpGet]
-        [Route("api/EarningReport/{UserId}")]
-        public HttpResponseMessage Get([FromUri] int UserId)
+        [Route("api/RentedDevices/{UserId}")]   
+        public HttpResponseMessage GetRentedDeviceById([FromUri] Request Obj)
         {
             try
             {
-                var result = Service.GetReport(UserId);
+                var result = Service.GetRentedDevices(Obj.UserId_FK);
                 return Request.CreateResponse(HttpStatusCode.Created, result);
-
             }
             catch (LaptopRentalException ex)
             {

@@ -25,8 +25,14 @@ export class ViewRequestComponent implements OnInit {
     private mr : MakeRequestComponent,
     private rs : RequestService,
     private bs : BrowserCatalogService) { 
-      this.userDetails = this.lc.user;
-      this.requestID = this.mr.requestID;
+      const json=window.localStorage.getItem('user') as string;
+      console.log('json', json);
+      const user=JSON.parse(json);
+      this.userDetails =user;
+      const json1=window.localStorage.getItem('RequestID') as string;
+      console.log('json1', json1);
+      const requestID=JSON.parse(json1);
+      this.requestID = requestID;
       this.rs.getRequest(this.requestID).subscribe(res => {
       this.requestDetails = res;
     this.deviceId = res.DeviceId_FK});

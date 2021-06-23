@@ -1,5 +1,6 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { RequestService } from 'src/app/Service/request.service';
 import { DeviceRequest } from 'src/app/Types/Request';
 import { BrowserCatalogueComponent } from '../browser-catalogue/browser-catalogue.component';
@@ -24,7 +25,8 @@ export class MakeRequestComponent implements OnInit {
   constructor(public formBuilder:FormBuilder,
     private bc : BrowserCatalogueComponent,
     private rs : RequestService,
-    private vd : ViewDetailsComponent) {
+    private vd : ViewDetailsComponent,
+    private router : Router) {
       this.frm=this.formBuilder.group({
         FromDate : ['', [Validators.compose([Validators.required])]],
         ToDate : ['', [Validators.compose([Validators.required])]],
@@ -53,8 +55,13 @@ export class MakeRequestComponent implements OnInit {
     }
     this.rs.updateRequest(rentingDetails).subscribe((res: any)  => {this.requestDetails = res;
     window.localStorage.setItem('RequestID',JSON.stringify(res.RequestId));
+ 
+  });
     this.requestID = res.RequestId;},
     error=>{alert('failed');}
   );
+    this.requestID = res.RequestId;
+    this.router.navigate(['/catalogue']);
+  });
   }
 }

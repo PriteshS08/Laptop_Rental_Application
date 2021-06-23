@@ -16,7 +16,10 @@ namespace LaptopRental.DAL.Models
         public float Ratings { get; set; }
         public DateTime FeedBackDate { get; set; }
         [ForeignKey("User")]
-        public int UserId { get; set; }
-        public User User { get; set; }      //nav prop
+        public int UserId_FK { get; set; }
+        public User User { get; set; }
+        [ForeignKey("Device")]
+        public int DeviceID_FK { get; set; }
+        public Device Device { get; set; } //nav prop
     }
 }
