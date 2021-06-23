@@ -82,6 +82,10 @@
     <Compile Include="Migrations\202106201414354_LaptopRentalDB6.designer.cs">
       <DependentUpon>202106201414354_LaptopRentalDB6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106230925211_LaptopRentalDB7.cs" />
+    <Compile Include="Migrations\202106230925211_LaptopRentalDB7.designer.cs">
+      <DependentUpon>202106230925211_LaptopRentalDB7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Device.cs" />
     <Compile Include="Models\Feedback.cs" />
@@ -115,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106201414354_LaptopRentalDB6.resx">
       <DependentUpon>202106201414354_LaptopRentalDB6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106230925211_LaptopRentalDB7.resx">
+      <DependentUpon>202106230925211_LaptopRentalDB7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
