@@ -17,7 +17,7 @@
 
      <div class="form-group col-md-12 mb-3">
         <label for="comment" style="padding-bottom: 10px;">Comment</label><span style="color: red;">*</span>
-       <input type="text" class="form-control" placeholder="Enter Your comment" id="comment" formControlName="Comment" name="Comment" >
+       <textarea type="text" class="form-control" placeholder="Enter Your comment" id="comment" formControlName="Comment" name="Comment" > </textarea>
        <div *ngIf="submitted && f.Comment.errors" class="invalid-feedback">
         <div *ngIf="f.Comment.errors.required" else wrong>Rating is required</div>
       </div>

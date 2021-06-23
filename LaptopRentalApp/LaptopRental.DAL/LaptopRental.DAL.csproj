@@ -82,9 +82,9 @@
     <Compile Include="Migrations\202106201414354_LaptopRentalDB6.designer.cs">
       <DependentUpon>202106201414354_LaptopRentalDB6.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106230925211_LaptopRentalDB7.cs" />
-    <Compile Include="Migrations\202106230925211_LaptopRentalDB7.designer.cs">
-      <DependentUpon>202106230925211_LaptopRentalDB7.cs</DependentUpon>
+    <Compile Include="Migrations\202106231138119_LaptopRentalDB7.cs" />
+    <Compile Include="Migrations\202106231138119_LaptopRentalDB7.designer.cs">
+      <DependentUpon>202106231138119_LaptopRentalDB7.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202106230959242_LaptopRentalDB8.cs" />
     <Compile Include="Migrations\202106230959242_LaptopRentalDB8.designer.cs">
@@ -124,8 +124,8 @@
     <EmbeddedResource Include="Migrations\202106201414354_LaptopRentalDB6.resx">
       <DependentUpon>202106201414354_LaptopRentalDB6.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106230925211_LaptopRentalDB7.resx">
-      <DependentUpon>202106230925211_LaptopRentalDB7.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106231138119_LaptopRentalDB7.resx">
+      <DependentUpon>202106231138119_LaptopRentalDB7.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106230959242_LaptopRentalDB8.resx">
       <DependentUpon>202106230959242_LaptopRentalDB8.cs</DependentUpon>

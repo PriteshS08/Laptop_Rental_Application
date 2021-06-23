@@ -32,9 +32,9 @@ import { FeedbackComponent } from './Component/feedback/feedback.component';
 import { GetAllRequestComponent } from './Component/get-all-request/get-all-request.component';
 import { ViewOverDueDetailsComponent } from './Component/view-over-due-details/view-over-due-details.component';
 import { EarningReportComponent } from './Component/earning-report/earning-report.component';
-import { ViewRentedDeviceComponent } from './Component/view-rented-device/view-rented-device.component';
 import { RequestStatusComponent } from './Component/request-status/request-status.component';
 import { ViewRentedDevicesComponent } from './Component/view-rented-devices/view-rented-devices.component';
+import { FeedbackcatalogueComponent } from './Component/feedbackcatalogue/feedbackcatalogue.component';
 
 
 
@@ -64,8 +64,8 @@ import { ViewRentedDevicesComponent } from './Component/view-rented-devices/view
 
     GetAllRequestComponent,
     EarningReportComponent,
-    ViewRentedDeviceComponent,
-    ViewRentedDevicesComponent
+    ViewRentedDevicesComponent,
+    FeedbackcatalogueComponent
   ],
   imports: [
     BrowserModule,

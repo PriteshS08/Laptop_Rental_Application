@@ -8,34 +8,34 @@ import { DeviceRequest } from '../Types/Request';
   providedIn: 'root'
 })
 export class RequestService {
-  url : string ="http://localhost:51108/api/makerequest";
+  url : string ="http://localhost:51108/api";
   flag : boolean = false;
   constructor(private http : HttpClient) { }
   getRequest(resquestID : number) : Observable<any>{
-    return this.http.get<DeviceRequest>(this.url).pipe(map((res : any) => {return res}),
+    return this.http.get<DeviceRequest>(this.url+ "/MakeRequest").pipe(map((res : any) => {return res}),
     catchError(this.handleError));
   }
 
   updateRequest(requestDetails : any) : Observable<any> {
-    return this.http.post(this.url,requestDetails).pipe(map((response: any) => {return response}),
+    return this.http.post(this.url+"/MakeRequest",requestDetails).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
 
   updateacceptStatus(obj: { DeviceId: number; Status: string; }) : Observable<any>
   {
-    return this.http.put(this.url, status).pipe(map((response: any) => {return response}),
+    return this.http.put(this.url+ "/MakeRequest", status).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
 
   updaterejectStatus(deviceID: any) : Observable<any>
   {
-    return this.http.delete(this.url, deviceID).pipe(map((response: any) => {return response}),
+    return this.http.delete(this.url+"/MakeRequest", deviceID).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
   
   GetAllUsersRequest() : Observable<any>
   {
-    return this.http.get(this.url+"/ViewRequest").pipe(map((response: any)=>{return response}),
+    return this.http.get(this.url+"/ViewRequest/GetRequest").pipe(map((response: any)=>{return response}),
     catchError(this.handleError));
   }
 

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewRentedDeviceComponent } from './view-rented-device.component';
+import { FeedbackcatalogueComponent } from './feedbackcatalogue.component';
 
-describe('ViewRentedDeviceComponent', () => {
-  let component: ViewRentedDeviceComponent;
-  let fixture: ComponentFixture<ViewRentedDeviceComponent>;
+describe('FeedbackcatalogueComponent', () => {
+  let component: FeedbackcatalogueComponent;
+  let fixture: ComponentFixture<FeedbackcatalogueComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewRentedDeviceComponent ]
+      declarations: [ FeedbackcatalogueComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewRentedDeviceComponent);
+    fixture = TestBed.createComponent(FeedbackcatalogueComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

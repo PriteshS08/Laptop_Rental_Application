@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit {
             this.ls.isAuthenticated(true);
             this.flag=res;
             this.user = res;
+            window.localStorage.setItem('user',JSON.stringify(res));
            // this.check();
            //this.checkStatus = true;
            // console.log(this.selectedType);
@@ -62,6 +63,7 @@ export class LoginComponent implements OnInit {
             console.log(res.EmailId);
             this.userID = res.UserId;
             console.log(this.userID);
+           
            //this.CheckStatus(emailID);
            //this.ls.loginStatus(res).subscribe((res: number)  => {this.userID = res});
 
@@ -74,7 +76,7 @@ export class LoginComponent implements OnInit {
           //     this.router.navigate(['/customer']);  
           //   }
           //   this.router.navigate(['/lender']);  
-          this.getUser();
+          //this.getUser();
            }
         },
         (err:any) => {
@@ -85,11 +87,11 @@ export class LoginComponent implements OnInit {
     //this.loginForm.reset();
   }
 
-  getUser() {
-    console.log("user : ",this.user);
-    this.ls.GetUserID(this.user);
+  // getUser() {
+  //   console.log("user :", this.user);
+  //   this.ls.GetUserID(this.user);
     
-  }
+  // }
 
 // CheckStatus(emailID : string) {
   

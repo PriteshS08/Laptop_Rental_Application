@@ -3,15 +3,16 @@ import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject, throwError } from 'rxjs';
 import {catchError, map, retry} from 'rxjs/operators';
-import { User } from '../Types/User';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   url : string = "http://localhost:51108/api/login";
-  userID$: Observable<any>;
-  private userSubject = new Subject<any>();
+  // private userSubject = new Subject<any>();
+  // userID$: Observable<any> = this.userSubject.asObservable();
+
   private isLoggedIn = new BehaviorSubject<boolean> (false);
   private CallMethodSource  = new Subject<any>();
   CallMethodSource$ = this.CallMethodSource.asObservable();
@@ -20,10 +21,11 @@ export class LoginService {
   }
   OnLoggedIn = this.isLoggedIn.asObservable();
   flag: any;
+  
   constructor(private http : HttpClient, 
-    private router: Router) { 
-      this.userID$ = this.userSubject.asObservable();
+    private router: Router) {
     }
+    
    isAuthenticated(status : boolean) {
      this.isLoggedIn.next(status);
    }
@@ -39,10 +41,11 @@ export class LoginService {
       catchError(this.handleError)
     )
   }
-  GetUserID(user : any) {
-    console.log("users : ",user);
-    this.userSubject.next(user);
-  }
+  // GetUserID(user : any) {
+  //   console.log("users : ",user);
+  //   this.userSubject.next(user);
+  //   console.log(this.userSubject);
+  //}
   // loginStatus(user : any) : Observable<any>{
   //   console.log("email : ",user.EmailId);
   //   return this.http.get<number>(this.url+ "/RetrieveUserId",user.EmailId).pipe(map((response) => {

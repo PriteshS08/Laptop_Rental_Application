@@ -32,9 +32,10 @@ export class DeviceService {
 
   GetDevices() : Observable<any>
   {
-    console.log(this.userID);
-
-    return this.http.get<Device[]>(this.url+"/ViewDevices/GetDevice/" + this.userID
+    const json=window.localStorage.getItem('user') as string;
+    console.log('json', json);
+    const user=JSON.parse(json);
+    return this.http.get<Device[]>(this.url+"/ViewDevices/GetDevice/" + user.UserId
     ).pipe(map((response) => {return response as Device[];}),
     catchError(this.handleError));
    
@@ -42,7 +43,11 @@ export class DeviceService {
  
   GetReport() : Observable<any>
   {
-    return this.http.get<Device[]>(this.url+"/EarningReport/" + this.lc.userID
+    const json=window.localStorage.getItem('user') as string;
+    console.log('json', json);
+    const user=JSON.parse(json);
+
+    return this.http.get<Device[]>(this.url+"/EarningReport/" + user.UserId
     ).pipe(map((response) => {return response as Device[];}),
     catchError(this.handleError));
 
