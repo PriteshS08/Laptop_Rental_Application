@@ -65,6 +65,7 @@
     <Compile Include="Services\MakeRequestService.cs" />
     <Compile Include="Services\OverDueService.cs" />
     <Compile Include="Services\RequestService.cs" />
+    <Compile Include="Services\RequestStatusService.cs" />
     <Compile Include="Services\SignupService.cs" />
     <Compile Include="Services\ViewDeviceService.cs" />
     <Compile Include="Services\ViewRequestService.cs" />

@@ -33,6 +33,7 @@ import { GetAllRequestComponent } from './Component/get-all-request/get-all-requ
 
 //import { ViewOverDueDeviceComponent } from './view-over-due-device/view-over-due-device.component';
 import { ViewOverDueDetailsComponent } from './Component/view-over-due-details/view-over-due-details.component';
+import { RequestStatusComponent } from './Component/request-status/request-status.component';
 
 
 
@@ -57,7 +58,8 @@ import { ViewOverDueDetailsComponent } from './Component/view-over-due-details/v
     GetAllRequestComponent,
    
     ViewOverDueDetailsComponent,
-    ViewOverDueDetailsComponent
+    ViewOverDueDetailsComponent,
+    RequestStatusComponent
   ],
   imports: [
     BrowserModule,

@@ -237,6 +237,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MakeRequestController.cs" />
     <Compile Include="Controllers\OverDueController.cs" />
+    <Compile Include="Controllers\RequestStatusController.cs" />
     <Compile Include="Controllers\SignupController.cs" />
     <Compile Include="Controllers\ViewDetailsController.cs" />
     <Compile Include="Controllers\ViewDevicesController.cs" />
