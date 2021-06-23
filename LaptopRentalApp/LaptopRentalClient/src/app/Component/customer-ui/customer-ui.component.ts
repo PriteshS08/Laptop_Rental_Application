@@ -16,7 +16,7 @@ export class CustomerUIComponent implements OnInit {
     this.route.navigate(['/catalogue'])
   }
   viewRequest() {
-    this.route.navigate(['/viewrequest'])
+    this.route.navigate(['/requeststatus'])
   }
   viewRentedDevice() {
     this.route.navigate(['/viewrented'])

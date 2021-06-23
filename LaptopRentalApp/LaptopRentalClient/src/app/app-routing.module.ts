@@ -16,6 +16,7 @@ import { EarningReportComponent } from './Component/earning-report/earning-repor
 import { OverDueComponent } from './Component/over-due/over-due.component';
 import { FeedbackComponent } from './Component/feedback/feedback.component';
 import { ViewRentedDeviceComponent } from './Component/view-rented-device/view-rented-device.component';
+import { RequestStatusComponent } from './Component/request-status/request-status.component';
 
 const routes: Routes = [
     {path : 'login' , component : LoginComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
     {path : 'fpassword' , component : ForgotPasswordComponent},
     {path : 'viewdevice' , component : ViewDevicesComponent},
     {path : 'viewrequest' , component : ViewRequestComponent},
+    {path : 'requeststatus' , component : RequestStatusComponent},
     {path : 'makerequest' , component : MakeRequestComponent},
     {path : 'catalogue' , component : BrowserCatalogueComponent},
     {path : 'earningreport' , component : EarningReportComponent},
