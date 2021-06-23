@@ -64,6 +64,7 @@
     <Compile Include="Services\LoginSevice.cs" />
     <Compile Include="Services\MakeRequestService.cs" />
     <Compile Include="Services\OverDueService.cs" />
+    <Compile Include="Services\RentedDeviceService.cs" />
     <Compile Include="Services\RequestService.cs" />
     <Compile Include="Services\RequestStatusService.cs" />
     <Compile Include="Services\SignupService.cs" />
