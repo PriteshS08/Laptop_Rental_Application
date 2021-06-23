@@ -4,7 +4,7 @@ import { RequestService } from 'src/app/Service/request.service';
 import { DeviceRequest } from 'src/app/Types/Request';
 import { BrowserCatalogueComponent } from '../browser-catalogue/browser-catalogue.component';
 import { ViewDetailsComponent } from '../view-details/view-details.component';
-import { ViewDevicesComponent } from '../view-devices/view-devices.component';
+
 
 @Injectable({ 
   providedIn: 'root'
@@ -37,14 +37,22 @@ export class MakeRequestComponent implements OnInit {
 
   makeRequest() {
     this.submitted = true;
+    const json = window.localStorage.getItem('deviceID') as string;
+    console.log('json', json);
+    const deviceID=JSON.parse(json);
+    const json1=window.localStorage.getItem('user') as string;
+    console.log('json1', json1);
+    const user=JSON.parse(json1);
     const rentingDetails = {
     RequestDate : new Date(),
     FromDate: this.frm.get("FromDate")?.value,
     ToDate: this.frm.get('ToDate')?.value,
     RequestStatus : this.requestStatus,
-    DeivceId_FK : this.vd.deviceID,
+    DeivceId_FK : deviceID,
+    UserId_FK : user.UserId
     }
     this.rs.updateRequest(rentingDetails).subscribe((res: any)  => {this.requestDetails = res;
+    window.localStorage.setItem('RequestID',JSON.stringify(res.RequestId));
     this.requestID = res.RequestId;
   });
   }
