@@ -26,6 +26,7 @@ namespace LaptopRental.API.Controllers
             base.Dispose(disposing);
         }
         [HttpGet]
+        [Route("api/OverDue/GetByDeviceID")]
         public IHttpActionResult GetByDeviceID([FromBody] Request req)
         {
             if ((req.DeviceId_FK !=0) && (req.ToDate < DateTime.Now))
@@ -42,6 +43,7 @@ namespace LaptopRental.API.Controllers
         }
 
         [HttpGet]
+        [Route("api/OverDue/GetAllOverDue")]
         public IHttpActionResult GetAllOverDue()
         {
             if (!ModelState.IsValid)

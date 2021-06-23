@@ -19,7 +19,7 @@ export class LenderUIComponent implements OnInit {
     this.router.navigate(['/viewdevice'])
   }
   viewRequest() {
-    this.router.navigate(['/viewrequest'])
+    this.router.navigate(['/getallrequest'])
   }
   viewReport() {
     this.router.navigate(['/earningreport'])

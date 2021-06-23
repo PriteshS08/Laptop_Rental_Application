@@ -16,6 +16,7 @@ import { EarningReportComponent } from './Component/earning-report/earning-repor
 import { OverDueComponent } from './Component/over-due/over-due.component';
 import { FeedbackComponent } from './Component/feedback/feedback.component';
 import { RequestStatusComponent } from './Component/request-status/request-status.component';
+import { GetAllRequestComponent } from './Component/get-all-request/get-all-request.component';
 import { ViewRentedDevicesComponent } from './Component/view-rented-devices/view-rented-devices.component';
 import { ViewDetailsComponent } from './Component/view-details/view-details.component';
 
@@ -37,6 +38,9 @@ const routes: Routes = [
     {path : 'earningreport' , component : EarningReportComponent},
     {path : 'overdue' , component : OverDueComponent},
     {path : 'feedback' , component : FeedbackComponent},
+ 
+    {path : 'viewrented' , component : ViewRentedDeviceComponent},
+    {path : 'getallrequest' , component : GetAllRequestComponent},
     {path : 'viewrented' , component : ViewRentedDevicesComponent},
     {path:'',redirectTo:'login', pathMatch: 'full' }
 ];
