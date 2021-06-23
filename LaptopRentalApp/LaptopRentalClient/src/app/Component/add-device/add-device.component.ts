@@ -17,6 +17,7 @@ export class AddDeviceComponent implements OnInit {
 AddDeviceDetails = new FormGroup({});
 submitted:boolean=false;
 fileToUpload!: File ;
+user! : any;
 status : string = "Available";
 //ratings: number = 5.0;
 constructor(private formBuilder : FormBuilder,
@@ -46,9 +47,12 @@ constructor(private formBuilder : FormBuilder,
   
     AddDetail(){
       this.submitted = true;
+      const json=window.localStorage.getItem('user') as string;
+      console.log('json', json);
+      this.user=JSON.parse(json);
       const devicedetails={
         frm :this.AddDeviceDetails.value,
-        UserId_FK:1,
+        UserId_FK: this.user.UserId,
         Status :this.status
       };
       console.log(devicedetails);

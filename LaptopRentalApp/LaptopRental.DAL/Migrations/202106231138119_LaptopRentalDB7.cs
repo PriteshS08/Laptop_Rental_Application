@@ -7,7 +7,7 @@
     {
         public override void Up()
         {
-            AddColumn("dbo.Requests", "UserId_FK", c => c.Int(nullable: false));
+            AddColumn("dbo.Requests", "UserId_FK", c => c.Int(nullable: true));
             CreateIndex("dbo.Requests", "UserId_FK");
             AddForeignKey("dbo.Requests", "UserId_FK", "dbo.Users", "UserId", cascadeDelete: false);
         }

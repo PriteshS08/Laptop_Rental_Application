@@ -33,8 +33,8 @@ namespace LaptopRental.API.Controllers
         /// <returns> created if User details saved to the database </returns>
 
         [HttpPost]
-
-        public IHttpActionResult AddPost(Feedback use)
+        [Route("api/Feedback/AddPost")]
+        public IHttpActionResult AddPost([FromBody] Feedback use)
 
         {
             try
@@ -58,5 +58,27 @@ namespace LaptopRental.API.Controllers
                 return InternalServerError(ex);
             }
         }
+
+        [HttpGet]
+        [Route("api/Feedback/DisplayAllDevice")]
+        public HttpResponseMessage DisplayAllDevice()
+        {
+            try
+            {
+                var result = feedbackService.GetAllDevices();
+                return Request.CreateResponse(HttpStatusCode.Created, result);
+
+            }
+            catch (LaptopRentalException ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+
+        }
+
     }
 }

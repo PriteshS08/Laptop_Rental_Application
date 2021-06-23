@@ -26,7 +26,7 @@ namespace LaptopRental.BLL.Services
             var result = (from device in context.Devices 
                           join user in context.Users on device.UserId_FK equals user.UserId
                         where device.DeviceId == deviceID
-                        select new { device, user}).ToArray();
+                        select new { device, user }).ToArray();
             if (result != null)
             {
                 return result;

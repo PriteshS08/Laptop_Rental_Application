@@ -17,6 +17,7 @@ import { OverDueComponent } from './Component/over-due/over-due.component';
 import { FeedbackComponent } from './Component/feedback/feedback.component';
 import { ViewRentedDeviceComponent } from './Component/view-rented-device/view-rented-device.component';
 import { RequestStatusComponent } from './Component/request-status/request-status.component';
+import { GetAllRequestComponent } from './Component/get-all-request/get-all-request.component';
 
 const routes: Routes = [
     {path : 'login' , component : LoginComponent},
@@ -37,6 +38,7 @@ const routes: Routes = [
     {path : 'overdue' , component : OverDueComponent},
     {path : 'feedback' , component : FeedbackComponent},
     {path : 'viewrented' , component : ViewRentedDeviceComponent},
+    {path : 'getallrequest' , component : GetAllRequestComponent},
     {path:'',redirectTo:'login', pathMatch: 'full' }
 ];
 

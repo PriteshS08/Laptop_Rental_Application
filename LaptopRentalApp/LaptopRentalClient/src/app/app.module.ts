@@ -35,6 +35,7 @@ import { EarningReportComponent } from './Component/earning-report/earning-repor
 import { ViewRentedDeviceComponent } from './Component/view-rented-device/view-rented-device.component';
 import { RequestStatusComponent } from './Component/request-status/request-status.component';
 import { ViewRentedDevicesComponent } from './Component/view-rented-devices/view-rented-devices.component';
+import { FeedbackcatalogueComponent } from './Component/feedbackcatalogue/feedbackcatalogue.component';
 
 
 
@@ -65,7 +66,8 @@ import { ViewRentedDevicesComponent } from './Component/view-rented-devices/view
     GetAllRequestComponent,
     EarningReportComponent,
     ViewRentedDeviceComponent,
-    ViewRentedDevicesComponent
+    ViewRentedDevicesComponent,
+    FeedbackcatalogueComponent
   ],
   imports: [
     BrowserModule,

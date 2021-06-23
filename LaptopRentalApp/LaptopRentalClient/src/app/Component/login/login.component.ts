@@ -54,12 +54,28 @@ export class LoginComponent implements OnInit {
             this.flag=res;
             this.user = res;
             window.localStorage.setItem('user',JSON.stringify(res));
+           // this.check();
+           //this.checkStatus = true;
+           // console.log(this.selectedType);
             this.router.navigate(['/home']);
-          
-           
+            // const emailID = this.loginForm.get("email")?.value;
+         
+            console.log(res.EmailId);
             this.userID = res.UserId;
+            console.log(this.userID);
            
+           //this.CheckStatus(emailID);
+           //this.ls.loginStatus(res).subscribe((res: number)  => {this.userID = res});
+
+           // window.localStorage.setItem("UserId","value");
            
+           //returns the stored value
+           // console.log(this.checkStatus);
+          //   if (this.selectedType== "customer")
+          //   {
+          //     this.router.navigate(['/customer']);  
+          //   }
+          //   this.router.navigate(['/lender']);  
           //this.getUser();
            }
         },
@@ -72,7 +88,7 @@ export class LoginComponent implements OnInit {
   }
 
   // getUser() {
-  //   console.log("user : ",this.user);
+  //   console.log("user :", this.user);
   //   this.ls.GetUserID(this.user);
     
   // }
