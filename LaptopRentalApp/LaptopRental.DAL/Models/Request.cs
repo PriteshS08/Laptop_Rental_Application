@@ -26,5 +26,9 @@ namespace LaptopRental.DAL.Models
         public int DeviceId_FK { get; set; }
         public Device Device { get; set; }
 
+        [ForeignKey("User")]
+        public int UserId_FK { get; set; }
+        public User User { get; set; }
+
     }
 }
