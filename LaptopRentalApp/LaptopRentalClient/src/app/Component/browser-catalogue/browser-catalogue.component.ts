@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BrowserCatalogService } from 'src/app/Service/browser-catalog.service';
 import { Device } from 'src/app/Types/Device';
+
+@Injectable({ 
+  providedIn: 'root'
+ })
 
 @Component({
   selector: 'app-browser-catalogue',
@@ -11,14 +15,14 @@ import { Device } from 'src/app/Types/Device';
 export class BrowserCatalogueComponent implements OnInit {
   devicelist:Device[]=[];
   devicedetail! : Device;
-  deviceID! : number;
+  imeiNo! : string;
   constructor(private bs : BrowserCatalogService,
     private router : Router) { }
 
   ngOnInit(): void {
     this.bs.getAllDevices().subscribe((Response)=>{
       this.devicelist=Response;
-    console.log(Response);},
+    console.log(this.devicelist);},
     error=>{alert('Error in fetching data')});
   }
   makeRequest() {
@@ -26,10 +30,8 @@ export class BrowserCatalogueComponent implements OnInit {
   }
 
   viewDetail(imeiNO : string) {
-    this.router.navigate(['/viewdevice']);
-    this.bs.getDeviceByImeiNo(imeiNO).subscribe((res)=>{this.devicedetail=res;
-    this.deviceID = res.DeviceId;},
-    error=>{alert('Error in fetching data')});
+    this.imeiNo = imeiNO;
+    this.router.navigate(['/viewdetails']);
   }
 
  

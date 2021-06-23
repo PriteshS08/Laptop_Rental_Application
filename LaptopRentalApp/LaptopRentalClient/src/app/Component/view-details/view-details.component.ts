@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DeviceService } from 'src/app/Service/device.service';
+import { BrowserCatalogService } from 'src/app/Service/browser-catalog.service';
 import { Device } from 'src/app/Types/Device';
-import { User } from 'src/app/Types/User';
 import { BrowserCatalogueComponent } from '../browser-catalogue/browser-catalogue.component';
-import { LoginComponent } from '../login/login.component';
+
+@Injectable({ 
+  providedIn: 'root'
+ })
 
 @Component({
   selector: 'app-view-details',
@@ -13,18 +15,21 @@ import { LoginComponent } from '../login/login.component';
 })
 export class ViewDetailsComponent implements OnInit {
   deviceDetails!:Device;
-  userDetails! : User;
+ deviceID! : number;
   constructor(private bc : BrowserCatalogueComponent,
-    private lc : LoginComponent,
-    private router : Router,
-    private ds : DeviceService) { 
-      this.deviceDetails = this.bc.devicedetail;
-      this.userDetails = this.lc.user;
+    private bs : BrowserCatalogService,
+    private router : Router) { 
+      // this.deviceDetails = this.bc.devicedetail;
+      // this.userDetails = this.lc.user;
+      // console.log(this.deviceDetails);
     }
 
   ngOnInit(): void {
   }
   makeRequest() {
+    this.bs.getDeviceByImeiNo(this.bc.imeiNo).subscribe((res)=>{this.deviceDetails=res;
+      this.deviceID = res.DeviceId},
+        error=>{alert('Error in fetching data')});
     this.router.navigate(['/makerequest']);
   }
 

@@ -1,7 +1,9 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DeviceService } from 'src/app/Service/device.service';
+import { LoginService } from 'src/app/Service/login.service';
 import { Device } from 'src/app/Types/Device';
+import { User } from 'src/app/Types/User';
 
 @Component({
   selector: 'app-earning-report',
@@ -12,21 +14,29 @@ export class EarningReportComponent implements OnInit {
   devicelist:Device[]=[];
   devicedetail! : Device;
   deviceID! : number;
-
-  constructor(private ds:DeviceService ) { }
-
+  user! : any;
+  constructor(private ds:DeviceService ,
+    private ls : LoginService) {
+    this.ls.userID$.subscribe((data) => {
+      this.user = data;
+    console.log("Earnings : " ,this.user);
+    console.log("data : " ,data);});
+   }
+ 
   ngOnInit(): void {
     this.ds.GetReport().subscribe((Response)=>{
       this.devicelist=Response;
-    console.log(Response);},
+      console.log(this.devicelist);},
     error=>{alert('Error in getting report')});
     }
-   sum:any = 0;
-   
+   sum:number = 0;
+   s1 : number =1
     TotalEarnings(): any {
-      for (var val of this.devicelist)
+      console.log(this.devicelist);
+      for (let val of this.devicelist)
       {
-        this.sum += val.RentalAmount;
+        this.s1 = (val.RentalAmount) * (val.MaxRentalMonth);
+        this.sum += this.s1;
       }
       console.log(this.sum);
       return this.sum;

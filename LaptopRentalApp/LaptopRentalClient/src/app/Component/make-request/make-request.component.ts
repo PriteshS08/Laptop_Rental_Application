@@ -3,6 +3,8 @@ import { FormBuilder,FormGroup, Validators} from '@angular/forms';
 import { RequestService } from 'src/app/Service/request.service';
 import { DeviceRequest } from 'src/app/Types/Request';
 import { BrowserCatalogueComponent } from '../browser-catalogue/browser-catalogue.component';
+import { ViewDetailsComponent } from '../view-details/view-details.component';
+import { ViewDevicesComponent } from '../view-devices/view-devices.component';
 
 @Injectable({ 
   providedIn: 'root'
@@ -21,7 +23,8 @@ export class MakeRequestComponent implements OnInit {
   requestID! : number;
   constructor(public formBuilder:FormBuilder,
     private bc : BrowserCatalogueComponent,
-    private rs : RequestService) {
+    private rs : RequestService,
+    private vd : ViewDetailsComponent) {
       this.frm=this.formBuilder.group({
         FromDate : ['', [Validators.compose([Validators.required])]],
         ToDate : ['', [Validators.compose([Validators.required])]],
@@ -39,7 +42,7 @@ export class MakeRequestComponent implements OnInit {
     FromDate: this.frm.get("FromDate")?.value,
     ToDate: this.frm.get('ToDate')?.value,
     RequestStatus : this.requestStatus,
-    DeivceId_FK : this.bc.deviceID
+    DeivceId_FK : this.vd.deviceID,
     }
     this.rs.updateRequest(rentingDetails).subscribe((res: any)  => {this.requestDetails = res;
     this.requestID = res.RequestId;

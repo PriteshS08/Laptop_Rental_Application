@@ -9,7 +9,7 @@ export class Device {
         public DeviceImage : FormData,
        // public Ratings : number,
         public RentalAmount : any,
-        public MaxRentalMonth : Number,
+        public MaxRentalMonth : number,
         public Interest : any,
         public Status: string,
         public UserId_FK : number
