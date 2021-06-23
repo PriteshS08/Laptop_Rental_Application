@@ -41,7 +41,8 @@ export class MakeRequestComponent implements OnInit {
     RequestStatus : this.requestStatus,
     DeivceId_FK : this.bc.deviceID
     }
-    //this.rs.updateRequest(rentingDetails).subscribe((res: DeviceRequest)  => {this.requestDetails = res;
-    //this.requestID = res.RequestId});
+    this.rs.updateRequest(rentingDetails).subscribe((res: any)  => {this.requestDetails = res;
+    this.requestID = res.RequestId;
+  });
   }
 }

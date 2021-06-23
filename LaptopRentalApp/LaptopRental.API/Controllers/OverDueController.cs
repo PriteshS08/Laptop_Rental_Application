@@ -25,6 +25,7 @@ namespace LaptopRental.API.Controllers
             overDueService.Dispose();
             base.Dispose(disposing);
         }
+        [HttpGet]
         public IHttpActionResult GetByDeviceID([FromBody] Request req)
         {
             if ((req.DeviceId_FK !=0) && (req.ToDate < DateTime.Now))
@@ -38,6 +39,19 @@ namespace LaptopRental.API.Controllers
                 }
             }
             return NotFound();
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetAllOverDue()
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var res = overDueService.getOverDueDevices();
+            if (res != null)
+            {
+                return Ok(res);
+            }
+            return BadRequest();
         }
     }
 }

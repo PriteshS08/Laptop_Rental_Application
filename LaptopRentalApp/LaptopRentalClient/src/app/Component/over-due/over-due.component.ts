@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Device } from 'src/app/Types/Device';
-import { BrowserCatalogueComponent } from '../browser-catalogue/browser-catalogue.component';
-import { MakeRequestComponent } from '../make-request/make-request.component';
+import { DeviceService } from 'src/app/Service/device.service';
+
 
 @Component({
   selector: 'app-over-due',
@@ -10,15 +8,19 @@ import { MakeRequestComponent } from '../make-request/make-request.component';
   styleUrls: ['./over-due.component.css']
 })
 export class OverDueComponent implements OnInit {
-  overDueList : Device[] = [];
-  requestID! : number;
-  constructor(private bc : BrowserCatalogueComponent,
-    private mr : MakeRequestComponent,
-    private router : Router) { }
+  overDueList!: [];
+  ViewOverDue =[];
+  requestID!: number;
+  toDate!: Date;
+  constructor(private ds : DeviceService) {
+    this.ds.getOverDueDevices().subscribe((res : any) => {this.overDueList = res;});
+   }
 
   ngOnInit(): void {
-    this.requestID = this.mr.requestID;
-    this.router.navigate(['']);
+  }
+  viewOverDue(requestID : number , toDate : Date){
+    this.requestID = requestID;
+    this.toDate = toDate;
   }
 
 }

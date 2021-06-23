@@ -37,6 +37,18 @@ export class DeviceService {
 
   }
 
+  getOverDueDevices() : Observable<any>
+  {
+    return this.http.get<any>(this.url+"/OverDue").pipe(map((response: any) => {return response}),
+    catchError(this.handleError));
+  }
+
+  getOverDueDetails(req : any) : Observable<any>
+  {
+    return this.http.get<any>(this.url+"/OverDue", req).pipe(map((response: any) => {return response}),
+    catchError(this.handleError));
+  }
+
   // GetUser() : Observable<any>
   // {
   //   return this.http.get<User>(this.url+"/ViewDevices/GetUser"+  window.localStorage.getItem("UserId")

@@ -1,1 +1,57 @@
-<p>view-over-due-details works!</p>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<h1 style="padding-left: 620px; padding-bottom:20px;"><strong>View Over Due Device Details</strong></h1> 
+<div class="container">
+  <div>
+    <div class="ms-2 me-auto" style="padding-right:600px;">
+        <div class="fw-bold">{{overDueDetails.DeviceImage}}</div>
+        <div class="fw-bold"style="padding-top:50px;">resquestID</div>
+        <div class="fw-bold">{{overDueDetails.Name}}</div>
+        <div class="fw-bold">{{overDueDetails.Location}}</div>
+        <div class="fw-bold">{{overDueDetails.PhoneNO}}</div>
+        <div class="fw-bold">{{overDueDetails.IdProof}}</div>
+        <div class="fw-bold">{{overDueDetails.EmailId}}</div>
+     </div>
+    </div>
+
+    <div class="ms-2 me-auto" style="padding-left:600px;">
+      <div>
+        <span><label>DeviceName  :</label></span>
+        <span class="fw-bold"> {{overDueDetails.DeviceName}}</span>
+       </div>
+
+       <div>
+        <span><label>DeviceSpecification  :</label></span>
+        <span class="fw-bold"> {{overDueDetails.DeviceSpecification}}</span>
+       </div>
+
+       <div>
+        <span><label>PreInstalledSoftware  :</label></span>
+        <span class="fw-bold"> {{overDueDetails.PreInstalledSoftware}}</span>
+       </div>
+
+       <div>
+        <span><label>RentalAmount  :</label></span>
+        <span class="fw-bold"> {{overDueDetails.RentalAmount}}</span>
+       </div>
+
+       <div>
+        <span><label>From Date  :</label></span>
+        <span class="fw-bold"> {{overDueDetails.FromDate}}</span>
+       </div>
+
+      <div>
+        <span><label>To Date  :</label></span>
+        <span class="fw-bold"> {{overDueDetails.ToDate}}</span>
+       </div>
+
+  </div>
+  <div style="padding-left:650px; padding-top:30px;">
+    <span class="material-icons-outlined">
+        warning
+    </span>
+    OverDue</div>
+    <div>
+        <a href="#" style="align-items: center; color: blue;">Back to OverDue Details</a>
+    </div>
+</div>
+</div>
