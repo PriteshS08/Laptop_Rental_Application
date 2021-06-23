@@ -48,9 +48,10 @@ constructor(private formBuilder : FormBuilder,
       this.submitted = true;
       const devicedetails={
         frm :this.AddDeviceDetails.value,
-        UserId_FK:this.lc.userID,
+        UserId_FK:1,
         Status :this.status
       };
+      console.log(devicedetails);
       const Details = new FormData();
       Details.append('image', this.fileToUpload);
       Details.append('AddDevice', JSON.stringify(devicedetails));

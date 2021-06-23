@@ -28,6 +28,7 @@ const routes: Routes = [
     {path : 'adddevice' , component : AddDeviceComponent},
     {path : 'fpassword' , component : ForgotPasswordComponent},
     {path : 'viewdevice' , component : ViewDevicesComponent},
+    {path : 'viewdetails' , component : ViewDevicesComponent},
     {path : 'viewrequest' , component : ViewRequestComponent},
     {path : 'requeststatus' , component : RequestStatusComponent},
     {path : 'makerequest' , component : MakeRequestComponent},

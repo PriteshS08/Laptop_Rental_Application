@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, ViewChild } from '@angular/core';
 import { throwError } from 'rxjs';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -12,6 +12,7 @@ import { Device } from '../Types/Device';
 })
 export class DeviceService {
  url:string = "http://localhost:51108/api";
+ userID! : number;
 
   constructor(private http: HttpClient,
     private lc : LoginComponent) { }
@@ -31,17 +32,17 @@ export class DeviceService {
 
   GetDevices() : Observable<any>
   {
-    console.log(this.lc.userID);
+    console.log(this.userID);
 
-    return this.http.get<Device[]>(this.url+"/ViewDevices/GetDevice/"+ this.lc.userID
-    ).pipe(map((response: any) => {return response}),
+    return this.http.get<Device[]>(this.url+"/ViewDevices/GetDevice/" + this.userID
+    ).pipe(map((response) => {return response as Device[];}),
     catchError(this.handleError));
    
   }
  
   GetReport() : Observable<any>
   {
-    return this.http.get<Device[]>(this.url+"/EarningReport/"+ this.lc.userID
+    return this.http.get<Device[]>(this.url+"/EarningReport/" + this.lc.userID
     ).pipe(map((response) => {return response as Device[];}),
     catchError(this.handleError));
 

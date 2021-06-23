@@ -74,6 +74,7 @@ export class LoginComponent implements OnInit {
           //     this.router.navigate(['/customer']);  
           //   }
           //   this.router.navigate(['/lender']);  
+          this.getUser();
            }
         },
         (err:any) => {
@@ -82,6 +83,12 @@ export class LoginComponent implements OnInit {
         }
       );
     //this.loginForm.reset();
+  }
+
+  getUser() {
+    console.log("user : ",this.user);
+    this.ls.GetUserID(this.user);
+    
   }
 
 // CheckStatus(emailID : string) {
