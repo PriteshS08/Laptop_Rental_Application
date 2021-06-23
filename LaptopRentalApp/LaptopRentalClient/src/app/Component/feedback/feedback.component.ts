@@ -27,12 +27,15 @@ export class FeedbackComponent implements OnInit {
 
   makeRequest() {
     this.submitted = true;
+    const json=window.localStorage.getItem('user') as string;
+    console.log('json', json);
+    const user=JSON.parse(json);
     const ratingssubmission = {
     
     Ratings: this.frm.get("Ratings")?.value,
     Comment: this.frm.get("Comment")?.value,
     FeedBackDate:new Date(),
-    UserId:this.lc.userID
+    UserId_FK:user.UserId
     }
     this.fs.Ratingsubmission(ratingssubmission).subscribe((res: any)  => {this.flag = res});
   }

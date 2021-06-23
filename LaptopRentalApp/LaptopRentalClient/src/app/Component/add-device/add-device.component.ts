@@ -46,9 +46,12 @@ constructor(private formBuilder : FormBuilder,
   
     AddDetail(){
       this.submitted = true;
+      const json=window.localStorage.getItem('user') as string;
+    console.log('json', json);
+    const user=JSON.parse(json);
       const devicedetails={
         frm :this.AddDeviceDetails.value,
-        UserId_FK:1,
+        UserId_FK:user.UserId,
         Status :this.status
       };
       console.log(devicedetails);

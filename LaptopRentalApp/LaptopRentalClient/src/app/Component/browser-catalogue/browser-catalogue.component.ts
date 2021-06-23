@@ -30,7 +30,7 @@ export class BrowserCatalogueComponent implements OnInit {
   }
 
   viewDetail(imeiNO : string) {
-    this.imeiNo = imeiNO;
+    window.localStorage.setItem('imeiNO',JSON.stringify(imeiNO));
     this.router.navigate(['/viewdetails']);
   }
 

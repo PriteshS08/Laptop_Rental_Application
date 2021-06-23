@@ -27,8 +27,11 @@ export class ViewDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
   makeRequest() {
-    this.bs.getDeviceByImeiNo(this.bc.imeiNo).subscribe((res)=>{this.deviceDetails=res;
-      this.deviceID = res.DeviceId},
+    const json = window.localStorage.getItem('imeiNO') as string;
+    console.log('json', json);
+    const imeiNO=JSON.parse(json);
+    this.bs.getDeviceByImeiNo(imeiNO).subscribe((res)=>{this.deviceDetails=res;
+      window.localStorage.setItem('deviceID',JSON.stringify(res.DeviceId_FK));},
         error=>{alert('Error in fetching data')});
     this.router.navigate(['/makerequest']);
   }

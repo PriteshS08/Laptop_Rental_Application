@@ -35,7 +35,7 @@ namespace LaptopRental.API.Controllers
                 Obj.ToDate = req.ToDate;
                 Obj.RequestStatus = req.RequestStatus;
                 Obj.DeviceId_FK = req.DeviceId_FK;
-
+                Obj.UserId_FK = req.UserId_FK;
                 var isadded = Mks.AddRequest(req);
                 if (isadded!=null)
                     return Request.CreateResponse(HttpStatusCode.Created, isadded);
