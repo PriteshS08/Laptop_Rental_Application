@@ -72,7 +72,7 @@ namespace LaptopRental.API.Controllers
                 var isadded = Signupservice.Add(signup);
                 if (isadded)
                     return StatusCode(HttpStatusCode.Created);
-                return BadRequest("registeration failed");
+                return BadRequest("You already have an account. Kindly login to proceed!!!");
             }
             catch (LaptopRentalException ex)
             {
