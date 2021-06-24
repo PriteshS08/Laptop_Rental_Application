@@ -8,7 +8,7 @@ import { DeviceService } from 'src/app/Service/device.service';
   styleUrls: ['./view-over-due-details.component.css']
 })
 export class ViewOverDueDetailsComponent implements OnInit {
-  overDueDetails : any[] = [];
+  overDueDetails : any;
   constructor(private ds : DeviceService) { }
 
   ngOnInit(): void {

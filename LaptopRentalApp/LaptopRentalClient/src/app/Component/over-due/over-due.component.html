@@ -11,9 +11,9 @@
               <img src="{{d.device.DeviceImage}}" /></div>
           </div>
           <div class="ms-2 me-auto" style="padding-right:600px;">
-            <div class="fw-bold">{{d.RequestId}}</div>
-            <div class="fw-bold">{{d.device.IMEINumber}}</div>
-            <div class="fw-bold">{{d.device.DeviceName}}</div>
+            <div class="fw-bold">Request ID : {{d.RequestId}}</div>
+            <div class="fw-bold">IMEI Number: {{d.device.IMEINumber}}</div>
+            <div class="fw-bold">Device Name : {{d.device.DeviceName}}</div>
           </div>
           <div>
             <a href="#" (click)="viewOverDue(d.Request.RequestId , d.Request.ToDate)" style="align-items: center; color: red; padding-right:30px;">
