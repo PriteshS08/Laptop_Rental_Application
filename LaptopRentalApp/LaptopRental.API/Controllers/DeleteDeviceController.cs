@@ -33,11 +33,12 @@ namespace LaptopRental.API.Controllers
 
 
         [HttpDelete]
-        public HttpResponseMessage DeleteUserDevice([FromUri] int id)
+        [Route("api/DeleteDevice/{imeiNumber}")]
+        public HttpResponseMessage DeleteUserDevice([FromUri] string imeiNumber)
         {
             if (ModelState.IsValid == false)
                 return Request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
-            var deleted = deleteDeviceService.DeleteDevicebyId(id);
+            var deleted = deleteDeviceService.DeleteDevicebyId(imeiNumber);
             if (deleted == null)
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, "UserId not found");
             return Request.CreateResponse(HttpStatusCode.OK, "Deleted Succcesfully");

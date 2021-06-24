@@ -3,12 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Service/login.service';
 import { User } from 'src/app/Types/User';
-import { MenuComponent } from '../menu/menu.component';
 
-@Injectable({ 
-  providedIn: 'root'
- })
- 
 
 @Component({
   selector: 'app-login',
@@ -26,7 +21,6 @@ export class LoginComponent implements OnInit {
   user! : User;
   constructor(private ls : LoginService, 
     private router: Router,
-    private menu : MenuComponent,
     public formBuilder:FormBuilder) { }
   ngOnInit(): void {
     this.loginForm=this.formBuilder.group({
@@ -102,7 +96,7 @@ createacc() {
   this.router.navigate(['/signup']);
 }
 
-check(){
-this.menu.checkStatus(this.flag);
-  }
+// check(){
+// this.menu.checkStatus(this.flag);
+//   }
 }

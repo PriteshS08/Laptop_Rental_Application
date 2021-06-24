@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ForgotpasswordService } from 'src/app/Service/forgotpassword.service';
-import { LoginComponent } from '../login/login.component';
+
 
 @Component({
   selector: 'app-forgot-password',
@@ -14,7 +14,6 @@ export class ForgotPasswordComponent implements OnInit {
   submitted : boolean=false;
   email : string ="";
   constructor(private formBuilder:FormBuilder,
-    private lc : LoginComponent,
     private fs : ForgotpasswordService) { }
 
   ngOnInit(): void {

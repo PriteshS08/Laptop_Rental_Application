@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { DeviceService } from 'src/app/Service/device.service';
 import { LoginService } from 'src/app/Service/login.service';
 import { Device } from 'src/app/Types/Device';

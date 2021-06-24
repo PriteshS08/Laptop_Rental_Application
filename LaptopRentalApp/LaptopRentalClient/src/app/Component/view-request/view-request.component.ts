@@ -4,9 +4,7 @@ import { RequestService } from 'src/app/Service/request.service';
 import { Device } from 'src/app/Types/Device';
 import { DeviceRequest } from 'src/app/Types/Request';
 import { User } from 'src/app/Types/User';
-import { BrowserCatalogueComponent } from '../browser-catalogue/browser-catalogue.component';
-import { LoginComponent } from '../login/login.component';
-import { MakeRequestComponent } from '../make-request/make-request.component';
+
 
 
 @Component({
@@ -20,9 +18,7 @@ export class ViewRequestComponent implements OnInit {
   requestID! : number;
   requestDetails! : DeviceRequest;
   deviceId! : number;
-  constructor(private bc : BrowserCatalogueComponent,
-    private lc : LoginComponent,
-    private mr : MakeRequestComponent,
+  constructor(
     private rs : RequestService,
     private bs : BrowserCatalogService) { 
       const json=window.localStorage.getItem('user') as string;

@@ -22,6 +22,6 @@ export class CustomerUIComponent implements OnInit {
     this.route.navigate(['/viewrented'])
   }
   viewRatings() {
-    this.route.navigate(['/feedback'])
+    this.route.navigate(['/feedbackcatalogue'])
   }
 }

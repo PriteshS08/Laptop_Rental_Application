@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from 'src/app/Service/request.service';
-import { GetAllRequest } from 'src/app/Types/Request';
+
 
 @Component({
   selector: 'app-request-status',
@@ -8,10 +8,14 @@ import { GetAllRequest } from 'src/app/Types/Request';
   styleUrls: ['./request-status.component.css']
 })
 export class RequestStatusComponent implements OnInit {
-  GetAllRequest : GetAllRequest[]=[];
+  getAllRequest : any[]=[];
+  
 
   constructor(private reqstatus : RequestService) {
-    this.reqstatus.GetRequestStatus().subscribe(result=>this.GetAllRequest=result);
+    this.reqstatus.GetRequestStatus().subscribe(result=>{this.getAllRequest=result;
+      
+    console.log(this.getAllRequest);
+  });
    }
 
   ngOnInit(): void {

@@ -1,4 +1,5 @@
 ﻿using LaptopRental.BLL.Services;
+using LaptopRental.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,10 @@ namespace LaptopRental.API.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult GetRequest()
+        [Route("api/RequestStatus/GetRequest/{UserId}")]
+        public IHttpActionResult GetRequest([FromUri] int UserId)
         {
-            var request = service.GetAllRequest();
+            var request = service.RequestStatus(UserId);
             return Ok(request);
         }
 

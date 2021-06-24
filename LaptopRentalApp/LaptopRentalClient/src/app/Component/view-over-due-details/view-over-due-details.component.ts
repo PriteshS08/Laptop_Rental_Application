@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviceService } from 'src/app/Service/device.service';
-import { OverDueComponent } from '../over-due/over-due.component';
+
 
 @Component({
   selector: 'app-view-over-due-details',
@@ -8,15 +8,13 @@ import { OverDueComponent } from '../over-due/over-due.component';
   styleUrls: ['./view-over-due-details.component.css']
 })
 export class ViewOverDueDetailsComponent implements OnInit {
-  overDueDetails! : [] ;
-  constructor(private ds : DeviceService,
-    private od : OverDueComponent) { }
+  overDueDetails : any[] = [];
+  constructor(private ds : DeviceService) { }
 
   ngOnInit(): void {
-    const Details ={
-      RequestId : this.od.requestID,
-      ToDate : this.od.toDate
-    }
+    const json=window.localStorage.getItem('details') as string;
+    console.log('json', json);
+    const Details=JSON.parse(json);
     this.ds.getOverDueDetails(Details).subscribe(res => this.overDueDetails= res);
   }
 

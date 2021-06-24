@@ -27,8 +27,8 @@ export class LenderUIComponent implements OnInit {
   viewOverDue() {
     this.router.navigate(['/overdue'])
   }
-  viewRatings() {
-    this.router.navigate(['/feedback'])
-  }
+  // viewRatings() {
+  //   this.router.navigate(['/feedback'])
+  // }
 
 }

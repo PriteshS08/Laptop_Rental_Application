@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace LaptopRental.BLL.Services
 {
@@ -24,14 +25,10 @@ namespace LaptopRental.BLL.Services
         {
             try
             {
-                List<Request> requests = context.Requests.ToList();
-                List<Device> devices = context.Devices.ToList();
-
-                var query = from req in requests
-                            join dev in devices on req.DeviceId_FK equals dev.DeviceId
-                            where req.UserId_FK == UserId && req.RequestStatus.ToLower() == "rented" && dev.Status.ToLower() == "rented"
-                            select req;
-
+                
+                var query = (from req in context.Requests.Include(d => d.Device)
+                             where req.UserId_FK == UserId && req.RequestStatus.ToLower()=="rented"
+                             select req).ToList();
                 if (query != null)
                 {
                     return query.ToList();

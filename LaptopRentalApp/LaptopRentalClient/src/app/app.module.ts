@@ -10,7 +10,7 @@ import { LoginService } from './Service/login.service';
 import { SignupService } from './Service/signup.service';
 import { ForgotpasswordService } from './Service/forgotpassword.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
@@ -51,7 +51,7 @@ import { FeedbackcatalogueComponent } from './Component/feedbackcatalogue/feedba
     HomeComponent,
     LenderUIComponent,
     CustomerUIComponent,
-    ViewDetailsComponent,
+   // ViewDetailsComponent,
     ViewRequestComponent,
     BrowserCatalogueComponent,
     OverDueComponent,
@@ -69,15 +69,16 @@ import { FeedbackcatalogueComponent } from './Component/feedbackcatalogue/feedba
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
+
+    AppRoutingModule,
+    HttpClientModule//,
+   // BrowserAnimationsModule//,
+    // MatDatepickerModule,
+    // MatInputModule,
+    // MatNativeDateModule,
+    // MatFormFieldModule,
   ],
   providers: [LoginService, SignupService, ForgotpasswordService, DeviceService, RequestService],
 

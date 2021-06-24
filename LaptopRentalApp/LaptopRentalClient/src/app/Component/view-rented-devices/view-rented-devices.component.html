@@ -1,13 +1,13 @@
-<!-- <h2 style="padding-left: 600px;"> View Rented Devices</h2>
+<h2 style="padding-left: 600px;"> View Rented Devices</h2>
 <div style="padding-left: 100px;">
       
     <div class="container">
-        <ol *ngFor="let d of devicelist" class="list-group list-group-numbered" style="padding-top: 50px;">
+        <ol *ngFor="let d of getAllRequest" class="list-group list-group-numbered" style="padding-top: 50px;">
             <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto" style="padding-right:600px;">
                     <div  class="ms-2 me-auto">
                         <span><label>Request Id :</label></span> &nbsp;
-                        <span class="fw-bold">{{RequestId}}</span>
+                        <span class="fw-bold">{{d.Request.RequestId}}</span>
                     </div>
                     <div  class="ms-2 me-auto">
                         <span><label>DeviceName :</label></span> &nbsp;
@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div style="padding-top: 30px; padding-left: 50px;">
-                    <span style="padding-right: 30px;"class="fw-bold p-3 mb-2 bg-warning text-black">{{Status}}</span> &nbsp;
+                    <span style="padding-right: 30px;"class="fw-bold p-3 mb-2 bg-warning text-black">{{d.Request.RequestStatus}}</span> &nbsp;
                     <span class="fw-bold"><a href="">View Details</a></span>
                 </div>
             </li>
@@ -31,4 +31,4 @@
 
 
     
-</div> -->
+</div>

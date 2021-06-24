@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace LaptopRental.BLL.Services
 {
@@ -19,18 +20,17 @@ namespace LaptopRental.BLL.Services
         }
 
 
-        public Request GetSingleRequest(int requestid)
+        public List<Request> GetSingleRequest(int requestid)
         {
-
             var query = (from request in context.Requests
-                        join device in context.Devices on request.DeviceId_FK equals device.DeviceId
-                        where request.RequestId == requestid
-                        select request).SingleOrDefault();
+                         where request.RequestId == requestid
+                         select request).ToList();
             if (query != null)
             {
                 return query;
             }
-            return new Request();
+            return new List<Request>();
+
         }
 
         public List<Request> GetAllRequest()
@@ -49,3 +49,5 @@ namespace LaptopRental.BLL.Services
         }
     }
 }
+
+

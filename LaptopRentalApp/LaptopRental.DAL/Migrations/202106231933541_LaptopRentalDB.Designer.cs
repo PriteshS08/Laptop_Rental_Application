@@ -13,7 +13,7 @@ namespace LaptopRental.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202106161616488_LaptopRentalDB"; }
+            get { return "202106231933541_LaptopRentalDB"; }
         }
         
         string IMigrationMetadata.Source

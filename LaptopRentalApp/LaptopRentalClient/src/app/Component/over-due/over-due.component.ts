@@ -8,19 +8,23 @@ import { DeviceService } from 'src/app/Service/device.service';
   styleUrls: ['./over-due.component.css']
 })
 export class OverDueComponent implements OnInit {
-  overDueList!: [];
+  overDueList: any[] =[];
   ViewOverDue =[];
   requestID!: number;
   toDate!: Date;
   constructor(private ds : DeviceService) {
-    this.ds.getOverDueDevices().subscribe((res : any) => {this.overDueList = res;});
+    this.ds.getOverDueDevices().subscribe((res : any) => {this.overDueList = res;
+    console.log(this.overDueList)});
    }
 
   ngOnInit(): void {
   }
   viewOverDue(requestID : number , toDate : Date){
-    this.requestID = requestID;
-    this.toDate = toDate;
+    const Details ={
+    RequestId : requestID,
+    ToDate : toDate
+    }
+    window.localStorage.setItem('details',JSON.stringify(Details));
   }
 
 }

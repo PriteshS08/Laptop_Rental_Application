@@ -19,6 +19,7 @@ import { RequestStatusComponent } from './Component/request-status/request-statu
 import { GetAllRequestComponent } from './Component/get-all-request/get-all-request.component';
 import { ViewRentedDevicesComponent } from './Component/view-rented-devices/view-rented-devices.component';
 import { ViewDetailsComponent } from './Component/view-details/view-details.component';
+import { FeedbackcatalogueComponent } from './Component/feedbackcatalogue/feedbackcatalogue.component';
 
 const routes: Routes = [
     {path : 'login' , component : LoginComponent},
@@ -33,7 +34,7 @@ const routes: Routes = [
     {path : 'viewdetails' , component : ViewDetailsComponent},
     {path : 'viewrequest' , component : ViewRequestComponent},
     {path : 'requeststatus' , component : RequestStatusComponent},
-    {path : 'makerequest' , component : MakeRequestComponent},
+    {path : 'makerequest/:id' , component : MakeRequestComponent},
     {path : 'catalogue' , component : BrowserCatalogueComponent},
     {path : 'earningreport' , component : EarningReportComponent},
     {path : 'overdue' , component : OverDueComponent},
@@ -42,6 +43,7 @@ const routes: Routes = [
     {path : 'viewrented' , component : ViewRentedDevicesComponent},
     {path : 'getallrequest' , component : GetAllRequestComponent},
     {path : 'viewrented' , component : ViewRentedDevicesComponent},
+    {path : 'feedbackcatalogue' , component : FeedbackcatalogueComponent},
     {path:'',redirectTo:'login', pathMatch: 'full' }
 ];
 

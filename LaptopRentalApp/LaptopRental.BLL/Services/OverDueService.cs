@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace LaptopRental.BLL.Services
 {
@@ -21,17 +22,16 @@ namespace LaptopRental.BLL.Services
             context.Dispose();
         }
 
-        public Array getDeviceDetails(int deviceID)
+        public Request getDeviceDetails(int deviceID)
         {
-            var result = (from device in context.Devices 
-                          join user in context.Users on device.UserId_FK equals user.UserId
-                        where device.DeviceId == deviceID
-                        select new { device, user }).ToArray();
+            var result = (from req in context.Requests.Include(u=>u.Device)
+                        where req.DeviceId_FK == deviceID
+                        select req).SingleOrDefault();
             if (result != null)
             {
                 return result;
             }
-            return result = null;
+            return new Request();
 
         }
 

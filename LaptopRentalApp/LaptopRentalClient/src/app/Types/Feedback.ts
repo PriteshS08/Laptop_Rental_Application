@@ -7,3 +7,5 @@ export class Feedback {
         public UserId : number,)
        {}
 }
+
+ 

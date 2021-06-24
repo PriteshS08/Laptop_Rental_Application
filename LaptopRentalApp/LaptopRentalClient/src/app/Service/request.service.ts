@@ -17,7 +17,7 @@ export class RequestService {
   }
 
   updateRequest(requestDetails : any) : Observable<any> {
-    return this.http.post(this.url+"/MakeRequest",requestDetails).pipe(map((response: any) => {return response}),
+    return this.http.post(this.url+"/MakeRequest/AddRequest",requestDetails).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
 
@@ -41,7 +41,10 @@ export class RequestService {
 
   GetRequestStatus() :Observable<any>
   {
-    return this.http.get(this.url+"/RequestStatus").pipe(map((response: any)=>{return response}),
+    const json=window.localStorage.getItem('user') as string;
+    console.log('json', json);
+    const user=JSON.parse(json);
+    return this.http.get(this.url+"/RequestStatus/GetRequest/"+user.UserId).pipe(
     catchError(this.handleError));
   }
 

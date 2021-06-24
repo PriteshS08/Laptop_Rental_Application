@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FeedbackService } from 'src/app/Service/feedback.service';
-import { LoginComponent } from '../login/login.component';
+
 
 @Component({
   selector: 'app-feedback',
@@ -13,7 +13,7 @@ export class FeedbackComponent implements OnInit {
   submitted: boolean = false;
   flag:any;
   
-  constructor(public formBuilder:FormBuilder,private fs : FeedbackService,private lc:LoginComponent) { 
+  constructor(public formBuilder:FormBuilder,private fs : FeedbackService) { 
     this.frm=this.formBuilder.group({
       Ratings : ['', [Validators.compose([Validators.required])]],
       Comment : ['', [Validators.compose([Validators.required])]],
@@ -25,19 +25,25 @@ export class FeedbackComponent implements OnInit {
 
   get f() { return this.frm.controls; }
 
-  makeRequest() {
+  feedback() {
     this.submitted = true;
     const json=window.localStorage.getItem('user') as string;
     console.log('json', json);
     const user=JSON.parse(json);
+    const json1=window.localStorage.getItem('DeviceId') as string;
+    console.log('json1', json1);
+    const deviceid=JSON.parse(json1);
     const ratingssubmission = {
     
     Ratings: this.frm.get("Ratings")?.value,
     Comment: this.frm.get("Comment")?.value,
     FeedBackDate:new Date(),
-    UserId_FK:user.UserId
+    UserId_FK:user.UserId,
+    DeviceId_FK:deviceid
     }
-    this.fs.Ratingsubmission(ratingssubmission).subscribe((res: any)  => {this.flag = res});
+    this.fs.Ratingsubmission(ratingssubmission).subscribe((res: any)  => {this.flag = res;
+    alert('Feedback Submitted Successfully');},
+    error => {alert('Failed to submit feedback')});
   }
 
 }

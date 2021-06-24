@@ -3,13 +3,13 @@
 <div class="container">
   <div>
     <div class="ms-2 me-auto" style="padding-right:600px;">
-        <div class="fw-bold">{{overDueDetails.DeviceImage}}</div>
-        <div class="fw-bold"style="padding-top:50px;">resquestID</div>
-        <div class="fw-bold">{{overDueDetails.Name}}</div>
-        <div class="fw-bold">{{overDueDetails.Location}}</div>
-        <div class="fw-bold">{{overDueDetails.PhoneNO}}</div>
-        <div class="fw-bold">{{overDueDetails.IdProof}}</div>
-        <div class="fw-bold">{{overDueDetails.EmailId}}</div>
+        <div class="fw-bold">{{overDueDetails.Device.DeviceImage}}</div>
+        <div class="fw-bold"style="padding-top:50px;">{{overDueDetails.resquestID}}</div>
+        <div class="fw-bold">{{overDueDetails.User.Name}}</div>
+        <div class="fw-bold">{{overDueDetails.User.Location}}</div>
+        <div class="fw-bold">{{overDueDetails.User.PhoneNO}}</div>
+        <div class="fw-bold">{{overDueDetails.User.IdProof}}</div>
+        <div class="fw-bold">{{overDueDetails.User.EmailId}}</div>
      </div>
     </div>
 
@@ -21,17 +21,17 @@
 
        <div>
         <span><label>DeviceSpecification  :</label></span>
-        <span class="fw-bold"> {{overDueDetails.DeviceSpecification}}</span>
+        <span class="fw-bold"> {{overDueDetails.Device.DeviceSpecification}}</span>
        </div>
 
        <div>
         <span><label>PreInstalledSoftware  :</label></span>
-        <span class="fw-bold"> {{overDueDetails.PreInstalledSoftware}}</span>
+        <span class="fw-bold"> {{overDueDetails.Device.PreInstalledSoftware}}</span>
        </div>
 
        <div>
         <span><label>RentalAmount  :</label></span>
-        <span class="fw-bold"> {{overDueDetails.RentalAmount}}</span>
+        <span class="fw-bold"> {{overDueDetails.Device.RentalAmount}}</span>
        </div>
 
        <div>

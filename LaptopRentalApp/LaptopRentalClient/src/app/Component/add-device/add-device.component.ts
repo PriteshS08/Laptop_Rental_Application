@@ -1,11 +1,7 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DeviceService } from 'src/app/Service/device.service';
 import { LoginComponent } from '../login/login.component';
-
-@Injectable({ 
-  providedIn: 'root'
- })
 
 
 @Component({
@@ -21,8 +17,7 @@ user! : any;
 status : string = "Available";
 //ratings: number = 5.0;
 constructor(private formBuilder : FormBuilder,
-  private device : DeviceService,
-  private lc : LoginComponent) { }
+  private device : DeviceService) { }
 
   ngOnInit(): void {
 
@@ -52,17 +47,14 @@ constructor(private formBuilder : FormBuilder,
       this.user=JSON.parse(json);
     console.log('json', json);
     const user=JSON.parse(json);
-      const devicedetails={
-        frm :this.AddDeviceDetails.value,
-       
-        
-        UserId_FK:user.UserId,
-        Status :this.status
-      };
-      console.log(devicedetails);
+    let obj={...this.AddDeviceDetails.value};
+obj['UserId_FK']=user.UserId;
+obj['Status']=this.status;
+     
+      console.log(obj);
       const Details = new FormData();
       Details.append('image', this.fileToUpload);
-      Details.append('AddDevice', JSON.stringify(devicedetails));
+      Details.append('AddDevice', JSON.stringify(obj));
      
 
       console.log(Details);

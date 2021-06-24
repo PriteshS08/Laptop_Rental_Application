@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\RequestStatusDto.cs" />
     <Compile Include="LaptopRentalException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BrowserCatalogueService.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Services\RequestService.cs" />
     <Compile Include="Services\RequestStatusService.cs" />
     <Compile Include="Services\SignupService.cs" />
+    <Compile Include="Services\ViewDetailsService.cs" />
     <Compile Include="Services\ViewDeviceService.cs" />
     <Compile Include="Services\ViewRequestService.cs" />
   </ItemGroup>

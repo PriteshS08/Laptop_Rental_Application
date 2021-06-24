@@ -23,6 +23,7 @@ export class SignupComponent implements OnInit {
     private router: Router,
     private ss : SignupService) { 
       this.usersignup = true;
+      window.localStorage.setItem('usersignup',JSON.stringify(this.usersignup));
     }
 
   ngOnInit(): void {

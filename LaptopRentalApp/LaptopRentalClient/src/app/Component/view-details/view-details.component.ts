@@ -1,13 +1,9 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BrowserCatalogService } from 'src/app/Service/browser-catalog.service';
 import { Device } from 'src/app/Types/Device';
 import { User } from 'src/app/Types/User';
-import { BrowserCatalogueComponent } from '../browser-catalogue/browser-catalogue.component';
 
-@Injectable({ 
-  providedIn: 'root'
- })
 
 @Component({
   selector: 'app-view-details',
@@ -18,7 +14,7 @@ export class ViewDetailsComponent implements OnInit {
   deviceDetails!:Device;
  deviceID! : number;
  userDetails! : User;
-  constructor(private bc : BrowserCatalogueComponent,
+  constructor(
     private bs : BrowserCatalogService,
     private router : Router) { 
     const json=window.localStorage.getItem('user') as string;
@@ -31,6 +27,7 @@ export class ViewDetailsComponent implements OnInit {
     console.log('json1', json1);
     const imeiNO=JSON.parse(json1);
     this.bs.getDeviceByImeiNo(imeiNO).subscribe((res)=>{this.deviceDetails=res;
+      console.log("Device obj : ",this.deviceDetails);
       window.localStorage.setItem('deviceID',JSON.stringify(res.DeviceId_FK));},
         error=>{alert('Error in fetching data')});
     }

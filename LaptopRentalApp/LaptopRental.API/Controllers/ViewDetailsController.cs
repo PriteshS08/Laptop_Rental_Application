@@ -19,10 +19,12 @@ namespace laptoprental.api.controllers
         {
             context = new LaptopRentalContext();
         }
-        public HttpResponseMessage getdevicebyid(int id)
+        [HttpGet]
+        [Route("api/ViewDetails/{imeino}")]
+        public HttpResponseMessage getdevicebyimeiNo([FromUri] string imeino)
         {
             
-            var query = context.Devices.FirstOrDefault(s => s.DeviceId == id);
+            var query = context.Devices.FirstOrDefault(s => s.IMEINumber == imeino);
             if (query != null)
             {
 
@@ -31,7 +33,7 @@ namespace laptoprental.api.controllers
             else
             {
 
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "DeviceId not found");
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "IMEINumber not found");
             }
 
         }

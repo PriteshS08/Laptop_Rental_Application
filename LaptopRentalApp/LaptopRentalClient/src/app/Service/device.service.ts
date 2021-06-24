@@ -14,8 +14,8 @@ export class DeviceService {
  url:string = "http://localhost:51108/api";
  userID! : number;
 
-  constructor(private http: HttpClient,
-    private lc : LoginComponent) { }
+  constructor(private http: HttpClient
+    ) { }
 
   // getByID(device : any) : Observable<any> {
   //   return this.http.get(this.url + "/AddDevice", device).pipe(map((response: any) => {return response}),
@@ -52,16 +52,26 @@ export class DeviceService {
     catchError(this.handleError));
 
   }
+  deleteDevice(deviceId : any) :Observable<any>
+  {
+    const json=window.localStorage.getItem('user') as string;
+    console.log('json', json);
+    const user=JSON.parse(json);
+    console.log(deviceId);
+    return this.http.delete(this.url+"/DeleteDevice/"+deviceId).pipe(map((response: any) => {return response}),
+    catchError(this.handleError));
+
+  }
 
   getOverDueDevices() : Observable<any>
   {
-    return this.http.get<any>(this.url+"/OverDue").pipe(map((response: any) => {return response}),
+    return this.http.get<any>(this.url+"/OverDue/GetAllOverDue").pipe(
     catchError(this.handleError));
   }
 
   getOverDueDetails(req : any) : Observable<any>
   {
-    return this.http.get<any>(this.url+"/OverDue", req).pipe(map((response: any) => {return response}),
+    return this.http.get<any>(this.url+"/OverDue/GetByDeviceID", req).pipe(
     catchError(this.handleError));
   }
 
@@ -80,6 +90,14 @@ export class DeviceService {
     header.append('Content-Type', 'application/json');
     const options = {headers: header};
     return this.http.post<Device>(this.url+"/AddDevice",device).pipe(map((response: any) => {return response}),
+    catchError(this.handleError));
+  }
+
+  getrentedDevice() :Observable<any>{
+    const json=window.localStorage.getItem('user') as string;
+    console.log('json', json);
+    const user=JSON.parse(json);
+    return this.http.get(this.url+"/RentedDevices/"+user.UserId).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
   

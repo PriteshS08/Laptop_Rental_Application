@@ -8,23 +8,23 @@ import { Device } from '../Types/Device';
   providedIn: 'root'
 })
 export class BrowserCatalogService {
-  url:string = "http://localhost:51108/api/catalogue";
+  url:string = "http://localhost:51108/api/";
   constructor(private http:HttpClient) { }
   getAllDevices() : Observable<any>
   {
-    return this.http.get<Device[]>(this.url).pipe(map((response) =>{return response as Device[];} ),
+    return this.http.get<Device[]>(this.url+"catalogue").pipe(map((response) =>{return response as Device[];} ),
       catchError(this.handleError));
   }
 
   getDeviceByImeiNo(imeiNO : string) : Observable<any>
   {
-    return this.http.get<Device>(this.url+"/" + imeiNO).pipe(map((response) => {return response}),
+    return this.http.get<Device>(this.url+"ViewDetails/" + imeiNO).pipe(map((response) => {return response}),
     catchError(this.handleError));
   }
 
   getDeviceByID(deviceID : number) : Observable<any>
   {
-    return this.http.get<Device>(this.url + deviceID).pipe(map((response) => {return response}),
+    return this.http.get<Device>(this.url +"catalogue/"+ deviceID).pipe(map((response) => {return response}),
     catchError(this.handleError));
   }
 

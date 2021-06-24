@@ -1,10 +1,9 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DeviceService } from 'src/app/Service/device.service';
 import { Device } from 'src/app/Types/Device';
 
-@Injectable({ 
-  providedIn: 'root'
- })
 
 @Component({
   selector: 'app-view-devices',
@@ -15,7 +14,7 @@ export class ViewDevicesComponent implements OnInit {
 
   devicelist:Device[]=[];
 
-  constructor(private device: DeviceService) { }
+  constructor(private device: DeviceService,private route:Router) { }
 
   ngOnInit(): void {
     this.device.GetDevices().subscribe((res:Device[])=>this.devicelist=res,
@@ -23,7 +22,21 @@ export class ViewDevicesComponent implements OnInit {
   // console.log(this.devicelist);
   // console.log(window.localStorage.getItem("UserId"));
   }
+  editdevice(){
+    this.route.navigate(['/editdevice'])
 
+  }
+  deletedevice(imeinumber : any){
+    console.log(imeinumber);
 
+    this.device.deleteDevice(imeinumber).subscribe(response=>{
+      alert('Successfully deleted');
+    },
+  error=>{alert('failed to delete data')});
+  }
 }
+
+
+
+
 

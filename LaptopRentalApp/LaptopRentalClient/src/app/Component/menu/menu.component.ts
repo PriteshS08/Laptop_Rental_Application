@@ -1,13 +1,8 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LoginService } from 'src/app/Service/login.service';
-import { LoginComponent } from '../login/login.component';
-import { SignupComponent } from '../signup/signup.component';
 
-@Injectable({ 
-  providedIn: 'root'
- })
  
 @Component({
   selector: 'app-menu',
@@ -22,26 +17,26 @@ export class MenuComponent implements OnInit {
   flag1:string="";
   usersignupcheck : boolean =false;
   constructor(
-  private signup : SignupComponent,
   private ls:LoginService,
   private router: Router,
- // private lc : LoginComponent
   ){
-    this.usersignupcheck = this.signup.usersignup;
+    const json=window.localStorage.getItem('usersignup') as string;
+    console.log('json', json);
+    const user=JSON.parse(json);
+    this.usersignupcheck = user;
   }
 ngOnInit(){
   this.router.navigate([''])
   this.subs = this.ls.OnLoggedIn.subscribe(res => this.userLoggedIn = res);
-  // if (this.userLoggedIn == true)
-  // {
-  //   this.lc.CheckStatus();
-  // }
 }
 logoutCheck(){
   this.flag1="false";
 }
-checkStatus(flag:any){
-this.flag1= flag;
+checkStatus(){
+  const json=window.localStorage.getItem('usersignup') as string;
+  console.log('json', json);
+  const user=JSON.parse(json);
+  this.flag1= user;
 }
 ngOnDestroy(): void {
     this.subs.unsubscribe();

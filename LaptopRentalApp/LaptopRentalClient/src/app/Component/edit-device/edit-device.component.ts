@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{FormControl,FormGroup,FormBuilder,Validator,NgForm, Validators}from '@angular/forms';
+import{FormGroup,FormBuilder, Validators}from '@angular/forms';
 import { DeviceService } from 'src/app/Service/device.service';
 
 @Component({
@@ -37,9 +37,17 @@ export class EditDeviceComponent implements OnInit {
   get f() { return this.UpdateDetailform.controls; }
   
   UpdateDetail(){
+    const json=window.localStorage.getItem('user') as string;
+      console.log('json', json);
+    const user=JSON.parse(json);
+    let obj={...this.UpdateDetailform.value};
+    obj['UserId_FK']=user.UserId;
+    obj['Status']=this.status;
+     
+      console.log(obj);
       const deviceDetail = new FormData();
       deviceDetail.append('image', this.fileToUpload);
-      deviceDetail.append('SignUp', JSON.stringify(this.UpdateDetailform.value));
+      deviceDetail.append('SignUp', JSON.stringify(obj));
     //   const Detail = {
     //     IMEINumber : this.UpdateDetailform.get("IMEINumber")?.value as string,
     //     DeviceName : this.UpdateDetailform.get("DeviceName")?.value as string,
