@@ -63,5 +63,16 @@ namespace LaptopRental.BLL.Services
             }
 
         }
+
+        public Request GetDeviceId(int userId)
+        {
+            var query = context.Requests.FirstOrDefault(a => a.UserId_FK == userId);
+            if ((query != null) && (query.RequestStatus.Equals("rented")))
+            {
+                return new Request();
+            }
+            return query;
+          
+        }
     }
 }

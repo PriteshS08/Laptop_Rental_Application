@@ -57,6 +57,30 @@ namespace LaptopRental.API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/Feedback/GetByDeviceById/{userId}")]
+        public HttpResponseMessage GetByDeviceById([FromUri]int userId)
+        {
+            try
+            {
+                var result = feedbackService.GetDeviceId(userId);
+                return Request.CreateResponse(HttpStatusCode.Created, result);
+
+            }
+            catch (LaptopRentalException ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+
+        }
+
+
+
+
         //[HttpGet]
         //public HttpResponseMessage GetFeedback([FromUri] int userId)
         //{
@@ -79,6 +103,6 @@ namespace LaptopRental.API.Controllers
         //}
 
 
-           
+
     }
 }
