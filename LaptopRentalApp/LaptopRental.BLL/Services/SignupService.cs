@@ -29,6 +29,11 @@ namespace LaptopRental.BLL.Services
 
             try
             {
+                var data = context.Users.Find(user);
+                if (data != null)
+                {
+                    return false;
+                }
                 context.Users.Add(user);
                 return context.SaveChanges() == 1;
             }
