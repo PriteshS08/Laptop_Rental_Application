@@ -26,7 +26,8 @@ export class BrowserCatalogueComponent implements OnInit {
     error=>{alert('Error in fetching data')});
   }
   gotomakeRequest(deviceid: number) {
-    this.router.navigateByUrl('/makerequest/'+deviceid);
+    window.localStorage.setItem('DeviceId',JSON.stringify(deviceid));
+    this.router.navigateByUrl('/makerequest');
   }
 
   viewDetail(imeiNO : string) {

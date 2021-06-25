@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { Device } from '../Types/Device';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,16 @@ export class FeedbackService {
     return this.http.post(this.url,ratingssubmission).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
+
+  getAllDevices() : Observable<any>
+  {
+    const json=window.localStorage.getItem('user') as string;
+    console.log('json', json);
+    const user=JSON.parse(json);
+    return this.http.get<Device[]>(this.url+"/GetByDeviceById/"+user.UserId).pipe(map((response) =>{return response as Device[];} ),
+      catchError(this.handleError));
+  }
+
   handleError(error:any) { 
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
