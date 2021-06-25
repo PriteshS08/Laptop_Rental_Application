@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BrowserCatalogService } from 'src/app/Service/browser-catalog.service';
+import { FeedbackService } from 'src/app/Service/feedback.service';
 import { Device } from 'src/app/Types/Device';
 import { Feedback } from 'src/app/Types/Feedback';
 
@@ -15,7 +16,7 @@ export class FeedbackcatalogueComponent implements OnInit {
   devicedetail! : Device;
   imeiNo! : string;
 
-  constructor(private bs:BrowserCatalogService,private router : Router) { }
+  constructor(private bs:FeedbackService,private router : Router) { }
 
   ngOnInit(): void {
 
@@ -25,8 +26,9 @@ export class FeedbackcatalogueComponent implements OnInit {
     error=>{alert('Error in fetching data')});
   }
 
-  addRating(deviceId :number){
+  addRating(deviceId :number,userId :number){
     console.log(deviceId);
+    window.localStorage.setItem('UserId',JSON.stringify(userId));
     window.localStorage.setItem('DeviceId',JSON.stringify(deviceId));
     this.router.navigate(['/feedback']);
   }

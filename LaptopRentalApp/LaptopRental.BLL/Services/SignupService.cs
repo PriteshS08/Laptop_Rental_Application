@@ -30,12 +30,15 @@ namespace LaptopRental.BLL.Services
             try
             {
                 var data = context.Users.Find(user);
-                if (data != null)
+                if (data == null)
                 {
+                    context.Users.Add(user);
+                    var obj= context.SaveChanges();
+                    if (obj == 1)
+                        return true;
                     return false;
                 }
-                context.Users.Add(user);
-                return context.SaveChanges() == 1;
+                return false;           
             }
             catch (DbException ex)
             {

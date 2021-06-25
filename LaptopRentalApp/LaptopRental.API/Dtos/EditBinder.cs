@@ -17,7 +17,7 @@ namespace LaptopRental.API.Dtos
             if (Request.Files.Count == 0)
                 return false;
             HttpPostedFile file = Request.Files[0];
-            var jsonstring = Request.Form.Get("editdevice");
+            var jsonstring = Request.Form.Get("UpdateDetail");
             var editdevicedto = JsonConvert.DeserializeObject<EditDto>(jsonstring);
             if (editdevicedto != null)
             {

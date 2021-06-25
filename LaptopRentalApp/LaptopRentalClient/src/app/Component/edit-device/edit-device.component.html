@@ -9,7 +9,7 @@
                 <div style="padding-top: 15px; padding-left: 100px;">
                   <label>IMEI Number</label>
                   &nbsp;&nbsp;
-                  <input type="string" name="ImeiNumber"placeholder="Enter IMEI number"mControlName="ImeiNumber"/>
+                  <input type="string" name="ImeiNumber"placeholder="Enter IMEI number" formControlName="ImeiNumber"/>
                   <div *ngIf="submitted && f.ImeiNumber.errors" class="invalid-feedback">
                     <div style="color: red" *ngIf="f.ImeiNumber.errors.required">IMEI Number is required</div> 
                   </div>

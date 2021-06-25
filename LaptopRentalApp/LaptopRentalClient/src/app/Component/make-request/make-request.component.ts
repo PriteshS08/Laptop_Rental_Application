@@ -45,7 +45,10 @@ export class MakeRequestComponent implements OnInit {
   get f() { return this.makeRequestForm.controls; }
   makeRequest() {
     this.submitted = true;
-    let id= this.ac.snapshot.paramMap.get('id');
+    // let id= this.ac.snapshot.paramMap.get('id');
+    const json=window.localStorage.getItem('DeviceId') as string;
+    console.log('json1', json);
+    const deviceid=JSON.parse(json);
     const json1=window.localStorage.getItem('user') as string;
     console.log('json1', json1);
     const user=JSON.parse(json1);
@@ -60,7 +63,7 @@ export class MakeRequestComponent implements OnInit {
     FromDate: fromdate,
     ToDate: todate,
     RequestStatus : this.requestStatus,
-    DeivceId_FK : id,
+    DeivceId_FK : deviceid,
     UserId_FK : user.UserId
     };
     this.rs.updateRequest(rentingDetails).subscribe((res: any)  => {

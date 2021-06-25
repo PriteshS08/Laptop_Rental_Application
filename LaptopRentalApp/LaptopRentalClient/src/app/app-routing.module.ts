@@ -34,7 +34,7 @@ const routes: Routes = [
     {path : 'viewdetails' , component : ViewDetailsComponent},
     {path : 'viewrequest' , component : ViewRequestComponent},
     {path : 'requeststatus' , component : RequestStatusComponent},
-    {path : 'makerequest/:id' , component : MakeRequestComponent},
+    {path : 'makerequest' , component : MakeRequestComponent},
     {path : 'catalogue' , component : BrowserCatalogueComponent},
     {path : 'earningreport' , component : EarningReportComponent},
     {path : 'overdue' , component : OverDueComponent},

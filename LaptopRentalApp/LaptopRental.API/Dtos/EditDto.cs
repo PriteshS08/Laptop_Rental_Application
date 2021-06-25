@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http.ModelBinding;
+using System.ComponentModel.DataAnnotations.Schema;
+using LaptopRental.DAL.Models;
 
 namespace LaptopRental.API.Dtos
 {
@@ -42,7 +44,12 @@ namespace LaptopRental.API.Dtos
 
       
         public string Status { get; set; }
+        [ForeignKey("user")]
+        public int UserId_FK { get; set; }
 
-      
+        public User user { get; set; }
+
+
+
     }
 }
