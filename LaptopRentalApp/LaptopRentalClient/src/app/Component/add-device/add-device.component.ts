@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { BrowserCatalogService } from 'src/app/Service/browser-catalog.service';
 import { DeviceService } from 'src/app/Service/device.service';
-import { LoginComponent } from '../login/login.component';
+import { Device } from 'src/app/Types/Device';
+
 
 
 @Component({
@@ -14,14 +17,15 @@ AddDeviceDetails = new FormGroup({});
 submitted:boolean=false;
 fileToUpload!: File ;
 user! : any;
+//devices! : Device;
 status : string = "Available";
 //ratings: number = 5.0;
 constructor(private formBuilder : FormBuilder,
-  private device : DeviceService) { }
-
-  ngOnInit(): void {
-
-     this.AddDeviceDetails=this.formBuilder.group({
+  private device : DeviceService,
+  //private ar : ActivatedRoute,
+ // private bs : BrowserCatalogService
+ ) {
+    this.AddDeviceDetails=this.formBuilder.group({
       IMEINumber : ['', [Validators.compose([Validators.required])]],
       DeviceName : ['', [Validators.compose([Validators.required])]],
       DeviceSpecification : ['', [Validators.compose([Validators.required])]],
@@ -31,9 +35,38 @@ constructor(private formBuilder : FormBuilder,
       MaxRentalMonth : ['', [Validators.compose([Validators.required])]],
       Interest: ['', [Validators.compose([Validators.required])]],
       //Ratings : ['5.0'],
-     // UserId : this.lc.userID
+
     });
+   }
+
+  ngOnInit(): void {
+    // this.ar.paramMap.subscribe(parameterMap => {
+    //   const id = parameterMap.get('id');
+    //   this.getDevice(id);
+    // });
   }
+  // private getDevice(id : any) {
+  //   if (id !=0) {
+  //     this.bs.getDeviceByID(id).subscribe(res => {
+  //       return res;
+  //      })
+  //   }
+  //   else {
+  //     this.devices =  {
+  //       IMEINumber : '',
+  //       DeviceName : '',
+  //       DeviceSpecification : '',
+  //       PreInstalledSoftware : '',
+  //       DeviceImage : new FormData,
+  //       RentalAmount : null,
+  //       MaxRentalMonth : 0,
+  //       Interest : null,
+  //       Status : '',
+  //       UserId_FK : 0
+  //     };
+  //   }
+
+  // }
   onUploadFile(event : any) {  
     this.fileToUpload = <File>event.target.files[0];
     }  
@@ -45,11 +78,11 @@ constructor(private formBuilder : FormBuilder,
       const json=window.localStorage.getItem('user') as string;
       console.log('json', json);
       this.user=JSON.parse(json);
-    console.log('json', json);
-    const user=JSON.parse(json);
-    let obj={...this.AddDeviceDetails.value};
-obj['UserId_FK']=user.UserId;
-obj['Status']=this.status;
+      console.log('json', json);
+      const user=JSON.parse(json);
+      let obj={...this.AddDeviceDetails.value};
+      obj['UserId_FK']=user.UserId;
+      obj['Status']=this.status;
      
       console.log(obj);
       const Details = new FormData();

@@ -35,8 +35,8 @@ export class DeviceService {
     const json=window.localStorage.getItem('user') as string;
     console.log('json', json);
     const user=JSON.parse(json);
-    return this.http.get<Device[]>(this.url+"/ViewDevices/GetDevice/" + user.UserId
-    ).pipe(map((response) => {return response as Device[];}),
+    return this.http.get(this.url+"/ViewDevices/GetDevice/" + user.UserId
+    ).pipe(
     catchError(this.handleError));
    
   }

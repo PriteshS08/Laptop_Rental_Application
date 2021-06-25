@@ -12,7 +12,7 @@ import { Device } from 'src/app/Types/Device';
 })
 export class ViewDevicesComponent implements OnInit {
 
-  devicelist:Device[]=[];
+  devicelist:any[]=[];
 
   constructor(private device: DeviceService,private route:Router) { }
 
@@ -22,15 +22,16 @@ export class ViewDevicesComponent implements OnInit {
   // console.log(this.devicelist);
   // console.log(window.localStorage.getItem("UserId"));
   }
-  editdevice(){
-    this.route.navigate(['/editdevice'])
-
+  editdevice(id : number){
+    window.localStorage.setItem('deviceID',JSON.stringify(id));
+    this.route.navigate(['/editdevice',id]);
   }
   deletedevice(imeinumber : any){
     console.log(imeinumber);
 
     this.device.deleteDevice(imeinumber).subscribe(response=>{
       alert('Successfully deleted');
+      window.location.reload();
     },
   error=>{alert('failed to delete data')});
   }
