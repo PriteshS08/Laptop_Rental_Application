@@ -69,10 +69,10 @@ export class SignupComponent implements OnInit {
   // }
   this.ss.AddUserDetails(userDetails).subscribe(result => {
     console.log(userDetails);
-    this.router.navigate(['/login']);
-  });  
+    alert('Signup Successfully');
+    this.router.navigate(['/login']);},
+    error => {alert('You already have an account.Kindly login to continue!!!!');}
+    );  
   }
 }
-
-
 
