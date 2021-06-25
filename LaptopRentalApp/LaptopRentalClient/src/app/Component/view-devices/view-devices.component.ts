@@ -24,7 +24,8 @@ export class ViewDevicesComponent implements OnInit {
   }
   editdevice(id : number){
     window.localStorage.setItem('deviceID',JSON.stringify(id));
-    this.route.navigate(['/editdevice',id]);
+    console.log(id);
+    this.route.navigate(['/editdevice']);
   }
   deletedevice(imeinumber : any){
     console.log(imeinumber);

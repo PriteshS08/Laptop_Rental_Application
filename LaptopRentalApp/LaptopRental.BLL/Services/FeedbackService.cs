@@ -74,5 +74,22 @@ namespace LaptopRental.BLL.Services
             return query;
           
         }
+
+        public List<Device> Get(int userId)
+        {
+            var query = context.Requests.FirstOrDefault(a => a.UserId_FK == userId);
+            if (query.RequestStatus.ToLower().Equals("rented"))
+            {
+                var a = query.DeviceId_FK;
+                // var b = context.Devices.Find(DeviceId);
+                var b = (from device in context.Devices
+                         where device.DeviceId == a
+                         select device).ToList();
+
+                return b;
+            }
+            return new List<Device>();
+
+        }
     }
 }

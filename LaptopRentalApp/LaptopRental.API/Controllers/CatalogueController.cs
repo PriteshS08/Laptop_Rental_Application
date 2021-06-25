@@ -41,8 +41,9 @@ namespace LaptopRental.API.Controllers
             }
 
         }
-
-        public HttpResponseMessage GetByDeviceID(int num)
+        [HttpGet]
+        [Route("api/Catalogue/GetByDeviceID/{num}")]
+        public HttpResponseMessage GetByDeviceID([FromUri] int num)
         {
             try
             {

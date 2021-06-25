@@ -9,7 +9,7 @@
                 <div style="padding-top: 15px; padding-left: 100px;">
                   <label>IMEI Number</label>
                   &nbsp;&nbsp;
-                  <input type="string" name="ImeiNumber"placeholder="Enter IMEI number" formControlName="ImeiNumber"/>
+                  <input type="string" name="ImeiNumber"placeholder="Enter IMEI number" formControlName="IMEINumber"/>
                   <div *ngIf="submitted && f.ImeiNumber.errors" class="invalid-feedback">
                     <div style="color: red" *ngIf="f.ImeiNumber.errors.required">IMEI Number is required</div> 
                   </div>
@@ -31,7 +31,6 @@
                 <div style="padding-top: 15px;  padding-left: 100px;">
                   <label>Upload Device Image</label>
                   &nbsp;&nbsp;
-                  <input type="text" name="UploadDeviceImage" formControlName="UploadDeviceImage" placeholder="Please Upload the image of the Device"/>
                   <input type='file' (change)="onUploadFile($event)">
                   <div *ngIf="submitted && f.UploadDeviceImage.errors" class="invalid-feedback">
                     <div style="color: red" *ngIf="f.UploadDeviceImage.errors.required">Upload Device Image is required</div>  
@@ -43,7 +42,7 @@
                 <div style="padding-top: 15px;  padding-left: 100px;">
                   <label>Maximum Rental Months</label>
                   &nbsp;&nbsp;
-                  <input type="number" name="MaximumRentalMonths" min="1" max="12" formControlName="MaximumRentalMonths" placeholder=" Months"/>
+                  <input type="number" name="MaximumRentalMonths" min="1" max="12" formControlName="MaxRentalMonth" placeholder=" Months"/>
                   <div *ngIf="submitted && f.MaximumRentalMonths.errors" class="invalid-feedback">
                     <div style="color: red" *ngIf="f.MaximumRentalMonths.errors.required">Maximum Rental Months is required</div>
                    </div>
@@ -79,7 +78,7 @@
                 <div style="padding-top: 15px;">
                   <label>Rental Amount (PerMonth)</label>
                   &nbsp;&nbsp;
-                  <input type="number" name="RentalAmountMonth" formControlName="RentalAmountMonth" placeholder="Enter Renal Amount "/>
+                  <input type="number" name="RentalAmountMonth" formControlName="RentalAmount" placeholder="Enter Renal Amount "/>
                   <div *ngIf="submitted && f.RentalAmountMonth.errors" class="invalid-feedback">
                     <div style="color: red" *ngIf="f.RentalAmountMonth.errors.required">Rental Amount Month is required</div>
                   </div>
