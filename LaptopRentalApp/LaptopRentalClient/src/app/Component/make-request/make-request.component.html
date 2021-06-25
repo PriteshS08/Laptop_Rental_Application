@@ -1,33 +1,35 @@
 
-<!-- <div class="container-fluid login">
-    <h1 style="padding-top: 15px; padding-left: 580px;"><strong>Make Request</strong></h1>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<div class="container-fluid login">
+    <h3 style="padding-left: 620px;"><strong>Make Request</strong></h3>
     <div class="d-flex justify-content-center">
-      <form  >
+  <form [formGroup]="makeRequestForm"  novalidate >
+
   
-      <div class="form-group col-md-12 mb-3">
-        <label style="padding-bottom: 10px;">Enter From Date</label><span style="color: red;">*</span>
-       <input type="text"  [(ngModel)]="d1" name="d1" id="d1"  /> -->
-     <!--  <div *ngIf="submitted && f.FromDate.errors" class="invalid-feedback">
-        <div *ngIf="f.FromDate.errors.required" else wrong>From Date is required</div>
-      </div>-->
-     <!-- </div>
-
-
-     <div class="form-group col-md-12 mb-3">
-        <label  style="padding-bottom: 10px;">Enter to Date</label><span style="color: red;">*</span>
-       <input type="text" [(ngModel)]="d2" name="d2" id="d2" /> -->
-    <!--  <div *ngIf="submitted && f.ToDate.errors" class="invalid-feedback">
-        <div *ngIf="f.ToDate.errors.required" else wrong>To Date is required</div>
-      </div>--> 
-     <!-- </div>
-    -->
-   
-    <!-- <div style="padding-top: 10px;">
-        <span><button type="button" class="btn btn-success"  (click)="makeRequest()">Make Request</button></span>
+    <div class="form-group col-md-12 mb-3" >
+      <label for="FromDate" style="padding-bottom: 10px;">Enter FromDate</label>
+     
+      <input type="date" class="form-control" placeholder="Enter FromDate"  id="FromDate" [ngModel]="FromDate | date:'yyyy-MM-dd'"  formControlName="FromDate">
+      <div *ngIf="submitted && f.FromDate.errors" class="invalid-feedback">
+        <div *ngIf="f.FromDate.errors.required">FromDate is required</div>
     </div>
-
+    </div>
+       
+     
+      <div class="form-group col-md-12 mb-3">
+        <label for="ToDate" style="padding-bottom: 10px;">Enter ToDate</label>
+       <input type="date" class="form-control" placeholder="Enter ToDate" id="ToDate" [ngModel]="ToDate | date:'yyyy-MM-dd'"  formControlName="ToDate" name="ToDate">
+       <div *ngIf="submitted && f.ToDate.errors" class="invalid-feedback">
+        <div *ngIf="f.ToDate.errors.required">ToDate is required</div>
+    </div>
+    </div>
+   
+    <div>
+        <span><button type="submit" class="btn btn-success"  (click)="makeRequest()">MAKE REQUEST</button></span>
+    </div>
   </form>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   </div>
-</div>  -->
-
- 
+</div>
+  

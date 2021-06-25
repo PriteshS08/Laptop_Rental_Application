@@ -1,11 +1,9 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequestService } from 'src/app/Service/request.service';
 import { DeviceRequest } from 'src/app/Types/Request';
 
-
-
- 
 @Component({
   selector: 'app-make-request',
   templateUrl: './make-request.component.html',
@@ -14,47 +12,81 @@ import { DeviceRequest } from 'src/app/Types/Request';
 export class MakeRequestComponent implements OnInit {
   requestStatus : string = "Pending";
   requestDetails! : DeviceRequest;
-  requestID! : number;
-  d1;
-  d2;
+  makeRequestForm= new FormGroup({});
+  submitted : boolean =  false;
+  // d1;
+  // d2;
+  FromDate! : Date;
+  ToDate! : Date;
   constructor(
     private rs : RequestService,
-    private router : Router, private ac: ActivatedRoute) {
-    this.d1='';
-    this.d2='';
+    private router : Router, private ac: ActivatedRoute,
+    public formBuilder:FormBuilder) {
+      this.FromDate = new Date();
+      this.ToDate = new Date();
+      this.makeRequestForm=this.formBuilder.group({
+        FromDate : ['',[Validators.compose([Validators.required])]],
+        ToDate : ['',[Validators.compose([Validators.required])]]
+      });
+    // this.d1='';
+    // this.d2='';
      }
 
   ngOnInit(): void {
   }
-
+  get f() { return this.makeRequestForm.controls; }
   makeRequest() {
-  let id= this.ac.snapshot.paramMap.get('id');
-  console.log(id);
+    this.submitted = true;
+    let id= this.ac.snapshot.paramMap.get('id');
     const json1=window.localStorage.getItem('user') as string;
     console.log('json1', json1);
     const user=JSON.parse(json1);
     const rentingDetails = {
     RequestDate : new Date(),
-    FromDate: this.d1,
-    ToDate: this.d2,
+    FromDate: this.FromDate,
+    ToDate: this.ToDate,
     RequestStatus : this.requestStatus,
     DeivceId_FK : id,
     UserId_FK : user.UserId
     };
-    console.log('rent details', rentingDetails);
     this.rs.updateRequest(rentingDetails).subscribe((res: any)  => {
-      this.requestDetails = res;
+    this.requestDetails = res;
     window.localStorage.setItem('RequestID',JSON.stringify(res.RequestId));
+    this.router.navigate(['/catalogue']);
+      },
+        error=>{alert('failed');}
+      );
+  }
+
+  // makeRequest() {
+  // let id= this.ac.snapshot.paramMap.get('id');
+  // console.log(id);
+  //   const json1=window.localStorage.getItem('user') as string;
+  //   console.log('json1', json1);
+  //   const user=JSON.parse(json1);
+  //   const rentingDetails = {
+  //   RequestDate : new Date(),
+  //   FromDate: this.d1,
+  //   ToDate: this.d2,
+  //   RequestStatus : this.requestStatus,
+  //   DeivceId_FK : id,
+  //   UserId_FK : user.UserId
+  //   };
+  //   console.log('rent details', rentingDetails);
+  //   this.rs.updateRequest(rentingDetails).subscribe((res: any)  => {
+  //     this.requestDetails = res;
+  //   window.localStorage.setItem('RequestID',JSON.stringify(res.RequestId));
  
 
-    this.requestID = res.RequestId; 
-    alert(this.requestID);
-    //this.router.navigate(['/catalogue']);
-  },
-    error=>{alert('failed');}
-  );
+  //   this.requestID = res.RequestId; 
+  //   alert(this.requestID);
+  //   //this.router.navigate(['/catalogue']);
+  // },
+  //   error=>{alert('failed');}
+  // );
    
     
-  };
+  // };
   
 }
+
