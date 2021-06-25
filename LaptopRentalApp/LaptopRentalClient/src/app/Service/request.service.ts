@@ -16,7 +16,8 @@ export class RequestService {
     catchError(this.handleError));
   }
 
-  updateRequest(requestDetails : any) : Observable<any> {
+  updateRequest(requestDetails : DeviceRequest) : Observable<any> {
+    console.log(requestDetails);
     return this.http.post(this.url+"/MakeRequest/AddRequest",requestDetails).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }

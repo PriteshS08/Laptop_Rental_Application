@@ -19,9 +19,9 @@ namespace LaptopRental.API.Controllers
 
         [HttpGet]
         [Route("api/ViewRequest/GetUsersRequest/{RequestId}")]
-        public IHttpActionResult GetUsersRequest([FromUri]Request obj)
+        public IHttpActionResult GetUsersRequest([FromUri] int RequestId)
         {
-            var req = service.GetSingleRequest(obj.RequestId);
+            var req = service.GetSingleRequest(RequestId);
             return Ok(req);
         }
 

@@ -26,6 +26,7 @@ export class BrowserCatalogueComponent implements OnInit {
   }
   gotomakeRequest(deviceid: number) {
     window.localStorage.setItem('DeviceId',JSON.stringify(deviceid));
+    console.log(deviceid);
     this.router.navigateByUrl('/makerequest');
   }
 

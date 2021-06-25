@@ -20,16 +20,20 @@ namespace LaptopRental.BLL.Services
         }
 
 
-        public List<Request> GetSingleRequest(int requestid)
+        public User GetSingleRequest(int requestid)
         {
-            var query = (from request in context.Requests.Include(d=>d.Device).Include(u=>u.User)
-                         where request.RequestId == requestid
-                         select request).ToList();
-            if (query != null)
+            //var query = (from request in context.Requests.Include(d => d.Device).Include(u => u.User)
+            //             where request.RequestId == requestid
+            //             select request).ToList();
+
+            var query = context.Requests.FirstOrDefault(a => a.RequestId == requestid);
+            var res  = context.Users.FirstOrDefault(s => s.UserId == query.UserId_FK);
+
+            if (res != null)
             {
-                return query;
+                return res;
             }
-            return new List<Request>();
+            return new User();
 
         }
 

@@ -32,7 +32,9 @@ export class ViewDevicesComponent implements OnInit {
 
     this.device.deleteDevice(imeinumber).subscribe(response=>{
       alert('Successfully deleted');
-      window.location.reload();
+     // window.location.reload();
+    // this.route.navigate(['/viewdevice'])
+    this.route.navigate([this.route.url]);
     },
   error=>{alert('failed to delete data')});
   }

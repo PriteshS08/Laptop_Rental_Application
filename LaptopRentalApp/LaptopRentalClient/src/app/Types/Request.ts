@@ -6,6 +6,7 @@ export class DeviceRequest {
         public ToDate : Date,
         public RequestStatus : string,
         public DeviceId_FK : number,
+        public UserId_FK : number,
          ) {}
 }
 export class GetAllRequest{
