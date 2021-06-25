@@ -21,15 +21,15 @@ export class RequestService {
     catchError(this.handleError));
   }
 
-  updateacceptStatus(obj: { DeviceId: number; Status: string; }) : Observable<any>
+  updateacceptStatus(DeviceId: number) : Observable<any>
   {
-    return this.http.put(this.url+ "/MakeRequest", status).pipe(map((response: any) => {return response}),
+    return this.http.put(this.url+ "/AcceptReject/Accept", DeviceId).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
 
   updaterejectStatus(deviceID: any) : Observable<any>
   {
-    return this.http.delete(this.url+"/MakeRequest", deviceID).pipe(map((response: any) => {return response}),
+    return this.http.delete(this.url+"/AcceptReject/Reject", deviceID).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
   

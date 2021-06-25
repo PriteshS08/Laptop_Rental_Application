@@ -20,8 +20,8 @@ namespace LaptopRental.API.Controllers
                 context = new LaptopRentalContext();
             }
             [HttpPut]
-            [Route("api/AcceptReject/Accept/{UserId}")]
-            public HttpResponseMessage Accept([FromUri] int UserId)
+            [Route("api/AcceptReject/Accept")]
+            public HttpResponseMessage Accept([FromBody] int UserId)
             {
                 try
                 {
@@ -48,8 +48,8 @@ namespace LaptopRental.API.Controllers
             }
 
         [HttpDelete]
-        [Route("api/AcceptReject/Reject/{UserId}")]
-        public HttpResponseMessage Reject([FromUri] int UserId)
+        [Route("api/AcceptReject/Reject")]
+        public HttpResponseMessage Reject([FromBody] int UserId)
         {
             try
             {
