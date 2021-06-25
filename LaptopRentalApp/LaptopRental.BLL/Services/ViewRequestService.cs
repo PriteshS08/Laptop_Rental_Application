@@ -22,7 +22,7 @@ namespace LaptopRental.BLL.Services
 
         public List<Request> GetSingleRequest(int requestid)
         {
-            var query = (from request in context.Requests
+            var query = (from request in context.Requests.Include(d=>d.Device).Include(u=>u.User)
                          where request.RequestId == requestid
                          select request).ToList();
             if (query != null)

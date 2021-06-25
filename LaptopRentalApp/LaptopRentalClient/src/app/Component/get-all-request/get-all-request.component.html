@@ -21,7 +21,7 @@
                 </div>
                 <div style="padding-top: 30px; padding-left: 50px;">
                   <span class="fw-bold">{{request.Status}}</span> &nbsp;
-                    <span class="fw-bold"> <input type="button" (click) = "ViewRequest()" class="btn btn-success" id="ViewRequest" name="ViewRequest" value="ViewRequest"></span>
+                    <span class="fw-bold"> <input type="button" (click) = "ViewRequest(request.RequestId)" class="btn btn-success" id="ViewRequest" name="ViewRequest" value="ViewRequest"></span>
                 </div>
             </li>
         </ol>

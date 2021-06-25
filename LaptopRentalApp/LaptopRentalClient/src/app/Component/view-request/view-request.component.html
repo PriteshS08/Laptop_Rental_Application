@@ -3,35 +3,35 @@
 <div class="container">
   <div>
     <div class="ms-2 me-auto" style="padding-right:600px;">
-        <div class="fw-bold">{{deviceDetails.DeviceImage}}</div>
-        <div class="fw-bold"style="padding-top:50px;">resquestID</div>
-        <div class="fw-bold">{{userDetails.Name}}</div>
-        <div class="fw-bold">{{userDetails.Location}}</div>
-        <div class="fw-bold" >{{userDetails.PhoneNO}}</div>
-        <div class="fw-bold">{{userDetails.IdProof}}</div>
-        <div class="fw-bold">{{userDetails.EmailId}}</div>
+        <div class="fw-bold">{{requestDetails.Device.DeviceImage}}</div>
+        <div class="fw-bold"style="padding-top:50px;">{{requestDetails.resquestID}}</div>
+        <div class="fw-bold">{{requestDetails.User.Name}}</div>
+        <div class="fw-bold">{{requestDetails.User.Location}}</div>
+        <div class="fw-bold" >{{requestDetails.User.PhoneNO}}</div>
+        <div class="fw-bold">{{requestDetails.User.IdProof}}</div>
+        <div class="fw-bold">{{requestDetails.User.EmailId}}</div>
      </div>
     </div>
 
     <div class="ms-2 me-auto" style="padding-left:600px;">
       <div>
         <span><label>DeviceName  :</label></span>
-        <span class="fw-bold"> {{deviceDetails.DeviceName}}</span>
+        <span class="fw-bold"> {{requestDetails.Device.DeviceName}}</span>
        </div>
 
        <div>
         <span><label>DeviceSpecification  :</label></span>
-        <span class="fw-bold"> {{deviceDetails.DeviceSpecification}}</span>
+        <span class="fw-bold"> {{requestDetails.Device.DeviceSpecification}}</span>
        </div>
 
        <div>
         <span><label>PreInstalledSoftware  :</label></span>
-        <span class="fw-bold"> {{deviceDetails.PreInstalledSoftware}}</span>
+        <span class="fw-bold"> {{requestDetails.Device.PreInstalledSoftware}}</span>
        </div>
 
        <div>
         <span><label>RentalAmount  :</label></span>
-        <span class="fw-bold"> {{deviceDetails.RentalAmount}}</span>
+        <span class="fw-bold"> {{requestDetails.Device.RentalAmount}}</span>
        </div>
 
        <div>

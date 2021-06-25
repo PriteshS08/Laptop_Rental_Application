@@ -21,7 +21,9 @@ export class FeedbackService {
     const json=window.localStorage.getItem('user') as string;
     console.log('json', json);
     const user=JSON.parse(json);
-    return this.http.get<Device[]>(this.url+"/GetByDeviceById/"+user.UserId).pipe(map((response) =>{return response as Device[];} ),
+    return this.http.get<Device[]>(this.url+"/GetByDeviceById/"+user.UserId).pipe(map((response) =>{
+      console.log(response);
+      return response as Device[];} ),
       catchError(this.handleError));
   }
 

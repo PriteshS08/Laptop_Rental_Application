@@ -39,6 +39,11 @@ export class RequestService {
     catchError(this.handleError));
   }
 
+  GetSingleUserRequest(requestId : number) : Observable<any>
+  {
+    return this.http.get(this.url+"/ViewRequest/GetUsersRequest/"+requestId).pipe( catchError(this.handleError));
+  }
+
   GetRequestStatus() :Observable<any>
   {
     const json=window.localStorage.getItem('user') as string;
