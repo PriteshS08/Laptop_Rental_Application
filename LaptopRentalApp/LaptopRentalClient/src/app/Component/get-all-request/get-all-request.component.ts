@@ -20,7 +20,8 @@ export class GetAllRequestComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  ViewRequest(){
+  ViewRequest(requestId : number){
+    window.localStorage.setItem('RequestID',JSON.stringify(requestId));
     this.router.navigate(['/viewrequest']);
   }
 

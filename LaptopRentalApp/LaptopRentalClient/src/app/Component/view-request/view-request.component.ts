@@ -13,40 +13,37 @@ import { User } from 'src/app/Types/User';
   styleUrls: ['./view-request.component.css']
 })
 export class ViewRequestComponent implements OnInit {
- deviceDetails!:Device;
-  userDetails! : User;
-  requestID! : number;
-  requestDetails! : DeviceRequest;
-  deviceId! : number;
+  requestDetails : any;
   constructor(
-    private rs : RequestService,
-    private bs : BrowserCatalogService) { 
-      const json=window.localStorage.getItem('user') as string;
-      console.log('json', json);
-      const user=JSON.parse(json);
-      this.userDetails =user;
+    private rs : RequestService)
+     { 
+      // const json=window.localStorage.getItem('user') as string;
+      // console.log('json', json);
+      // const user=JSON.parse(json;
       const json1=window.localStorage.getItem('RequestID') as string;
       console.log('json1', json1);
       const requestID=JSON.parse(json1);
-      this.requestID = requestID;
-      this.rs.getRequest(this.requestID).subscribe(res => {
-      this.requestDetails = res;
-    this.deviceId = res.DeviceId_FK});
-    this.bs.getDeviceByID(this.deviceId).subscribe(res => {
-      this.deviceDetails = res;});
+    //   this.rs.getRequest(this.requestID).subscribe(res => {
+    //   this.requestDetails = res;
+    // this.deviceId = res.DeviceId_FK});
+    // this.bs.getDeviceByID(this.deviceId).subscribe(res => {
+    //   this.deviceDetails = res;});
+      this.rs.GetSingleUserRequest(requestID).subscribe(res => { this.requestDetails = res;
+        console.log(res);},
+        error => {alert('Failed to retrieve data');});
     }
   ngOnInit(): void {
   }
 
   acceptRequest(){
      const requestDetails = {
-      DeviceId : this.deviceId,
+      DeviceId : this.requestDetails.DeviceId_FK,
       Status : "Rented"
     }
     //this.deviceDetails.Status = "Rented";
     this.rs.updateacceptStatus(requestDetails).subscribe(res  => { return res; });
   }
   rejectRequest() {
-    this.rs.updaterejectStatus(this.deviceId).subscribe(res => {return res;})
+    this.rs.updaterejectStatus(this.requestDetails.DeviceId_FK).subscribe(res => {return res;})
   }
 }
