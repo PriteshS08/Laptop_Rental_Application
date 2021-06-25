@@ -13,8 +13,7 @@ import { Device } from 'src/app/Types/Device';
   styleUrls: ['./browser-catalogue.component.css']
 })
 export class BrowserCatalogueComponent implements OnInit {
-  devicelist:Device[]=[];
-  devicedetail! : Device;
+  devicelist:any[]=[];
   imeiNo! : string;
   constructor(private bs : BrowserCatalogService,
     private router : Router) { }
