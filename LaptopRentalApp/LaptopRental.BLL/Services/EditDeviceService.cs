@@ -23,8 +23,13 @@ namespace LaptopRental.BLL.Services
         {
             try
             {
-                context.Devices.Add(obj);
-                return context.SaveChanges() == 1;
+               var rows= context.SaveChanges();
+                if(rows==1)
+                {
+                    return true;
+                }
+                return false;
+
             }
             catch (DbException ex)
             {

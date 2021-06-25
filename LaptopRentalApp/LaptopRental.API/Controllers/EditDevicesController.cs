@@ -24,71 +24,41 @@ namespace LaptopRental.API.Controllers
         }
         [HttpPut]
         [Route("api/EditDevices/{DeviceId}")]
-        public HttpResponseMessage Update([FromUri] int DeviceId, [FromBody] Device device)
+        public HttpResponseMessage Update([FromUri] int DeviceId, EditDto dto)
         {
             try
             {
 
-                var query = context.Devices.FirstOrDefault(s => s.DeviceId == DeviceId);
-                if (query == null)
+                var UpdateDetail = context.Devices.FirstOrDefault(s => s.DeviceId == DeviceId);
+                if (UpdateDetail == null)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Searched data not found");
                 }
                 else
                 {
-                   
-                    query.IMEINumber = device.IMEINumber;
-                    query.DeviceName = device.DeviceName;
-                    query.DeviceSpecification = device.DeviceSpecification;
-                    query.PreInstalledSoftware = device.PreInstalledSoftware;
-                    query.DeviceImage = device.DeviceImage;
-                    query.RentalAmount = device.RentalAmount;
-                    query.MaxRentalMonth = device.MaxRentalMonth;
-                    query.Interest = device.Interest;
-                    query.Status = device.Status;
-                    query.UserId_FK = device.UserId_FK;
 
-                    context.SaveChanges();
-                    
+                    UpdateDetail.IMEINumber = dto.IMEINumber;
+                    UpdateDetail.DeviceName = dto.DeviceName;
+                    UpdateDetail.DeviceSpecification = dto.DeviceSpecification;
+                    UpdateDetail.PreInstalledSoftware = dto.PreInstalledSoftware;
+                    UpdateDetail.DeviceImage = dto.DeviceImage;
+                    UpdateDetail.RentalAmount = dto.RentalAmount;
+                    UpdateDetail.MaxRentalMonth = dto.MaxRentalMonth;
+                    UpdateDetail.Interest = dto.Interest;
+                    UpdateDetail.Status = dto.Status;
+                    UpdateDetail.UserId_FK = dto.UserId_FK;
+                    var uploadfolderpath = HttpContext.Current.Server.MapPath("~/Uploads/");
+                    dto.File.SaveAs(uploadfolderpath + dto.DeviceImage);
+                   var rows= context.SaveChanges();
+                    if (rows==1)
                         return Request.CreateResponse(HttpStatusCode.OK, "Data Updated Successfully");
-                    
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Data Updated failed");
+
                 }
-
-
             }
             catch (Exception ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
-            }
-        }
-
-        [HttpPost]
-        public IHttpActionResult Edit(EditDto dto)
-        {
-            try
-            {
-                if (!ModelState.IsValid)
-                    return BadRequest(ModelState);
-
-                var edit = new Device();
-                edit.IMEINumber = dto.IMEINumber;
-                edit.DeviceName = dto.DeviceName;
-                edit.DeviceSpecification = dto.DeviceSpecification;
-                edit.PreInstalledSoftware = dto.PreInstalledSoftware;
-                edit.DeviceImage = dto.DeviceImage;
-                edit.RentalAmount = dto.RentalAmount;
-                edit.MaxRentalMonth = dto.MaxRentalMonth;
-                edit.Interest = dto.Interest;
-                var uploadfolderpath =HttpContext.Current.Server.MapPath("~/Uploads/");
-                dto.File.SaveAs(uploadfolderpath + dto.DeviceImage);
-                var isadded = service.Add(edit);
-                if (isadded)
-                    return StatusCode(HttpStatusCode.Created);
-                return BadRequest("Create menu item failed");
-            }
-            catch (LaptopRentalException ex)
-            {
-                return InternalServerError(ex);
             }
         }
     }

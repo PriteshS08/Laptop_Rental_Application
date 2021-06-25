@@ -29,20 +29,20 @@ namespace LaptopRental.API.Controllers
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
-                var Obj = new Device();
-                Obj.IMEINumber = dto.IMEINumber;
-                Obj.DeviceName = dto.DeviceName;
-                Obj.DeviceSpecification = dto.DeviceSpecification;
-                Obj.PreInstalledSoftware = dto.PreInstalledSoftware;
-                Obj.DeviceImage = dto.DeviceImage;
-                Obj.RentalAmount = dto.RentalAmount;
-                Obj.MaxRentalMonth = dto.MaxRentalMonth;
-                Obj.Interest = dto.Interest;
-                Obj.Status = dto.Status;
-                Obj.UserId_FK = dto.UserId_FK;
+                var AddDevice = new Device();
+                AddDevice.IMEINumber = dto.IMEINumber;
+                AddDevice.DeviceName = dto.DeviceName;
+                AddDevice.DeviceSpecification = dto.DeviceSpecification;
+                AddDevice.PreInstalledSoftware = dto.PreInstalledSoftware;
+                AddDevice.DeviceImage = dto.DeviceImage;
+                AddDevice.RentalAmount = dto.RentalAmount;
+                AddDevice.MaxRentalMonth = dto.MaxRentalMonth;
+                AddDevice.Interest = dto.Interest;
+                AddDevice.Status = dto.Status;
+                AddDevice.UserId_FK = dto.UserId_FK;
                 var uploadfolderpath = HttpContext.Current.Server.MapPath("~/Uploads/");
                 dto.File.SaveAs(uploadfolderpath + dto.DeviceImage);
-                var isadded = AddService.Add(Obj);
+                var isadded = AddService.Add(AddDevice);
                 if (isadded)
                     return StatusCode(HttpStatusCode.Created);
                 return BadRequest("Add device failed");
