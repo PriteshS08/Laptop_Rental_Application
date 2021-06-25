@@ -4,12 +4,30 @@
   <div>
     <div class="ms-2 me-auto" style="padding-right:600px;">
         <div class="fw-bold">{{requestDetails.Device.DeviceImage}}</div>
-        <div class="fw-bold"style="padding-top:50px;">{{requestDetails.resquestID}}</div>
-        <div class="fw-bold">{{requestDetails.User.Name}}</div>
-        <div class="fw-bold">{{requestDetails.User.Location}}</div>
-        <div class="fw-bold" >{{requestDetails.User.PhoneNO}}</div>
-        <div class="fw-bold">{{requestDetails.User.IdProof}}</div>
-        <div class="fw-bold">{{requestDetails.User.EmailId}}</div>
+        <div>
+          <span><label>ResquestID :</label></span>
+          <span class="fw-bold"> {{requestDetails.resquestID}}</span>
+        </div>
+        <div>
+          <span><label>Name :</label></span>
+          <span class="fw-bold"> {{requestDetails.User.Name}}</span>
+        </div>
+        <div>
+          <span><label>Location :</label></span>
+          <span class="fw-bold"> {{requestDetails.User.Location}}</span>
+        </div>
+        <div>
+          <span><label>PhoneNumber :</label></span>
+          <span class="fw-bold"> {{requestDetails.User.PhoneNO}}</span>
+        </div>
+        <div>
+          <span><label>IdProof :</label></span>
+          <span class="fw-bold"> {{requestDetails.User.IdProof}}</span>
+        </div>
+        <div>
+          <span><label>EmailId :</label></span>
+          <span class="fw-bold"> {{requestDetails.User.EmailId}}</span>
+        </div>
      </div>
     </div>
 
@@ -48,7 +66,7 @@
   <div style="padding-left:650px; padding-top:30px;">
     <span><button type="submit" class="btn btn-success" (click)="acceptRequest()">Accept Request</button></span>
     <span style="padding-left: 15px;">
-      <button type="button" class="btn btn-success" (click)="rejectRequest()">Reject Request</button>
+      <button type="button" class="btn btn-danger" (click)="rejectRequest()">Reject Request</button>
     </span>
     <div>
         <a href="#" style="align-items: center; color: blue;">Return to Request</a>

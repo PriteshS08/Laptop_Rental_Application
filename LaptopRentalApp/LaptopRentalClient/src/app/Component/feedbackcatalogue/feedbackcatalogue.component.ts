@@ -15,6 +15,7 @@ export class FeedbackcatalogueComponent implements OnInit {
   devicelist:Device[]=[];
   devicedetail! : Device;
   imeiNo! : string;
+  feed :Request[]=[];
 
   constructor(private bs:FeedbackService,private router : Router) { }
 

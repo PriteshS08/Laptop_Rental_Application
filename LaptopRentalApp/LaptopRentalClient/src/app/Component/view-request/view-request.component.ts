@@ -14,6 +14,7 @@ import { User } from 'src/app/Types/User';
 })
 export class ViewRequestComponent implements OnInit {
   requestDetails : any;
+  DeviceId =3;
   constructor(
     private rs : RequestService)
      { 
@@ -36,12 +37,13 @@ export class ViewRequestComponent implements OnInit {
   }
 
   acceptRequest(){
-     const requestDetails = {
-      DeviceId : this.requestDetails.DeviceId_FK,
-      Status : "Rented"
-    }
+     //const requestDetails = {
+     // DeviceId : this.requestDetails.DeviceId_FK,
+      //Status : "Rented"
+     
+   // }
     //this.deviceDetails.Status = "Rented";
-    this.rs.updateacceptStatus(requestDetails).subscribe(res  => { return res; });
+    this.rs.updateacceptStatus(this.DeviceId).subscribe(res  => { return res; });
   }
   rejectRequest() {
     this.rs.updaterejectStatus(this.requestDetails.DeviceId_FK).subscribe(res => {return res;})
