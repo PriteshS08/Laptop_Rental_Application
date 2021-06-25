@@ -14,32 +14,26 @@ export class MakeRequestComponent implements OnInit {
   requestDetails! : DeviceRequest;
   makeRequestForm= new FormGroup({});
   submitted : boolean =  false;
-  // d1;
-  // d2;
-  FromDate! : Date;
-  ToDate! : Date;
+  // FromDate! : Date;
+  // ToDate! : Date;
   constructor(
     private rs : RequestService,
     private router : Router, private ac: ActivatedRoute,
     public formBuilder:FormBuilder) {
-      // this.FromDate = new Date();
-      // this.ToDate = new Date();
       this.makeRequestForm=this.formBuilder.group({
         FromDate : ['',[Validators.compose([Validators.required])]],
         ToDate : ['',[Validators.compose([Validators.required])]]
       });
-    // this.d1='';
-    // this.d2='';
      }
 
   ngOnInit(): void {
   }
-  onToDateChange(event: any) {
-    this.makeRequestForm.patchValue({ ToDate: event.target.value });
-  }
-  onFromDateChange(event: any) {
-    this.makeRequestForm.patchValue({ FromDate: event.target.value });
-  }
+  // onToDateChange(event: any) {
+  //   this.makeRequestForm.patchValue({ ToDate: event.target.value });
+  // }
+  // onFromDateChange(event: any) {
+  //   this.makeRequestForm.patchValue({ FromDate: event.target.value });
+  // }
   get f() { return this.makeRequestForm.controls; }
   makeRequest() {
     this.submitted = true;
@@ -52,8 +46,8 @@ export class MakeRequestComponent implements OnInit {
     const user=JSON.parse(json1);
     const rentingDetails = {
     RequestDate : new Date(),
-    FromDate: this.FromDate,
-    ToDate:this.ToDate,
+    FromDate: this.makeRequestForm.get('FromDate')?.value,
+    ToDate:this.makeRequestForm.get('ToDate')?.value,
     RequestStatus : this.requestStatus,
     DeivceId_FK : deviceid,
     UserId_FK : user.UserId
