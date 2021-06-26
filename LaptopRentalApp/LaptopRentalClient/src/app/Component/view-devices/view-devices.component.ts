@@ -17,9 +17,15 @@ export class ViewDevicesComponent implements OnInit {
   constructor(private device: DeviceService,private route:Router) { }
 
   ngOnInit(): void {
-    this.device.GetDevices().subscribe((res:Device[])=>this.devicelist=res,
+    this.device.GetDevices().subscribe((res: any[])=>{this.devicelist=res;
+      
+    console.log(res)},
     error=>{alert('Error in fetching data')});
-    window.localStorage.setItem('deviceList',JSON.stringify(this.devicelist));
+    for(var id in this.devicelist)
+    {
+      window.localStorage.setItem('deviceList',JSON.stringify(id));
+    }
+   
   // console.log(this.devicelist);
   // console.log(window.localStorage.getItem("UserId"));
   }
@@ -28,7 +34,8 @@ export class ViewDevicesComponent implements OnInit {
     console.log(id);
     this.route.navigate(['/editdevice']);
   }
-  deletedevice(){
+  deletedevice(id :number){
+    window.localStorage.setItem('deviceId',JSON.stringify(id));
     this.device.deleteDevice().subscribe(response=>{
       alert('Successfully deleted');
      // window.location.reload();

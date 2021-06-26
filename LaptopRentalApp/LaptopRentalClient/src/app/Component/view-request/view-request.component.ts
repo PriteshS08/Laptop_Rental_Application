@@ -14,38 +14,29 @@ import { User } from 'src/app/Types/User';
 })
 export class ViewRequestComponent implements OnInit {
   requestDetails : any;
-  DeviceId =3;
   constructor(
     private rs : RequestService)
      { 
-      // const json=window.localStorage.getItem('user') as string;
-      // console.log('json', json);
-      // const user=JSON.parse(json;
       const json1=window.localStorage.getItem('RequestID') as string;
       console.log('json1', json1);
       const requestID=JSON.parse(json1);
-    //   this.rs.getRequest(this.requestID).subscribe(res => {
-    //   this.requestDetails = res;
-    // this.deviceId = res.DeviceId_FK});
-    // this.bs.getDeviceByID(this.deviceId).subscribe(res => {
-    //   this.deviceDetails = res;});
       this.rs.GetSingleUserRequest(requestID).subscribe(res => { this.requestDetails = res;
-        console.log(res);},
+        console.log(this.requestDetails);},
         error => {alert('Failed to retrieve data');});
     }
   ngOnInit(): void {
   }
 
   acceptRequest(){
-     //const requestDetails = {
-     // DeviceId : this.requestDetails.DeviceId_FK,
-      //Status : "Rented"
-     
-   // }
-    //this.deviceDetails.Status = "Rented";
-    this.rs.updateacceptStatus(this.DeviceId).subscribe(res  => { return res; });
+    const json1=window.localStorage.getItem('RequestID') as string;
+      console.log('json1', json1);
+      const requestID=JSON.parse(json1);
+    this.rs.updateacceptStatus(requestID).subscribe(res  => { return res; });
   }
   rejectRequest() {
+    const json1=window.localStorage.getItem('RequestID') as string;
+    console.log('json1', json1);
+    const requestID=JSON.parse(json1);
     this.rs.updaterejectStatus(this.requestDetails.DeviceId_FK).subscribe(res => {return res;})
   }
 }

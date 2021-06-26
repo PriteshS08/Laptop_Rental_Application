@@ -22,17 +22,12 @@ namespace LaptopRental.BLL.Services
             context.Dispose();
         }
 
-        public Request getDeviceDetails(int deviceID)
+        public Request getDeviceDetails(int requestId)
         {
-            var result = (from req in context.Requests.Include(u=>u.Device)
-                        where req.DeviceId_FK == deviceID
-                        select req).SingleOrDefault();
-            if (result != null)
-            {
-                return result;
-            }
-            return new Request();
-
+            var entity = (from req in context.Requests.Include(u => u.User).Include(d => d.Device)
+                          where req.RequestId == requestId
+                          select req).SingleOrDefault();
+            return entity;
         }
 
         public Array getOverDueDevices()
@@ -42,8 +37,15 @@ namespace LaptopRental.BLL.Services
 
                 var result = (from request in context.Requests
                               join device in context.Devices on request.DeviceId_FK equals device.DeviceId
-                              where request.ToDate < DateTime.Now
+                              where request.ToDate < DateTime.Now 
                               select new { request, device }).ToArray();
+                foreach(var res in result)
+                {
+                    res.request.RequestStatus = "overdue";
+                    res.device.Status = "overdue";
+                    context.SaveChanges();
+                }
+                   
                 return result;
 
             }

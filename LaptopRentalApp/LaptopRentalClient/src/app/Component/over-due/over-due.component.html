@@ -21,16 +21,10 @@
         </div>
         
     </div>
-    <div>
-      <span><label>Status :</label></span> &nbsp;
-      <span class="fw-bold">{{d.request.RequestStatus}}</span>
+   
+     <div style="padding-left: 20px;">        
+      <span><button type="submit" class="btn btn-danger" (click)="viewOverDue(d.request.RequestId)">viewOverDue Details</button></span>
     </div>
-      <div>
-        <a href="#" (click)="viewOverDue(d.request.DeviceId_FK , d.request.ToDate)" style="align-items: center; color: red; padding-right:30px;"> View OverDue Details </a>
-     </div>
-     <!-- <div style="padding-left: 20px;">        
-      <span><button type="submit" class="btn btn-success" (click)="deletedevice()">Delete</button></span>
-    </div> -->
     </li>
   </ul>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>

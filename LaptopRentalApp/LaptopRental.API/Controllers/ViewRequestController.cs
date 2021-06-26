@@ -35,10 +35,10 @@ namespace LaptopRental.API.Controllers
 
 
         [HttpGet]
-        [Route("api/ViewRequest/GetRequest/{deviceId}")]
-        public HttpResponseMessage GetRequest([FromUri] int deviceId)
+        [Route("api/ViewRequest/GetRequest/{userId}")]
+        public HttpResponseMessage GetRequest([FromUri] int userId)
         {
-            var request = requestservice.GetAllRequest(deviceId);
+            var request = requestservice.GetAllRequest(userId);
             if(request==null || request.Count==0)
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, "DeviceId not found");
             return Request.CreateResponse(HttpStatusCode.OK, request);

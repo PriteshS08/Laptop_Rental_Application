@@ -20,13 +20,8 @@ export class OverDueComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  viewOverDue(deviceId : number , toDate : Date){
-    const Details ={
-    DeviceId_FK :deviceId ,
-    ToDate : toDate,
-   
-    }
-    window.localStorage.setItem('details',JSON.stringify(Details));
+  viewOverDue(requestID : number){
+    window.localStorage.setItem('requestId',JSON.stringify(requestID));
     this.route.navigate(['/due']);
   }
 

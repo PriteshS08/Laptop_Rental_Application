@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { LoginComponent } from '../Component/login/login.component';
 import { Device } from '../Types/Device';
+import { DeviceRequest } from '../Types/Request';
 
 
 @Injectable({
@@ -54,10 +55,8 @@ export class DeviceService {
   }
   deleteDevice() :Observable<any>
   {
-    const json=window.localStorage.getItem('user') as string;
-    console.log('json', json);
-    const user=JSON.parse(json);
-    const json1=window.localStorage.getItem('deviceID') as string;
+   
+    const json1=window.localStorage.getItem('deviceId') as string;
     console.log('json1', json1);
     const deviceId=JSON.parse(json1);
     return this.http.delete(this.url+"/DeleteDevice/"+deviceId).pipe(map((response: any) => {return response}),
@@ -71,10 +70,10 @@ export class DeviceService {
     catchError(this.handleError));
   }
 
-  getOverDueDetails(req : any) : Observable<any>
+  getOverDueDetails(req : number) : Observable<any>
   {
     console.log("req",req);
-    return this.http.get<any>(this.url+"/OverDue/GetByDeviceID", req).pipe(
+    return this.http.get(this.url+"/OverDue/GetByDeviceID/"+ req).pipe(
     catchError(this.handleError));
   }
 

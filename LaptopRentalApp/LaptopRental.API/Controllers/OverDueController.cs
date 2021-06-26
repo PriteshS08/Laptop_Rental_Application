@@ -26,19 +26,16 @@ namespace LaptopRental.API.Controllers
             base.Dispose(disposing);
         }
         [HttpGet]
-        [Route("api/OverDue/GetByDeviceID")]
-        public IHttpActionResult GetByDeviceID([FromBody] Request req)
+        [Route("api/OverDue/GetByDeviceID/{requestId}")]
+        public IHttpActionResult GetByDeviceID([FromUri] int requestId)
         {
-            if ((req.DeviceId_FK !=0) && (req.ToDate < DateTime.Now))
-            {
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
-                var res = overDueService.getDeviceDetails(req.DeviceId_FK);
+                var res = overDueService.getDeviceDetails(requestId);
                 if (res != null)
                 {
                     return Ok(res);
                 }
-            }
             return NotFound();
         }
 

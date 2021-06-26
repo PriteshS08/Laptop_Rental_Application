@@ -9,20 +9,22 @@ import { GetAllRequest } from 'src/app/Types/Request';
   templateUrl: './get-all-request.component.html',
   styleUrls: ['./get-all-request.component.css']
 })
-export class GetAllRequestComponent implements OnInit {
-  GetAllRequest : GetAllRequest[]=[];
-  
 
-  constructor(private req:RequestService,private router : Router) {
-    this.req.GetAllUsersRequest().subscribe(result=>this.GetAllRequest=result);
-   }
+export class GetAllRequestComponent implements OnInit {
+  getallrequest :any[]=[];
+
+  constructor(private req:RequestService,private router:Router){
+     
+  }
 
   ngOnInit(): void {
-
-  }
-  ViewRequest(requestId : number){
-    window.localStorage.setItem('RequestID',JSON.stringify(requestId));
-    this.router.navigate(['/viewrequest']);
-  }
+    this.req.GetAllreq().subscribe((response)=>{this.getallrequest=response;},
+     error=>{alert('failed to fetch data')});
+    }
+    ViewRequest(requestId : number){
+          window.localStorage.setItem('RequestID',JSON.stringify(requestId));
+          this.router.navigate(['/viewrequest']);
+        }
+  
 
 }
