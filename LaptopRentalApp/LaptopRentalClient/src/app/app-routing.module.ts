@@ -21,6 +21,7 @@ import { ViewRentedDevicesComponent } from './Component/view-rented-devices/view
 import { ViewDetailsComponent } from './Component/view-details/view-details.component';
 import { FeedbackcatalogueComponent } from './Component/feedbackcatalogue/feedbackcatalogue.component';
 import { ViewfeedbackComponent } from './Component/viewfeedback/viewfeedback.component';
+import { ViewOverDueDetailsComponent } from './Component/view-over-due-details/view-over-due-details.component';
 
 const routes: Routes = [
     {path : 'login' , component : LoginComponent},
@@ -46,6 +47,7 @@ const routes: Routes = [
     {path : 'viewrented' , component : ViewRentedDevicesComponent},
     {path : 'feedbackcatalogue' , component : FeedbackcatalogueComponent},
     {path : 'viewfeed' , component : ViewfeedbackComponent},
+    {path : 'due' , component : ViewOverDueDetailsComponent},
     {path:'',redirectTo:'login', pathMatch: 'full' }
 ];
 

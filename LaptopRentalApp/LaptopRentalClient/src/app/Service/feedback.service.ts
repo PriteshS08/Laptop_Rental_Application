@@ -30,7 +30,7 @@ export class FeedbackService {
 
   getfeedback(deviceId :number) : Observable<any>
   {
-    return this.http.get(this.url+"/Feedback/GetFeedback/" + deviceId).pipe(map((response) =>{
+    return this.http.get(this.url+"/GetFeedback/" + deviceId).pipe(map((response) =>{
       console.log(response);
       return response as Feedback[];} ),
       catchError(this.handleError));

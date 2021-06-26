@@ -52,12 +52,14 @@ export class DeviceService {
     catchError(this.handleError));
 
   }
-  deleteDevice(deviceId : any) :Observable<any>
+  deleteDevice() :Observable<any>
   {
     const json=window.localStorage.getItem('user') as string;
     console.log('json', json);
     const user=JSON.parse(json);
-    console.log(deviceId);
+    const json1=window.localStorage.getItem('deviceID') as string;
+    console.log('json1', json1);
+    const deviceId=JSON.parse(json1);
     return this.http.delete(this.url+"/DeleteDevice/"+deviceId).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
 
@@ -71,6 +73,7 @@ export class DeviceService {
 
   getOverDueDetails(req : any) : Observable<any>
   {
+    console.log("req",req);
     return this.http.get<any>(this.url+"/OverDue/GetByDeviceID", req).pipe(
     catchError(this.handleError));
   }

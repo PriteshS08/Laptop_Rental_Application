@@ -19,6 +19,7 @@ export class ViewDevicesComponent implements OnInit {
   ngOnInit(): void {
     this.device.GetDevices().subscribe((res:Device[])=>this.devicelist=res,
     error=>{alert('Error in fetching data')});
+    window.localStorage.setItem('deviceList',JSON.stringify(this.devicelist));
   // console.log(this.devicelist);
   // console.log(window.localStorage.getItem("UserId"));
   }
@@ -27,10 +28,8 @@ export class ViewDevicesComponent implements OnInit {
     console.log(id);
     this.route.navigate(['/editdevice']);
   }
-  deletedevice(imeinumber : any){
-    console.log(imeinumber);
-
-    this.device.deleteDevice(imeinumber).subscribe(response=>{
+  deletedevice(){
+    this.device.deleteDevice().subscribe(response=>{
       alert('Successfully deleted');
      // window.location.reload();
     // this.route.navigate(['/viewdevice'])

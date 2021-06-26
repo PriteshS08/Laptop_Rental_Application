@@ -18,6 +18,7 @@ export class ViewfeedbackComponent implements OnInit {
     console.log('json', json);
     const deviceId=JSON.parse(json);
      this.fs.getfeedback(deviceId).subscribe((response)=>{this.feedbacklist=response;})
+     console.log(this.feedbacklist);
   }
 
 }
