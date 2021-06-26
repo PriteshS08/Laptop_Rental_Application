@@ -20,6 +20,8 @@ import { GetAllRequestComponent } from './Component/get-all-request/get-all-requ
 import { ViewRentedDevicesComponent } from './Component/view-rented-devices/view-rented-devices.component';
 import { ViewDetailsComponent } from './Component/view-details/view-details.component';
 import { FeedbackcatalogueComponent } from './Component/feedbackcatalogue/feedbackcatalogue.component';
+import { ViewfeedbackComponent } from './Component/viewfeedback/viewfeedback.component';
+import { ViewOverDueDetailsComponent } from './Component/view-over-due-details/view-over-due-details.component';
 
 const routes: Routes = [
     {path : 'login' , component : LoginComponent},
@@ -27,8 +29,10 @@ const routes: Routes = [
     {path : 'customer' , component : CustomerUIComponent},
     {path : 'lender' , component : LenderUIComponent},
     {path : 'home' , component : HomeComponent},
+    {path : 'editdevice /: id' , component : EditDeviceComponent},
    // {path : 'editdevice / : id' , component : AddDeviceComponent},
     {path : 'editdevice /: id' , component : EditDeviceComponent},
+    {path : 'editdevice' , component : EditDeviceComponent},
     {path : 'adddevice' , component : AddDeviceComponent},
     {path : 'fpassword' , component : ForgotPasswordComponent},
     {path : 'viewdevice' , component : ViewDevicesComponent},
@@ -44,11 +48,15 @@ const routes: Routes = [
     {path : 'getallrequest' , component : GetAllRequestComponent},
     {path : 'viewrented' , component : ViewRentedDevicesComponent},
     {path : 'feedbackcatalogue' , component : FeedbackcatalogueComponent},
+    {path : 'viewfeed' , component : ViewfeedbackComponent},
+    {path : 'due' , component : ViewOverDueDetailsComponent},
     {path:'',redirectTo:'login', pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), RouterModule.forRoot([
+    {path: 'viewdevice', component:ViewDevicesComponent}
+  ],{ onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

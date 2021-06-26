@@ -3,8 +3,7 @@
 <div class="container">
   <div>
     <div class="ms-2 me-auto" style="padding-right:600px;">
-        <div class="fw-bold">{{overDueDetails.Device.DeviceImage}}</div>
-        <div class="fw-bold"style="padding-top:50px;">Request ID : {{overDueDetails.resquestID}}</div>
+        <div class="fw-bold"><img src="http://localhost:51108/Uploads/{{overDueDetails.Device.DeviceImage}}" width="100px" height="100px"/></div>
         <div class="fw-bold">User Name : {{overDueDetails.User.Name}}</div>
         <div class="fw-bold">Location : {{overDueDetails.User.Location}}</div>
         <div class="fw-bold">Phone Number : {{overDueDetails.User.PhoneNO}}</div>
@@ -16,7 +15,7 @@
     <div class="ms-2 me-auto" style="padding-left:600px;">
       <div>
         <span><label>DeviceName  :</label></span>
-        <span class="fw-bold"> {{overDueDetails.DeviceName}}</span>
+        <span class="fw-bold"> {{overDueDetails.Device.DeviceName}}</span>
        </div>
 
        <div>

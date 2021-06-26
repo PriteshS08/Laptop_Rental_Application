@@ -29,7 +29,7 @@ namespace LaptopRental.BLL.Services
 
             try
             {
-                var data = context.Users.Find(user);
+                var data = context.Users.FirstOrDefault(u=>u.EmailId==user.EmailId);
                 if (data == null)
                 {
                     context.Users.Add(user);

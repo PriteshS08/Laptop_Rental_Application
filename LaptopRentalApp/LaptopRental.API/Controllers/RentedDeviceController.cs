@@ -21,12 +21,14 @@ namespace LaptopRental.API.Controllers
         }
 
         [HttpGet]
-        [Route("api/RentedDevices/{UserId}")]   
-        public HttpResponseMessage GetRentedDeviceById([FromUri] Request Obj)
+        [Route("api/RentedDevices/GetRentedDeviceById/{UserId}")]   
+        public HttpResponseMessage GetRentedDeviceById([FromUri] int UserId)
         {
             try
             {
-                var result = Service.GetRentedDevices(Obj.UserId_FK);
+                var result = Service.GetRentedDevices(UserId);
+                if(result==null)
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
                 return Request.CreateResponse(HttpStatusCode.Created, result);
             }
             catch (LaptopRentalException ex)

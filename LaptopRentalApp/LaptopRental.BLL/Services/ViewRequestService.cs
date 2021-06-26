@@ -6,12 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.Common;
 
 namespace LaptopRental.BLL.Services
 {
 
    
-    public class ViewRequestService
+    public class ViewRequestService : IDisposable
     {
         private readonly LaptopRentalContext context;
         public ViewRequestService()
@@ -19,33 +20,74 @@ namespace LaptopRental.BLL.Services
             context = new LaptopRentalContext();
         }
 
-
-        public List<Request> GetSingleRequest(int requestid)
+        public void Dispose()
         {
-            var query = (from request in context.Requests.Include(d=>d.Device).Include(u=>u.User)
-                         where request.RequestId == requestid
-                         select request).ToList();
-            if (query != null)
+            context.Dispose();
+        }
+
+        public Request GetSingleRequest(int requestid)
+        {
+            try
             {
+                var query = (from request in context.Requests.Include(u => u.User).Include(d => d.Device)
+                            where request.RequestId == requestid
+                            select request).SingleOrDefault();
                 return query;
             }
-            return new List<Request>();
+            catch (DbException ex)
+            {
+                throw new LaptopRentalException("Error reading data", ex);
+            }
+
+            catch (Exception ex)
+            {
+                throw new LaptopRentalException("UnKnown Error while reading data", ex);
+            }
 
         }
 
-        public List<Request> GetAllRequest()
+        public List<Request> GetAllRequest(int userId)
         {
-            List<Request> req = context.Requests.ToList();
-            List<Device> dev = context.Devices.ToList();
-
-            var query = from request in req
-                        join device in dev on request.DeviceId_FK equals device.DeviceId
-                        select request;
-            if(query!=null)
+            try
             {
-                return query.ToList();
+
+                var query = context.Devices.FirstOrDefault(a => a.UserId_FK == userId);
+                var b = query.DeviceId;
+                var c = (from req in context.Requests
+                         where (req.DeviceId_FK == b
+                                && req.RequestStatus.ToLower().Equals("pending"))
+                                || (req.DeviceId_FK == b
+                                && req.RequestStatus.ToLower().Equals("return"))
+                         select req).ToList();
+                if (c != null)
+                {
+                    return c;
+                }
+                return new List<Request>();
+
             }
-            return new List<Request>();
+         
+
+
+
+                //var query = (from request in context.Requests.Include(u => u.User).Include(d => d.Device)
+                //             where (request.DeviceId_FK == deviceId
+                //             && request.RequestStatus.ToLower().Equals("pending"))
+                //             || (request.DeviceId_FK == deviceId
+                //             && request.RequestStatus.ToLower().Equals("return"))
+                //             select request).ToList();
+                //return query;
+
+            
+            catch (DbException ex)
+            {
+                throw new LaptopRentalException("Error reading data", ex);
+            }
+
+            catch (Exception ex)
+            {
+                throw new LaptopRentalException("UnKnown Error while reading data", ex);
+            }
         }
     }
 }

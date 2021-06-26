@@ -15,7 +15,6 @@ export class FeedbackcatalogueComponent implements OnInit {
   devicelist:Device[]=[];
   devicedetail! : Device;
   imeiNo! : string;
-  feed :Request[]=[];
 
   constructor(private bs:FeedbackService,private router : Router) { }
 
@@ -27,9 +26,9 @@ export class FeedbackcatalogueComponent implements OnInit {
     error=>{alert('Error in fetching data')});
   }
 
-  addRating(deviceId :number,userId :number){
+  addRating(deviceId :number){
     console.log(deviceId);
-    window.localStorage.setItem('UserId',JSON.stringify(userId));
+   // window.localStorage.setItem('UserId',JSON.stringify(userId));
     window.localStorage.setItem('DeviceId',JSON.stringify(deviceId));
     this.router.navigate(['/feedback']);
   }

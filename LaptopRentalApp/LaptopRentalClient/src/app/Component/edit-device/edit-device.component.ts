@@ -20,7 +20,8 @@ export class EditDeviceComponent implements OnInit {
       const json=window.localStorage.getItem('deviceID') as string;
       console.log('json', json);
       const id=JSON.parse(json);
-      this.bs.getDeviceByID(id).subscribe(res => {this.obj = res})
+      this.bs.getDeviceByID(id).subscribe(res => {this.obj = res;
+      console.log(this.obj);})
     }
 
 

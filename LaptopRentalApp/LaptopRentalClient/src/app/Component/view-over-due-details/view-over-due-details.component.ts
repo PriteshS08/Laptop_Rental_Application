@@ -12,7 +12,7 @@ export class ViewOverDueDetailsComponent implements OnInit {
   constructor(private ds : DeviceService) { }
 
   ngOnInit(): void {
-    const json=window.localStorage.getItem('details') as string;
+    const json=window.localStorage.getItem('requestId') as string;
     console.log('json', json);
     const Details=JSON.parse(json);
     this.ds.getOverDueDetails(Details).subscribe(res => this.overDueDetails= res);

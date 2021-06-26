@@ -21,19 +21,19 @@ namespace LaptopRental.API.Controllers
             }
             [HttpPut]
             [Route("api/AcceptReject/Accept")]
-            public HttpResponseMessage Accept([FromBody] int UserId)
+            public HttpResponseMessage Accept([FromBody] int deviceId)
             {
                 try
                 {
 
-                    var query = context.Requests.FirstOrDefault(s => s.UserId_FK == UserId);
+                    var query = context.Requests.FirstOrDefault(s => s.DeviceId_FK == deviceId);
                     if (query == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Searched data not found");
                     }
                     else
                     {
-                        query.RequestStatus = "Accepted";
+                        query.RequestStatus = "Rented";
                         context.SaveChanges();
                         return Request.CreateResponse(HttpStatusCode.OK, "Data Updated Successfully");
 
@@ -49,12 +49,12 @@ namespace LaptopRental.API.Controllers
 
         [HttpDelete]
         [Route("api/AcceptReject/Reject")]
-        public HttpResponseMessage Reject([FromBody] int UserId)
+        public HttpResponseMessage Reject([FromBody] int deviceId)
         {
             try
             {
 
-                var query = context.Requests.FirstOrDefault(s => s.UserId_FK == UserId);
+                var query = context.Requests.FirstOrDefault(s => s.DeviceId_FK == deviceId);
                 if (query == null)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Searched data not found");

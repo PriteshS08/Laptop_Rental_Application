@@ -24,7 +24,7 @@ namespace LaptopRental.API.Controllers
         }
         [HttpPut]
         [Route("api/EditDevices/{DeviceId}")]
-        public HttpResponseMessage Update([FromUri] int DeviceId, EditDto dto)
+        public HttpResponseMessage Update([FromUri] int DeviceId, [FromBody]EditDto dto)
         {
             try
             {

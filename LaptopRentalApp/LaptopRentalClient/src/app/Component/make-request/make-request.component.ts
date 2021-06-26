@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequestService } from 'src/app/Service/request.service';
 import { DeviceRequest } from 'src/app/Types/Request';
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-make-request',
@@ -28,12 +29,7 @@ export class MakeRequestComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  // onToDateChange(event: any) {
-  //   this.makeRequestForm.patchValue({ ToDate: event.target.value });
-  // }
-  // onFromDateChange(event: any) {
-  //   this.makeRequestForm.patchValue({ FromDate: event.target.value });
-  // }
+ 
   get f() { return this.makeRequestForm.controls; }
   makeRequest() {
     this.submitted = true;
@@ -45,51 +41,26 @@ export class MakeRequestComponent implements OnInit {
     console.log('json1', json1);
     const user=JSON.parse(json1);
     const rentingDetails = {
+     
     RequestDate : new Date(),
     FromDate: this.makeRequestForm.get('FromDate')?.value,
     ToDate:this.makeRequestForm.get('ToDate')?.value,
     RequestStatus : this.requestStatus,
-    DeivceId_FK : deviceid,
-    UserId_FK : user.UserId
+    DeviceId_FK : deviceid as number,
+    UserId_FK : user.UserId as number
     };
+    console.log(rentingDetails);
     this.rs.updateRequest(rentingDetails).subscribe((res: any)  => {
     this.requestDetails = res;
     window.localStorage.setItem('RequestID',JSON.stringify(res.RequestId));
+    alert('Request Successfull');
     this.router.navigate(['/catalogue']);
       },
         error=>{alert('failed');}
       );
   }
 
-  // makeRequest() {
-  // let id= this.ac.snapshot.paramMap.get('id');
-  // console.log(id);
-  //   const json1=window.localStorage.getItem('user') as string;
-  //   console.log('json1', json1);
-  //   const user=JSON.parse(json1);
-  //   const rentingDetails = {
-  //   RequestDate : new Date(),
-  //   FromDate: this.d1,
-  //   ToDate: this.d2,
-  //   RequestStatus : this.requestStatus,
-  //   DeivceId_FK : id,
-  //   UserId_FK : user.UserId
-  //   };
-  //   console.log('rent details', rentingDetails);
-  //   this.rs.updateRequest(rentingDetails).subscribe((res: any)  => {
-  //     this.requestDetails = res;
-  //   window.localStorage.setItem('RequestID',JSON.stringify(res.RequestId));
- 
-
-  //   this.requestID = res.RequestId; 
-  //   alert(this.requestID);
-  //   //this.router.navigate(['/catalogue']);
-  // },
-  //   error=>{alert('failed');}
-  // );
-   
-    
-  // };
+  
   
 }
 

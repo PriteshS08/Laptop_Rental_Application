@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.Common;
 
 namespace LaptopRental.BLL.Services
 {
@@ -18,16 +19,34 @@ namespace LaptopRental.BLL.Services
             context = new LaptopRentalContext();
         }
 
+        public void Dispose()
+        {
+            context.Dispose();
+        }
+
+
         public List<Request> RequestStatus(int UserId)
         {
-            var query = (from req in context.Requests.Include(d=>d.Device)
-                        where req.UserId_FK==UserId
-                        select req).ToList();
-            if (query != null)
+            try
             {
+                var query = (from req in context.Requests.Include(d => d.Device).Include(u=>u.User)
+                             where (req.UserId_FK == UserId
+                             &&  req.RequestStatus.ToLower().Equals("rented"))
+                             || (req.UserId_FK == UserId
+                             &&  req.RequestStatus.ToLower().Equals("rejected"))
+                             select req).ToList();
                 return query;
             }
-            return  new List<Request>();
+            catch (DbException ex)
+            {
+                throw new LaptopRentalException("Error reading data", ex);
+            }
+
+            catch (Exception ex)
+            {
+                throw new LaptopRentalException("UnKnown Error while reading data", ex);
+            }
+
         }
     }
 }

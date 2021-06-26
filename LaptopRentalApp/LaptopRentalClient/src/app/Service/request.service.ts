@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { DeviceRequest } from '../Types/Request';
+import { DeviceRequest, GetAllRequest } from '../Types/Request';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,8 @@ export class RequestService {
     catchError(this.handleError));
   }
 
-  updateRequest(requestDetails : any) : Observable<any> {
+  updateRequest(requestDetails : DeviceRequest) : Observable<any> {
+    console.log(requestDetails);
     return this.http.post(this.url+"/MakeRequest/AddRequest",requestDetails).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
@@ -33,10 +34,21 @@ export class RequestService {
     catchError(this.handleError));
   }
   
-  GetAllUsersRequest() : Observable<any>
+  GetAllUsersRequest(id :any) : Observable<any>
   {
-    return this.http.get(this.url+"/ViewRequest/GetRequest").pipe(map((response: any)=>{return response}),
+    return this.http.get(this.url+"/ViewRequest/GetRequest/"+id).pipe(map((response: any)=>{return response}),
     catchError(this.handleError));
+  }
+
+  GetAllreq() :Observable<any>
+  {
+    const json=window.localStorage.getItem('user') as string;
+    console.log('json', json);
+    const user=JSON.parse(json);
+    return this.http.get<GetAllRequest[]>(this.url+"/ViewRequest/GetRequest/"+user.UserId).pipe(map((response) =>{
+      console.log(response);
+      return response as GetAllRequest[];} ),
+      catchError(this.handleError));
   }
 
   GetSingleUserRequest(requestId : number) : Observable<any>

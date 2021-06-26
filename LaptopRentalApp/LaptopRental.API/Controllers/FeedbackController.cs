@@ -78,31 +78,47 @@ namespace LaptopRental.API.Controllers
 
         }
 
+        [HttpGet]
+        [Route("api/Feedback/GetDevice/{userId}")]
+        public HttpResponseMessage GetDevice([FromUri] int userId)
+        {
+            try
+            {
+                var result = feedbackService.Get(userId);
+                return Request.CreateResponse(HttpStatusCode.Created, result);
+
+            }
+            catch (LaptopRentalException ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+            catch (Exception ex)
+            {
+             return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+
+        }
 
 
+        [HttpGet]
+        [Route("api/Feedback/GetFeedback/{deviceId}")]
+        public HttpResponseMessage GetFeedback([FromUri] int deviceId)
+        {
+            try
+            {
+                var result = feedbackService.Getfeed(deviceId);
+                return Request.CreateResponse(HttpStatusCode.Created, result);
 
-        //[HttpGet]
-        //public HttpResponseMessage GetFeedback([FromUri] int userId)
-        //{
-        //    try
-        //    {
-        //        var query = from feedback in context.Feedbacks
-        //                    where feedback.UserId_FK == userId
-        //                    select feedback;
-        //        if(query!=null)
-        //        {
-        //            return Request.CreateResponse(HttpStatusCode.Created, query);
-        //        }
-        //        return Request.CreateResponse(HttpStatusCode.NotFound);
-        //    }
-        //    catch (LaptopRentalException ex)
-        //    {
-        //        return InternalServerError(ex);
-        //    }
+            }
+            catch (LaptopRentalException ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
 
-        //}
-
-
-
+        }
     }
 }

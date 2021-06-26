@@ -1,7 +1,7 @@
 
 export class Device {
     constructor (
-        //public DeviceId : number,
+        public DeviceId : number,
         public IMEINumber : string,
         public DeviceName : string,
         public DeviceSpecification : string,

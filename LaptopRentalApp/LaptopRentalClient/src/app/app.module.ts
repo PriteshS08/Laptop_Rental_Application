@@ -31,6 +31,8 @@ import { ViewRentedDevicesComponent } from './Component/view-rented-devices/view
 import { FeedbackcatalogueComponent } from './Component/feedbackcatalogue/feedbackcatalogue.component';
 import { MakeRequestComponent } from './Component/make-request/make-request.component';
 import { ViewDetailsComponent } from './Component/view-details/view-details.component';
+import { CommonModule } from '@angular/common';
+import { ViewfeedbackComponent } from './Component/viewfeedback/viewfeedback.component';
 
 
 
@@ -62,7 +64,8 @@ import { ViewDetailsComponent } from './Component/view-details/view-details.comp
     EarningReportComponent,
     ViewRentedDevicesComponent,
     FeedbackcatalogueComponent,
-    MakeRequestComponent
+    MakeRequestComponent,
+    ViewfeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,8 @@ import { ViewDetailsComponent } from './Component/view-details/view-details.comp
     ReactiveFormsModule,
 
     AppRoutingModule,
-    HttpClientModule//,
+    HttpClientModule,
+    CommonModule
    // BrowserAnimationsModule//,
     // MatDatepickerModule,
     // MatInputModule,

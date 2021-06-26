@@ -2,7 +2,7 @@
 <div style="padding-left: 100px;">
       
     <div class="container">
-        <ol *ngFor="let request of GetAllRequest" class="list-group list-group-numbered" style="padding-top: 50px;">
+        <ol *ngFor="let request of getallrequest" class="list-group list-group-numbered" style="padding-top: 50px;">
             <li class="list-group-item d-flex justify-content-between align-items-start">
               
                 <div class="ms-2 me-auto" style="padding-right:600px;">
@@ -20,7 +20,7 @@
                     
                 </div>
                 <div style="padding-top: 30px; padding-left: 50px;">
-                  <span class="fw-bold">{{request.Status}}</span> &nbsp;
+                  <span class="fw-bold">{{request.RequestStatus}}</span> &nbsp;
                     <span class="fw-bold"> <input type="button" (click) = "ViewRequest(request.RequestId)" class="btn btn-success" id="ViewRequest" name="ViewRequest" value="ViewRequest"></span>
                 </div>
             </li>

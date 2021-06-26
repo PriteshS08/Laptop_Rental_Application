@@ -10,6 +10,8 @@
     <div class="form-group col-md-12 mb-3" >
       <label for="FromDate" style="padding-bottom: 10px;">Enter FromDate</label>
      
+      
+     
       <input type="date" class="form-control" placeholder="Enter FromDate"  id="FromDate" formControlName="FromDate">
       <div *ngIf="submitted && f.FromDate.errors" class="invalid-feedback">
         <div *ngIf="f.FromDate.errors.required">FromDate is required</div>
@@ -19,6 +21,8 @@
      
       <div class="form-group col-md-12 mb-3">
         <label for="ToDate" style="padding-bottom: 10px;">Enter ToDate</label>
+      
+    
        <input type="date" class="form-control" placeholder="Enter ToDate" id="ToDate"  formControlName="ToDate" name="ToDate">
        <div *ngIf="submitted && f.ToDate.errors" class="invalid-feedback">
         <div *ngIf="f.ToDate.errors.required">ToDate is required</div>

@@ -27,11 +27,12 @@ namespace LaptopRental.BLL.Services
             {
                 
                 var query = (from req in context.Requests.Include(d => d.Device)
-                             where req.UserId_FK == UserId && req.RequestStatus.ToLower()=="rented"
+                             where (req.UserId_FK == UserId && req.RequestStatus.ToLower()=="rented")
+                                  || (req.UserId_FK == UserId && req.RequestStatus.ToLower() == "overdue")
                              select req).ToList();
                 if (query != null)
                 {
-                    return query.ToList();
+                    return query;
 
                 }
                 return new List<Request>();

@@ -12,13 +12,13 @@ export class BrowserCatalogService {
   constructor(private http:HttpClient) { }
   getAllDevices() : Observable<any>
   {
-    return this.http.get<Device[]>(this.url+"catalogue").pipe(map((response) =>{return response as Device[];} ),
+    return this.http.get(this.url+"catalogue").pipe(
       catchError(this.handleError));
   }
 
   getDeviceByImeiNo(imeiNO : string) : Observable<any>
   {
-    return this.http.get<Device>(this.url+"ViewDetails/" + imeiNO).pipe(map((response) => {return response}),
+    return this.http.get(this.url+"ViewDetails/" + imeiNO).pipe(
     catchError(this.handleError));
   }
 
