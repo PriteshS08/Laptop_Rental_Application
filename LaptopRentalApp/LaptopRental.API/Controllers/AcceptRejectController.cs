@@ -35,7 +35,10 @@ namespace LaptopRental.API.Controllers
                     {
                         query.RequestStatus = "Rented";
                         context.SaveChanges();
-                        return Request.CreateResponse(HttpStatusCode.OK, "Data Updated Successfully");
+                     var a = context.Devices.FirstOrDefault(s => s.DeviceId == query.DeviceId_FK);
+                         a.Status = "Rented";
+                         context.SaveChanges();
+                    return Request.CreateResponse(HttpStatusCode.OK, "Data Updated Successfully");
 
                     }
 
@@ -48,8 +51,8 @@ namespace LaptopRental.API.Controllers
             }
 
         [HttpDelete]
-        [Route("api/AcceptReject/Reject")]
-        public HttpResponseMessage Reject([FromBody] int deviceId)
+        [Route("api/AcceptReject/Reject/{deviceId}")]
+        public HttpResponseMessage Reject([FromUri] int deviceId)
         {
             try
             {
@@ -61,7 +64,7 @@ namespace LaptopRental.API.Controllers
                 }
                 else
                 {
-                    context.Requests.Remove(query);
+                    query.RequestStatus = "Rejected";
                     context.SaveChanges();
                     return Request.CreateResponse(HttpStatusCode.OK, "Data Deleted Successfully");
 

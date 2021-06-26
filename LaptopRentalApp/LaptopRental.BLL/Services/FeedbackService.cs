@@ -77,16 +77,18 @@ namespace LaptopRental.BLL.Services
 
         public List<Device> Get(int userId)
         {
+
             var query = context.Requests.FirstOrDefault(a => a.UserId_FK == userId);
-            if (query.RequestStatus.ToLower().Equals("rented"))
+            var b = context.Devices.FirstOrDefault(s => s.DeviceId == query.DeviceId_FK);
+            if ((query.RequestStatus.ToLower().Equals("rented")) || (query.DeviceId_FK == b.DeviceId))
             {
                 var a = query.DeviceId_FK;
                 // var b = context.Devices.Find(DeviceId);
-                var b = (from device in context.Devices
+                var c = (from device in context.Devices
                          where device.DeviceId == a
                          select device).ToList();
 
-                return b;
+                return c;
             }
             return new List<Device>();
 

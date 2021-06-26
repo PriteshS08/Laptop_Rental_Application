@@ -68,6 +68,7 @@
     <Compile Include="Services\RentedDeviceService.cs" />
     <Compile Include="Services\RequestService.cs" />
     <Compile Include="Services\RequestStatusService.cs" />
+    <Compile Include="Services\ReturnDeviceService.cs" />
     <Compile Include="Services\SignupService.cs" />
     <Compile Include="Services\ViewDetailsService.cs" />
     <Compile Include="Services\ViewDeviceService.cs" />
