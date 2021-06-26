@@ -32,12 +32,12 @@ namespace LaptopRental.BLL.Services
         /// <param name="id"></param>
         /// <returns> object of the Delete Operation</returns>
 
-        public Device DeleteDevicebyId(string imeiNumber)
+        public Device DeleteDevicebyId(int deviceId)
         {
             try
             {
                 var entity = (from device in context.Devices
-                              where device.IMEINumber == imeiNumber
+                              where device.DeviceId == deviceId
                               select device).SingleOrDefault();
                 var deleted = context.Devices.Remove(entity);
                 context.SaveChanges();

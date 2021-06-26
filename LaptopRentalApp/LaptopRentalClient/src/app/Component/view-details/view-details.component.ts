@@ -11,7 +11,7 @@ import { User } from 'src/app/Types/User';
   styleUrls: ['./view-details.component.css']
 })
 export class ViewDetailsComponent implements OnInit {
-  deviceDetails!:Device;
+  deviceDetails!:any;
  deviceID! : number;
  userDetails! : User;
   constructor(
@@ -34,8 +34,14 @@ export class ViewDetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  makeRequest() {
+  makeRequest(Did :number) {
+    window.localStorage.setItem('Did',JSON.stringify(Did));
     this.router.navigate(['/makerequest']);
+  }
+
+  viewfeedback(did :number) {
+    window.localStorage.setItem('did',JSON.stringify(did));
+    this.router.navigate(['/viewfeed']);
   }
 
 }

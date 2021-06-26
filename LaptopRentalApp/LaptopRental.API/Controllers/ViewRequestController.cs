@@ -11,27 +11,38 @@ namespace LaptopRental.API.Controllers
 {
     public class ViewRequestController : ApiController
     {
-        private readonly ViewRequestService service;
+        private readonly ViewRequestService requestservice;
         public ViewRequestController()
         {
-            service = new ViewRequestService();
+            requestservice = new ViewRequestService();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            requestservice.Dispose();
+            base.Dispose(disposing);
         }
 
         [HttpGet]
         [Route("api/ViewRequest/GetUsersRequest/{RequestId}")]
-        public IHttpActionResult GetUsersRequest([FromUri] int RequestId)
+        public HttpResponseMessage GetUsersRequest([FromUri] int RequestId)
         {
-            var req = service.GetSingleRequest(RequestId);
-            return Ok(req);
+            var req = requestservice.GetSingleRequest(RequestId);
+            if (req == null)
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "RequestId not found");
+            return Request.CreateResponse(HttpStatusCode.OK, req);
         }
 
 
         [HttpGet]
-        [Route("api/ViewRequest/GetRequest")]
-        public IHttpActionResult GetRequest()
+        [Route("api/ViewRequest/GetRequest/{deviceId}")]
+        public HttpResponseMessage GetRequest([FromUri] int deviceId)
         {
-            var request = service.GetAllRequest();
-            return Ok(request);
+            var request = requestservice.GetAllRequest(deviceId);
+            if(request==null || request.Count==0)
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "DeviceId not found");
+            return Request.CreateResponse(HttpStatusCode.OK, request);
+
         }
     }
 }

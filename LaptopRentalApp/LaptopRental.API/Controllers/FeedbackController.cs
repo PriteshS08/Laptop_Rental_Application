@@ -99,5 +99,26 @@ namespace LaptopRental.API.Controllers
 
         }
 
+
+        [HttpGet]
+        [Route("api/Feedback/GetFeedback/{deviceId}")]
+        public HttpResponseMessage GetFeedback([FromUri] int deviceId)
+        {
+            try
+            {
+                var result = feedbackService.Getfeed(deviceId);
+                return Request.CreateResponse(HttpStatusCode.Created, result);
+
+            }
+            catch (LaptopRentalException ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+
+        }
     }
 }

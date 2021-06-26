@@ -44,14 +44,6 @@ namespace LaptopRental.API.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, devices);
         }
 
-        //[HttpGet]
-        //[Route("api/ViewDevices/GetUser/{id}")]
-        //public HttpResponseMessage GetUser([FromUri] int id)
-        //{
-        //    var users = viewDeviceService.GetByUserId(id);
-        //    if (users == null)
-        //        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "UserId not found");
-        //    return Request.CreateResponse(HttpStatusCode.OK, users);
-        //}
+       
     }
 }

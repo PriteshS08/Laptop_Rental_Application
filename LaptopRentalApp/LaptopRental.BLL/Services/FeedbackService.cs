@@ -91,5 +91,19 @@ namespace LaptopRental.BLL.Services
             return new List<Device>();
 
         }
+
+        public List<Feedback> Getfeed(int deviceId)
+        {
+            var query = from feedback in context.Feedbacks
+                        where feedback.DeviceID_FK == deviceId
+                        select feedback;
+            if (query != null)
+            {
+                return query.ToList();
+              
+            }
+            return new List<Feedback>();
+
+        }
     }
 }

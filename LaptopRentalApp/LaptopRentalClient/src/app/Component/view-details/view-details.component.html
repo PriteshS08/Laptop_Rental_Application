@@ -36,8 +36,13 @@
     </div>
 
     <div style="padding-left:1000px;">
-       
-        <span><button type="submit" class="btn btn-success" (click)="makeRequest()">Make Request</button></span>
+
+        <div  style="padding-top: 20px;">
+            <span><button type="submit" class="btn btn-success" (click)="viewfeedback(deviceDetails.DeviceId)">View Ratings and Feedback</button></span>
+        </div>
+        <div  style="padding-top: 20px;">
+            <span><button type="submit" class="btn btn-success" (click)="makeRequest(deviceDetails.DeviceId)">Make Request</button></span>
+        </div>
         
      <div>
 </div>

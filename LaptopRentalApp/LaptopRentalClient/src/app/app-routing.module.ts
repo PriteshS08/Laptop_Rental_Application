@@ -20,6 +20,7 @@ import { GetAllRequestComponent } from './Component/get-all-request/get-all-requ
 import { ViewRentedDevicesComponent } from './Component/view-rented-devices/view-rented-devices.component';
 import { ViewDetailsComponent } from './Component/view-details/view-details.component';
 import { FeedbackcatalogueComponent } from './Component/feedbackcatalogue/feedbackcatalogue.component';
+import { ViewfeedbackComponent } from './Component/viewfeedback/viewfeedback.component';
 
 const routes: Routes = [
     {path : 'login' , component : LoginComponent},
@@ -44,6 +45,7 @@ const routes: Routes = [
     {path : 'getallrequest' , component : GetAllRequestComponent},
     {path : 'viewrented' , component : ViewRentedDevicesComponent},
     {path : 'feedbackcatalogue' , component : FeedbackcatalogueComponent},
+    {path : 'viewfeed' , component : ViewfeedbackComponent},
     {path:'',redirectTo:'login', pathMatch: 'full' }
 ];
 

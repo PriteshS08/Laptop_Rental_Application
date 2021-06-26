@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Device } from '../Types/Device';
+import { Feedback } from '../Types/Feedback';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,14 @@ export class FeedbackService {
     return this.http.get<Device[]>(this.url+"/GetDevice/"+user.UserId).pipe(map((response) =>{
       console.log(response);
       return response as Device[];} ),
+      catchError(this.handleError));
+  }
+
+  getfeedback(deviceId :number) : Observable<any>
+  {
+    return this.http.get(this.url+"/Feedback/GetFeedback/" + deviceId).pipe(map((response) =>{
+      console.log(response);
+      return response as Feedback[];} ),
       catchError(this.handleError));
   }
 

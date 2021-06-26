@@ -32,6 +32,7 @@ import { FeedbackcatalogueComponent } from './Component/feedbackcatalogue/feedba
 import { MakeRequestComponent } from './Component/make-request/make-request.component';
 import { ViewDetailsComponent } from './Component/view-details/view-details.component';
 import { CommonModule } from '@angular/common';
+import { ViewfeedbackComponent } from './Component/viewfeedback/viewfeedback.component';
 
 
 
@@ -63,7 +64,8 @@ import { CommonModule } from '@angular/common';
     EarningReportComponent,
     ViewRentedDevicesComponent,
     FeedbackcatalogueComponent,
-    MakeRequestComponent
+    MakeRequestComponent,
+    ViewfeedbackComponent
   ],
   imports: [
     BrowserModule,

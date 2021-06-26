@@ -18,7 +18,7 @@ export class BrowserCatalogService {
 
   getDeviceByImeiNo(imeiNO : string) : Observable<any>
   {
-    return this.http.get<Device>(this.url+"ViewDetails/" + imeiNO).pipe(map((response) => {return response}),
+    return this.http.get(this.url+"ViewDetails/" + imeiNO).pipe(
     catchError(this.handleError));
   }
 
