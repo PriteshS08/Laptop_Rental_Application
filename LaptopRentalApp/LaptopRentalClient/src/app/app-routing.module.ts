@@ -27,6 +27,7 @@ const routes: Routes = [
     {path : 'customer' , component : CustomerUIComponent},
     {path : 'lender' , component : LenderUIComponent},
     {path : 'home' , component : HomeComponent},
+   // {path : 'editdevice / : id' , component : AddDeviceComponent},
     {path : 'editdevice /: id' , component : EditDeviceComponent},
     {path : 'adddevice' , component : AddDeviceComponent},
     {path : 'fpassword' , component : ForgotPasswordComponent},
@@ -38,8 +39,7 @@ const routes: Routes = [
     {path : 'catalogue' , component : BrowserCatalogueComponent},
     {path : 'earningreport' , component : EarningReportComponent},
     {path : 'overdue' , component : OverDueComponent},
-    {path : 'feedback' , component : FeedbackComponent},
- 
+    {path : 'feedback' , component : FeedbackComponent}, 
     {path : 'viewrented' , component : ViewRentedDevicesComponent},
     {path : 'getallrequest' , component : GetAllRequestComponent},
     {path : 'viewrented' , component : ViewRentedDevicesComponent},

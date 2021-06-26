@@ -1,4 +1,3 @@
-
 import { Component, OnInit} from '@angular/core';
 import { DeviceService } from 'src/app/Service/device.service';
 import { LoginService } from 'src/app/Service/login.service';
@@ -15,33 +14,28 @@ export class EarningReportComponent implements OnInit {
   devicedetail! : Device;
   deviceID! : number;
   user : any = null;
+  sum:number = 0;
+  s1 : number =1;
   constructor(private ds:DeviceService ,
     private ls : LoginService) {
      
   }
  
   ngOnInit(): void {
-console.log('NG On Init execute');
-  
+    console.log('NG On Init execute');
     console.log('user object', this.user);
     this.ds.GetReport().subscribe((Response)=>{
-      this.devicelist=Response;
-      console.log("device" ,this.devicelist);},
+    this.devicelist=Response;
+    console.log("device" ,this.devicelist);},
     error=>{alert('Error in getting report')});
+    for (let key in this.devicelist) {
+      let value = this.devicelist[key]
+      this.s1 = (value.RentalAmount) * (value.MaxRentalMonth);
+      this.sum += this.s1;
     }
-   sum:number = 0;
-   s1 : number =1
-    TotalEarnings(): any {
-      console.log(this.devicelist);
-      for (let key in this.devicelist) {
-        let value = this.devicelist[key]
-        this.s1 = (value.RentalAmount) * (value.MaxRentalMonth);
-        this.sum += this.s1;
-      }
-      console.log("sum",this.sum);
-      return this.sum
-        
+    console.log("sum",this.sum);
     }
+   
     //   for (let val of this.devicelist)
     //   {
     //     this.s1 = (val.RentalAmount) * (val.MaxRentalMonth);

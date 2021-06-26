@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { BrowserCatalogService } from 'src/app/Service/browser-catalog.service';
 import { DeviceService } from 'src/app/Service/device.service';
-import { Device } from 'src/app/Types/Device';
+
 
 
 
