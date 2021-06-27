@@ -23,7 +23,7 @@ import { FeedbackcatalogueComponent } from './Component/feedbackcatalogue/feedba
 import { ViewfeedbackComponent } from './Component/viewfeedback/viewfeedback.component';
 import { ViewOverDueDetailsComponent } from './Component/view-over-due-details/view-over-due-details.component';
 import { ReturnComponent } from './Component/return/return.component';
-import { PaymentComponent } from './Component/payment/payment.component';
+
 
 const routes: Routes = [
     {path : 'login' , component : LoginComponent},
@@ -53,7 +53,6 @@ const routes: Routes = [
     {path : 'viewfeed' , component : ViewfeedbackComponent},
     {path : 'due' , component : ViewOverDueDetailsComponent},
     {path : 'return' , component : ReturnComponent},
-    {path : 'payment' , component : PaymentComponent},
     {path:'',redirectTo:'login', pathMatch: 'full' }
 ];
 

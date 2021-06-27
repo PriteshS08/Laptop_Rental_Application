@@ -59,13 +59,13 @@
        </div>
 
   </div>
-    <div *ngIf = "(status == 'Rented'); else block">
+    <div *ngIf = "(status == true)">
         <span><button type="submit" class="btn btn-secondary"  (click)="returndevice(returnDetails.RequestId)">RETURN</button></span>
     </div>
-    <ng-template #block>
+    <div *ngIf = "(status != true)">
         <div style="padding-left:650px; padding-top:30px; color: red;">
-            OverDue
+            OverDue Amount : {{overdueAmount}}
         </div>
         <span><button type="submit" class="btn btn-secondary"  (click)="paymentreturn(returnDetails.RequestId)">MAKE PAYMENT TO RETURN</button></span>
-    </ng-template>
+      </div>
 </div>

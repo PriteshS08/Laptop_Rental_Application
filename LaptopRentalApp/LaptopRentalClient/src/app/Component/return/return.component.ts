@@ -9,7 +9,8 @@ import { DeviceService } from 'src/app/Service/device.service';
 })
 export class ReturnComponent implements OnInit {
   returnDetails : any;
-  status! : string;
+  status! : boolean;
+  overdueAmount : any;
   constructor(private ds : DeviceService,
     private route : Router) { }
 
@@ -18,7 +19,11 @@ export class ReturnComponent implements OnInit {
     console.log('json', json);
     const requestId =JSON.parse(json);
     this.ds.getReturnDetails(requestId).subscribe(res => {this.returnDetails = res;});
-    this.status = this.returnDetails.Device.Status;
+    this.overdueAmount = (this.returnDetails.Device.RentalAmount * this.returnDetails.Device.MaxRentalMonth ) + this.returnDetails.Device.Interest ;
+    if (this.returnDetails.Device.Status.lower() == 'rented') {
+      this.status = true;
+    }
+    this.status = false;
   }
 
   returndevice(requestId : number) {
@@ -29,7 +34,10 @@ export class ReturnComponent implements OnInit {
   }
 
   paymentreturn(requestId : number) {
-    this.route.navigate(['payment']);
+    this.ds.updateReturnStatus(requestId).subscribe(res => {
+      alert('Paid the overdue amount and returned the device successfully');
+      return res;
+    });
   }
 
 }
