@@ -22,11 +22,14 @@ export class ReturnComponent implements OnInit {
   }
 
   returndevice(requestId : number) {
-    this.ds.updateReturnStatus(requestId).subscribe(res => {return res;});
+    this.ds.updateReturnStatus(requestId).subscribe(res => {
+      alert('Device has been successfully returned');
+      return res;
+    });
   }
 
   paymentreturn(requestId : number) {
-    this.route.navigate(['']);
+    this.route.navigate(['payment']);
   }
 
 }
