@@ -30,9 +30,9 @@ namespace LaptopRental.API.Controllers
 
         }
 
-        [HttpPut]
+        [HttpGet]
         [Route("api/ReturnDevice/ReturnedDevice/{requestId}")]
-        public HttpResponseMessage ReturnedDevice([FromBody] int requestId)
+        public HttpResponseMessage ReturnedDevice([FromUri] int requestId)
         {
             try
             {

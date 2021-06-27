@@ -17,8 +17,9 @@ export class ViewRentedDevicesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  viewDetails(requestID : number) {
+  viewDetails(requestID : number,requeststatus :string) {
     window.localStorage.setItem('requestID',JSON.stringify(requestID));
+    window.localStorage.setItem('requeststatus',JSON.stringify(requeststatus));
   }
 
 }
