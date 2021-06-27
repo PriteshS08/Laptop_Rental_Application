@@ -34,7 +34,7 @@ import { ViewDetailsComponent } from './Component/view-details/view-details.comp
 import { CommonModule } from '@angular/common';
 import { ViewfeedbackComponent } from './Component/viewfeedback/viewfeedback.component';
 import { ReturnComponent } from './Component/return/return.component';
-import { PaymentComponent } from './payment/payment.component';
+import { PaymentComponent } from './Component/payment/payment.component';
 
 
 
