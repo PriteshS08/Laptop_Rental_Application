@@ -102,7 +102,7 @@ export class DeviceService {
   }
 
   getReturnDetails(requestid : number) : Observable<any> {
-    return this.http.get(this.url+"ReturnDevice/ReturnDevice/"+requestid).pipe(catchError(this.handleError));
+    return this.http.get(this.url+"/ReturnDevice/ViewReturnDevice/"+requestid).pipe(catchError(this.handleError));
   }
 
   updateReturnStatus(requestid : number) {
