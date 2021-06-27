@@ -27,16 +27,17 @@ export class ViewRequestComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  acceptRequest(){
-    const json1=window.localStorage.getItem('RequestID') as string;
-      console.log('json1', json1);
-      const requestID=JSON.parse(json1);
-    this.rs.updateacceptStatus(requestID).subscribe(res  => { return res; });
+  acceptRequest(deviceId :number){
+   
+    this.rs.updateacceptStatus(deviceId).subscribe(res  => { 
+      alert("Acknowledgement about the request has been sent to the customer");
+      return res;
+     });
   }
-  rejectRequest() {
-    const json1=window.localStorage.getItem('RequestID') as string;
-    console.log('json1', json1);
-    const requestID=JSON.parse(json1);
-    this.rs.updaterejectStatus(this.requestDetails.DeviceId_FK).subscribe(res => {return res;})
+  rejectRequest(deviceId :number) {
+  
+    this.rs.updaterejectStatus(deviceId).subscribe(res => {
+      alert("Acknowledgement about the request has been sent to the customer");
+      return res;})
   }
 }

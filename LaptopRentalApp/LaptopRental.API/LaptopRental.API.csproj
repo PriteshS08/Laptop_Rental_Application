@@ -240,6 +240,7 @@
     <Compile Include="Controllers\OverDueController.cs" />
     <Compile Include="Controllers\RentedDeviceController.cs" />
     <Compile Include="Controllers\RequestStatusController.cs" />
+    <Compile Include="Controllers\ReturnDeviceController.cs" />
     <Compile Include="Controllers\SignupController.cs" />
     <Compile Include="Controllers\ViewDetailsController.cs" />
     <Compile Include="Controllers\ViewDevicesController.cs" />

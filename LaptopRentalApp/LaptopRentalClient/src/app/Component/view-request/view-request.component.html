@@ -46,9 +46,9 @@
   </div>
   
   <div style="padding-left:650px; padding-top:30px;">
-    <span><button type="submit" class="btn btn-success" (click)="acceptRequest()">Accept Request</button></span>
+    <span><button type="submit" class="btn btn-success" (click)="acceptRequest(requestDetails.Device.DeviceId)">Accept Request</button></span>
     <span style="padding-left: 15px;">
-      <button type="button" class="btn btn-danger" (click)="rejectRequest()">Reject Request</button>
+      <button type="button" class="btn btn-danger" (click)="rejectRequest(requestDetails.Device.DeviceId)">Reject Request</button>
     </span>
     <div>
         <a href="#" style="align-items: center; color: blue;">Return to Request</a>

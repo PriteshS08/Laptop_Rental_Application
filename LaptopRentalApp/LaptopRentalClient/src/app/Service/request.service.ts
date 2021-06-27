@@ -30,7 +30,7 @@ export class RequestService {
 
   updaterejectStatus(deviceID: any) : Observable<any>
   {
-    return this.http.delete(this.url+"/AcceptReject/Reject", deviceID).pipe(map((response: any) => {return response}),
+    return this.http.delete(this.url+"/AcceptReject/Reject/"+ deviceID).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
   
