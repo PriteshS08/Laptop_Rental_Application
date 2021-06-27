@@ -11,6 +11,7 @@ export class ReturnComponent implements OnInit {
   returnDetails : any;
   status! : boolean;
   overdueAmount : any;
+  rentalAmount : any;
   constructor(private ds : DeviceService,
     private route : Router) { }
 
@@ -19,6 +20,7 @@ export class ReturnComponent implements OnInit {
     console.log('json', json);
     const requestId =JSON.parse(json);
     this.ds.getReturnDetails(requestId).subscribe(res => {this.returnDetails = res;});
+    this.rentalAmount = (this.returnDetails.Device.RentalAmount * this.returnDetails.Device.MaxRentalMonth );
     this.overdueAmount = (this.returnDetails.Device.RentalAmount * this.returnDetails.Device.MaxRentalMonth ) + this.returnDetails.Device.Interest ;
     if (this.returnDetails.Device.Status.lower() == 'rented') {
       this.status = true;

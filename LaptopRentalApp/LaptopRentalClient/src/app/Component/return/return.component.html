@@ -60,6 +60,9 @@
 
   </div>
     <div *ngIf = "(status == true)">
+      <div style="padding-left:650px; padding-top:30px; color: red;">
+        Rental Amount : {{rentalAmount}}
+      </div>
         <span><button type="submit" class="btn btn-secondary"  (click)="returndevice(returnDetails.RequestId)">RETURN</button></span>
     </div>
     <div *ngIf = "(status != true)">

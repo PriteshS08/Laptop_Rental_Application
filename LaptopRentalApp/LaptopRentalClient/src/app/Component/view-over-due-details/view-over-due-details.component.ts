@@ -9,6 +9,7 @@ import { DeviceService } from 'src/app/Service/device.service';
 })
 export class ViewOverDueDetailsComponent implements OnInit {
   overDueDetails : any;
+  overdueAmount : any;
   constructor(private ds : DeviceService) { }
 
   ngOnInit(): void {
@@ -16,6 +17,7 @@ export class ViewOverDueDetailsComponent implements OnInit {
     console.log('json', json);
     const Details=JSON.parse(json);
     this.ds.getOverDueDetails(Details).subscribe(res => this.overDueDetails= res);
+    this.overdueAmount = (this.overDueDetails.Device.RentalAmount * this.overDueDetails.Device.MaxRentalMonth ) + this.overDueDetails.Device.Interest ;
   }
 
 }
