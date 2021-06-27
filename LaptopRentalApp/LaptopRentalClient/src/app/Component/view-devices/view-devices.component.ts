@@ -29,10 +29,10 @@ export class ViewDevicesComponent implements OnInit {
   // console.log(this.devicelist);
   // console.log(window.localStorage.getItem("UserId"));
   }
-  editdevice(id : number){
+  editdevice(id : any){
     window.localStorage.setItem('deviceID',JSON.stringify(id));
     console.log(id);
-    this.route.navigate(['/editdevice']);
+    this.route.navigate(['/editdevice',id]);
   }
   deletedevice(id :number){
     window.localStorage.setItem('deviceId',JSON.stringify(id));

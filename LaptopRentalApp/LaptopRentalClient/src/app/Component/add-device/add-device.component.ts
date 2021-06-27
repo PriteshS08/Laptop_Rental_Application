@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { DeviceService } from 'src/app/Service/device.service';
 
 
@@ -15,12 +16,13 @@ AddDeviceDetails = new FormGroup({});
 submitted:boolean=false;
 fileToUpload!: File ;
 user! : any;
-//devices! : Device;
+deviceId! :any;
+//devices! : any;
 status : string = "Available";
 //ratings: number = 5.0;
 constructor(private formBuilder : FormBuilder,
   private device : DeviceService,
-  //private ar : ActivatedRoute,
+  private ar : ActivatedRoute
  // private bs : BrowserCatalogService
  ) {
     this.AddDeviceDetails=this.formBuilder.group({
@@ -38,33 +40,36 @@ constructor(private formBuilder : FormBuilder,
    }
 
   ngOnInit(): void {
-    // this.ar.paramMap.subscribe(parameterMap => {
-    //   const id = parameterMap.get('id');
-    //   this.getDevice(id);
-    // });
+    this.ar.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if(id)
+      {
+        this.deviceId=id;
+         this.getDevice(id);
+      }
+      
+    });
   }
-  // private getDevice(id : any) {
-  //   if (id !=0) {
-  //     this.bs.getDeviceByID(id).subscribe(res => {
-  //       return res;
-  //      })
-  //   }
-  //   else {
-  //     this.devices =  {
-  //       IMEINumber : '',
-  //       DeviceName : '',
-  //       DeviceSpecification : '',
-  //       PreInstalledSoftware : '',
-  //       DeviceImage : new FormData,
-  //       RentalAmount : null,
-  //       MaxRentalMonth : 0,
-  //       Interest : null,
-  //       Status : '',
-  //       UserId_FK : 0
-  //     };
-  //   }
-
-  // }
+   getDevice(id : any) {
+     this.device.getdevicebyid(id).subscribe(
+       (res :any)=>{this.editdevice(res);}),
+      (error : any)=>console.log(error);  
+   }
+   
+   editdevice(device :any)
+   {
+     this.AddDeviceDetails.patchValue({
+      IMEINumber :device.IMEINumber,
+      DeviceName :device.DeviceName,
+      DeviceSpecification :device.DeviceSpecification,
+      PreInstalledSoftware :device.PreInstalledSoftware,
+      DeviceImage :device.DeviceImage,
+      RentalAmount :device.RentalAmount,
+      MaxRentalMonth :device.MaxRentalMonth,
+      Interest: device.Interest
+     });
+   }
+   
   onUploadFile(event : any) {  
     this.fileToUpload = <File>event.target.files[0];
     }  
@@ -90,17 +95,7 @@ constructor(private formBuilder : FormBuilder,
 
       console.log(Details);
 
-      // const Details = {
-      //   IMEINumber : this.AddDeviceDetails.get("IMEINumber")?.value as string,
-      //   DeviceName : this.AddDeviceDetails.get("DeviceName")?.value as string,
-      //   DeviceSpecification : this.AddDeviceDetails.get(" DeviceSpecification")?.value as string,
-      //   PreInstalledSoftware : this.AddDeviceDetails.get("PreInstalledSoftware")?.value as string,
-      //   DeviceImage : deviceImage,
-      //   RentalAmount : this.AddDeviceDetails.get("RentalAmount")?.value,
-      //   MaxRentalMonth : this.AddDeviceDetails.get(" MaxRentalMonth")?.value as number,
-      //   Interest:this.AddDeviceDetails.get("Interest")?.value,
-      //   Status : this.status
-      // }
+     
   
       this.device.addDeviceDetails(Details).subscribe(
         response=>{alert('Added successfully')},
@@ -109,6 +104,31 @@ constructor(private formBuilder : FormBuilder,
     );}
     resetDetail() {
       this.AddDeviceDetails.reset();
+    }
+
+    UpdateDetail()
+    {
+      this.submitted = true;
+      const json=window.localStorage.getItem('user') as string;
+      console.log('json', json);
+      this.user=JSON.parse(json);
+      console.log('json', json);
+      const user=JSON.parse(json);
+      let obj={...this.AddDeviceDetails.value};
+      obj['UserId_FK']=user.UserId;
+      obj['Status']=this.status;
+     
+      console.log(obj);
+      const deviceDetail = new FormData();
+      deviceDetail.append('image', this.fileToUpload);
+      deviceDetail.append('UpdateDetail', JSON.stringify(obj));
+     
+
+      console.log(deviceDetail);
+      this.device.updateDeviceDetails(deviceDetail,this.deviceId).subscribe(
+        response=>{alert('Update successfull');},
+        error=>{alert('Failed');}
+      );
     }
 
     

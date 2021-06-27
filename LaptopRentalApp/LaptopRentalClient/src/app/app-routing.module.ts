@@ -31,7 +31,7 @@ const routes: Routes = [
     {path : 'customer' , component : CustomerUIComponent},
     {path : 'lender' , component : LenderUIComponent},
     {path : 'home' , component : HomeComponent},
-    {path : 'editdevice /: id' , component : AddDeviceComponent},
+    {path : 'editdevice/:id' , component : AddDeviceComponent},
     {path : 'adddevice' , component : AddDeviceComponent},
     {path : 'fpassword' , component : ForgotPasswordComponent},
     {path : 'viewdevice' , component : ViewDevicesComponent},

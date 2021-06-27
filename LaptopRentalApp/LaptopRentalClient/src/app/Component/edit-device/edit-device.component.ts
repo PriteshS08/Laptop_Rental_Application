@@ -70,11 +70,11 @@ export class EditDeviceComponent implements OnInit {
     // }
 
     this.submitted = true;
-    this.device.updateDeviceDetails(deviceDetail).subscribe(
-      response=>{alert('Update successfull')},
-      error=>{alert('Failed')}
+    // this.device.updateDeviceDetails(deviceDetail).subscribe(
+    //   response=>{alert('Update successfull')},
+    //   error=>{alert('Failed')}
   
-  );
+ // );
   }
   
 

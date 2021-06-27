@@ -20,12 +20,12 @@ export class DeviceService {
   //   return this.http.get(this.url + "/AddDevice", device).pipe(map((response: any) => {return response}),
   //   catchError(this.handleError));
   // }
-  updateDeviceDetails(device: FormData):Observable<Device>
+  updateDeviceDetails(device: FormData,deviceId :any):Observable<Device>
   {
     const header = new HttpHeaders;
     header.append('Content-Type', 'application/json');
     const options = {headers: header};
-    return this.http.put<Device>(this.url+"/EditDevices",device).pipe(map((response: any) => {return response}),
+    return this.http.put<Device>(this.url+"/EditDevices/Update/"+deviceId,device).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
 
@@ -108,6 +108,10 @@ export class DeviceService {
   updateReturnStatus(requestid : number) {
     return this.http.get(this.url+ "/ReturnDevice/ReturnedDevice/ " + requestid).pipe(map(res => {return res;}),
     catchError(this.handleError));
+  }
+
+  getdevicebyid(deviceId : any){
+    return this.http.get(this.url+"/EditDevices/EditDevice/"+deviceId).pipe(catchError(this.handleError));
   }
   
   handleError(error:any) {
