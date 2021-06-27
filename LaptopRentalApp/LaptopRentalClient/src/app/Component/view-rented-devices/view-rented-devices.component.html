@@ -7,19 +7,19 @@
                 <div class="ms-2 me-auto" style="padding-right:600px;">
                     <div  class="ms-2 me-auto">
                         <span><label>Request Id :</label></span> &nbsp;
-                        <span class="fw-bold">{{d.Request.RequestId}}</span>
+                        <span class="fw-bold">{{d.RequestId}}</span>
                     </div>
                     <div  class="ms-2 me-auto">
                         <span><label>DeviceName :</label></span> &nbsp;
-                        <span class="fw-bold">{{d.DeviceName}}</span>
+                        <span class="fw-bold">{{d.Device.DeviceName}}</span>
                     </div>
                     <div  class="ms-2 me-auto">
                         <span><label>IMEINumber :</label></span> &nbsp;
-                        <span class="fw-bold">{{d.IMEINumber}}</span>
+                        <span class="fw-bold">{{d.Device.IMEINumber}}</span>
                     </div>
                 </div>
                 <div style="padding-top: 30px; padding-left: 50px;">
-                    <span style="padding-right: 30px;"class="fw-bold p-3 mb-2 bg-warning text-black">{{d.Request.RequestStatus}}</span> &nbsp;
+                    <span style="padding-right: 30px;"class="fw-bold p-3 mb-2 bg-warning text-black">{{d.RequestStatus}}</span> &nbsp;
                     <span class="fw-bold">
                         <a href="#" (click) = "viewDetails(d.Request.RequestId)">View Details</a>
                     </span>

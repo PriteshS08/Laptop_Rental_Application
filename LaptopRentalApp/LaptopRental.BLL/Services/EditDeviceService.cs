@@ -40,5 +40,24 @@ namespace LaptopRental.BLL.Services
                 throw new LaptopRentalException("Unknown error while adding menu items", ex);
             }
         }
+
+        public Device RetrieveDevice(int deviceId)
+        {
+            try
+            {
+                var query = (from dev in context.Devices
+                            where dev.DeviceId == deviceId
+                            select dev).SingleOrDefault();
+                return query;
+            }
+            catch (DbException ex)
+            {
+                throw new LaptopRentalException("Database error adding the menu item", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new LaptopRentalException("Unknown error while adding menu items", ex);
+            }
+        }
     }
 }

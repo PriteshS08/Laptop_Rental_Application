@@ -23,8 +23,8 @@ namespace LaptopRental.API.Controllers
             service = new EditDeviceService();
         }
         [HttpPut]
-        [Route("api/EditDevices/{DeviceId}")]
-        public HttpResponseMessage Update([FromUri] int DeviceId, [FromBody]EditDto dto)
+        [Route("api/EditDevices/Update/{DeviceId}")]
+        public HttpResponseMessage Update([FromUri] int DeviceId, [FromBody] EditDto dto)
         {
             try
             {
@@ -49,8 +49,8 @@ namespace LaptopRental.API.Controllers
                     UpdateDetail.UserId_FK = dto.UserId_FK;
                     var uploadfolderpath = HttpContext.Current.Server.MapPath("~/Uploads/");
                     dto.File.SaveAs(uploadfolderpath + dto.DeviceImage);
-                   var rows= context.SaveChanges();
-                    if (rows==1)
+                    var rows = context.SaveChanges();
+                    if (rows == 1)
                         return Request.CreateResponse(HttpStatusCode.OK, "Data Updated Successfully");
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Data Updated failed");
 
@@ -60,6 +60,16 @@ namespace LaptopRental.API.Controllers
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
+        }
+
+        [HttpGet]
+        [Route("api/EditDevices/EditDevice/{deviceId}")]
+        public HttpResponseMessage EditDevice([FromUri] int deviceId)
+        {
+            var edited = service.RetrieveDevice(deviceId);
+            if(edited==null)
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Data Updated failed");
+            return Request.CreateResponse(HttpStatusCode.OK,edited);
         }
     }
 }
