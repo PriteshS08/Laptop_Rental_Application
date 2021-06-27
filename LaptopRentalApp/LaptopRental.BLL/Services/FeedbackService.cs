@@ -80,7 +80,7 @@ namespace LaptopRental.BLL.Services
 
             var query = context.Requests.FirstOrDefault(a => a.UserId_FK == userId);
             var b = context.Devices.FirstOrDefault(s => s.DeviceId == query.DeviceId_FK);
-            if ((query.RequestStatus.ToLower().Equals("rented")) || query.RequestStatus.ToLower() == "overdue")
+            if (query.RequestStatus.ToLower().Equals("returned"))
             {
                 var a = query.DeviceId_FK;
                 var c = (from device in context.Devices
