@@ -99,7 +99,7 @@ export class DeviceService {
     const json=window.localStorage.getItem('user') as string;
     console.log('json', json);
     const user=JSON.parse(json);
-    return this.http.get(this.url+"/RentedDevices/"+user.UserId).pipe(map((response: any) => {return response}),
+    return this.http.get(this.url+"/RentedDevices/GetRentedDeviceById/"+user.UserId).pipe(map((response: any) => {return response}),
     catchError(this.handleError));
   }
   
