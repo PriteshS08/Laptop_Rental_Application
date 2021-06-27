@@ -21,7 +21,7 @@
                 <div style="padding-top: 30px; padding-left: 50px;">
                     <span style="padding-right: 30px;"class="fw-bold p-3 mb-2 bg-warning text-black">{{d.RequestStatus}}</span> &nbsp;
                     <span class="fw-bold">
-                        <a href="#" (click) = "viewDetails(d.Request.RequestId)">View Details</a>
+                        <a [routerLink]="['/return']" (click) = "viewDetails(d.RequestId)">View Details</a>
                     </span>
                 </div>
             </li>

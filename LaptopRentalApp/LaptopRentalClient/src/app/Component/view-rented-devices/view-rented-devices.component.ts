@@ -19,7 +19,6 @@ export class ViewRentedDevicesComponent implements OnInit {
   }
   viewDetails(requestID : number) {
     window.localStorage.setItem('requestID',JSON.stringify(requestID));
-    this.route.navigate(['/return']);
   }
 
 }
