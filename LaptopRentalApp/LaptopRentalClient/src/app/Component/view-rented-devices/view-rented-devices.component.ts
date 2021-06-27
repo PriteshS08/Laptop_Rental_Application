@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DeviceService } from 'src/app/Service/device.service';
 
 @Component({
@@ -8,16 +9,17 @@ import { DeviceService } from 'src/app/Service/device.service';
 })
 export class ViewRentedDevicesComponent implements OnInit {
   getAllRequest : any[]=[];
-  
-
-  constructor(private ds : DeviceService) {
+  constructor(private ds : DeviceService , private route : Router) {
     this.ds.getrentedDevice().subscribe(result=>{this.getAllRequest=result;
-      
     console.log(this.getAllRequest);
   });
    }
 
   ngOnInit(): void {
+  }
+  viewDetails(requestID : number) {
+    window.localStorage.setItem('requestID',JSON.stringify(requestID));
+    this.route.navigate(['/return']);
   }
 
 }

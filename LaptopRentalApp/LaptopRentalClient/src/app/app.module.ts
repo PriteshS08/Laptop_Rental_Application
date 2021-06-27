@@ -33,6 +33,8 @@ import { MakeRequestComponent } from './Component/make-request/make-request.comp
 import { ViewDetailsComponent } from './Component/view-details/view-details.component';
 import { CommonModule } from '@angular/common';
 import { ViewfeedbackComponent } from './Component/viewfeedback/viewfeedback.component';
+import { ReturnComponent } from './Component/return/return.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -65,7 +67,10 @@ import { ViewfeedbackComponent } from './Component/viewfeedback/viewfeedback.com
     ViewRentedDevicesComponent,
     FeedbackcatalogueComponent,
     MakeRequestComponent,
-    ViewfeedbackComponent
+    ViewfeedbackComponent,
+    ReturnComponent,
+    PaymentComponent,
+   
   ],
   imports: [
     BrowserModule,

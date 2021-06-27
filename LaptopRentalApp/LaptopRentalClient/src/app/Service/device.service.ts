@@ -3,9 +3,7 @@ import { Injectable, ViewChild } from '@angular/core';
 import { throwError } from 'rxjs';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { LoginComponent } from '../Component/login/login.component';
 import { Device } from '../Types/Device';
-import { DeviceRequest } from '../Types/Request';
 
 
 @Injectable({
@@ -100,6 +98,15 @@ export class DeviceService {
     console.log('json', json);
     const user=JSON.parse(json);
     return this.http.get(this.url+"/RentedDevices/GetRentedDeviceById/"+user.UserId).pipe(map((response: any) => {return response}),
+    catchError(this.handleError));
+  }
+
+  getReturnDetails(requestid : number) : Observable<any> {
+    return this.http.get(this.url+"ReturnDevice/ReturnDevice/"+requestid).pipe(catchError(this.handleError));
+  }
+
+  updateReturnStatus(requestid : number) {
+    return this.http.put(this.url+ " ", requestid).pipe(map(res => {return res;}),
     catchError(this.handleError));
   }
   

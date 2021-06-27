@@ -4,11 +4,26 @@
   <div>
     <div class="ms-2 me-auto" style="padding-right:600px;">
         <div class="fw-bold"><img src="http://localhost:51108/Uploads/{{overDueDetails.Device.DeviceImage}}" width="100px" height="100px"/></div>
-        <div class="fw-bold">User Name : {{overDueDetails.User.Name}}</div>
-        <div class="fw-bold">Location : {{overDueDetails.User.Location}}</div>
-        <div class="fw-bold">Phone Number : {{overDueDetails.User.PhoneNO}}</div>
-        <div class="fw-bold">ID Proof : {{overDueDetails.User.IdProof}}</div>
-        <div class="fw-bold">Email ID : {{overDueDetails.User.EmailId}}</div>
+        <div>
+          <span><label>User Name : </label></span>
+          <span class="fw-bold"> {{overDueDetails.User.Name}}</span>
+         </div>
+         <div>
+          <span><label>Location : </label></span>
+          <span class="fw-bold"> {{overDueDetails.User.Location}}</span>
+         </div>
+         <div>
+          <span><label>Phone Number :</label></span>
+          <span class="fw-bold"> {{overDueDetails.User.PhoneNO}}</span>
+         </div>
+         <div>
+          <span><label>ID Proof : </label></span>
+          <span class="fw-bold"> {{overDueDetails.User.IdProof}}</span>
+         </div>
+         <div>
+          <span><label>Email ID : </label></span>
+          <span class="fw-bold">{{overDueDetails.User.EmailId}}</span>
+         </div>
      </div>
     </div>
 
