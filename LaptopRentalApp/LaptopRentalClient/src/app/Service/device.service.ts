@@ -106,7 +106,7 @@ export class DeviceService {
   }
 
   updateReturnStatus(requestid : number) {
-    return this.http.put(this.url+ "/ReturnDevice/ReturnedDevice/ ", requestid).pipe(map(res => {return res;}),
+    return this.http.get(this.url+ "/ReturnDevice/ReturnedDevice/ " + requestid).pipe(map(res => {return res;}),
     catchError(this.handleError));
   }
   

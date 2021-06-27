@@ -9,7 +9,7 @@ import { DeviceService } from 'src/app/Service/device.service';
 })
 export class ReturnComponent implements OnInit {
   returnDetails : any;
-  status! : boolean;
+  requeststatus! :string;
   overdueAmount : any;
   rentalAmount : any;
   constructor(private ds : DeviceService,
@@ -19,25 +19,24 @@ export class ReturnComponent implements OnInit {
     const json=window.localStorage.getItem('requestID') as string;
     console.log('json', json);
     const requestId =JSON.parse(json);
-    this.ds.getReturnDetails(requestId).subscribe(res => {this.returnDetails = res;});
-    this.rentalAmount = (this.returnDetails.Device.RentalAmount * this.returnDetails.Device.MaxRentalMonth );
-    this.overdueAmount = (this.returnDetails.Device.RentalAmount * this.returnDetails.Device.MaxRentalMonth ) + this.returnDetails.Device.Interest ;
-    if (this.returnDetails.Device.Status.lower() == 'rented') {
-      this.status = true;
-    }
-    this.status = false;
-  }
-
-  returndevice(requestId : number) {
-    this.ds.updateReturnStatus(requestId).subscribe(res => {
-      alert('Device has been successfully returned');
-      return res;
+    const json1=window.localStorage.getItem('requeststatus') as string;
+    console.log('json1', json1);
+    const requestStatus =JSON.parse(json1);
+    this.requeststatus=requestStatus;
+    this.ds.getReturnDetails(requestId).subscribe(res => {this.returnDetails = res;
+      this.rentalAmount = (res.Device.RentalAmount * res.Device.MaxRentalMonth );
+      this.overdueAmount = (res.Device.RentalAmount * res.Device.MaxRentalMonth ) + res.Device.Interest ;
     });
+    
+   console.log("rent",this.rentalAmount);
+   console.log("overdue", this.overdueAmount);
+    
   }
 
   paymentreturn(requestId : number) {
+    console.log(requestId);
     this.ds.updateReturnStatus(requestId).subscribe(res => {
-      alert('Paid the overdue amount and returned the device successfully');
+      alert('Paid the amount and returned the device successfully');
       return res;
     });
   }
