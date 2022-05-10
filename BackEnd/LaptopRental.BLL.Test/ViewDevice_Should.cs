@@ -35,7 +35,7 @@ namespace LaptopRental.BLL.Test
         [Test]
         public void Return_Devices_ForUserId(Device devices)
         {
-            var result = service.GetDeviceById(devices.UserId_FK);
+            var result = service.GetDevicesForUser(devices.UserId_FK);
             CollectionAssert.IsNotEmpty(result.ToString());
         }
     }

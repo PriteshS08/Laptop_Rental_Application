@@ -33,7 +33,7 @@ namespace LaptopRental.BLL.Services
         /// <param name="password"></param>
         /// <returns> Particular user's device from the database</returns>
 
-        public List<Device> GetDeviceById(int id)
+        public List<Device> GetDevicesForUser(int id)
         {
             try
             {

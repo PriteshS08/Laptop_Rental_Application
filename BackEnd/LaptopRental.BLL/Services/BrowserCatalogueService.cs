@@ -21,7 +21,7 @@ namespace LaptopRental.BLL.Services
         {
             context.Dispose();
         }
-        public List<Device> GetAllDevices()
+        public List<Device> GetAvailableDevices()
         {
             try
             {

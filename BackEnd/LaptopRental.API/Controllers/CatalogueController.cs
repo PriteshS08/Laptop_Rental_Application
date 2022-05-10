@@ -27,7 +27,7 @@ namespace LaptopRental.API.Controllers
         {
             try
             {
-                var result = catalogueService.GetAllDevices();
+                var result = catalogueService.GetAvailableDevices();
                 return Request.CreateResponse(HttpStatusCode.Created,result);
 
             }

@@ -5,16 +5,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F679E3EA-C703-4DFB-BF22-DF80DCE8FAF7}</ProjectGuid>
+    <ProjectGuid>{3F797C67-FE10-4A85-AB34-16332A9A45D1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LaptopRental.DAL</RootNamespace>
-    <AssemblyName>LaptopRental.DAL</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <RootNamespace>LaptopRental.BLL</RootNamespace>
+    <AssemblyName>LaptopRental.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,8 +44,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,27 +52,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\LaptopRentalContext.cs" />
-    <Compile Include="Migrations\202106231933541_LaptopRentalDB.cs" />
-    <Compile Include="Migrations\202106231933541_LaptopRentalDB.designer.cs">
-      <DependentUpon>202106231933541_LaptopRentalDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Device.cs" />
-    <Compile Include="Models\Feedback.cs" />
-    <Compile Include="Models\Request.cs" />
-    <Compile Include="Models\Return.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Dto\RequestStatusDto.cs" />
+    <Compile Include="LaptopRentalException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BrowserCatalogueService.cs" />
+    <Compile Include="Services\DeleteDeviceService.cs" />
+    <Compile Include="Services\EarningReportService.cs" />
+    <Compile Include="Services\EditDeviceService.cs" />
+    <Compile Include="Services\FeedbackService.cs" />
+    <Compile Include="Services\ForgotPasswordService.cs" />
+    <Compile Include="Services\AddDeviceService.cs" />
+    <Compile Include="Services\LoginSevice.cs" />
+    <Compile Include="Services\MakeRequestService.cs" />
+    <Compile Include="Services\OverDueService.cs" />
+    <Compile Include="Services\RentedDeviceService.cs" />
+    <Compile Include="Services\RequestService.cs" />
+    <Compile Include="Services\RequestStatusService.cs" />
+    <Compile Include="Services\ReturnDeviceService.cs" />
+    <Compile Include="Services\SignupService.cs" />
+    <Compile Include="Services\ViewDetailsService.cs" />
+    <Compile Include="Services\ViewDeviceService.cs" />
+    <Compile Include="Services\ViewRequestService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106231933541_LaptopRentalDB.resx">
-      <DependentUpon>202106231933541_LaptopRentalDB.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\LaptopRental.DAL\LaptopRental.DAL.csproj">
+      <Project>{f679e3ea-c703-4dfb-bf22-df80dce8faf7}</Project>
+      <Name>LaptopRental.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

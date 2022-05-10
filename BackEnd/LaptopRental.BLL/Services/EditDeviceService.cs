@@ -19,7 +19,7 @@ namespace LaptopRental.BLL.Services
             context = new LaptopRentalContext();
 
         }
-        public bool Add(Device obj)
+        public bool EditDevice(Device obj)
         {
             try
             {

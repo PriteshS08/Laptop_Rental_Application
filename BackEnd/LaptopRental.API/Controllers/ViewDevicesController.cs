@@ -38,7 +38,7 @@ namespace LaptopRental.API.Controllers
         [Route("api/ViewDevices/GetDevice/{id}")]
         public HttpResponseMessage GetDevice([FromUri] int id)
         {
-            var devices = viewDeviceService.GetDeviceById(id);
+            var devices = viewDeviceService.GetDevicesForUser(id);
             if (devices == null || devices.Count == 0)
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, "UserId not found");
             return Request.CreateResponse(HttpStatusCode.OK, devices);

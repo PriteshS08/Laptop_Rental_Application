@@ -30,10 +30,7 @@ namespace LaptopRental.BLL.Services
             try
             {
                 var query = (from req in context.Requests.Include(d => d.Device).Include(u=>u.User)
-                             where (req.UserId_FK == UserId
-                             &&  req.RequestStatus.ToLower().Equals("rented"))
-                             || (req.UserId_FK == UserId
-                             &&  req.RequestStatus.ToLower().Equals("rejected"))
+                             where req.UserId_FK == UserId
                              select req).ToList();
                 return query;
             }
