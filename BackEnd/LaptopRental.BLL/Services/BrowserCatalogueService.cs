@@ -6,6 +6,8 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace LaptopRental.BLL.Services
 {
@@ -23,22 +25,58 @@ namespace LaptopRental.BLL.Services
         }
         public List<Device> GetAvailableDevices()
         {
+
+            var Devicelist = new List<Device>();
+            //var con = ConfigurationManager.ConnectionStrings["LaptopRentalContext"].ConnectionString;
+            var con = @"data source=(localdb)\MSSQLLocalDB;initial catalog=LaptopRental.DAL.LaptopRentalContext;integrated security=True";
+            SqlConnection connection = new SqlConnection(con);
+            var query = "select * from Devices where Status='Available'";
+            var command = new SqlCommand(query, connection);
             try
             {
-                var query = (from device in context.Devices
-                             where device.Status.ToLower() == "available"
-                            select device).ToList();
-                return query;
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    Device D = null;
+                    while (reader.Read())
+                    {
+                        D = new Device();
+                        D.DeviceId = reader.GetInt32(0);
+                        D.IMEINumber = reader.GetString(1);
+                        D.DeviceName = reader.GetString(2);
+                        D.DeviceSpecification = reader.GetString(3);
+                        D.PreInstalledSoftware = reader.GetString(4);
+                        D.DeviceImage = reader.GetString(5);
+                        D.RentalAmount = reader.GetDouble(6);
+                        D.MaxRentalMonth = reader.GetInt32(7);
+                        D.Interest = reader.GetDouble(8);
+                        D.Status = reader.GetString(9);
+                        D.UserId_FK = reader.GetInt32(10);
+
+                        Devicelist.Add(D);
+
+                    }
+                    reader.Close();
+                }
+
+                 
+                //var query = (from device in context.Devices
+                //             where device.Status.ToLower() == "available"
+                //            select device).ToList();
+                //return query;
             }
-            catch (DbException ex)
-            {
-                throw new LaptopRentalException("Error reading data", ex);
-            }
+            //catch (DbException ex)
+            //{
+            //    throw new LaptopRentalException("Error reading data", ex);
+            //}
 
             catch (Exception ex)
             {
                 throw new LaptopRentalException("UnKnown Error while reading data", ex);
             }
+            return Devicelist;
 
         }
 
