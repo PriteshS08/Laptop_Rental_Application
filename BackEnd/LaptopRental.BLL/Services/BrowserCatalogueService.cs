@@ -26,8 +26,8 @@ namespace LaptopRental.BLL.Services
         public List<Device> GetAvailableDevices()
         {
 
-            var Devicelist = new List<Device>();
             //var con = ConfigurationManager.ConnectionStrings["LaptopRentalContext"].ConnectionString;
+            var Devicelist = new List<Device>();
             var con = @"data source=(localdb)\MSSQLLocalDB;initial catalog=LaptopRental.DAL.LaptopRentalContext;integrated security=True";
             SqlConnection connection = new SqlConnection(con);
             var query = "select * from Devices where Status='Available'";

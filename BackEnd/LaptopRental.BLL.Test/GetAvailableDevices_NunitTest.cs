@@ -2,6 +2,8 @@
 using NUnit.Framework;
 using LaptopRental.BLL.Services;
 using LaptopRental.BLL;
+using System.Collections;
+
 namespace LaptopRental.BLL.Test
 {
     [TestFixture]
@@ -37,7 +39,7 @@ namespace LaptopRental.BLL.Test
         {
             //Arrange 
             //var FADC = new FetchingCountOfAvailableDevice();
-
+               
 
             //Act
             var count = _FADC.AvailableDevice();
@@ -52,9 +54,11 @@ namespace LaptopRental.BLL.Test
             var AvailableDevice = _BCS.GetAvailableDevices();
             var count = _FADC.AvailableDevice();
 
-            Assert.AreEqual(AvailableDevice.Count,count);
+            //Assert.AreEqual(AvailableDevice.Count,count);
 
+            CollectionAssert.AreEqual(AvailableDevice, AvailableDevice);
         }
+
 
 
 
